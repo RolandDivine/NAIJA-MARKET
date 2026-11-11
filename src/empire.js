@@ -9,7 +9,7 @@ const empCount=()=>{const e=S.emp;return e.mgr+e.belt+e.auto+e.pack+e.con+e.reg+
 const regStart=r=>{let a=0;for(let i=0;i<r;i++)a+=EC.regions[i].size;return a;};
 function regionOf(k){let a=0;for(let r=0;r<EC.regions.length;r++){a+=EC.regions[r].size;if(k<a)return r;}return EC.regions.length-1;}
 const brCost=k=>nice(Fu()*1.2*(EC.branch.c0+EC.branch.c1*Math.pow(k,EC.branch.p)));
-function brDay(){let s=0;for(let r=0;r<EC.regions.length;r++){const n=Math.max(0,Math.min(EC.regions[r].size,S.emp.br-regStart(r)));s+=n*EC.regions[r].mult;}return Math.round(s*EC.branch.b*Fu());}
+function brDay(){let s=0;for(let r=0;r<EC.regions.length;r++){const n=Math.max(0,Math.min(EC.regions[r].size,S.emp.br-regStart(r)));s+=n*EC.regions[r].mult*(boosted(r)?1.2:1);}return Math.round(s*EC.branch.b*Fu());}
 function cityOf(k){const r=regionOf(k),c=RG[r].cities,j=k-regStart(r);return c[j%c.length]+(j>=c.length?' '+(Math.floor(j/c.length)+1):'');}
 const expDay=()=>EC.contracts.slice(0,S.emp.con).reduce((a,c)=>a+c.perDay,0)*Fu()*(S.emp.pack?1.15:1)/EC.inefficiency;
 const rank=()=>{const t=[0,1,10,50,150,500];let i=0;for(let k=0;k<6;k++)if(S.emp.br>=t[k])i=k;return PBZ().rankTitles[i];};
@@ -88,15 +88,16 @@ function hqRender(){const e=S.emp,P=PBZ(),items=empItems(),due=monthDue(false),r
     for(const it of its)h+='<button class="it'+(S.money>=it.cost?'':' no')+'" type="button" data-buy="'+it.id+'" data-cost="'+it.cost+'" style="--p:'+Math.max(0,Math.min(100,100*S.money/it.cost)).toFixed(0)+'%"><i>'+it.ico+'</i><div><strong>'+it.name+'</strong><span>'+it.blurb+'</span></div><em>₦'+short(it.cost)+'</em></button>';
     if(s===1&&e.con)h+='<p class="note">Signed so far: '+P.export.contracts.slice(0,e.con).map(c=>c.buyer+' ('+c.where+')').join(', ')+'. Export trucks bring in about ₦'+short(Math.round(expDay()))+' a day when fully loaded.</p>';
     if(s===2){h+='<div class="regs">';for(let r=0;r<RG.length;r++){const n=Math.max(0,Math.min(RG[r].size,e.br-regStart(r)));h+='<div class="reg'+(n>=RG[r].size?' done':r>=e.reg&&r>regionOf(e.br)?' lock':'')+'">'+RG[r].flag+' '+RG[r].name+' · '+n+'/'+RG[r].size+'<u><s style="width:'+(100*n/RG[r].size)+'%"></s></u></div>';}h+='</div>';}}
+  h+=travelHtml();
   if(stage()>=4&&e.br>=500&&!items.length)h+='<div class="lock">🏆 500 '+P.branchNoun+'s on four continents. You are the '+P.rankTitles[5]+'!</div>';
   h+='<h2>Salaries (paid every 30 days)</h2><table>';for(const r of rows)h+='<tr><td>'+r.n.toLocaleString()+' × '+r.name+'</td><td>₦'+short(r.each)+' a month</td></tr>';h+='</table>';
   h+='<h2>This month so far</h2><table><tr><td>Shop sales</td><td>₦'+fmt(S.mo.rev)+'</td></tr><tr><td>Export</td><td>₦'+fmt(S.mo.exp)+'</td></tr><tr><td>Branches</td><td>₦'+fmt(S.mo.br)+'</td></tr><tr><td>Salaries due so far</td><td>-₦'+fmt(due.wages)+'</td></tr><tr><td>'+TAX.label+' ('+Math.round(TAX.gameRate*100)+'% of profit)</td><td>'+(stage()<2?'₦0 (small business relief)':due.tax?'-₦'+fmt(due.tax):'₦0')+'</td></tr><tr><td>Already set aside</td><td>₦'+fmt(S.resv)+'</td></tr></table>';
   h+='<p class="note">Payday is in '+(MONTH-dayOfMonth()+1)+' day'+(MONTH-dayOfMonth()?'s':'')+'. Each night your accountant sets money aside so salaries and tax are ready. Total paid so far: salaries ₦'+fmt(S.stat.wages)+', tax ₦'+fmt(S.stat.tax)+'.</p>';
-  $('hqin').innerHTML=h;$('hqx').addEventListener('click',hqClose);
+  $('hqin').innerHTML=h;$('hqx').addEventListener('click',hqClose);document.querySelectorAll('#hqin [data-go]').forEach(b=>b.addEventListener('click',()=>tripStart(+b.dataset.go)));
   document.querySelectorAll('#hqin [data-buy]').forEach(b=>b.addEventListener('click',()=>{if(empBuy(b.dataset.buy))hqRender();else{const em=b.querySelector('em'),need=Math.max(0,+b.dataset.cost-S.money);em.textContent='Need ₦'+short(Math.ceil(need))+' more';b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');clearTimeout(b._t);b._t=setTimeout(()=>{em.textContent='₦'+short(+b.dataset.cost);},1600);beep(160,.15,'sawtooth',.04);}}));}
 // The shop keeps trading while HQ is open; this keeps the cash and the buy buttons current.
-let hqAcc=0;function hqTick(dt){hqAcc+=dt;if(hqAcc<.4)return;hqAcc=0;if(G.night)return hqClose();const c=$('hqcash');if(c)setT(c,'₦'+fmt(S.money));
+let hqAcc=0;function hqTick(dt){hqAcc+=dt;if(hqAcc<.4)return;hqAcc=0;if(G.night)return hqClose();if(G.trip)return;const c=$('hqcash');if(c)setT(c,'₦'+fmt(S.money));
   document.querySelectorAll('#hqin [data-buy]').forEach(b=>{const cost=+b.dataset.cost;b.classList.toggle('no',S.money<cost);b.style.setProperty('--p',Math.max(0,Math.min(100,100*S.money/cost)).toFixed(0)+'%');});}
-function hqOpen(){if(!G||G.night)return;G.input.active=false;hqRender();$('hqp').hidden=false;$('hqp').scrollTop=0;}
-function hqClose(){$('hqp').hidden=true;save();}
+function hqOpen(){if(!G||G.night||G.trip)return;G.input.active=false;hqRender();$('hqp').hidden=false;$('hqp').scrollTop=0;}
+function hqClose(){if(G&&G.trip)return;$('hqp').hidden=true;save();}
 $('hq').addEventListener('click',hqOpen);$('goal').addEventListener('click',()=>{if(G&&stage()>=4)hqOpen();});

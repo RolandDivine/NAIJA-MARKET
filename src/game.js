@@ -101,7 +101,7 @@ function updateHud(full){setH($('money'),'<b>₦</b>'+fmt(S.money));$('money').c
   g.hidden=false;setT($('goalTxt'),'Next: '+padLabel(best.s)+' · ₦'+short(best.rem));setW($('goalBar'),Math.max(0,Math.min(100,100*S.money/best.rem)));g.classList.toggle('ready',S.money>=best.rem);}
 
 /* ===== input ===== */
-cv.addEventListener('pointerdown',e=>{if(!G)return;audio();if(G.night){nightTap();return;}G.input={active:true,ox:e.clientX,oy:e.clientY,x:e.clientX,y:e.clientY};try{cv.setPointerCapture(e.pointerId);}catch(_){}});
+cv.addEventListener('pointerdown',e=>{if(!G)return;audio();if(G.night){nightTap();return;}if(G.trip){tripTap();return;}G.input={active:true,ox:e.clientX,oy:e.clientY,x:e.clientX,y:e.clientY};try{cv.setPointerCapture(e.pointerId);}catch(_){}});
 cv.addEventListener('pointermove',e=>{if(G&&G.input.active){G.input.x=e.clientX;G.input.y=e.clientY;}});
 const endIn=()=>{if(G)G.input.active=false};cv.addEventListener('pointerup',endIn);cv.addEventListener('pointercancel',endIn);
 addEventListener('keydown',e=>{if(G&&e.key)G.keys[e.key.toLowerCase()]=true});addEventListener('keyup',e=>{if(G&&e.key)G.keys[e.key.toLowerCase()]=false});addEventListener('blur',()=>{if(G){G.keys={};G.input.active=false;}});
@@ -202,13 +202,13 @@ const staffCount=()=>G.workers.length;
 function update(dt){
   G.t+=dt;_fr++;const P=G.player,acc=G.acc,f=G.field;
   if(G.night){updNight(dt);return;}
-  audioTick(dt);
+  audioTick(dt);if(G.trip)updTrip(dt);
   if(!G.closing){S.clock+=dt;if(S.clock>=dayLen()){G.closing=true;G.closeT=0;toast('8 PM. Closing time! Walk to your '+(lvl('car')?CAR[lvl('car')]:'bus stop')+' to go home.',5);beep(330,.4,'sine',.06,.6);}}
   else{G.closeT+=dt;if(G.closeT>35||dist(P.x,P.y,110,1228)<44)return startNight();}
   // movement
   let mx=0,my=0;const I=G.input;
-  if(I.active){const dx=I.x-I.ox,dy=I.y-I.oy,d=Math.hypot(dx,dy);if(d>6){const k=Math.min(1,d/45);mx=dx/d*k;my=dy/d*k;}if(d>70){I.ox=I.x-dx/d*70;I.oy=I.y-dy/d*70;}}
-  const K=G.keys;if(K.a||K.arrowleft)mx-=1;if(K.d||K.arrowright)mx+=1;if(K.w||K.arrowup)my-=1;if(K.s||K.arrowdown)my+=1;
+  if(I.active&&!G.trip){const dx=I.x-I.ox,dy=I.y-I.oy,d=Math.hypot(dx,dy);if(d>6){const k=Math.min(1,d/45);mx=dx/d*k;my=dy/d*k;}if(d>70){I.ox=I.x-dx/d*70;I.oy=I.y-dy/d*70;}}
+  const K=G.trip?{}:G.keys;if(K.a||K.arrowleft)mx-=1;if(K.d||K.arrowright)mx+=1;if(K.w||K.arrowup)my-=1;if(K.s||K.arrowdown)my+=1;
   const ml=Math.hypot(mx,my);if(ml>1){mx/=ml;my/=ml;}
   const inF=inRect(P.x,P.y,f),sp=inF?175:225;
   let nx=Math.max(22,Math.min(978,P.x+mx*sp*dt)),ny=Math.max(34,Math.min(1262,P.y+my*sp*dt));

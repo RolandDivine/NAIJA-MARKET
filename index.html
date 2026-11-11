@@ -335,7 +335,7 @@ function updateHud(full){setH($('money'),'<b>₦</b>'+fmt(S.money));$('money').c
   g.hidden=false;setT($('goalTxt'),'Next: '+padLabel(best.s)+' · ₦'+short(best.rem));setW($('goalBar'),Math.max(0,Math.min(100,100*S.money/best.rem)));g.classList.toggle('ready',S.money>=best.rem);}
 
 /* ===== input ===== */
-cv.addEventListener('pointerdown',e=>{if(!G)return;audio();if(G.night){nightTap();return;}G.input={active:true,ox:e.clientX,oy:e.clientY,x:e.clientX,y:e.clientY};try{cv.setPointerCapture(e.pointerId);}catch(_){}});
+cv.addEventListener('pointerdown',e=>{if(!G)return;audio();if(G.night){nightTap();return;}if(G.trip){tripTap();return;}G.input={active:true,ox:e.clientX,oy:e.clientY,x:e.clientX,y:e.clientY};try{cv.setPointerCapture(e.pointerId);}catch(_){}});
 cv.addEventListener('pointermove',e=>{if(G&&G.input.active){G.input.x=e.clientX;G.input.y=e.clientY;}});
 const endIn=()=>{if(G)G.input.active=false};cv.addEventListener('pointerup',endIn);cv.addEventListener('pointercancel',endIn);
 addEventListener('keydown',e=>{if(G&&e.key)G.keys[e.key.toLowerCase()]=true});addEventListener('keyup',e=>{if(G&&e.key)G.keys[e.key.toLowerCase()]=false});addEventListener('blur',()=>{if(G){G.keys={};G.input.active=false;}});
@@ -436,13 +436,13 @@ const staffCount=()=>G.workers.length;
 function update(dt){
   G.t+=dt;_fr++;const P=G.player,acc=G.acc,f=G.field;
   if(G.night){updNight(dt);return;}
-  audioTick(dt);
+  audioTick(dt);if(G.trip)updTrip(dt);
   if(!G.closing){S.clock+=dt;if(S.clock>=dayLen()){G.closing=true;G.closeT=0;toast('8 PM. Closing time! Walk to your '+(lvl('car')?CAR[lvl('car')]:'bus stop')+' to go home.',5);beep(330,.4,'sine',.06,.6);}}
   else{G.closeT+=dt;if(G.closeT>35||dist(P.x,P.y,110,1228)<44)return startNight();}
   // movement
   let mx=0,my=0;const I=G.input;
-  if(I.active){const dx=I.x-I.ox,dy=I.y-I.oy,d=Math.hypot(dx,dy);if(d>6){const k=Math.min(1,d/45);mx=dx/d*k;my=dy/d*k;}if(d>70){I.ox=I.x-dx/d*70;I.oy=I.y-dy/d*70;}}
-  const K=G.keys;if(K.a||K.arrowleft)mx-=1;if(K.d||K.arrowright)mx+=1;if(K.w||K.arrowup)my-=1;if(K.s||K.arrowdown)my+=1;
+  if(I.active&&!G.trip){const dx=I.x-I.ox,dy=I.y-I.oy,d=Math.hypot(dx,dy);if(d>6){const k=Math.min(1,d/45);mx=dx/d*k;my=dy/d*k;}if(d>70){I.ox=I.x-dx/d*70;I.oy=I.y-dy/d*70;}}
+  const K=G.trip?{}:G.keys;if(K.a||K.arrowleft)mx-=1;if(K.d||K.arrowright)mx+=1;if(K.w||K.arrowup)my-=1;if(K.s||K.arrowdown)my+=1;
   const ml=Math.hypot(mx,my);if(ml>1){mx/=ml;my/=ml;}
   const inF=inRect(P.x,P.y,f),sp=inF?175:225;
   let nx=Math.max(22,Math.min(978,P.x+mx*sp*dt)),ny=Math.max(34,Math.min(1262,P.y+my*sp*dt));
@@ -531,7 +531,7 @@ const empCount=()=>{const e=S.emp;return e.mgr+e.belt+e.auto+e.pack+e.con+e.reg+
 const regStart=r=>{let a=0;for(let i=0;i<r;i++)a+=EC.regions[i].size;return a;};
 function regionOf(k){let a=0;for(let r=0;r<EC.regions.length;r++){a+=EC.regions[r].size;if(k<a)return r;}return EC.regions.length-1;}
 const brCost=k=>nice(Fu()*1.2*(EC.branch.c0+EC.branch.c1*Math.pow(k,EC.branch.p)));
-function brDay(){let s=0;for(let r=0;r<EC.regions.length;r++){const n=Math.max(0,Math.min(EC.regions[r].size,S.emp.br-regStart(r)));s+=n*EC.regions[r].mult;}return Math.round(s*EC.branch.b*Fu());}
+function brDay(){let s=0;for(let r=0;r<EC.regions.length;r++){const n=Math.max(0,Math.min(EC.regions[r].size,S.emp.br-regStart(r)));s+=n*EC.regions[r].mult*(boosted(r)?1.2:1);}return Math.round(s*EC.branch.b*Fu());}
 function cityOf(k){const r=regionOf(k),c=RG[r].cities,j=k-regStart(r);return c[j%c.length]+(j>=c.length?' '+(Math.floor(j/c.length)+1):'');}
 const expDay=()=>EC.contracts.slice(0,S.emp.con).reduce((a,c)=>a+c.perDay,0)*Fu()*(S.emp.pack?1.15:1)/EC.inefficiency;
 const rank=()=>{const t=[0,1,10,50,150,500];let i=0;for(let k=0;k<6;k++)if(S.emp.br>=t[k])i=k;return PBZ().rankTitles[i];};
@@ -610,17 +610,18 @@ function hqRender(){const e=S.emp,P=PBZ(),items=empItems(),due=monthDue(false),r
     for(const it of its)h+='<button class="it'+(S.money>=it.cost?'':' no')+'" type="button" data-buy="'+it.id+'" data-cost="'+it.cost+'" style="--p:'+Math.max(0,Math.min(100,100*S.money/it.cost)).toFixed(0)+'%"><i>'+it.ico+'</i><div><strong>'+it.name+'</strong><span>'+it.blurb+'</span></div><em>₦'+short(it.cost)+'</em></button>';
     if(s===1&&e.con)h+='<p class="note">Signed so far: '+P.export.contracts.slice(0,e.con).map(c=>c.buyer+' ('+c.where+')').join(', ')+'. Export trucks bring in about ₦'+short(Math.round(expDay()))+' a day when fully loaded.</p>';
     if(s===2){h+='<div class="regs">';for(let r=0;r<RG.length;r++){const n=Math.max(0,Math.min(RG[r].size,e.br-regStart(r)));h+='<div class="reg'+(n>=RG[r].size?' done':r>=e.reg&&r>regionOf(e.br)?' lock':'')+'">'+RG[r].flag+' '+RG[r].name+' · '+n+'/'+RG[r].size+'<u><s style="width:'+(100*n/RG[r].size)+'%"></s></u></div>';}h+='</div>';}}
+  h+=travelHtml();
   if(stage()>=4&&e.br>=500&&!items.length)h+='<div class="lock">🏆 500 '+P.branchNoun+'s on four continents. You are the '+P.rankTitles[5]+'!</div>';
   h+='<h2>Salaries (paid every 30 days)</h2><table>';for(const r of rows)h+='<tr><td>'+r.n.toLocaleString()+' × '+r.name+'</td><td>₦'+short(r.each)+' a month</td></tr>';h+='</table>';
   h+='<h2>This month so far</h2><table><tr><td>Shop sales</td><td>₦'+fmt(S.mo.rev)+'</td></tr><tr><td>Export</td><td>₦'+fmt(S.mo.exp)+'</td></tr><tr><td>Branches</td><td>₦'+fmt(S.mo.br)+'</td></tr><tr><td>Salaries due so far</td><td>-₦'+fmt(due.wages)+'</td></tr><tr><td>'+TAX.label+' ('+Math.round(TAX.gameRate*100)+'% of profit)</td><td>'+(stage()<2?'₦0 (small business relief)':due.tax?'-₦'+fmt(due.tax):'₦0')+'</td></tr><tr><td>Already set aside</td><td>₦'+fmt(S.resv)+'</td></tr></table>';
   h+='<p class="note">Payday is in '+(MONTH-dayOfMonth()+1)+' day'+(MONTH-dayOfMonth()?'s':'')+'. Each night your accountant sets money aside so salaries and tax are ready. Total paid so far: salaries ₦'+fmt(S.stat.wages)+', tax ₦'+fmt(S.stat.tax)+'.</p>';
-  $('hqin').innerHTML=h;$('hqx').addEventListener('click',hqClose);
+  $('hqin').innerHTML=h;$('hqx').addEventListener('click',hqClose);document.querySelectorAll('#hqin [data-go]').forEach(b=>b.addEventListener('click',()=>tripStart(+b.dataset.go)));
   document.querySelectorAll('#hqin [data-buy]').forEach(b=>b.addEventListener('click',()=>{if(empBuy(b.dataset.buy))hqRender();else{const em=b.querySelector('em'),need=Math.max(0,+b.dataset.cost-S.money);em.textContent='Need ₦'+short(Math.ceil(need))+' more';b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');clearTimeout(b._t);b._t=setTimeout(()=>{em.textContent='₦'+short(+b.dataset.cost);},1600);beep(160,.15,'sawtooth',.04);}}));}
 // The shop keeps trading while HQ is open; this keeps the cash and the buy buttons current.
-let hqAcc=0;function hqTick(dt){hqAcc+=dt;if(hqAcc<.4)return;hqAcc=0;if(G.night)return hqClose();const c=$('hqcash');if(c)setT(c,'₦'+fmt(S.money));
+let hqAcc=0;function hqTick(dt){hqAcc+=dt;if(hqAcc<.4)return;hqAcc=0;if(G.night)return hqClose();if(G.trip)return;const c=$('hqcash');if(c)setT(c,'₦'+fmt(S.money));
   document.querySelectorAll('#hqin [data-buy]').forEach(b=>{const cost=+b.dataset.cost;b.classList.toggle('no',S.money<cost);b.style.setProperty('--p',Math.max(0,Math.min(100,100*S.money/cost)).toFixed(0)+'%');});}
-function hqOpen(){if(!G||G.night)return;G.input.active=false;hqRender();$('hqp').hidden=false;$('hqp').scrollTop=0;}
-function hqClose(){$('hqp').hidden=true;save();}
+function hqOpen(){if(!G||G.night||G.trip)return;G.input.active=false;hqRender();$('hqp').hidden=false;$('hqp').scrollTop=0;}
+function hqClose(){if(G&&G.trip)return;$('hqp').hidden=true;save();}
 $('hq').addEventListener('click',hqOpen);$('goal').addEventListener('click',()=>{if(G&&stage()>=4)hqOpen();});
 /* ===== audio: louder effects, market ambience, radio music, night sounds ===== */
 let AC=null,MG=null,MUS=null,AMB=null,NB=null,lastBeep=0,musT=0,musStep=0,musKind=null,hornT=6;
@@ -663,7 +664,7 @@ function audioTick(dt){if(!AC||quiet()){if(AC&&MG)MG.gain.value=sndLvl()&&G&&G.s
   AMB.gain.setTargetAtTime(amb,t,.4);MUS.gain.setTargetAtTime(sndLvl()>1?mus:0,t,.3);}
 /* ===== evening routine: traffic, dinner, bath, sleep, payday statement, morning ===== */
 const NORD=['drive','dinner','bath','sleep','stmt','morning'],DISH=['plate','#e8541e',null,['#b92c14','#ffcf4a'],'#6b3a1f'],CUP=['bottle','#8fd3f7','#1e6fb5'];
-function startNight(){const NL=PLAN.road.night;$('hqp').hidden=true;S.money+=S.till;S.till=0;const br=brDay();S.money+=br;S.mo.br+=br;S.lastEarn=S.dayEarn;
+function startNight(){const NL=PLAN.road.night;$('hqp').hidden=true;G.trip=null;S.money+=S.till;S.till=0;const br=brDay();S.money+=br;S.mo.br+=br;S.lastEarn=S.dayEarn;
   const due=monthDue(false),set=Math.max(0,Math.min(S.money,due.wages+due.tax-S.resv));S.money-=set;S.resv+=set;let stmt=null;
   if(S.day%MONTH===0){const d=monthDue(true),total=d.wages+d.tax,pool=S.resv;S.resv=0;S.money+=pool-total;S.stat.wages+=d.wages;S.stat.tax+=d.tax;
     stmt={m:S.day/MONTH,rev:d.rev,wages:d.wages,tax:d.tax,staff:d.staff,net:d.rev-total,short:Math.max(0,total-pool)};S.mo={rev:0,exp:0,br:0};}
@@ -735,6 +736,57 @@ function drawNight(){const N=G.night,t=N.t,g=ctx,hl=lvl('house'),cl=lvl('car'),o
     ncap('Day '+(S.day+1),N.L.morning,1.4);}
   g.setTransform(DPR,0,0,DPR,0,0);for(const p of G.conf){g.fillStyle=p.c;g.fillRect(p.x,p.y,p.r,p.r*.66);}
 }
+/* ===== travel: drive or fly to a region, tour the shops there, come home ===== */
+// Return tickets and flight times are 2026 estimates from Lagos (LOS).
+const TRIPS=[{to:'Lagos',car:1,time:'45 min in traffic',fare:25000},{to:'Ibadan',time:'25 min',fare:95000},{to:'Port Harcourt',time:'1 h 10 min',fare:180000},{to:'Enugu',time:'1 h 05 min',fare:175000},
+  {to:'Abuja',time:'1 h 15 min',fare:185000},{to:'Kano',time:'1 h 40 min',fare:210000},{to:'Maiduguri',time:'1 h 55 min',fare:230000},{to:'Accra',time:'1 h',fare:650000,abroad:1},
+  {to:'Nairobi',time:'5 h 30 min',fare:1300000,abroad:1},{to:'London',time:'6 h 40 min',fare:2400000,abroad:1},{to:'Houston',time:'14 h 30 min, one stop',fare:3400000,abroad:1},{to:'Dubai',time:'7 h 30 min',fare:2100000,abroad:1}];
+const regCount=r=>Math.max(0,Math.min(RG[r].size,S.emp.br-regStart(r)));
+const boosted=r=>!!(S.emp.insp&&S.emp.insp[r]>=S.day);
+const shopForm=(i,d)=>.75+(((Math.sin(i*12.9898+d*78.233)*43758.5453)%1)+1)%1*.5;   // each shop has good and slow days
+const shopDay=(r,i)=>Math.round(EC.branch.b*EC.regions[r].mult*Fu()*shopForm(regStart(r)+i,S.day)*(boosted(r)?1.2:1));
+function tripStart(r){const T=TRIPS[r];if(!G||G.night||G.trip)return;if(G.closing){toast('Shops are closed for today. Travel tomorrow.',3);return;}if(S.money<T.fare){toast('You need ₦'+short(T.fare)+' for the trip.',3);return;}
+  S.money-=T.fare;$('hqp').hidden=true;G.input.active=false;G.trip={r,st:'car',t:0,T:0,off:0};document.body.classList.add('night');$('toast').style.opacity=0;if(!T.car)setTimeout(()=>{if(G&&G.trip)jet(7);},4200);save();}
+function tripNext(){const X=G.trip,T=TRIPS[X.r];X.t=0;
+  if(X.st==='car'){if(T.car)return tourOpen();X.st='fly';}
+  else if(X.st==='fly')tourOpen();
+  else tripEnd();}
+function tripTap(){if(G.trip.st!=='tour'&&G.trip.t>1.2)tripNext();}
+function updTrip(dt){const X=G.trip;X.t+=dt;X.T+=dt;X.off+=dt*220;if(X.st==='tour')return;if(X.t>=(X.st==='car'?5:X.st==='fly'?7:4.5))tripNext();}
+function tripEnd(){G.trip=null;$('hqp').hidden=true;document.body.classList.remove('night');const P=G.player;P.x=150;P.y=1200;P.stack=[];P.trail=null;toast('Welcome back to '+B.name+'. The shop kept selling while you were away.',4);updateHud();save();}
+function tourOpen(){const X=G.trip,r=X.r,T=TRIPS[r],n=regCount(r),P=PBZ();X.st='tour';let tot=0,best=0,bi=0;const rows=[];
+  for(let i=0;i<n;i++){const v=shopDay(r,i),f=shopForm(regStart(r)+i,S.day);tot+=v;if(v>best){best=v;bi=i;}rows.push('<tr><td>'+cityOf(regStart(r)+i)+'</td><td>'+(f>1.12?'🔥 Booming':f<.88?'⚠️ Slow week':'✅ Steady')+'</td><td>₦'+short(v)+'</td></tr>');}
+  let h='<header><h1>'+RG[r].flag+' '+RG[r].name+'<small>'+RG[r].managerTitle+' welcomes you · '+T.time+' from Lagos</small></h1></header>';
+  h+='<div class="stats"><div class="stat">Shops here<b>'+n+' / '+RG[r].size+'</b></div><div class="stat">Profit today<b>₦'+fmt(tot)+'</b></div><div class="stat">Staff here<b>'+(n*BRSTAFF).toLocaleString()+'</b></div><div class="stat">Best shop<b>'+cityOf(regStart(r)+bi)+'</b></div></div>';
+  h+=boosted(r)?'<div class="lock">⭐ Inspection bonus is on: these shops earn 20% more until day '+S.emp.insp[r]+'.</div>'
+    :'<button class="it" type="button" id="insp" style="--p:100%"><i>📋</i><div><strong>Inspect every '+P.branchNoun+' here</strong><span>Walk the floor, check the books, greet the staff. These shops earn 20% more for 5 days.</span></div><em>Inspect</em></button>';
+  h+='<h2>Every '+P.branchNoun+' in '+RG[r].name+'</h2><table><tr><td><b>Town</b></td><td><b>This week</b></td><td><b>Profit today</b></td></tr>'+rows.join('')+'</table>';
+  h+='<p class="note">Each shop sends its profit to HQ every night. Trip cost: ₦'+fmt(T.fare)+' return.</p><button class="it" type="button" id="home" style="--p:0%"><i>'+(T.car?'🚗':'🛬')+'</i><div><strong>'+(T.car?'Drive back to your shop':'Fly home to Lagos')+'</strong><span>Your flagship kept selling while you were away.</span></div><em>Go</em></button>';
+  $('hqin').innerHTML=h;$('hqp').hidden=false;$('hqp').scrollTop=0;
+  const ib=$('insp');if(ib)ib.addEventListener('click',()=>{S.emp.insp=S.emp.insp||{};S.emp.insp[r]=S.day+5;fanfare(false);banner('INSPECTED',RG[r].name+' shops earn 20% more for 5 days');save();tourOpen();});
+  $('home').addEventListener('click',()=>{$('hqp').hidden=true;if(T.car)return tripEnd();X.st='back';X.t=0;jet(4.5);});}
+function jet(dur){if(quiet()||!audio())return;try{const t=AC.currentTime,s=AC.createBufferSource();s.buffer=NB;s.loop=true;const fl=AC.createBiquadFilter();fl.type='lowpass';fl.frequency.value=420;const g=AC.createGain();g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.5,t+.8);g.gain.setValueAtTime(.5,t+dur-1);g.gain.linearRampToValueAtTime(.0001,t+dur);s.connect(fl).connect(g).connect(MG);s.start(t);s.stop(t+dur+.05);}catch(e){}}
+function travelHtml(){const e=S.emp;if(!e.br)return'';let h='<h2>Visit your shops</h2>';
+  for(let r=0;r<RG.length;r++){const n=regCount(r);if(!n)continue;const T=TRIPS[r];h+='<button class="it'+(S.money>=T.fare?'':' no')+'" type="button" data-go="'+r+'" style="--p:0%"><i>'+(T.car?'🚗':'✈️')+'</i><div><strong>'+(T.car?'Drive round your Lagos shops':'Fly to '+T.to+', '+RG[r].name)+'</strong><span>'+n+' shop'+(n>1?'s':'')+' · '+T.time+(boosted(r)?' · ⭐ bonus on':'')+'</span></div><em>₦'+short(T.fare)+'</em></button>';}
+  return h;}
+function drawTrip(){const X=G.trip,T=TRIPS[X.r],g=ctx,s=Math.min(W/420,H/640),t=X.t;g.setTransform(DPR*s,0,0,DPR*s,DPR*W/2,DPR*H/2);
+  const title=(big,small)=>{g.textAlign='center';g.font='30px "Lilita One",system-ui';g.lineWidth=5;g.strokeStyle='rgba(20,10,4,.7)';g.strokeText(big,0,-250);g.fillStyle='#ffc23d';g.fillText(big,0,-250);label(0,-214,small,'#2b1608','#fff6e4',13);
+    if(t>1.2){g.globalAlpha=.55+.45*Math.sin(X.T*4);g.font='800 13px Nunito,system-ui';g.fillStyle='#fff';g.fillText('Tap to continue',0,296);g.globalAlpha=1;}};
+  if(X.st==='car'){const sky=g.createLinearGradient(0,-340,0,60);sky.addColorStop(0,'#5fb4ee');sky.addColorStop(1,'#cfeaff');g.fillStyle=sky;g.fillRect(-1500,-900,3000,1000);E(g,130,-150,34,34,'#fff2a8');
+    for(let i=0;i<16;i++){const x=((i*170-X.off*.25)%2720+2720)%2720-1360,h=70+(i*53)%130;R(g,x,60-h,110,h,3,i%2?'#8fa3b8':'#a9bccf');for(let r=0;r<Math.floor(h/26);r++)for(let c=0;c<4;c++)R(g,x+10+c*25,70-h+r*26,14,12,2,'#e8f4ff');}
+    g.fillStyle='#3f3c38';g.fillRect(-1500,60,3000,190);g.fillStyle='#8a8478';g.fillRect(-1500,250,3000,700);g.fillStyle='#e9d27a';for(let x=-1500-(X.off%80);x<1500;x+=80)g.fillRect(x,152,42,5);
+    if(!T.car){const sx=900-X.off*.9;R(g,sx,-60,150,60,6,'#1f5fa8');g.font='900 15px Nunito,system-ui';g.textAlign='center';g.fillStyle='#fff';g.fillText('✈ AIRPORT',sx+75,-24);g.fillStyle='#555';g.fillRect(sx+20,0,6,60);g.fillRect(sx+124,0,6,60);}
+    const cl=lvl('car');veh(g,-60,206+Math.sin(X.T*22),['danfo','keke','car','suv'][cl],1.75,cl===2?'#c62828':'#1b1f27');veh(g,230-((X.T*60)%700),118,'danfo',1.2,'',true);
+    title(T.car?'Lagos shop tour':'To the airport',T.car?'Checking on your '+regCount(X.r)+' Lagos shops':'Flight to '+T.to+' boards soon');}
+  else{const back=X.st==='back',sky=g.createLinearGradient(0,-340,0,340);sky.addColorStop(0,'#2f7fd6');sky.addColorStop(1,'#bfe4ff');g.fillStyle=sky;g.fillRect(-1500,-900,3000,1800);
+    for(let i=0;i<9;i++){const x=((i*260-X.off*(.5+(i%3)*.3)*(back?-1:1))%2400+2400)%2400-1200,y=-170+(i*97)%420;g.globalAlpha=.85;E(g,x,y,60,20,'#fff');E(g,x+34,y-12,38,18,'#fff');E(g,x-36,y-8,30,14,'#fff');g.globalAlpha=1;}
+    g.save();g.translate(0,-10+Math.sin(X.T*2)*6);if(back)g.scale(-1,1);g.fillStyle='#d9dee6';g.beginPath();g.moveTo(-10,0);g.lineTo(-58,62);g.lineTo(-30,62);g.lineTo(34,0);g.fill();g.beginPath();g.moveTo(-10,-6);g.lineTo(-48,-48);g.lineTo(-28,-48);g.lineTo(26,-6);g.fill();
+      R(g,-110,-16,220,32,16,'#f4f6fa');R(g,-110,-2,220,6,0,B.tone);g.fillStyle='#f4f6fa';g.beginPath();g.moveTo(-104,-10);g.lineTo(-132,-56);g.lineTo(-104,-56);g.lineTo(-76,-12);g.fill();g.fillStyle=B.tone;g.beginPath();g.moveTo(-122,-40);g.lineTo(-132,-56);g.lineTo(-104,-56);g.lineTo(-96,-40);g.fill();
+      for(let i=0;i<9;i++)R(g,-70+i*17,-10,9,7,2,'#7ab8e8');R(g,86,-10,16,8,3,'#2a4a6a');g.restore();
+    R(g,-150,196,300,54,14,'rgba(43,22,8,.85)');g.textAlign='center';g.font='900 15px Nunito,system-ui';g.fillStyle='#fff6e4';g.fillText(back?T.to+'  ✈  Lagos':'Lagos  ✈  '+T.to,0,218);g.font='800 12px Nunito,system-ui';g.fillStyle='#ffe9a8';g.fillText(T.time+(T.abroad?' · passport stamped':''),0,238);
+    const k=Math.min(1,t/(back?4.5:7));R(g,-120,262,240,8,4,'rgba(255,255,255,.35)');R(g,-120,262,240*k,8,4,'#7dff9a');
+    title(back?'Flying home':'Flying to '+T.to,back?'Next stop: '+B.name:RG[X.r].flag+' '+RG[X.r].name+' · '+regCount(X.r)+' shops waiting');}
+  g.setTransform(DPR,0,0,DPR,0,0);}
 /* ===== sprites: every good is drawn once to a small canvas, then stamped ===== */
 function E(g,x,y,rx,ry,col){g.fillStyle=col;g.beginPath();g.ellipse(x,y,Math.max(.1,rx),Math.max(.1,ry),0,0,6.2832);g.fill();}
 function R(g,x,y,w,h,r,col){g.fillStyle=col;g.beginPath();g.roundRect(x,y,w,h,r);g.fill();}
@@ -958,7 +1010,7 @@ function tint(){const h=hour();let c=null;if(G.closing)c='rgba(20,20,70,'+Math.m
 
 function draw(){
   ctx.setTransform(DPR,0,0,DPR,0,0);
-  if(G.night){drawNight();return;}
+  if(G.night){drawNight();return;}if(G.trip){drawTrip();return;}
   ctx.fillStyle='#3a2210';ctx.fillRect(0,0,W,H);
   const s=SCALE,P=G.player;ctx.setTransform(DPR*s,0,0,DPR*s,DPR*(W/2-G.cam.x*s),DPR*(H/2-G.cam.y*s));
   const vy0=G.cam.y-H/2/s-80,vy1=G.cam.y+H/2/s+140,vis=y=>y>vy0&&y<vy1;
@@ -1020,12 +1072,12 @@ let last=0,pfT=0,pfN=0,errSeen='';
 function frame(t){requestAnimationFrame(frame);const real=Math.min(.25,Math.max(0,(t-last)/1000||0));last=t;
   if(!G||!$('pick').hidden){if(AC&&G)audioTick(0);return;}
   const hq=!$('hqp').hidden;
-  try{const n=Math.max(1,Math.min(5,Math.ceil(real/.034))),dt=real/n;for(let k=0;k<n*G.speed&&G;k++)update(dt);if(G){if(hq)hqTick(real);else draw();}}
+  try{const n=Math.max(1,Math.min(5,Math.ceil(real/.034))),dt=real/n;for(let k=0;k<n*G.speed&&G;k++)update(dt);if(G){if(hq&&!(G.trip&&G.trip.st!=='tour'))hqTick(real);else draw();}}
   catch(e){const m=String(e&&e.message);if(m!==errSeen){errSeen=m;console.error('Naija Market frame error',e);}}
   if(G&&!hq&&G.speed===1&&!document.hidden){pfT+=real;if(++pfN>=150){const avg=pfT/pfN;pfT=pfN=0;if(avg>.03&&QUAL>.5){QUAL=Math.max(.5,QUAL-.25);resize();}}}}
 if(SAVE.cur&&SAVE.biz[SAVE.cur]){build();}
 showMenu();requestAnimationFrame(frame);
-window.__nmAcct=()=>NM;window.__nmPerf=()=>({QUAL,DPR,SCALE});window.__nm={draw,get G(){return G},get S(){return S},get B(){return B},update,target,visibleSteps,padPos,harvest,lvl,level,enter,get PROG(){return PROG},empItems,empBuy,nightNext,startNight,brDay,expDay,monthDue,payrollList,hqOpen,hqClose,Fu,flag,buyPad,save};
+window.__nmAcct=()=>NM;window.__nmPerf=()=>({QUAL,DPR,SCALE});window.__nm={draw,tripStart,tripNext,get G(){return G},get S(){return S},get B(){return B},update,target,visibleSteps,padPos,harvest,lvl,level,enter,get PROG(){return PROG},empItems,empBuy,nightNext,startNight,brDay,expDay,monthDue,payrollList,hqOpen,hqClose,Fu,flag,buyPad,save};
 /* ===== accounts: sign in (Community Square, Google, email), onboarding, cloud saves ===== */
 const API=(window.NM_API||'')+'/api/naija',LEGACY='naijaMarket.v2';
 const NM={pid:null,ver:0,timer:0,dirty:false,blocked:false,busy:false,player:null,cfg:null,mode:'login'};

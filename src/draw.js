@@ -221,7 +221,7 @@ function tint(){const h=hour();let c=null;if(G.closing)c='rgba(20,20,70,'+Math.m
 
 function draw(){
   ctx.setTransform(DPR,0,0,DPR,0,0);
-  if(G.night){drawNight();return;}
+  if(G.night){drawNight();return;}if(G.trip){drawTrip();return;}
   ctx.fillStyle='#3a2210';ctx.fillRect(0,0,W,H);
   const s=SCALE,P=G.player;ctx.setTransform(DPR*s,0,0,DPR*s,DPR*(W/2-G.cam.x*s),DPR*(H/2-G.cam.y*s));
   const vy0=G.cam.y-H/2/s-80,vy1=G.cam.y+H/2/s+140,vis=y=>y>vy0&&y<vy1;
@@ -283,9 +283,9 @@ let last=0,pfT=0,pfN=0,errSeen='';
 function frame(t){requestAnimationFrame(frame);const real=Math.min(.25,Math.max(0,(t-last)/1000||0));last=t;
   if(!G||!$('pick').hidden){if(AC&&G)audioTick(0);return;}
   const hq=!$('hqp').hidden;
-  try{const n=Math.max(1,Math.min(5,Math.ceil(real/.034))),dt=real/n;for(let k=0;k<n*G.speed&&G;k++)update(dt);if(G){if(hq)hqTick(real);else draw();}}
+  try{const n=Math.max(1,Math.min(5,Math.ceil(real/.034))),dt=real/n;for(let k=0;k<n*G.speed&&G;k++)update(dt);if(G){if(hq&&!(G.trip&&G.trip.st!=='tour'))hqTick(real);else draw();}}
   catch(e){const m=String(e&&e.message);if(m!==errSeen){errSeen=m;console.error('Naija Market frame error',e);}}
   if(G&&!hq&&G.speed===1&&!document.hidden){pfT+=real;if(++pfN>=150){const avg=pfT/pfN;pfT=pfN=0;if(avg>.03&&QUAL>.5){QUAL=Math.max(.5,QUAL-.25);resize();}}}}
 if(SAVE.cur&&SAVE.biz[SAVE.cur]){build();}
 showMenu();requestAnimationFrame(frame);
-window.__nmAcct=()=>NM;window.__nmPerf=()=>({QUAL,DPR,SCALE});window.__nm={draw,get G(){return G},get S(){return S},get B(){return B},update,target,visibleSteps,padPos,harvest,lvl,level,enter,get PROG(){return PROG},empItems,empBuy,nightNext,startNight,brDay,expDay,monthDue,payrollList,hqOpen,hqClose,Fu,flag,buyPad,save};
+window.__nmAcct=()=>NM;window.__nmPerf=()=>({QUAL,DPR,SCALE});window.__nm={draw,tripStart,tripNext,get G(){return G},get S(){return S},get B(){return B},update,target,visibleSteps,padPos,harvest,lvl,level,enter,get PROG(){return PROG},empItems,empBuy,nightNext,startNight,brDay,expDay,monthDue,payrollList,hqOpen,hqClose,Fu,flag,buyPad,save};
