@@ -3,7 +3,7 @@ const EC=PLAN.econ.empire,RG=PLAN.road.regions,ROLE=PLAN.econ.salaries,TAX=PLAN.
 const QF={nkechi:12600,tunde:5700,musa:6300,basira:11200,zainab:5000,chidi:5800,sikira:7400,sani:7000,bola:6400,chinedu:5100},BAY={x:800,y:1228},MONTH=30;
 const PBZ=()=>PLAN.biz[SAVE.cur],pick=a=>a[Math.floor(Math.random()*a.length)];
 function migrate(s){s.emp=Object.assign({mgr:0,belt:0,auto:0,pack:0,con:0,reg:0,br:0},s.emp||{});s.mo=Object.assign({rev:0,exp:0,br:0},s.mo||{});
-  s.stat=Object.assign({tax:0,wages:0},s.stat||{});s.resv=s.resv||0;s.dayExp=s.dayExp||0;return s;}
+  s.stat=Object.assign({tax:0,wages:0},s.stat||{});for(const k of['money','till','clock','dayEarn','daySold','sold'])if(!Number.isFinite(s[k]))s[k]=0;if(!(s.day>=1))s.day=1;s.pads=s.pads||{};s.resv=s.resv||0;s.dayExp=s.dayExp||0;return s;}
 const Fu=()=>G.F1;
 const empCount=()=>{const e=S.emp;return e.mgr+e.belt+e.auto+e.pack+e.con+e.reg+e.br;};
 const regStart=r=>{let a=0;for(let i=0;i<r;i++)a+=EC.regions[i].size;return a;};
@@ -81,11 +81,11 @@ function updMachines(dt){const e=S.emp,f=G.field;
 /* ----- HQ panel ----- */
 function hqRender(){const e=S.emp,P=PBZ(),items=empItems(),due=monthDue(false),rows=payrollList();let h='';
   h+='<header><h1>'+rank()+'<small>'+B.name+' · Day '+S.day+' · Level '+level()+'</small></h1><button class="ghost" id="hqx" type="button">Back to shop</button></header>';
-  h+='<div class="stats"><div class="stat">Cash<b>₦'+fmt(S.money)+'</b></div><div class="stat">Branches<b>'+e.br+' / 500</b></div><div class="stat">People employed<b>'+due.staff.toLocaleString()+'</b></div><div class="stat">Branch income a day<b>₦'+fmt(brDay())+'</b></div></div>';
+  h+='<div class="stats"><div class="stat">Cash<b id="hqcash">₦'+fmt(S.money)+'</b></div><div class="stat">Branches<b>'+e.br+' / 500</b></div><div class="stat">People employed<b>'+due.staff.toLocaleString()+'</b></div><div class="stat">Branch income a day<b>₦'+fmt(brDay())+'</b></div></div>';
   if(stage()<4)h+='<div class="lock">🔒 Your empire starts when you build the '+B.venue[4]+'. After that: a manager, machines, export contracts and up to 500 '+P.branchNoun+'s across Nigeria, Africa and the world.</div>';
   const sec=['Flagship: manager and machines','Wholesale and export','Branches'];
   for(let s=0;s<3;s++){const its=items.filter(i=>i.sec===s);if(!its.length)continue;h+='<h2>'+sec[s]+'</h2>';
-    for(const it of its)h+='<button class="it'+(S.money>=it.cost?'':' no')+'" type="button" data-buy="'+it.id+'"><i>'+it.ico+'</i><div><strong>'+it.name+'</strong><span>'+it.blurb+'</span></div><em>₦'+short(it.cost)+'</em></button>';
+    for(const it of its)h+='<button class="it'+(S.money>=it.cost?'':' no')+'" type="button" data-buy="'+it.id+'" data-cost="'+it.cost+'" style="--p:'+Math.max(0,Math.min(100,100*S.money/it.cost)).toFixed(0)+'%"><i>'+it.ico+'</i><div><strong>'+it.name+'</strong><span>'+it.blurb+'</span></div><em>₦'+short(it.cost)+'</em></button>';
     if(s===1&&e.con)h+='<p class="note">Signed so far: '+P.export.contracts.slice(0,e.con).map(c=>c.buyer+' ('+c.where+')').join(', ')+'. Export trucks bring in about ₦'+short(Math.round(expDay()))+' a day when fully loaded.</p>';
     if(s===2){h+='<div class="regs">';for(let r=0;r<RG.length;r++){const n=Math.max(0,Math.min(RG[r].size,e.br-regStart(r)));h+='<div class="reg'+(n>=RG[r].size?' done':r>=e.reg&&r>regionOf(e.br)?' lock':'')+'">'+RG[r].flag+' '+RG[r].name+' · '+n+'/'+RG[r].size+'<u><s style="width:'+(100*n/RG[r].size)+'%"></s></u></div>';}h+='</div>';}}
   if(stage()>=4&&e.br>=500&&!items.length)h+='<div class="lock">🏆 500 '+P.branchNoun+'s on four continents. You are the '+P.rankTitles[5]+'!</div>';
@@ -93,7 +93,10 @@ function hqRender(){const e=S.emp,P=PBZ(),items=empItems(),due=monthDue(false),r
   h+='<h2>This month so far</h2><table><tr><td>Shop sales</td><td>₦'+fmt(S.mo.rev)+'</td></tr><tr><td>Export</td><td>₦'+fmt(S.mo.exp)+'</td></tr><tr><td>Branches</td><td>₦'+fmt(S.mo.br)+'</td></tr><tr><td>Salaries due so far</td><td>-₦'+fmt(due.wages)+'</td></tr><tr><td>'+TAX.label+' ('+Math.round(TAX.gameRate*100)+'% of profit)</td><td>'+(stage()<2?'₦0 (small business relief)':due.tax?'-₦'+fmt(due.tax):'₦0')+'</td></tr><tr><td>Already set aside</td><td>₦'+fmt(S.resv)+'</td></tr></table>';
   h+='<p class="note">Payday is in '+(MONTH-dayOfMonth()+1)+' day'+(MONTH-dayOfMonth()?'s':'')+'. Each night your accountant sets money aside so salaries and tax are ready. Total paid so far: salaries ₦'+fmt(S.stat.wages)+', tax ₦'+fmt(S.stat.tax)+'.</p>';
   $('hqin').innerHTML=h;$('hqx').addEventListener('click',hqClose);
-  document.querySelectorAll('#hqin [data-buy]').forEach(b=>b.addEventListener('click',()=>{if(empBuy(b.dataset.buy))hqRender();else{toast('Not enough cash yet. Keep selling!',2);beep(160,.15,'sawtooth',.04);}}));}
+  document.querySelectorAll('#hqin [data-buy]').forEach(b=>b.addEventListener('click',()=>{if(empBuy(b.dataset.buy))hqRender();else{const em=b.querySelector('em'),need=Math.max(0,+b.dataset.cost-S.money);em.textContent='Need ₦'+short(Math.ceil(need))+' more';b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');clearTimeout(b._t);b._t=setTimeout(()=>{em.textContent='₦'+short(+b.dataset.cost);},1600);beep(160,.15,'sawtooth',.04);}}));}
+// The shop keeps trading while HQ is open; this keeps the cash and the buy buttons current.
+let hqAcc=0;function hqTick(dt){hqAcc+=dt;if(hqAcc<.4)return;hqAcc=0;if(G.night)return hqClose();const c=$('hqcash');if(c)setT(c,'₦'+fmt(S.money));
+  document.querySelectorAll('#hqin [data-buy]').forEach(b=>{const cost=+b.dataset.cost;b.classList.toggle('no',S.money<cost);b.style.setProperty('--p',Math.max(0,Math.min(100,100*S.money/cost)).toFixed(0)+'%');});}
 function hqOpen(){if(!G||G.night)return;G.input.active=false;hqRender();$('hqp').hidden=false;$('hqp').scrollTop=0;}
 function hqClose(){$('hqp').hidden=true;save();}
 $('hq').addEventListener('click',hqOpen);$('goal').addEventListener('click',()=>{if(G&&stage()>=4)hqOpen();});

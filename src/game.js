@@ -1,8 +1,8 @@
 /* ===== setup ===== */
 const $=id=>document.getElementById(id);
-const cv=$('c'),ctx=cv.getContext('2d');
-let W=0,H=0,DPR=1,SCALE=1;
-function resize(){DPR=Math.min(2,window.devicePixelRatio||1);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;SCALE=W>H?Math.min(H/640,W/1000):Math.min(W/600,H/900);if(window.NMZOOM)SCALE=window.NMZOOM;}
+const cv=$('c');let ctx=cv.getContext('2d');
+let W=0,H=0,DPR=1,SCALE=1,QUAL=1;
+function resize(){DPR=Math.max(1,Math.min(2,window.devicePixelRatio||1)*QUAL);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;SCALE=W>H?Math.min(H/640,W/1000):Math.min(W/600,H/900);if(window.NMZOOM)SCALE=window.NMZOOM;}
 addEventListener('resize',resize);resize();
 const WW=1000,WH=1420,LX=i=>110+i*170;
 const SEATS=[6,12,24,32,40],VCAP=[9,16,28,36,44],VD=[1,1.7,2.6,3.6,4.6],VM=[1,1.3,1.7,2.5,4],INCAP=[0,0,0,150,1000],VR=[0,0,0,6,26],QTY=[3,4,5,7,9],SM=[1,2,4],ADM=[1,1.35,1.75,2.2];
@@ -21,7 +21,9 @@ const flag=()=>Object.values(S.pads).reduce((s,p)=>s+p.l,0);
 const level=()=>1+flag()+empCount();
 const stage=()=>lvl('venue');
 const lineOpen=i=>i===0||lvl('line'+i)>0;
-const openLines=()=>B.lines.map((l,i)=>i).filter(lineOpen);
+// openLines and visibleSteps are asked for many times a frame, so each is worked out once per update.
+let _fr=0,_olF=-1,_ol=[],_vsF=-1,_vs=[];const dirty=()=>{_olF=_vsF=-1;};
+const openLines=()=>{if(_olF!==_fr){_olF=_fr;_ol=B.lines.map((l,i)=>i).filter(lineOpen);}return _ol;};
 const trayCap=()=>20+10*lvl('tray'),staffCap=()=>[16,32,60][lvl('train')],staffSpd=()=>[150,190,235][lvl('train')]*(S.emp.mgr?1.2:1)*(evx('speed_up')?1.3:1)*(S.money<0?.7:1);
 const ropeMax=()=>1150+420*lvl('rope');
 const dayLen=()=>[200,230,265,300][lvl('car')];
@@ -37,7 +39,7 @@ function buildProg(){const D=B.lines.some(l=>l.src==='depot');
     const cost=nice(ref()*12*Math.pow(GROW,i)*w);if(base==='line')open++;return{id,base,arg:+(id.match(/\d/)||[0])[0],i,n:cnt[id],cost};});
   G.maxOf=cnt;}
 function nextStep(id){const n=lvl(id)+1;return PROG.find(s=>s.id===id&&s.n===n)||null;}
-function visibleSteps(){const bought=flag(),ids=new Set(),out=[];for(const s of PROG){if(ids.has(s.id))continue;if(s.n===lvl(s.id)+1){ids.add(s.id);if(s.i<=bought+3)out.push(s);}}return out;}
+function visibleSteps(){if(_vsF===_fr)return _vs;const bought=flag(),ids=new Set(),out=[];for(const s of PROG){if(ids.has(s.id))continue;if(s.n===lvl(s.id)+1){ids.add(s.id);if(s.i<=bought+3)out.push(s);}}_vsF=_fr;return _vs=out;}
 function padPos(s){const i=s.arg;switch(s.base){
   case'line':return[LX(i),512];case'cook':return[LX(i)+85,498];case'st':return[LX(i)+85,574];
   case'hand':return[150,392];case'rope':return[240,392];case'tray':return[330,392];
@@ -54,7 +56,7 @@ const PICON={hand:'🧑‍🌾',rope:'🪢',tray:'🧺',porter:'📦',truck:'�
 
 /* ===== world build ===== */
 function build(){
-  B=BIZ[SAVE.cur];S=migrate(SAVE.biz[SAVE.cur]);
+  B=BIZ[SAVE.cur];S=migrate(SAVE.biz[SAVE.cur]);dirty();
   G={t:0,flyers:[],parts:[],floats:[],conf:[],custs:[],workers:[],cars:[],crops:[],procIn:[0,0,0,0,0],procT:[0,0,0,0,0],out:[0,0,0,0,0],counter:[0,0,0,0,0],depot:[0,0,0,0,0],
      player:{x:450,y:400,stack:[],trail:null,face:1,step:0},input:{active:false},keys:{},cam:{x:450,y:400},acc:{pick:0,drop:0,cash:0,payFly:0,spawn:0,v:0,hud:0,save:0,fl:0,chat:3},
      truck:{state:'wait',t:6,y:-140},exp:{state:'wait',t:10,x:WW+160,ord:null},mach:{x:120,y:160,v:150,acc:0},beltT:[0,0,0,0,0],depT:[0,0,0,0,0],bub:[],closing:false,closeT:0,night:null,inside:0,toastT:0,warnT:0,onPad:null,speed:1};
@@ -89,19 +91,20 @@ function banner(big,small){const el=$('banner');el.innerHTML=big+(small?'<small>
 function fmt(n){if(n<0)return'-'+fmt(-n);n=Math.floor(n);if(n>=1e9)return(n/1e9).toFixed(2)+'B';if(n>=1e7)return(n/1e6).toFixed(1)+'M';return n.toLocaleString('en-NG');}
 function short(n){if(n>=1e9)return+(n/1e9).toFixed(2)+'B';if(n>=1e6)return+(n/1e6).toFixed(1)+'M';if(n>=1e4)return+(n/1e3).toFixed(0)+'K';return n.toLocaleString('en-NG');}
 function clockTxt(){const h=hour(),hh=Math.floor(h),m=Math.floor((h-hh)*60/10)*10;return((hh+11)%12+1)+':'+String(m).padStart(2,'0')+(hh<12?' AM':' PM');}
-function updateHud(full){$('money').innerHTML='<b>₦</b>'+fmt(S.money);$('money').classList.toggle('neg',S.money<0);const ev=$('ev');ev.hidden=!S.ev;if(S.ev)ev.textContent=evLabel();
-  $('biz').innerHTML=B.name+'<small>'+(S.emp.br?rank()+' · ':'')+'Level '+level()+' · Day '+S.day+' · '+(G.closing?'Closed':clockTxt())+'</small>';
+const setH=(el,h)=>{if(el._h!==h){el._h=h;el.innerHTML=h;}},setT=(el,t)=>{if(el._t!==t){el._t=t;el.textContent=t;}},setW=(el,w)=>{w=Math.round(w)+'%';if(el._w!==w){el._w=w;el.style.width=w;}};
+function updateHud(full){setH($('money'),'<b>₦</b>'+fmt(S.money));$('money').classList.toggle('neg',S.money<0);const ev=$('ev');ev.hidden=!S.ev;if(S.ev)setT(ev,evLabel());
+  setH($('biz'),B.name+'<small>'+(S.emp.br?rank()+' · ':'')+'Level '+level()+' · Day '+S.day+' · '+(G.closing?'Closed':clockTxt())+'</small>');
   if(full){$('mute').textContent=['🔇','🔉','🔊'][sndLvl()];$('mute').title=['Sound off','Sound, no music','Sound and music'][sndLvl()];}
   const vis=visibleSteps();let best=null;for(const s of vis){const rem=s.cost-(S.pads[s.id]?S.pads[s.id].paid:0);if(!best||rem<best.rem)best={s,rem};}
-  const g=$('goal');if(!best){g.hidden=false;const its=empItems().sort((a,b)=>a.cost-b.cost),it=its[0];if(!it){$('goalTxt').textContent='🏆 '+rank()+'! 500 stores worldwide.';$('goalBar').style.width='100%';return;}
-    $('goalTxt').textContent='HQ: '+it.name+' · ₦'+short(it.cost);$('goalBar').style.width=Math.max(0,Math.min(100,100*S.money/it.cost))+'%';g.classList.toggle('ready',S.money>=it.cost);return;}
-  g.hidden=false;$('goalTxt').textContent='Next: '+padLabel(best.s)+' · ₦'+short(best.rem);$('goalBar').style.width=Math.min(100,100*S.money/best.rem)+'%';g.classList.toggle('ready',S.money>=best.rem);}
+  const g=$('goal');if(!best){g.hidden=false;const its=empItems().sort((a,b)=>a.cost-b.cost),it=its[0];if(!it){setT($('goalTxt'),'🏆 '+rank()+'! 500 stores worldwide.');setW($('goalBar'),100);return;}
+    setT($('goalTxt'),'Tap for HQ: '+it.name+' · ₦'+short(it.cost));setW($('goalBar'),Math.max(0,Math.min(100,100*S.money/it.cost)));g.classList.toggle('ready',S.money>=it.cost);return;}
+  g.hidden=false;setT($('goalTxt'),'Next: '+padLabel(best.s)+' · ₦'+short(best.rem));setW($('goalBar'),Math.max(0,Math.min(100,100*S.money/best.rem)));g.classList.toggle('ready',S.money>=best.rem);}
 
 /* ===== input ===== */
 cv.addEventListener('pointerdown',e=>{if(!G)return;audio();if(G.night){nightTap();return;}G.input={active:true,ox:e.clientX,oy:e.clientY,x:e.clientX,y:e.clientY};try{cv.setPointerCapture(e.pointerId);}catch(_){}});
 cv.addEventListener('pointermove',e=>{if(G&&G.input.active){G.input.x=e.clientX;G.input.y=e.clientY;}});
 const endIn=()=>{if(G)G.input.active=false};cv.addEventListener('pointerup',endIn);cv.addEventListener('pointercancel',endIn);
-addEventListener('keydown',e=>{if(G)G.keys[e.key.toLowerCase()]=true});addEventListener('keyup',e=>{if(G)G.keys[e.key.toLowerCase()]=false});
+addEventListener('keydown',e=>{if(G&&e.key)G.keys[e.key.toLowerCase()]=true});addEventListener('keyup',e=>{if(G&&e.key)G.keys[e.key.toLowerCase()]=false});addEventListener('blur',()=>{if(G){G.keys={};G.input.active=false;}});
 
 /* ===== fx helpers ===== */
 function inRect(x,y,r){return x>=r.x&&x<=r.x+r.w&&y>=r.y&&y<=r.y+r.h;}
@@ -183,7 +186,7 @@ function updCustomers(dt){const st=stage(),rate=1*VD[st]*ADM[lvl('ads')]*todMult
 const CPAL=[['#f2c230','#1f3f8f','none'],['#c9367a','#ffd659','gele'],['#2b8fd6','#f4f1ea','cap'],['#1f8a4c','#f2d16b','fila'],['#f4f1ea','#e8501e','none'],['#7a1f6a','#f2d16b','gele'],['#e8501e','#1b1f27','none'],['#36b3a8','#f4f1ea','none']];
 
 /* ===== pads ===== */
-function buyPad(s){const Lp=S.pads[s.id];Lp.l++;Lp.paid=0;const[x,y]=padPos(s);puff(x,y,18,'#9dffb8');
+function buyPad(s){const Lp=S.pads[s.id];Lp.l++;Lp.paid=0;dirty();const[x,y]=padPos(s);puff(x,y,18,'#9dffb8');
   const big=s.base==='venue'||s.base==='line'||s.base==='house'||s.base==='car';fanfare(big);confetti(big?120:50);
   let msg=padLabel(s);
   if(s.base==='venue'){makeSeats();msg=B.venue[s.n]+' is open!';if(s.n===4)msg='You built the '+B.venue[4]+'!';}
@@ -197,7 +200,7 @@ const staffCount=()=>G.workers.length;
 
 /* ===== main update ===== */
 function update(dt){
-  G.t+=dt;const P=G.player,acc=G.acc,f=G.field;
+  G.t+=dt;_fr++;const P=G.player,acc=G.acc,f=G.field;
   if(G.night){updNight(dt);return;}
   audioTick(dt);
   if(!G.closing){S.clock+=dt;if(S.clock>=dayLen()){G.closing=true;G.closeT=0;toast('8 PM. Closing time! Walk to your '+(lvl('car')?CAR[lvl('car')]:'bus stop')+' to go home.',5);beep(330,.4,'sine',.06,.6);}}

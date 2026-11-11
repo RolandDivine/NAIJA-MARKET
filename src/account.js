@@ -2,8 +2,8 @@
 const API=(window.NM_API||'')+'/api/naija',LEGACY='naijaMarket.v2';
 const NM={pid:null,ver:0,timer:0,dirty:false,blocked:false,busy:false,player:null,cfg:null,mode:'login'};
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-async function nmApi(method,path,body,keep){try{const r=await fetch(API+path,{method,credentials:'same-origin',keepalive:!!keep,headers:{'content-type':'application/json'},body:body?JSON.stringify(body):undefined});
-  const t=await r.text();let j=null;try{j=JSON.parse(t);}catch(e){}return{ok:r.ok,status:r.status,j};}catch(e){return{ok:false,status:0,j:null};}}
+async function nmApi(method,path,body,keep){try{const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),9000);const r=await fetch(API+path,{method,signal:ac.signal,credentials:'same-origin',keepalive:!!keep,headers:{'content-type':'application/json'},body:body?JSON.stringify(body):undefined});
+  clearTimeout(tm);const t=await r.text();let j=null;try{j=JSON.parse(t);}catch(e){}return{ok:r.ok,status:r.status,j};}catch(e){return{ok:false,status:0,j:null};}}
 const sumLv=b=>1+Object.values(b.pads||{}).reduce((a,p)=>a+(p.l||0),0)+Object.values(b.emp||{}).reduce((a,v)=>a+(+v||0),0);
 const bestLv=d=>Math.max(0,...Object.values((d&&d.biz)||{}).map(sumLv));
 function localLegacy(){try{const s=JSON.parse(localStorage.getItem(LEGACY)||'null');return s&&s.biz&&Object.keys(s.biz).length?s:null;}catch(e){return null;}}
@@ -70,6 +70,8 @@ function enterGame(){A.hidden=true;$('who').textContent=NM.player?NM.player.name
 
 /* ----- log out, and start-up ----- */
 $('logout').addEventListener('click',async()=>{if(NM.pid)await nmPush();await nmApi('POST','/logout');NM.pid=null;NM.player=null;G=null;SAVE={sound:true,snd:2,cur:null,biz:{}};$('hqp').hidden=true;$('pick').hidden=false;const r=await nmApi('GET','/me');NM.cfg=r.j;acctShow('login');});
-(async()=>{const r=await nmApi('GET','/me');
-  if(!r.ok||!r.j||!('player' in r.j)){$('localnote').hidden=false;return;}   // not on Community Square: play locally on this device
+(async()=>{if(location.protocol==='file:'){$('localnote').hidden=false;return;}
+  {A.innerHTML='<div class="in tour"><div class="ico">🧺</div><h1>Naija Market</h1><p class="sub">Opening your market...</p></div>';A.hidden=false;}
+  const r=await nmApi('GET','/me');
+  if(!r.ok||!r.j||!('player' in r.j)){A.hidden=true;$('localnote').hidden=false;return;}   // not on Community Square: play locally on this device
   NM.cfg=r.j;if(r.j.player)return signedIn(r.j);acctShow('signup');})();

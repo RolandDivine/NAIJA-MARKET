@@ -29,6 +29,7 @@ function musTick(){if(!AC||!musKind||sndLvl()<2||quiet()||document.hidden)return
     if(M.bass[b]!=null)tone(musT,M.root-24+M.bass[b],sd*1.9,'triangle',.5);
     if(M.mel[s]!=null)tone(musT,M.root+M.mel[s],sd*1.6,'square',.15,1700);
     musT+=sd;musStep++;}}
+document.addEventListener('visibilitychange',()=>{if(!AC)return;try{if(document.hidden)AC.suspend();else if(sndLvl())AC.resume();}catch(e){}});
 function audioTick(dt){if(!AC||quiet()){if(AC&&MG)MG.gain.value=sndLvl()&&G&&G.speed<=1?1:0;return;}MG.gain.value=1;const N=G.night,t=AC.currentTime;let amb=0,mus=0,kind=null;
   if(!$('pick').hidden){amb=0;}
   else if(N){if(N.st==='drive'){amb=.55;mus=.42;kind='radio';hornT-=dt;if(hornT<=0){hornT=rnd(1.5,3.5);horn();}}
