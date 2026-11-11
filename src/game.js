@@ -10,11 +10,11 @@ const GROW=1.15,CASH=['cash'];
 const rnd=(a,b)=>a+Math.random()*(b-a),dist=(a,b,c,d)=>Math.hypot(a-c,b-d);
 
 /* ===== save ===== */
-const KEY='naijaMarket.v2';
+let KEY='naijaMarket.v2',cloudHook=null;
 let SAVE={sound:true,cur:null,biz:{}};
 try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.biz)SAVE=s;}catch(e){}
 if(SAVE.snd==null)SAVE.snd=SAVE.sound===false?0:2;
-function save(){try{localStorage.setItem(KEY,JSON.stringify(SAVE));}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(SAVE));}catch(e){}if(cloudHook)cloudHook();}
 let S=null,B=null,G=null,PROG=[];
 const lvl=id=>(S.pads[id]?S.pads[id].l:0);
 const flag=()=>Object.values(S.pads).reduce((s,p)=>s+p.l,0);

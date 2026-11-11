@@ -254,4 +254,4 @@ let last=0;
 function frame(t){const dt=Math.min(.05,(t-last)/1000||0);last=t;if(G&&$('pick').hidden&&$('hqp').hidden){for(let i=0;i<G.speed;i++)update(dt);draw();}requestAnimationFrame(frame);}
 if(SAVE.cur&&SAVE.biz[SAVE.cur]){build();}
 showMenu();requestAnimationFrame(frame);
-window.__nm={get G(){return G},get S(){return S},get B(){return B},update,target,visibleSteps,padPos,harvest,lvl,level,enter,get PROG(){return PROG},empItems,empBuy,nightNext,startNight,brDay,expDay,monthDue,payrollList,hqOpen,hqClose,Fu,flag,buyPad,save};
+window.__nmAcct=()=>NM;window.__nm={get G(){return G},get S(){return S},get B(){return B},update,target,visibleSteps,padPos,harvest,lvl,level,enter,get PROG(){return PROG},empItems,empBuy,nightNext,startNight,brDay,expDay,monthDue,payrollList,hqOpen,hqClose,Fu,flag,buyPad,save};

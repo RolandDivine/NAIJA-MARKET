@@ -54,6 +54,34 @@ button:focus-visible{outline:3px solid var(--gold)}
 .row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
 .ghost.warn{background:#7a1c12}
 .how{font-size:13px;opacity:.9}
+.who{background:none;box-shadow:none;opacity:.85;cursor:default}
+#acct{position:fixed;inset:0;z-index:40;background:radial-gradient(circle at 50% 0%,#f6ae55,#b4521c 55%,#4a1f08);overflow-y:auto;touch-action:pan-y;
+  padding:calc(18px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 36px max(16px,env(safe-area-inset-left,0px))}
+#acct .in{width:min(100%,400px);margin:0 auto;display:flex;flex-direction:column;gap:10px}
+#acct h1{font-family:var(--display);font-weight:400;font-size:clamp(34px,10vw,52px);margin:6px 0 0;color:var(--cream);text-shadow:0 5px 0 var(--ink);text-align:center;line-height:.95}
+#acct .sub{margin:0;text-align:center;font-weight:800;font-size:14px}
+#acct .msg{margin:0;background:var(--panel);border-radius:12px;padding:9px 12px;font-weight:800;font-size:13px;text-align:center}
+#acct .msg a{color:var(--gold)}
+#acct .big{font:900 15px var(--body);border:0;border-radius:999px;padding:13px 16px;cursor:pointer;color:#fff;box-shadow:0 4px 0 var(--ink);min-height:48px}
+#acct .big:disabled{opacity:.6}
+#acct .cs{background:#1b2a4a}#acct .go{background:var(--green)}#acct .alt{background:#7a5a3a}
+#acct .ag{display:flex;justify-content:center;min-height:44px}
+#acct .or{display:flex;align-items:center;gap:10px;font-weight:800;font-size:12px;opacity:.9}
+#acct .or:before,#acct .or:after{content:"";flex:1;height:1px;background:rgba(255,246,228,.4)}
+#acct .tabs{display:flex;background:var(--panel);border-radius:999px;padding:3px}
+#acct .tabs button{flex:1;font:800 13px var(--body);border:0;border-radius:999px;padding:9px;background:none;color:var(--cream);cursor:pointer}
+#acct .tabs button.on{background:var(--gold);color:var(--ink)}
+#acct label{font-weight:800;font-size:12px;margin-top:2px}
+#acct input[type=text],#acct input[type=email],#acct input[type=password],#acct input[type=number]{font:700 16px var(--body);padding:12px 14px;border-radius:12px;border:0;background:var(--cream);color:var(--ink);width:100%;box-sizing:border-box}
+#acct .chk{display:flex;gap:10px;align-items:flex-start;font-weight:700;font-size:13px;margin-top:4px}
+#acct .chk input{width:22px;height:22px;flex:none;margin:0}
+#acct small{display:block;font-weight:600;opacity:.8}
+#acct .fine{margin:2px 0 0;font-size:11.5px;font-weight:700;opacity:.85;text-align:center}
+#acct .tour{align-items:center;text-align:center;padding-top:7vh}
+#acct .tour .ico{font-size:84px;line-height:1}
+#acct .tour .big{width:100%;margin-top:8px}
+#acct .dots{display:flex;gap:8px}#acct .dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,246,228,.35)}#acct .dots i.on{background:var(--gold)}
+#acct .skip{background:none;border:0;color:var(--cream);font:800 13px var(--body);opacity:.8;cursor:pointer;padding:10px
 #goal{pointer-events:auto;cursor:pointer}
 #ev{font-weight:800;font-size:11.5px;max-width:min(60vw,300px);color:#ffe9a8}
 #money.neg{color:#ff9a8a}
@@ -104,9 +132,10 @@ button:focus-visible{outline:3px solid var(--gold)}
 <div id="toast" style="opacity:0"></div>
 
 <div id="pick">
+  <p id="localnote" class="how" hidden>Playing on this device only. Open the game on Community Square to save it to your account.</p>
   <h1>Naija Market</h1>
   <p>Pick a business and grow it from a roadside spot into an empire. Each business keeps its own progress.</p>
   <div class="cards" id="cards"></div>
-  <div class="row"><button class="ghost" id="back" type="button" hidden>Back to my shop</button><button class="ghost warn" id="reset" type="button" hidden>Restart this business</button></div>
+  <div class="row"><span class="ghost who" id="who"></span><button class="ghost" id="logout" type="button" hidden>Log out</button><button class="ghost" id="back" type="button" hidden>Back to my shop</button><button class="ghost warn" id="reset" type="button" hidden>Restart this business</button></div>
   <p class="how">Drag anywhere to walk. Walk into the farm, make a circle with your rope, and come back out to collect everything inside. Carry goods on your head, sell, and stand on the price pads to upgrade. At 8 PM, go home, eat, bath and sleep. Salaries and tax are paid every 30 days. Open HQ to grow your empire.</p>
 </div>
