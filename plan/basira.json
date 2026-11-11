@@ -1,0 +1,110 @@
+{
+  "key": "basira",
+  "branchNoun": "snack spot",
+  "rankTitles": [
+    "Roadside Akara Seller",
+    "Snack Shop Madam",
+    "Lagos Snack Boss",
+    "Naija Snack Queen",
+    "West Africa Snack Mogul",
+    "Global Snack Icon"
+  ],
+  "export": {
+    "bay": "Snack Loading Bay",
+    "pack": "frozen moi-moi & snack mix",
+    "contracts": [
+      {"buyer": "Mama Tee Mall Kiosks", "where": "Ikeja, Lagos", "blurb": "Nearby kiosks want fresh egg rolls and puff-puff packs every morning."},
+      {"buyer": "Eko Trolley Supermarkets", "where": "Lagos", "blurb": "A supermarket chain stocks your frozen moi-moi in every freezer."},
+      {"buyer": "Royal Palm Hotels & Events", "where": "Abuja", "blurb": "Hotels and party caterers order small chops trays by the thousand."},
+      {"buyer": "Sunrise Snack Distributors", "where": "Kano", "blurb": "Up-country distributors carry your akara and puff-puff mix by truck."},
+      {"buyer": "Gold Coast Chop Traders", "where": "Accra, Ghana", "blurb": "Sealed plantain chips and snack mixes cross the border by container."},
+      {"buyer": "Home Taste African Grocers", "where": "London, UK", "blurb": "Diaspora shops abroad want frozen moi-moi that tastes like home."}
+    ]
+  },
+  "machines": {
+    "belt": {"name": "Hot Snack Conveyor", "blurb": "Carries akara and puff-puff from the fryer straight to the counter."},
+    "auto": {"name": "Bean Peeler & Grinder", "blurb": "Washes, peels and grinds beans by itself. No more aching arms."},
+    "pack": {"name": "Freeze & Seal Line", "blurb": "Blast-freezes and seals snacks in branded packs fit for export."}
+  },
+  "manager": {"name": "Mrs Folake", "title": "Operations Manager"},
+  "milestones": [
+    {"at": 1, "title": "Second Frying Pan", "blurb": "Your first branch opens. The recipe now has to work without you standing at the pot."},
+    {"at": 5, "title": "Five Spots in Lagos", "blurb": "Mainland and Island both know the name. Time to cook batter in one central kitchen."},
+    {"at": 10, "title": "Lagos Snack Chain", "blurb": "Ten spots share one menu, one uniform and one supply van route across the city."},
+    {"at": 25, "title": "Beyond Lagos", "blurb": "Ibadan, Abeokuta and Benin get branches. Regional managers start earning their pay."},
+    {"at": 50, "title": "Nationwide Name", "blurb": "From Port Harcourt to Kano, every motor park has your puff-puff. Bulk beans get cheaper."},
+    {"at": 100, "title": "One Hundred Fryers", "blurb": "A training school now teaches new cooks the akara recipe before they touch hot oil."},
+    {"at": 200, "title": "West Africa Welcome", "blurb": "Accra, Cotonou and Lome open. Dodo travels well and the neighbours love moi-moi."},
+    {"at": 300, "title": "Coast to Coast", "blurb": "From Dakar to Douala, franchise partners queue to carry the Iya Basira signboard."},
+    {"at": 400, "title": "Diaspora Doors Open", "blurb": "London and Houston branches open. Homesick customers cry small on the first bite."},
+    {"at": 500, "title": "World Snack Empire", "blurb": "Five hundred spots on three continents, all started from one roadside frying pan."}
+  ],
+  "chatter": {
+    "staff": [
+      "Akara don ready, hot hot!",
+      "Who get the next batch of puff-puff?",
+      "Abeg pass me the bean paste.",
+      "Oil don hot, make I drop dodo.",
+      "Customer don full ground o!",
+      "Wrap ten moi-moi for table four.",
+      "Egg roll remain only six!",
+      "Yam don finish, I dey slice more.",
+      "Mind the hot oil, my sister.",
+      "This queue long pass third mainland!",
+      "Small pepper or plenty pepper, ma?",
+      "I go fry am fresh, two minutes.",
+      "My hand dey sweet today, I swear.",
+      "Change dey, no worry, I dey come."
+    ],
+    "customer": [
+      "Give me akara, five hundred naira.",
+      "Is the puff-puff still hot?",
+      "Add extra dodo for me, abeg.",
+      "This moi-moi get egg inside?",
+      "Two egg rolls, I dey rush work.",
+      "Madam, your akara no get rival!",
+      "Fried yam with plenty pepper sauce.",
+      "My children say only Iya Basira.",
+      "I came from Lekki for this dodo!",
+      "Abeg wrap am well, na takeaway.",
+      "Puff-puff soft like pillow. Chai!",
+      "Akara and bread, breakfast is set.",
+      "I go carry moi-moi go office.",
+      "One more egg roll for the road."
+    ],
+    "manager": [
+      "Fryer two, please check your oil.",
+      "Smile first, then take the order.",
+      "Oga, sales don pass yesterday own.",
+      "Beans delivery arrives by ten.",
+      "Team, keep that counter shining.",
+      "Madam, branch report is ready.",
+      "Well done all, lunch rush handled!",
+      "Hairnets on, everybody, please."
+    ],
+    "night": [
+      "My clothes still smell of akara.",
+      "From one frying pan to all this.",
+      "Tomorrow I must buy more beans.",
+      "Mama would be proud of this dodo.",
+      "My feet tire, but my heart full.",
+      "Let me count today's money small."
+    ]
+  },
+  "events": [
+    {"name": "Rainy Morning Rush", "text": "Cold rain is falling and everybody wants hot akara and puff-puff.", "effect": "demand_up"},
+    {"name": "Beans Price Jump", "text": "Beans cost more at the market today. Each batch of akara eats your profit.", "effect": "cost_hit"},
+    {"name": "Yam Truck Delay", "text": "The yam and plantain truck is stuck on the expressway. Supplies crawl in.", "effect": "supply_slow"},
+    {"name": "Owambe Party Order", "text": "A wedding planner pays upfront for small chops trays. Sweet extra cash!", "effect": "bonus_cash"},
+    {"name": "Food Blogger Visit", "text": "A famous food blogger is filming your dodo. Big spenders follow her in.", "effect": "vip_day"},
+    {"name": "School Holiday Lull", "text": "Schools are closed and the morning egg roll crowd has stayed at home.", "effect": "demand_down"},
+    {"name": "Festive Season Fever", "text": "Festive season is here. Customers gladly pay more for party snacks.", "effect": "price_up"},
+    {"name": "New Gas Burners", "text": "Fresh gas cylinders and clean burners. Oil heats fast and cooks fly.", "effect": "speed_up"}
+  ],
+  "research": [
+    {"claim": "The owner of Nigeria's largest quick-service chicken chain opened its 200th store across Nigeria and Ghana, running several brands at different price points.", "url": "https://www.foodbusinessmea.com/nigerias-chicken-republic-brand-owner-boasts-of-200-outlets-in-west-africa/"},
+    {"claim": "Exporting processed Nigerian food needs an NEPC exporter's certificate and a NAFDAC health certificate, and US-bound facilities must register with the FDA.", "url": "https://thebusinessbuilders.beehiiv.com/p/how-to-export-nigerian-foods-to-the-uk-and-us"},
+    {"claim": "Ready-made puff-puff and moi-moi mixes are sold to the diaspora through African grocery stores in Texas and online across the US and Canada.", "url": "https://mysasun.com/blogs/cooking-tutorials/how-to-make-delicious-african-snacks-with-afrik-ready-made-mixes"},
+    {"claim": "A frozen West African meals brand reached thousands of mainstream US grocery stores, showing diaspora frozen food can scale beyond ethnic shops.", "url": "https://abc7chicago.com/post/black-owned-business-ayo-foods-west-african-food-liberian/11546998/"}
+  ]
+}

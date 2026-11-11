@@ -1,0 +1,110 @@
+{
+  "key": "zainab",
+  "branchNoun": "drinks bar",
+  "rankTitles": [
+    "Zobo Seller",
+    "Drinks Bar Owner",
+    "Lagos Drinks Madam",
+    "Naija Refreshment Boss",
+    "West Africa Drinks Queen",
+    "Global Hibiscus Icon"
+  ],
+  "export": {
+    "bay": "Cold Crate Dock",
+    "pack": "chilled bottled drink crates",
+    "contracts": [
+      {"buyer": "Mama Kudi Corner Shops", "where": "Surulere, Lagos", "blurb": "Kiosks nearby want sealed zobo and kunu for their small fridges."},
+      {"buyer": "FreshBasket Supermarkets", "where": "Lagos", "blurb": "A supermarket chain gives your labelled bottles a full cold shelf."},
+      {"buyer": "Royal Palm Hotels & Events", "where": "Abuja", "blurb": "Hotels and caterers serve your Chapman at weddings nationwide."},
+      {"buyer": "Arewa Cool Distributors", "where": "Kano", "blurb": "State distributors truck pasteurised crates to towns up north."},
+      {"buyer": "Gold Coast Beverage Traders", "where": "Accra, Ghana", "blurb": "ECOWAS buyers want long-life tiger nut drink and zobo by the pallet."},
+      {"buyer": "Naija Taste Imports", "where": "London, UK", "blurb": "Diaspora stores abroad order zobo and hibiscus packs by container."}
+    ]
+  },
+  "machines": {
+    "belt": {"name": "Chilled Bottle Conveyor", "blurb": "Rolls cold filled bottles from the kitchen straight to the counter."},
+    "auto": {"name": "Hibiscus Brew Tanker", "blurb": "Collects zobo leaf, tiger nut and millet, then steeps it by itself."},
+    "pack": {"name": "Pasteurise & Seal Line", "blurb": "Heats, seals and labels bottles so they last long enough to export."}
+  },
+  "manager": {"name": "Mrs Halima", "title": "Beverage Ops Manager"},
+  "milestones": [
+    {"at": 1, "title": "Second Cooler Opens", "blurb": "Your first drinks bar outside the lounge. The recipe now lives in two places."},
+    {"at": 5, "title": "Central Brew Kitchen", "blurb": "One kitchen brews for five bars, so every cup of zobo tastes the same."},
+    {"at": 10, "title": "Sealed and Certified", "blurb": "Bottles are sealed, labelled and registered. Supermarkets now take you seriously."},
+    {"at": 25, "title": "Cold Truck Fleet", "blurb": "Your own chiller trucks keep kunu fresh from Lagos to Ibadan and Abeokuta."},
+    {"at": 50, "title": "Kano Hibiscus Contract", "blurb": "You buy zobo leaf direct from northern farm co-operatives. Costs drop, quality rises."},
+    {"at": 100, "title": "A Bar in Every State", "blurb": "From Sokoto to Calabar, people can find Aunty Zainab on the high street."},
+    {"at": 200, "title": "Bottling Plant Online", "blurb": "A full factory fills thousands of bottles an hour for branches and export."},
+    {"at": 300, "title": "ECOWAS Refreshment Brand", "blurb": "Accra, Cotonou, Lome and Dakar all sip your tiger nut drink daily."},
+    {"at": 400, "title": "Diaspora High Streets", "blurb": "Drinks bars open in London and Houston. Home taste, far from home."},
+    {"at": 500, "title": "Hibiscus to the World", "blurb": "500 bars on three continents. A roadside cooler became a global drinks house."}
+  ],
+  "chatter": {
+    "staff": [
+      "Zobo don chill well well!",
+      "Abeg pass me the ginger.",
+      "Who hide the Chapman cucumber?",
+      "Ice block don finish again o!",
+      "Kunu fresh, I just sieve am.",
+      "Shake am before you pour!",
+      "Tiger nut dey soak since morning.",
+      "Aunty, cooler number two is full.",
+      "Label straight, no bend am.",
+      "Make I taste... for quality o.",
+      "Pineapple peel go inside zobo.",
+      "Customer don full ground!",
+      "Cover the bottles tight, abeg.",
+      "Fridge dey hum like generator."
+    ],
+    "customer": [
+      "Aunty, one cold zobo abeg!",
+      "This kunu sweet pass yesterday.",
+      "Give me kunu aya, two bottles.",
+      "Chapman with plenty ice, please.",
+      "Sun too hot, I need water!",
+      "Na your zobo bring me come.",
+      "No sugar for my own, thank you.",
+      "Abeg, the ginger one!",
+      "My children love the tiger nut.",
+      "Pack six zobo for the office.",
+      "Is the Chapman red or very red?",
+      "E cold reach? Ah, e cold!",
+      "I go carry one crate for party.",
+      "Aunty Zainab never disappoint."
+    ],
+    "manager": [
+      "Check the fridge temperature.",
+      "Expiry date on every bottle!",
+      "Truck leaves by two, load up.",
+      "Madam, Kano leaf has arrived.",
+      "Hairnets on, everybody.",
+      "First brewed, first sold.",
+      "Sales up today, well done team.",
+      "Rotate stock, old bottles front."
+    ],
+    "night": [
+      "My hands still smell of ginger.",
+      "Tomorrow, I brew double zobo.",
+      "One cooler started all this.",
+      "Hope NEPA leaves the fridge on.",
+      "Small small, we go reach Accra.",
+      "Even me, I need cold Chapman."
+    ]
+  },
+  "events": [
+    {"name": "Lagos Heat Wave", "text": "Sun dey shine like say e dey vex. Everybody wants something cold.", "effect": "demand_up"},
+    {"name": "All-Day Rain", "text": "Heavy rain and cool breeze. People want hot tea, not cold zobo.", "effect": "demand_down"},
+    {"name": "Hibiscus Price Jump", "text": "Export buyers swept the Kano market. Zobo leaf costs more this week.", "effect": "cost_hit"},
+    {"name": "Owambe Bulk Order", "text": "A wedding planner paid up front for 300 bottles of Chapman.", "effect": "bonus_cash"},
+    {"name": "Ice Block Shortage", "text": "The ice man's truck broke down. Chilling drinks takes longer today.", "effect": "supply_slow"},
+    {"name": "Food Blogger Visit", "text": "A popular food blogger posted your kunu aya. Big spenders are coming.", "effect": "vip_day"},
+    {"name": "Tiger Nut Season Ends", "text": "Fresh tiger nut is scarce, so customers gladly pay premium prices.", "effect": "price_up"},
+    {"name": "New Blender Blades", "text": "Fresh blades and a serviced juicer. The kitchen is flying today.", "effect": "speed_up"}
+  ],
+  "research": [
+    {"claim": "Nigeria earned about $35 million from hibiscus (zobo leaf) exports in nine months of 2017, mostly shipped to Mexico in 1,983 containers.", "url": "https://shipsandports.com.ng/?p=74345"},
+    {"claim": "NAFDAC says zobo sold loose needs no registration number, but once it is packaged, sealed and labelled it must be registered.", "url": "https://www.premiumtimesng.com/regional/south-south-regional/921165-viral-video-nafdac-speaks-on-police-demand-for-reg-number-from-zobo-hawker.html"},
+    {"claim": "Unpreserved zobo spoils within 24 to 48 hours at room temperature and lasts only about 5 to 7 days refrigerated, so scaling needs cold chain or preservation.", "url": "https://naijasabi.com.ng/how-to-make-zobo-drink-nigeria-recipe-preserve-business-guide/"},
+    {"claim": "Export hibiscus is sourced from smallholder co-operatives in northern Nigeria and Kano aggregators, then sold in bulk to buyers in the US and UK.", "url": "https://www.howwemadeitinafrica.com/supplying-the-american-market-with-nigerian-superfoods/"}
+  ]
+}

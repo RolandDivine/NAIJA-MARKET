@@ -1,0 +1,192 @@
+{
+ "salaries": {
+  "hand": 70000,
+  "porter": 75000,
+  "server": 80000,
+  "cook": 100000,
+  "cashier": 85000,
+  "loader": 90000,
+  "manager": 250000,
+  "regional": 550000
+ },
+ "salarySources": [
+  {
+   "claim": "Waiter adverts in 2026 mostly pay N50,000 to N120,000 a month, most common N70,000; Lagos casual dining N70,000 to N120,000.",
+   "url": "https://www.profolio.ng/waiter/salary-guide"
+  },
+  {
+   "claim": "Lagos restaurant cashier advert (2026) at N70,000 a month.",
+   "url": "https://www.profolio.ng/jobs/firewood-rice-nigeria/restaurant-cashier-lagos"
+  },
+  {
+   "claim": "Single-site restaurant managers in Lagos commonly earn N150,000 to N250,000 a month; upscale N250,000 to N400,000.",
+   "url": "https://www.profolio.ng/restaurant-manager/salary-guide"
+  },
+  {
+   "claim": "Regional/area manager gross pay mostly N201,991 to N841,715 a month, about N545,800 after 5 years (small sample).",
+   "url": "https://www.paylab.com/ng/salaryinfo/management/regional-area-manager?lang=en"
+  },
+  {
+   "claim": "Labourer survey range N142,487 to N265,048 gross a month (small sample, formal employers; game figure set near the N70,000 minimum wage typical of farm and informal work).",
+   "url": "https://www.paylab.com/ng/salaryinfo/general-labour/labourer?lang=en"
+  },
+  {
+   "claim": "Warehouseman survey range N137,467 to N326,282 gross a month (small sample; game loader figure set lower for an unskilled loader).",
+   "url": "https://www.paylab.com/ng/salaryinfo/transport-haulage-logistics/warehouseman?lang=en"
+  },
+  {
+   "claim": "Cooks typically earn N23,436 to N58,127 a month nationally (low-end survey; game figure raised above the N70,000 minimum wage for Lagos).",
+   "url": "https://wageindicator.org/en-ng/work-in-nigeria/jobs-and-pay/cooks"
+  }
+ ],
+ "tax": {
+  "realRule": "Nigeria Tax Act 2025 (from 1 Jan 2026): companies with turnover up to N100m a year and fixed assets up to N250m pay no company income tax, capital gains tax or development levy. Larger companies pay 30% company income tax plus a 4% development levy on assessable profits. VAT stays 7.5%.",
+  "gameRate": 0.1,
+  "exemptMonthlyRevenue": 8300000,
+  "label": "Company tax + levy",
+  "sources": [
+   {
+    "claim": "Small company = turnover of N100m or below and fixed assets not above N250m; exempt from CIT, CGT and the 4% development levy; VAT retained at 7.5%.",
+    "url": "https://pwc.com/ng/en/publications/the-nigerian-tax-reform-acts.html"
+   },
+   {
+    "claim": "Companies above N100m turnover keep paying 30% corporate tax plus a new 4% development levy; effective 1 January 2026.",
+    "url": "https://guardian.ng/news/explainer-who-will-pay-under-nigerias-new-tax-laws/"
+   },
+   {
+    "claim": "The 4% development levy replaces the tertiary education tax, NITDA, NASENI and police trust fund levies.",
+    "url": "https://www.mondaq.com/nigeria/tax-authorities/1705160/the-nigeria-tax-reform-act-2025-and-how-it-affects-businesses"
+   }
+  ]
+ },
+ "payrollShare": 0.15,
+ "empire": {
+  "managerCost": 1.8,
+  "machineCost": {
+   "belt": 3.06,
+   "auto": 5.55,
+   "pack": 9.05
+  },
+  "contracts": [
+   {
+    "cost": 2.53,
+    "perDay": 0.1
+   },
+   {
+    "cost": 4.12,
+    "perDay": 0.2
+   },
+   {
+    "cost": 7.34,
+    "perDay": 0.3
+   },
+   {
+    "cost": 12.2,
+    "perDay": 0.4
+   },
+   {
+    "cost": 17.8,
+    "perDay": 0.6
+   },
+   {
+    "cost": 23.5,
+    "perDay": 0.9
+   }
+  ],
+  "regions": [
+   {
+    "name": "Lagos",
+    "size": 20,
+    "mult": 1.0,
+    "managerCost": 1.2
+   },
+   {
+    "name": "South-West",
+    "size": 40,
+    "mult": 1.1,
+    "managerCost": 4.88
+   },
+   {
+    "name": "South-South",
+    "size": 40,
+    "mult": 1.2,
+    "managerCost": 8.12
+   },
+   {
+    "name": "South-East",
+    "size": 35,
+    "mult": 1.3,
+    "managerCost": 10.6
+   },
+   {
+    "name": "North-Central + Abuja",
+    "size": 45,
+    "mult": 1.4,
+    "managerCost": 12.5
+   },
+   {
+    "name": "North-West",
+    "size": 40,
+    "mult": 1.5,
+    "managerCost": 14.8
+   },
+   {
+    "name": "North-East",
+    "size": 30,
+    "mult": 1.6,
+    "managerCost": 16.6
+   },
+   {
+    "name": "West Africa",
+    "size": 60,
+    "mult": 2.0,
+    "managerCost": 17.8
+   },
+   {
+    "name": "Rest of Africa",
+    "size": 50,
+    "mult": 2.3,
+    "managerCost": 20.2
+   },
+   {
+    "name": "UK + Europe",
+    "size": 60,
+    "mult": 2.7,
+    "managerCost": 22.1
+   },
+   {
+    "name": "North America",
+    "size": 50,
+    "mult": 3.0,
+    "managerCost": 24.3
+   },
+   {
+    "name": "Middle East + Asia",
+    "size": 30,
+    "mult": 3.0,
+    "managerCost": 26.0
+   }
+  ],
+  "branch": {
+   "c0": 1.6,
+   "c1": 0.46,
+   "p": 0.645,
+   "b": 0.0445
+  },
+  "inefficiency": 0.8
+ },
+ "sim": {
+  "dayAtBranches": {
+   "1": 38,
+   "10": 72,
+   "50": 204,
+   "100": 343,
+   "250": 654,
+   "500": 975
+  },
+  "maxGapDays": 6,
+  "medianGapDays": 2.0,
+  "incomePerDayAt500": 28.7
+ },
+ "notes": "Sim (econ_sim.py): cash 0 at day 30, payroll 15% of revenue daily, 10% tax on profit every 30 days with NO exemption applied, greedy cheapest-first. Next regional manager unlocks only when the current region is full. p<1 is deliberate: flatter costs keep waits at 1-3 days. 94% of waits are 3 days or less. Milestones every 5 branches to 100, then every 10, keep news gaps at 24 days max. A perfect player (no 0.8 loss) hits 500 at day 786; a lazy one (0.6) at day 1,292. exemptMonthlyRevenue is real naira (N100m/12); rescale to game money. Net income at 500 is after payroll and tax."
+}

@@ -1,0 +1,958 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Naija Market</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@600;800;900&display=swap">
+<style>
+/* Layout: full-screen game canvas; HUD pinned top; goal chip under it; business picker overlay. One deliberate look: sun-baked Lagos market by day. */
+:root{
+  --ink:#2b1608; --cream:#fff6e4; --green:#1f8a4c; --gold:#ffc23d; --hot:#e8501e; --panel:rgba(43,22,8,.84);
+  --display:"Lilita One","Arial Black",system-ui,sans-serif; --body:"Nunito",system-ui,sans-serif;
+  color-scheme:light;
+}
+[hidden]{display:none!important}
+html,body{height:100%;margin:0;overflow:hidden;background:#3a2210;touch-action:none;user-select:none;-webkit-user-select:none}
+body{font-family:var(--body);color:var(--cream)}
+#c{display:block;position:fixed;inset:0;width:100%;height:100%}
+#hud{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;
+  padding:calc(10px + env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) 0 max(12px,env(safe-area-inset-left,0px));pointer-events:none}
+.col{display:flex;flex-direction:column;gap:6px;min-width:0}
+.col.r{align-items:flex-end}
+.pill{background:var(--panel);border-radius:16px;padding:6px 14px;box-shadow:0 3px 0 rgba(0,0,0,.35)}
+#money{font-family:var(--display);font-size:26px;letter-spacing:.5px;font-variant-numeric:tabular-nums;color:#b9ffcf;white-space:nowrap}
+#money b{color:var(--gold);font-weight:400;margin-right:2px}
+#biz{font-family:var(--display);font-size:15px;color:var(--gold);line-height:1.1;max-width:46vw}
+#biz small{display:block;font-family:var(--body);font-weight:800;font-size:11px;color:var(--cream);opacity:.9;letter-spacing:.3px}
+#goal{font-weight:800;font-size:12px;max-width:min(60vw,300px)}
+#goal i{display:block;height:7px;border-radius:9px;background:rgba(255,255,255,.18);margin-top:4px;overflow:hidden}
+#goal i u{display:block;height:100%;width:0;background:linear-gradient(90deg,#36b36a,#b9ffcf);border-radius:9px;transition:width .25s}
+#goal.ready{outline:2px solid #7dff9a}
+.btns{display:flex;gap:6px;pointer-events:auto}
+.btns button{white-space:nowrap}
+body.night #goal,body.night #ev,body.night .btns{display:none}
+.btns button,.ghost{font:800 13px var(--body);background:var(--panel);color:var(--cream);border:0;border-radius:999px;padding:8px 12px;cursor:pointer}
+button:focus-visible{outline:3px solid var(--gold)}
+#toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--panel);
+  padding:10px 18px;border-radius:14px;font-weight:900;font-size:15px;max-width:min(86vw,420px);text-align:center;transition:opacity .3s;pointer-events:none}
+#banner{position:fixed;left:50%;top:30%;transform:translate(-50%,-50%) scale(.6);font-family:var(--display);font-size:clamp(34px,10vw,64px);color:var(--gold);
+  text-shadow:0 4px 0 var(--ink),0 0 24px rgba(255,194,61,.7);opacity:0;pointer-events:none;text-align:center;line-height:1;white-space:nowrap}
+#banner small{display:block;font-family:var(--body);font-weight:900;font-size:.32em;color:var(--cream);margin-top:8px;white-space:normal}
+#banner.go{animation:pop 2.2s ease-out}
+@keyframes pop{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}12%{opacity:1;transform:translate(-50%,-50%) scale(1.12)}22%{transform:translate(-50%,-50%) scale(1)}80%{opacity:1}100%{opacity:0;transform:translate(-50%,-70%) scale(1)}}
+#pick{position:fixed;inset:0;background:radial-gradient(circle at 50% 10%,#f6ae55,#b4521c 55%,#4a1f08);display:flex;flex-direction:column;align-items:center;
+  overflow-y:auto;touch-action:pan-y;padding:calc(20px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 28px max(16px,env(safe-area-inset-left,0px));gap:12px}
+#pick h1{font-family:var(--display);font-weight:400;font-size:clamp(38px,10vw,60px);margin:4px 0 0;color:var(--cream);text-shadow:0 5px 0 var(--ink);text-align:center;line-height:.95}
+#pick p{margin:0;font-weight:800;text-align:center;max-width:44ch}
+.cards{display:grid;gap:12px;width:min(100%,860px);grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.card{display:grid;grid-template-columns:60px 1fr;gap:12px;align-items:center;text-align:left;background:var(--cream);color:var(--ink);border:0;border-radius:18px;padding:10px 14px;
+  box-shadow:0 5px 0 var(--ink);cursor:pointer;font-family:var(--body);border-left:10px solid var(--tone,#e8501e)}
+.card:hover,.card:focus-visible{transform:translateY(-2px)}
+.card canvas{width:60px;height:60px}
+.card h2{font-family:var(--display);font-weight:400;font-size:19px;margin:0;line-height:1.05}
+.card span{display:block;font-size:12.5px;font-weight:700;opacity:.85;margin-top:2px}
+.card em{display:inline-block;font-style:normal;font-weight:900;font-size:11.5px;background:#1f8a4c;color:#fff;border-radius:99px;padding:2px 9px;margin-top:5px}
+.card em.new{background:#2b1608}
+.row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.ghost.warn{background:#7a1c12}
+.how{font-size:13px;opacity:.9}
+#goal{pointer-events:auto;cursor:pointer}
+#ev{font-weight:800;font-size:11.5px;max-width:min(60vw,300px);color:#ffe9a8}
+#money.neg{color:#ff9a8a}
+#banner{z-index:30}
+#hqp{position:fixed;inset:0;z-index:20;background:linear-gradient(180deg,#14324a,#0b1a2b);overflow-y:auto;touch-action:pan-y;color:var(--cream);
+  padding:calc(14px + env(safe-area-inset-top,0px)) max(14px,env(safe-area-inset-right,0px)) 30px max(14px,env(safe-area-inset-left,0px))}
+#hqp .in{width:min(100%,760px);margin:0 auto;display:flex;flex-direction:column;gap:12px}
+#hqp header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+#hqp h1{font-family:var(--display);font-weight:400;font-size:clamp(24px,7vw,36px);margin:0;color:var(--gold);line-height:1}
+#hqp h1 small{display:block;font-family:var(--body);font-weight:800;font-size:13px;color:var(--cream);margin-top:5px}
+#hqp h2{font-family:var(--display);font-weight:400;font-size:19px;margin:8px 0 0;color:#7ad1ff}
+#hqp .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+#hqp .stat{background:rgba(255,255,255,.08);border-radius:14px;padding:8px 12px;font-weight:800;font-size:12px}
+#hqp .stat b{display:block;font-family:var(--display);font-weight:400;font-size:19px;color:#b9ffcf;font-variant-numeric:tabular-nums}
+.it{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center;text-align:left;width:100%;background:var(--cream);color:var(--ink);border:0;border-radius:16px;
+  padding:10px 12px;box-shadow:0 4px 0 #050d16;font-family:var(--body);cursor:pointer}
+.it i{font-style:normal;font-size:26px;text-align:center}
+.it strong{display:block;font-family:var(--display);font-weight:400;font-size:16px;line-height:1.1}
+.it span{display:block;font-size:12px;font-weight:700;opacity:.85;margin-top:2px}
+.it em{font-style:normal;font-weight:900;font-size:13px;background:#1f8a4c;color:#fff;border-radius:99px;padding:6px 11px;white-space:nowrap}
+.it.no{opacity:.62}.it.no em{background:#6b5a4a}
+.regs{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.reg{background:rgba(255,255,255,.08);border-radius:12px;padding:8px 10px;font-weight:800;font-size:12px}
+.reg u{display:block;height:6px;border-radius:6px;background:rgba(255,255,255,.16);margin-top:5px;overflow:hidden;text-decoration:none}
+.reg u s{display:block;height:100%;background:linear-gradient(90deg,#ffc23d,#7dff9a);text-decoration:none}
+.reg.done{outline:2px solid #7dff9a}.reg.lock{opacity:.5}
+#hqp table{width:100%;border-collapse:collapse;font-weight:700;font-size:13px;font-variant-numeric:tabular-nums}
+#hqp td{padding:5px 4px;border-bottom:1px solid rgba(255,255,255,.12)}#hqp td:last-child{text-align:right;white-space:nowrap}
+#hqp .note{font-weight:700;font-size:12.5px;opacity:.9;margin:0}
+#hqp .lock{background:rgba(255,255,255,.08);border-radius:14px;padding:12px;font-weight:800;font-size:14px}
+@media (prefers-reduced-motion:reduce){.card:hover{transform:none}#banner.go{animation-duration:.01s}}
+</style>
+
+<canvas id="c"></canvas>
+<div id="hud">
+  <div class="col">
+    <div class="pill"><div id="biz">Naija Market<small></small></div></div>
+    <div class="pill" id="goal" hidden><span id="goalTxt"></span><i><u id="goalBar"></u></i></div>
+    <div class="pill" id="ev" hidden></div>
+  </div>
+  <div class="col r">
+    <div class="pill"><div id="money"><b>₦</b>0</div></div>
+    <div class="btns"><button id="hq" type="button">🏢 HQ</button><button id="mute" type="button">🔊</button><button id="menu" type="button">Menu</button></div>
+  </div>
+</div>
+<div id="banner"></div>
+<div id="hqp" hidden><div class="in" id="hqin"></div></div>
+<div id="toast" style="opacity:0"></div>
+
+<div id="pick">
+  <h1>Naija Market</h1>
+  <p>Pick a business and grow it from a roadside spot into an empire. Each business keeps its own progress.</p>
+  <div class="cards" id="cards"></div>
+  <div class="row"><button class="ghost" id="back" type="button" hidden>Back to my shop</button><button class="ghost warn" id="reset" type="button" hidden>Restart this business</button></div>
+  <p class="how">Drag anywhere to walk. Walk into the farm, make a circle with your rope, and come back out to collect everything inside. Carry goods on your head, sell, and stand on the price pads to upgrade. At 8 PM, go home, eat, bath and sleep. Salaries and tax are paid every 30 days. Open HQ to grow your empire.</p>
+</div>
+<script>
+(()=>{'use strict';
+/* ===== businesses: 10 independent shops, 5 product lines each. Prices: Lagos retail, Nov 2026 ===== */
+const L=(n,short,col,price,unit,src,raw,prod,st)=>({n,short,col,price,unit,src,raw,prod,st});
+const BIZ={
+nkechi:{name:"Mama Nkechi's Kitchen",tag:'Cooked food',tone:'#e8541e',field:'farm',food:true,owner:{cloth:'#e8501e',trim:'#ffc23d',hat:'gele'},
+  venue:['Roadside bench','Canopy and tables','Buka','Restaurant, 150 seats','Grand Restaurant, 1,000 seats'],
+  lines:[
+   L('Jollof rice and beef','Jollof','#e8541e',2000,'plate','field',['round','#e2301f','#3aa336'],['plate','#e8541e',null,['#b92c14','#ffcf4a'],'#6b3a1f'],'pot'),
+   L('Fried rice and chicken','Fried rice','#e0b400',3500,'plate','depot',['sack','#f4f1ea','#2f8f5b'],['plate','#f0d36a',null,['#3fa34d','#f08a24','#e2553c'],'#c98a3a'],'pot'),
+   L('Pounded yam and egusi','Poundo','#f08c1a',3000,'plate','depot',['tuber','#7b4a22'],['plate','#fbf6e6','#e0a021',['#3f8f3a'],'#7a3b1c'],'pot'),
+   L('Amala, ewedu and gbegiri','Amala','#3f9a3a',2500,'plate','depot',['sack','#b08a5a','#5b3a29'],['plate','#4a2f22','#3f9a3a',['#e8b93a'],'#7a3b1c'],'pot'),
+   L('Cold bottled water','Water','#2a9fd6',300,'50cl bottle','depot',['sack','#bfe6fb','#2a9fd6'],['bottle','#8fd3f7','#1e6fb5'],'cooler')]},
+tunde:{name:'Baba Tunde Farm Produce',tag:'Farm produce',tone:'#3f9a3a',field:'farm',owner:{cloth:'#2a62c9',trim:'#9cc4ff',hat:'fila'},
+  venue:['Table-top stall','Canopy stall','Lock-up shop','Produce depot','Agro mega-market'],
+  lines:[
+   L('Yam tubers','Yam','#b5651d',3000,'medium tuber','field',['tuber','#7b4a22'],['bundle','#7b4a22','#e8c36a'],'table'),
+   L('Ugu leaves','Ugu','#2e8b3d',500,'bunch','field',['leafy','#2e8b3d',null],['leafy','#2e8b3d','#e8c36a'],'table'),
+   L('Cucumbers','Cucumber','#6fbf4a',300,'piece','field',['long','#3f9a3a','#2c6e2a'],['basket','#3f9a3a'],'table'),
+   L('Local rice','Rice','#d9b84a',1000,'derica','field',['plant','#d9c36a'],['sack','#f4f1ea','#c62828'],'table'),
+   L('Plantain','Plantain','#f2c230',3500,'small bunch','field',['long','#f2c230','#6a8f2a'],['basket','#f2c230'],'table')]},
+musa:{name:'Mallam Musa Suya Spot',tag:'Suya and grills',tone:'#b8431f',field:'pasture',food:true,owner:{cloth:'#f4f1ea',trim:'#2f8f5b',hat:'cap'},
+  venue:['Roadside grill','Canopy and benches','Suya joint','Grill house, 150 seats','Grand Grill Arena, 1,000 seats'],
+  lines:[
+   L('Beef suya','Beef suya','#b8431f',2000,'wrap','field',['cow'],['skewer','#8a3a16','#d4572a'],'grill'),
+   L('Chicken suya','Chicken','#e09a2b',3500,'portion','field',['chicken'],['skewer','#c9892f','#f0b95a'],'grill'),
+   L('Asun (peppered goat)','Asun','#c62828',4000,'portion','field',['goat'],['plate','#7a3b1c',null,['#e2301f','#3f9a3a'],null],'grill'),
+   L('Masa','Masa','#caa66a',500,'5 pieces','depot',['sack','#f4f1ea','#b98b4e'],['ball','#f6ead0','#e0c89a'],'fryer'),
+   L('Zobo drink','Zobo','#a8244a',500,'50cl bottle','depot',['sack','#7a1532','#a8244a'],['bottle','#8e1438','#f4f1ea'],'cooler')]},
+basira:{name:'Iya Basira Snacks',tag:'Akara and puff-puff',tone:'#f0b440',field:'farm',food:true,owner:{cloth:'#7a1f6a',trim:'#f2d16b',hat:'gele'},
+  venue:['Roadside fryer','Canopy and benches','Snack shop','Fast-food restaurant, 150 seats','Snack Palace, 1,000 seats'],
+  lines:[
+   L('Akara','Akara','#d9822b',500,'5 balls','field',['plant','#e9dcc0'],['ball','#c9762a','#e59a45'],'fryer'),
+   L('Puff-puff','Puff-puff','#f0b440',500,'5 balls','depot',['sack','#f4f1ea','#e0a021'],['ball','#e3a53a','#f6cf7a'],'fryer'),
+   L('Fried yam and dodo','Dodo','#e8961e',1000,'portion','field',['long','#f2c230','#6a8f2a'],['plate','#f2b430',null,['#c9762a','#e8d08a'],null],'fryer'),
+   L('Egg roll','Egg roll','#b9783a',500,'one','depot',['carton','#e9dcc0','#b98b4e'],['wrap','#c9853a','#f4e2b0'],'fryer'),
+   L('Moi-moi','Moi-moi','#3f8f3a',500,'wrap','depot',['sack','#c9a15a','#7b4a22'],['wrap','#e2703a','#3f8f3a'],'pot')]},
+zainab:{name:'Aunty Zainab Drinks',tag:'Zobo, kunu and juice',tone:'#a8244a',field:'farm',food:true,owner:{cloth:'#0f7a5a',trim:'#f2d16b',hat:'gele'},
+  venue:['Cooler by the road','Canopy and benches','Drinks kiosk','Juice bar, 150 seats','Drinks Lounge, 1,000 seats'],
+  lines:[
+   L('Zobo','Zobo','#a8244a',500,'50cl bottle','field',['plant','#a8244a'],['bottle','#8e1438','#f4f1ea'],'cooler'),
+   L('Kunu','Kunu','#cdb98a',500,'50cl bottle','field',['plant','#d9c36a'],['bottle','#efe3c2','#b98b4e'],'cooler'),
+   L('Tiger nut drink','Kunu aya','#9a6b3a',700,'50cl bottle','field',['plant','#9a6b3a'],['bottle','#d9b98a','#7b4a22'],'cooler'),
+   L('Chapman','Chapman','#f26a2a',2500,'glass','field',['round','#f08a24','#3aa336'],['bottle','#f2552a','#3aa336'],'cooler'),
+   L('Bottled water','Water','#2a9fd6',300,'50cl bottle','depot',['sack','#bfe6fb','#2a9fd6'],['bottle','#8fd3f7','#1e6fb5'],'cooler')]},
+chidi:{name:'Chidi Provisions Store',tag:'Provisions',tone:'#e8b21e',field:'yard',owner:{cloth:'#d62828',trim:'#f4f1ea',hat:'cap'},
+  venue:['Table-top stall','Kiosk','Lock-up shop','Supermarket','Mega mart'],
+  lines:[
+   L('Instant noodles','Noodles','#e8b21e',450,'70g pack','field',['carton','#f2c230','#d62828'],['pack','#f2c230','#d62828'],'table'),
+   L('Soft drinks','Soft drink','#d62828',500,'50cl bottle','field',['carton','#d62828','#f4f1ea'],['bottle','#3a1a0e','#d62828'],'cooler'),
+   L('Detergent','Detergent','#1e9bd6',2500,'900g pack','field',['carton','#1e9bd6','#f26a2a'],['pack','#1e9bd6','#f26a2a'],'table'),
+   L('Powdered milk','Milk','#2a62c9',5000,'400g tin','field',['carton','#f4f1ea','#2a62c9'],['tin','#2a62c9','#f4f1ea'],'table'),
+   L('Chocolate beverage','Beverage','#1f7a3a',5000,'500g tin','field',['carton','#1f7a3a','#f2c230'],['tin','#1f7a3a','#f2c230'],'table')]},
+sikira:{name:'Iya Sikira Fish',tag:'Fresh and smoked fish',tone:'#2a7fb5',field:'water',owner:{cloth:'#1e9bd6',trim:'#f4f1ea',hat:'gele'},
+  venue:['Basin by the road','Canopy stall','Fish shop','Cold-room depot','Seafood mega-market'],
+  lines:[
+   L('Fresh tilapia','Tilapia','#7f9aa6',6000,'1 kg','field',['fishlive','#8fa3ad'],['fish','#9fb3bd','#e9eef0'],'table'),
+   L('Live catfish','Catfish','#555b63',6000,'1 kg','field',['fishlive','#4a4f55'],['fish','#4a4f55','#c9ced2'],'table'),
+   L('Crayfish','Crayfish','#e5704a',4000,'derica','field',['fishlive','#e58a6a'],['basket','#e58a6a'],'table'),
+   L('Smoked fish','Smoked','#7a4a1c',4000,'medium fish','depot',['carton','#cfe6f5','#2a62c9'],['fish','#5a3a1c','#8a5a2a'],'grill'),
+   L('Stockfish','Stockfish','#c9b070',6000,'medium piece','depot',['sack','#d9c9a0','#8a6a2e'],['strip','#e3d2a2','#b89a5a'],'table')]},
+sani:{name:'Alhaji Sani Pepper Market',tag:'Tomato and pepper',tone:'#e2301f',field:'farm',owner:{cloth:'#f4f1ea',trim:'#1f3f8f',hat:'fila'},
+  venue:['Basket by the road','Canopy stall','Lock-up shop','Wholesale depot','Pepper mega-market'],
+  lines:[
+   L('Fresh tomatoes','Tomato','#e2301f',4500,'paint bucket','field',['round','#e2301f','#3aa336'],['basket','#e2301f'],'table'),
+   L('Tatashe','Tatashe','#b01818',2000,'1 kg pile','field',['chili','#c41e1e'],['basket','#c41e1e'],'table'),
+   L('Rodo (hot pepper)','Rodo','#f26a1a',5000,'small bucket','field',['round','#f26a1a','#3aa336'],['basket','#f26a1a'],'table'),
+   L('Onions','Onions','#a8468a',1000,'pile','field',['round','#a8468a','#d9c36a'],['sack','#c05a9a','#7a2a5a'],'table'),
+   L('Okra','Okra','#4a9a3a',500,'pile','field',['long','#4a9a3a','#2c6e2a'],['basket','#4a9a3a'],'table')]},
+bola:{name:'Madam Bola Fabrics',tag:'Ankara, lace and aso-oke',tone:'#7a1f6a',field:'yard',owner:{cloth:'#0f7a5a',trim:'#f2d16b',hat:'gele'},
+  venue:['Table-top stall','Canopy stall','Lock-up shop','Fabric plaza','Fashion mega-store'],
+  lines:[
+   L('Adire','Adire','#1f3f8f',11000,'5 yards','field',['carton','#c9b08a','#1f3f8f'],['cloth','#1f3f8f','#9cc4ff'],'table'),
+   L('Ankara','Ankara','#e8501e',24000,'6 yards','field',['carton','#c9b08a','#e8501e'],['cloth','#e8501e','#ffc23d'],'table'),
+   L('Lace','Lace','#d98ab0',45000,'5 yards','field',['carton','#c9b08a','#d98ab0'],['cloth','#f4f1ea','#d98ab0'],'table'),
+   L('George wrapper','George','#0f7a5a',50000,'wrapper','field',['carton','#c9b08a','#0f7a5a'],['cloth','#0f7a5a','#f2d16b'],'table'),
+   L('Aso-oke','Aso-oke','#7a1f6a',60000,'set','field',['carton','#c9b08a','#7a1f6a'],['cloth','#7a1f6a','#e3b23a'],'table')]},
+chinedu:{name:'Chinedu Phone Accessories',tag:'Phones and accessories',tone:'#7a5af0',field:'yard',owner:{cloth:'#1b1f27',trim:'#7ad1ff',hat:'cap'},
+  venue:['Table-top stall','Umbrella stand','Lock-up shop','Gadget plaza','Tech mega-store'],
+  lines:[
+   L('Phone cases','Cases','#2a9fd6',2500,'one','field',['carton','#c9b08a','#2a9fd6'],['gadget','case','#2a9fd6','#f2c230'],'table'),
+   L('Earpieces','Earpiece','#e23c3c',3500,'one','field',['carton','#c9b08a','#e23c3c'],['gadget','ear','#22252b','#e23c3c'],'table'),
+   L('Fast chargers','Charger','#3fbf5a',7500,'20W kit','field',['carton','#c9b08a','#3fbf5a'],['gadget','charger','#f4f1ea','#3fbf5a'],'table'),
+   L('Power banks','Power bank','#6b7684',27000,'20,000mAh','field',['carton','#c9b08a','#6b7684'],['gadget','bank','#333a44','#5ad1ff'],'table'),
+   L('Smartphones','Phone','#7a5af0',105000,'budget phone','field',['carton','#c9b08a','#7a5af0'],['gadget','phone','#1b1f27','#7ad1ff'],'table')]}
+};
+const CAR=['Danfo bus','Keke','Tokunbo car','SUV'], HOUSE=['Rented room','Mini flat','Bungalow','Duplex mansion'];
+const ADS=['','Radio jingle','Billboard','TV advert'];
+/* ===== generated from plan/*.json by mkplan.js ===== */
+const PLAN={"econ":{"salaries":{"hand":70000,"porter":75000,"server":80000,"cook":100000,"cashier":85000,"loader":90000,"manager":250000,"regional":550000},"tax":{"gameRate":0.1,"label":"Company tax + levy"},"payrollShare":0.15,"empire":{"managerCost":1.8,"machineCost":{"belt":3.06,"auto":5.55,"pack":9.05},"contracts":[{"cost":2.53,"perDay":0.1},{"cost":4.12,"perDay":0.2},{"cost":7.34,"perDay":0.3},{"cost":12.2,"perDay":0.4},{"cost":17.8,"perDay":0.6},{"cost":23.5,"perDay":0.9}],"regions":[{"name":"Lagos","size":20,"mult":1,"managerCost":1.2},{"name":"South-West","size":40,"mult":1.1,"managerCost":4.88},{"name":"South-South","size":40,"mult":1.2,"managerCost":8.12},{"name":"South-East","size":35,"mult":1.3,"managerCost":10.6},{"name":"North-Central + Abuja","size":45,"mult":1.4,"managerCost":12.5},{"name":"North-West","size":40,"mult":1.5,"managerCost":14.8},{"name":"North-East","size":30,"mult":1.6,"managerCost":16.6},{"name":"West Africa","size":60,"mult":2,"managerCost":17.8},{"name":"Rest of Africa","size":50,"mult":2.3,"managerCost":20.2},{"name":"UK + Europe","size":60,"mult":2.7,"managerCost":22.1},{"name":"North America","size":50,"mult":3,"managerCost":24.3},{"name":"Middle East + Asia","size":30,"mult":3,"managerCost":26}],"branch":{"c0":1.6,"c1":0.46,"p":0.645,"b":0.0445},"inefficiency":0.8}},"road":{"regions":[{"name":"Lagos","size":20,"flag":"🏙️","managerTitle":"Lagos Area Manager","cities":["Ikeja","Surulere","Yaba","Lekki","Victoria Island","Ikoyi","Ajah","Festac Town","Oshodi","Mushin","Agege","Ogba","Maryland","Gbagada","Magodo","Egbeda","Apapa","Ikorodu","Badagry","Epe"],"story":"Home turf. If your name rings from Ikeja to Epe, the whole country will hear it."},{"name":"South-West","size":40,"flag":"🥁","managerTitle":"South-West Regional Manager","cities":["Ibadan","Abeokuta","Sagamu","Ijebu-Ode","Ota","Osogbo","Ile-Ife","Ilesa","Akure","Ondo","Ado-Ekiti","Ogbomoso","Oyo","Iseyin","Owo","Ikare","Ikere-Ekiti","Ede","Iwo","Ilaro","Saki","Okitipupa"],"story":"One expressway from Lagos: big cities, busy markets and customers who love a party."},{"name":"South-South","size":40,"flag":"🌴","managerTitle":"South-South Regional Manager","cities":["Benin City","Warri","Asaba","Port Harcourt","Uyo","Calabar","Yenagoa","Sapele","Ughelli","Eket","Ikot Ekpene","Bonny","Auchi","Ekpoma","Agbor","Oron","Ikom","Ogoja","Uromi","Abraka","Eleme","Ahoada"],"story":"Port cities and oil-town salaries: customers here pay well for quality."},{"name":"South-East","size":35,"flag":"⚙️","managerTitle":"South-East Regional Manager","cities":["Onitsha","Aba","Enugu","Owerri","Awka","Umuahia","Abakaliki","Nnewi","Nsukka","Orlu","Okigwe","Afikpo","Ohafia","Arochukwu","Ekwulobia","Ihiala","Oguta","Awgu","Ogidi","Obosi","Udi"],"story":"Giant trading markets and factories: win the traders here and stock moves fast."},{"name":"North-Central + Abuja","size":45,"flag":"🏛️","managerTitle":"North-Central Regional Manager","cities":["Abuja","Wuse","Garki","Maitama","Gwarinpa","Kubwa","Gwagwalada","Ilorin","Jos","Minna","Lokoja","Makurdi","Lafia","Suleja","Karu","Keffi","Offa","Bida","Kontagora","Okene","Kabba","Gboko","Otukpo","Bukuru","Akwanga","Idah"],"story":"The capital and the food basket: steady office money and the road to the north."},{"name":"North-West","size":40,"flag":"🌾","managerTitle":"North-West Regional Manager","cities":["Kano","Kaduna","Zaria","Katsina","Sokoto","Gusau","Birnin Kebbi","Dutse","Funtua","Kafanchan","Daura","Hadejia","Gumel","Kazaure","Wudil","Bichi","Argungu","Yauri","Zuru","Kaura Namoda","Malumfashi","Birnin Kudu","Jega"],"story":"Centuries-old trade routes and the most people of any zone: volume is king here."},{"name":"North-East","size":30,"flag":"🌄","managerTitle":"North-East Regional Manager","cities":["Bauchi","Gombe","Yola","Maiduguri","Jalingo","Damaturu","Jimeta","Mubi","Numan","Azare","Misau","Biu","Potiskum","Nguru","Gashua","Wukari","Takum","Kaltungo","Billiri","Ganye","Dukku"],"story":"The last zone: finish here and your brand is in all 36 states plus Abuja."},{"name":"West Africa","size":60,"flag":"🌍","managerTitle":"West Africa Director","cities":["Cotonou","Porto-Novo","Lome","Accra","Tema","Kumasi","Takoradi","Cape Coast","Tamale","Abidjan","Yamoussoukro","Bouake","Parakou","Niamey","Ouagadougou","Bobo-Dioulasso","Bamako","Dakar","Thies","Banjul","Serekunda","Freetown","Monrovia","Conakry","Bissau","Praia"],"story":"First border crossing: follow the coast road and your export trucks become shops."},{"name":"Rest of Africa","size":50,"flag":"🦁","managerTitle":"Africa Operations Director","cities":["Douala","Yaounde","Libreville","Malabo","N'Djamena","Kinshasa","Brazzaville","Luanda","Nairobi","Mombasa","Kampala","Kigali","Dar es Salaam","Addis Ababa","Lusaka","Harare","Gaborone","Windhoek","Maputo","Johannesburg","Pretoria","Durban","Cape Town","Cairo","Casablanca"],"story":"From Douala to Cape Town: a truly continental brand, one capital city at a time."},{"name":"UK + Europe","size":60,"flag":"🇬🇧","managerTitle":"UK and Europe Director","cities":["Peckham","Woolwich","Dagenham","Croydon","Tottenham","Manchester","Birmingham","Leeds","Liverpool","Glasgow","Aberdeen","Cardiff","Dublin","Paris","Brussels","Antwerp","Amsterdam","Berlin","Hamburg","Munich","Vienna","Rome","Milan","Turin","Madrid","Barcelona","Lisbon","Stockholm"],"story":"Diaspora customers miss home badly. They pay in pounds and euros for a taste of it."},{"name":"North America","size":50,"flag":"🇺🇸","managerTitle":"North America Director","cities":["Houston","Dallas","Atlanta","New York","Newark","Baltimore","Washington DC","Chicago","Philadelphia","Boston","Minneapolis","Columbus","Charlotte","Miami","Los Angeles","Toronto","Brampton","Ottawa","Montreal","Winnipeg","Calgary","Edmonton","Vancouver"],"story":"Dollar market: huge diaspora cities where one branch earns like ten back home."},{"name":"Middle East + Asia","size":30,"flag":"🌏","managerTitle":"Middle East & Asia Director","cities":["Dubai","Sharjah","Abu Dhabi","Doha","Riyadh","Jeddah","Muscat","Kuwait City","Manama","Istanbul","Guangzhou","Shanghai","Beijing","Hong Kong","Kuala Lumpur","Singapore","Mumbai","New Delhi","Bangalore","Bangkok","Manila","Seoul","Tokyo"],"story":"The final frontier: store number 500 opens here and the sun never sets on you."}],"commonEvents":[{"name":"Fuel Scarcity","text":"Queue at every filling station. Delivery van is crawling today.","effect":"supply_slow"},{"name":"Heavy Rain","text":"Rain don start since morning. Customers are hiding under umbrellas.","effect":"demand_down"},{"name":"Salary Week","text":"Alert don enter! Workers are spending like tomorrow no dey.","effect":"demand_up"},{"name":"Detty December","text":"Returnees have landed with strong currency and big appetite.","effect":"price_up"},{"name":"Power Cut","text":"Light don go. Generator is drinking diesel like zobo.","effect":"cost_hit"},{"name":"Owambe Weekend","text":"Three parties on one street. Aso-ebi crowd wants bulk orders.","effect":"vip_day"},{"name":"Public Holiday","text":"Independence Day! Everybody is outside and ready to enjoy.","effect":"demand_up"},{"name":"Market Sanitation Day","text":"Sweep first, sell later. Shop opens late after the clean-up.","effect":"supply_slow"},{"name":"Go-Slow on the Bridge","text":"Truck break down for bridge. Supplies will reach when they reach.","effect":"supply_slow"},{"name":"Customer Went Viral","text":"One happy customer posted you online. Phones are ringing nonstop!","effect":"demand_up"},{"name":"Ajo Payout","text":"It is your turn to collect the thrift contribution. Sweet alert!","effect":"bonus_cash"},{"name":"Staff Sharp Sharp","text":"Everybody resumed early and in good mood. Work is flying today.","effect":"speed_up"}],"night":{"traffic":["Conductor: Oshodi! Oshodi! Hold your change o!","Hawker: Gala! Cold pure water! Plantain chips!","LASTMA officer is watching. Stay on your lane.","Pothole ahead. Car is doing shaku shaku.","Danfo squeezed in front. Madam just sighed.","Third Mainland: 2 km in 40 minutes. Normal.","Okada passed between two trailers. Na wa o.","Boy selling phone chargers runs beside the car","Keke horn sounds like an angry goat.","Trailer park for road at Mile 2. We wait."],"radio":["DJ Sabi: This go-slow jam na for you!","Now playing: 'Jollof for Two' by Lady Zobo","Traffic report: everywhere red. Stay strong.","Next up: 'My Alert Don Enter' by Baba Credit","Caller: I left work at 5, I still dey Ikeja!","Oldie: 'Sweet Like Boli' by The Suya Kings","You dey listen to Go-Slow FM, 99.9 patience","Fresh one: 'Generator Lullaby' by Mama NEPA"],"dinner":["Pounded yam and egusi. Phone on silent.","Jollof rice, fried plantain and cold zobo.","Amala and ewedu with plenty assorted meat.","Hot pepper soup to chase the traffic away.","Beans and dodo. Simple, sweet, correct.","Eba and okra soup, eaten in happy silence."],"bath":["Bucket of warm water. Today's stress dey go.","Singing in the bathroom like a superstar.","Tap is rushing tonight. Small miracle!","Scrubbing off market dust and traffic smoke."],"sleep":["Fan on, wrapper up. Counting naira, not sheep.","Dreaming of branch number 500...","Neighbour's generator hums a lullaby.","Alarm set for 5:30. Tomorrow we go again."],"morning":["Cock crow before alarm. No snooze for boss.","Quick stretch, then check yesterday's sales.","Hot tea, bread and fried egg. Fuel for hustle.","Tie the gele sharp. Boss must look like boss.","Akara woman already frying outside. Buy 200.","Keys, phone, cashbook. Shop opens at 8!"]}},"biz":{"nkechi":{"branchNoun":"kitchen","rankTitles":["Buka Madam","Two-Kitchen Madam","Lagos Food Boss","Jollof Queen of Nigeria","West Africa Food Mogul","Global Jollof Icon"],"export":{"bay":"Food Loading Bay","pack":"sealed frozen meal trays","contracts":[{"buyer":"Sunrise Plaza Food Court","where":"Ikeja, Lagos","blurb":"Lunch packs of jollof and fried rice for the office crowd next door."},{"buyer":"FreshBasket Supermarkets","where":"Lagos","blurb":"Ready meals for the chiller aisle in every store across the city."},{"buyer":"Royal Palm Hotels & Events","where":"Abuja","blurb":"Party trays for weddings, conferences, schools and hospital canteens."},{"buyer":"Garden City Food Depot","where":"Port Harcourt","blurb":"Frozen egusi and amala packs trucked cold to shops in other states."},{"buyer":"Gold Coast Frozen Foods","where":"Accra, Ghana","blurb":"Cold trucks cross the border. Yes, they are buying Nigerian jollof."},{"buyer":"Taste of Home Afro Grocers","where":"London, UK","blurb":"Containers of frozen meals for homesick Nigerians in the diaspora."}]},"machines":{"belt":{"name":"Hot Plate Conveyor","blurb":"Carries steaming plates from the kitchen straight to the counter."},"auto":{"name":"Giant Auto-Stir Pots","blurb":"Big jacketed pots that cook and stir party jollof with no cook."},"pack":{"name":"Seal & Blast Freezer","blurb":"Seals meal trays and freezes them fast, so export pays much more."}},"manager":{"name":"Mrs Folake","title":"Head of Kitchens"},"milestones":[{"at":1,"title":"Second Pot on the Fire","blurb":"Your first branch opens in Lagos. The recipe must now taste the same in two places."},{"at":5,"title":"Five Kitchens, One Taste","blurb":"Recipe cards and measured spice mixes keep every pot of jollof the same."},{"at":10,"title":"Central Kitchen Opens","blurb":"One big kitchen now preps stew base and soups for all the Lagos branches."},{"at":25,"title":"Lagos Lunch Champion","blurb":"Offices across the city order daily. Bulk buying of rice and beef cuts your costs."},{"at":50,"title":"Beyond Lagos","blurb":"Branches in other states. Local farmers now supply yam, pepper and palm oil directly."},{"at":100,"title":"A Household Name","blurb":"One hundred kitchens. Travellers know they can find your egusi in any big city."},{"at":200,"title":"West Africa Is Eating","blurb":"Kitchens open along the coast. The jollof debate now happens inside your shop."},{"at":300,"title":"Cooking School Founded","blurb":"Your own academy trains cooks and managers, so new branches open faster."},{"at":400,"title":"Kitchens Overseas","blurb":"Diaspora cities queue for amala and pounded yam that tastes like home."},{"at":500,"title":"The World's Nigerian Kitchen","blurb":"Five hundred kitchens on three continents, all from one pot by the roadside."}],"chatter":{"staff":["Jollof don ready, bring plates!","Who dey turn the egusi? E dey burn o!","Abeg, more pepper for this stew.","Pounded yam smooth like baby cheek.","Table six wants extra beef.","Chicken don golden, comot am!","Water don cold well well.","The rice is finishing, cook another pot!","My hand dey pain from pounding.","Madam, firewood jollof na the best.","Ewedu dey draw today, e sweet!","Wash those plates sharp sharp.","Customer don full ground o!","Taste am first before you serve."],"customer":["Madam, add extra meat abeg.","This jollof na party jollof!","One fried rice and chicken, please.","Your egusi reminds me of my mama.","Amala with plenty gbegiri, please.","Cold water first, the sun is hot!","I came from Ikorodu for this food.","Pounded yam, make it two wraps.","Na here I dey chop every day.","Is the chicken ready yet?","This ewedu dey draw well!","Abeg pack one jollof for takeaway.","The aroma called me from the road.","I go bring my whole office tomorrow."],"manager":["Smile, the customer is our guest.","Hairnets on, everybody!","Good morning Ma, all pots are on.","Ma, the Abuja order is loaded.","Keep the queue moving, please.","Check the freezer temperature.","Well done team, clean kitchen today!","Ma, rice stock is running low."],"night":["My feet! But the pots were empty.","Tomorrow I will cook even more.","Mama's recipe is feeding Lagos.","I still smell like jollof. Good.","One day, a kitchen in every city.","Let me rest, the pots wake early."]},"events":[{"name":"Owambe Weekend","text":"Wedding parties everywhere! Everybody wants party jollof today.","effect":"demand_up"},{"name":"Heavy Rain","text":"Rain since morning. Customers are staying at home.","effect":"demand_down"},{"name":"Tomato Scarcity","text":"A basket of tomatoes costs double, so stew prices go up today.","effect":"price_up"},{"name":"Rice Truck Delayed","text":"The rice truck is stuck on the expressway. Supplies come in slowly.","effect":"supply_slow"},{"name":"Gas Cylinder Finished","text":"Cooking gas ran out in the middle of service. Emergency refill!","effect":"cost_hit"},{"name":"Jollof Cook-Off Win","text":"Your jollof wins the Lagos food festival. Prize money lands!","effect":"bonus_cash"},{"name":"Food Blogger Visit","text":"A famous food blogger is filming your egusi. Big spenders follow.","effect":"vip_day"},{"name":"Steady Light All Day","text":"Power is steady and the blenders never stop. The kitchen is flying!","effect":"speed_up"}]},"tunde":{"branchNoun":"produce depot","rankTitles":["Market Farmer","Depot Owner","Lagos Produce Merchant","Food Basket Chairman","West Africa Agro Baron","Global Yam King"],"export":{"bay":"Farm Loading Bay","pack":"graded yam & plantain crates","contracts":[{"buyer":"Mama Sikira Corner Stores","where":"Ikeja, Lagos","blurb":"Neighbourhood shops want fresh ugu, cucumbers and a few yam tubers."},{"buyer":"FreshWay Supermarkets","where":"Lagos","blurb":"A supermarket chain needs washed, graded produce on the shelf by 7 AM."},{"buyer":"Royal Palm Hotels & Catering","where":"Abuja","blurb":"Hotel kitchens and party caterers order rice and plantain every week."},{"buyer":"Arewa Food Distributors","where":"Kano","blurb":"Trailer loads of yam and local rice for depots in other states."},{"buyer":"Akwaaba Fresh Imports","where":"Accra, Ghana","blurb":"Cross-border trucks carry Naija yam and rice down the coast road."},{"buyer":"Peckham Tropical Foods","where":"London, UK","blurb":"A cool container of yam every week for diaspora shops abroad."}]},"machines":{"belt":{"name":"Crate Roller Conveyor","blurb":"Rolls washed, sorted produce from the barn straight to the counter."},"auto":{"name":"Farm Tractor & Harvester","blurb":"Ridges, plants and harvests the plots without waiting for farmhands."},"pack":{"name":"Wash & Grade Pack Line","blurb":"Washes, sorts by size, bags and labels produce to export standard."}},"manager":{"name":"Mr Kunle","title":"Farm Operations Lead"},"milestones":[{"at":1,"title":"First Produce Depot","blurb":"A second selling point in Lagos. Baba Tunde is no longer a one-market man."},{"at":5,"title":"Lagos Market Ring","blurb":"Five depots around Lagos share one truck route, so nothing sits and spoils."},{"at":10,"title":"Farmer Aggregator","blurb":"You now buy from outgrower farmers at the farm gate, not only your own plots."},{"at":25,"title":"South-West Food Chain","blurb":"Depots in Ogun, Oyo and Ondo sit close to the yam and plantain farms."},{"at":50,"title":"Cold Room Network","blurb":"Solar cold rooms at every hub keep ugu and cucumbers fresh for days, not hours."},{"at":100,"title":"Nationwide Food Basket","blurb":"From Benue yam belt to Kano rice mills, your trailers cover every region."},{"at":200,"title":"ECOWAS Produce Corridor","blurb":"Depots open along the coast in Cotonou, Lomé and Accra. Border papers in order."},{"at":300,"title":"Plantain Flour Factory","blurb":"Unsold plantain and yam now become flour and chips. Waste turns to profit."},{"at":400,"title":"Diaspora Shelf Space","blurb":"Your labelled yam boxes sit in African stores from London to Houston."},{"at":500,"title":"Global Agro Empire","blurb":"500 depots on three continents. The world eats from Baba Tunde's farm."}],"chatter":{"staff":["Oga, yam don land from farm!","This ugu fresh pass morning dew.","Abeg help me carry this bunch.","Cucumber crate don finish o!","Who measure rice with small derica?","Truck don come, make we offload.","Careful! No bruise the plantain.","I don sort the big yams one side.","Sun hot today, cover the ugu.","Customer don full ground o!","Na me harvest this one myself.","Tractor dey work, my back dey rest.","Rain dey come, pack the rice inside!","Oga, we need more crates abeg."],"customer":["How much for this yam tuber?","Abeg add jara for the ugu.","This plantain ripe well well.","Give me four derica of rice.","Your cucumber sweet, e dey crunch.","No stones for this rice, abi?","I need yam for Sunday pounded yam.","Baba Tunde, your price too high o!","I come all the way from Lekki.","Na here get the freshest ugu.","My dodo must be from this bunch.","Wrap am well, I dey enter bus.","I dey buy for my restaurant.","Ofada rice! My stew is ready."],"manager":["Oga, the Kano trailer is loaded.","First in, first out. No spoilage!","Sort by size before you pack.","Farm gate price went up today, sir.","Cold room temperature is okay.","Team, export truck comes by noon.","Oga, three new depots are ready.","Well done all, zero waste today!"],"night":["From one stall to all this. Hmm.","Tomorrow, yam must reach Abuja.","My late papa farmed with only hoe.","Pounded yam and egusi, then sleep.","Hope rain falls on the farm tonight.","One day, my yam go reach London."]},"events":[{"name":"New Yam Season","text":"Fresh new yam just arrived. Everybody wants pounded yam today.","effect":"demand_up"},{"name":"Heavy Rain on Farm Road","text":"The farm road is all mud. Produce trucks are crawling in late.","effect":"supply_slow"},{"name":"Owambe Weekend","text":"Party caterers are buying rice and plantain in bulk for weddings.","effect":"vip_day"},{"name":"Plantain Scarcity","text":"Dry season cut the plantain harvest. Buyers pay more per bunch.","effect":"price_up"},{"name":"Hot Sun Spoils Ugu","text":"Heat wilted a batch of ugu and cucumbers. You must replace the stock.","effect":"cost_hit"},{"name":"Glut in the Market","text":"Every trader has yam today. Customers are spread thin.","effect":"demand_down"},{"name":"Agro Fair Prize","text":"Your giant yam tuber won best produce at the state agro fair!","effect":"bonus_cash"},{"name":"Cool Harmattan Morning","text":"Cool breeze, no sweat. The farmhands are harvesting at double pace.","effect":"speed_up"}]},"musa":{"branchNoun":"suya spot","rankTitles":["Roadside Suya Man","Suya Spot Owner","Grill Master of Lagos","Suya Chain Chairman","West Africa Grill Baron","Global Suya Icon"],"export":{"bay":"Suya Loading Bay","pack":"sealed kilishi & yaji packs","contracts":[{"buyer":"Allen Junction Mini Marts","where":"Ikeja, Lagos","blurb":"Neighbourhood shops want yaji sachets and kilishi by the till."},{"buyer":"GreenBasket Supermarkets","where":"Lagos","blurb":"A Lagos chain gives Musa's spice jars a full snack shelf."},{"buyer":"Royal Palm Hotels & Events","where":"Abuja","blurb":"Hotels and party caterers order marinated grill packs in bulk."},{"buyer":"Arewa Snacks Distributors","where":"Kano","blurb":"Distributors truck boxed kilishi to motor parks in other states."},{"buyer":"Gold Coast Food Traders","where":"Accra, Ghana","blurb":"ECOWAS buyers take pallets of kilishi and yaji across the border."},{"buyer":"Naija Taste Imports","where":"London, UK","blurb":"Diaspora shops in Peckham and Houston can't keep it on the shelf."}]},"machines":{"belt":{"name":"Skewer Conveyor Grill","blurb":"Sticks ride over the coals and arrive at the counter hot."},"auto":{"name":"Cold Room Meat Slicer","blurb":"Slices and skewers beef, chicken and goat without a farmhand."},"pack":{"name":"Vacuum Seal Line","blurb":"Seals kilishi and yaji airtight so they survive the trip abroad."}},"manager":{"name":"Mr Ibrahim","title":"Grill Operations Boss"},"milestones":[{"at":1,"title":"Second Fire Lit","blurb":"Your first suya spot outside the flagship. The same yaji must taste the same there."},{"at":5,"title":"Five Grills in Lagos","blurb":"Island and Mainland both covered. You now buy beef by the half cow, not by the kilo."},{"at":10,"title":"Central Spice Kitchen","blurb":"One kitchen blends yaji for every spot, so your secret recipe stays secret."},{"at":25,"title":"Suya Reaches Abuja","blurb":"Spots open in Abuja, Ibadan and Port Harcourt. Refrigerated trucks join the fleet."},{"at":50,"title":"Own Cattle Ranch Deal","blurb":"You sign ranchers in the north directly. Meat costs drop and quality stays steady."},{"at":100,"title":"A Spot in Every State","blurb":"From Sokoto to Calabar, travellers plan their road stops around your grills."},{"at":200,"title":"West Africa Smoke","blurb":"Accra, Cotonou and Dakar queue for suya. Your kilishi is the region's road snack."},{"at":300,"title":"Peckham Grand Opening","blurb":"The first London spot sells out by 9 PM. Diaspora customers bring their neighbours."},{"at":400,"title":"Houston to Toronto","blurb":"North America falls for asun and masa. Airport kiosks sell kilishi as gifts."},{"at":500,"title":"Suya Capital of the World","blurb":"500 spots on four continents, and it all started with one grill and one newspaper."}],"chatter":{"staff":["Oga, customer don full ground!","Fire dey hot, suya dey ready!","Who order chicken with extra yaji?","Abeg bring more onions and tomato.","Charcoal don finish, I dey go store.","Turn that stick before e burn o!","Asun for table six, e dey come!","Masa just comot fire, soft like pillow.","Zobo cold well well today.","My hand don sabi this knife.","Wrap am for paper, add toothpick.","Smoke dey my eye but money dey come.","One more tray of beef for grill!","Queue long reach road, make we hurry."],"customer":["Mallam, beef suya two thousand!","Abeg add plenty pepper for me.","This asun dey scatter my head!","Chicken suya, cut am small small.","I fit get masa to follow am?","Zobo first, pepper don catch me.","Na this aroma bring me from Lekki.","Put extra onions, no be fight.","My wife say make I no come empty.","Best suya for Lagos, no argument.","Pack kilishi, I dey travel tomorrow.","Is the goat meat fresh today?","Ah, this yaji get secret inside.","One more stick, last one, I promise."],"manager":["Oga, all the grills dey full today.","Wash hand before you touch meat!","Meat truck go land by 7 AM sharp.","Smile for customer, e dey add tip.","Yaji stock low, I don order more.","Export truck dey wait for bay, sir.","Nobody chop suya on duty, abeg.","Sales pass yesterday own, well done!"],"night":["My cloth still dey smell of smoke.","Tomorrow I go buy bigger grill.","From one stick to all this. Wow.","Even my dream get suya aroma.","Mama go proud of this spot.","Sleep now, fire must light by 8."]},"events":[{"name":"Friday Night Suya Rush","text":"Offices close early and everybody wants suya for the weekend.","effect":"demand_up"},{"name":"Heavy Evening Rain","text":"Rain chases the crowd indoors and the open grill stays quiet.","effect":"demand_down"},{"name":"Big Match Night","text":"Football fans pay extra for hot suya before kick-off.","effect":"price_up"},{"name":"Cattle Truck Delayed","text":"The meat truck from the north is stuck on the expressway.","effect":"supply_slow"},{"name":"Charcoal Price Jump","text":"Charcoal sellers raise prices and today's fire costs more.","effect":"cost_hit"},{"name":"Wedding Party Order","text":"A caterer pays cash upfront for 300 sticks and a tray of asun.","effect":"bonus_cash"},{"name":"Food Blogger Visit","text":"A famous food blogger films your grill and big spenders follow.","effect":"vip_day"},{"name":"Harmattan Breeze","text":"Dry wind keeps the coals glowing and the meat cooks faster.","effect":"speed_up"}]},"basira":{"branchNoun":"snack spot","rankTitles":["Roadside Akara Seller","Snack Shop Madam","Lagos Snack Boss","Naija Snack Queen","West Africa Snack Mogul","Global Snack Icon"],"export":{"bay":"Snack Loading Bay","pack":"frozen moi-moi & snack mix","contracts":[{"buyer":"Mama Tee Mall Kiosks","where":"Ikeja, Lagos","blurb":"Nearby kiosks want fresh egg rolls and puff-puff packs every morning."},{"buyer":"Eko Trolley Supermarkets","where":"Lagos","blurb":"A supermarket chain stocks your frozen moi-moi in every freezer."},{"buyer":"Royal Palm Hotels & Events","where":"Abuja","blurb":"Hotels and party caterers order small chops trays by the thousand."},{"buyer":"Sunrise Snack Distributors","where":"Kano","blurb":"Up-country distributors carry your akara and puff-puff mix by truck."},{"buyer":"Gold Coast Chop Traders","where":"Accra, Ghana","blurb":"Sealed plantain chips and snack mixes cross the border by container."},{"buyer":"Home Taste African Grocers","where":"London, UK","blurb":"Diaspora shops abroad want frozen moi-moi that tastes like home."}]},"machines":{"belt":{"name":"Hot Snack Conveyor","blurb":"Carries akara and puff-puff from the fryer straight to the counter."},"auto":{"name":"Bean Peeler & Grinder","blurb":"Washes, peels and grinds beans by itself. No more aching arms."},"pack":{"name":"Freeze & Seal Line","blurb":"Blast-freezes and seals snacks in branded packs fit for export."}},"manager":{"name":"Mrs Bisi","title":"Operations Manager"},"milestones":[{"at":1,"title":"Second Frying Pan","blurb":"Your first branch opens. The recipe now has to work without you standing at the pot."},{"at":5,"title":"Five Spots in Lagos","blurb":"Mainland and Island both know the name. Time to cook batter in one central kitchen."},{"at":10,"title":"Lagos Snack Chain","blurb":"Ten spots share one menu, one uniform and one supply van route across the city."},{"at":25,"title":"Beyond Lagos","blurb":"Ibadan, Abeokuta and Benin get branches. Regional managers start earning their pay."},{"at":50,"title":"Nationwide Name","blurb":"From Port Harcourt to Kano, every motor park has your puff-puff. Bulk beans get cheaper."},{"at":100,"title":"One Hundred Fryers","blurb":"A training school now teaches new cooks the akara recipe before they touch hot oil."},{"at":200,"title":"West Africa Welcome","blurb":"Accra, Cotonou and Lome open. Dodo travels well and the neighbours love moi-moi."},{"at":300,"title":"Coast to Coast","blurb":"From Dakar to Douala, franchise partners queue to carry the Iya Basira signboard."},{"at":400,"title":"Diaspora Doors Open","blurb":"London and Houston branches open. Homesick customers cry small on the first bite."},{"at":500,"title":"World Snack Empire","blurb":"Five hundred spots on three continents, all started from one roadside frying pan."}],"chatter":{"staff":["Akara don ready, hot hot!","Who get the next batch of puff-puff?","Abeg pass me the bean paste.","Oil don hot, make I drop dodo.","Customer don full ground o!","Wrap ten moi-moi for table four.","Egg roll remain only six!","Yam don finish, I dey slice more.","Mind the hot oil, my sister.","This queue long pass third mainland!","Small pepper or plenty pepper, ma?","I go fry am fresh, two minutes.","My hand dey sweet today, I swear.","Change dey, no worry, I dey come."],"customer":["Give me akara, five hundred naira.","Is the puff-puff still hot?","Add extra dodo for me, abeg.","This moi-moi get egg inside?","Two egg rolls, I dey rush work.","Madam, your akara no get rival!","Fried yam with plenty pepper sauce.","My children say only Iya Basira.","I came from Lekki for this dodo!","Abeg wrap am well, na takeaway.","Puff-puff soft like pillow. Chai!","Akara and bread, breakfast is set.","I go carry moi-moi go office.","One more egg roll for the road."],"manager":["Fryer two, please check your oil.","Smile first, then take the order.","Oga, sales don pass yesterday own.","Beans delivery arrives by ten.","Team, keep that counter shining.","Madam, branch report is ready.","Well done all, lunch rush handled!","Hairnets on, everybody, please."],"night":["My clothes still smell of akara.","From one frying pan to all this.","Tomorrow I must buy more beans.","Mama would be proud of this dodo.","My feet tire, but my heart full.","Let me count today's money small."]},"events":[{"name":"Rainy Morning Rush","text":"Cold rain is falling and everybody wants hot akara and puff-puff.","effect":"demand_up"},{"name":"Beans Price Jump","text":"Beans cost more at the market today. Each batch of akara eats your profit.","effect":"cost_hit"},{"name":"Yam Truck Delay","text":"The yam and plantain truck is stuck on the expressway. Supplies crawl in.","effect":"supply_slow"},{"name":"Owambe Party Order","text":"A wedding planner pays upfront for small chops trays. Sweet extra cash!","effect":"bonus_cash"},{"name":"Food Blogger Visit","text":"A famous food blogger is filming your dodo. Big spenders follow her in.","effect":"vip_day"},{"name":"School Holiday Lull","text":"Schools are closed and the morning egg roll crowd has stayed at home.","effect":"demand_down"},{"name":"Festive Season Fever","text":"Festive season is here. Customers gladly pay more for party snacks.","effect":"price_up"},{"name":"New Gas Burners","text":"Fresh gas cylinders and clean burners. Oil heats fast and cooks fly.","effect":"speed_up"}]},"zainab":{"branchNoun":"drinks bar","rankTitles":["Zobo Seller","Drinks Bar Owner","Lagos Drinks Madam","Naija Refreshment Boss","West Africa Drinks Queen","Global Hibiscus Icon"],"export":{"bay":"Cold Crate Dock","pack":"chilled bottled drink crates","contracts":[{"buyer":"Mama Kudi Corner Shops","where":"Surulere, Lagos","blurb":"Kiosks nearby want sealed zobo and kunu for their small fridges."},{"buyer":"FreshBasket Supermarkets","where":"Lagos","blurb":"A supermarket chain gives your labelled bottles a full cold shelf."},{"buyer":"Royal Palm Hotels & Events","where":"Abuja","blurb":"Hotels and caterers serve your Chapman at weddings nationwide."},{"buyer":"Arewa Cool Distributors","where":"Kano","blurb":"State distributors truck pasteurised crates to towns up north."},{"buyer":"Gold Coast Beverage Traders","where":"Accra, Ghana","blurb":"ECOWAS buyers want long-life tiger nut drink and zobo by the pallet."},{"buyer":"Naija Taste Imports","where":"London, UK","blurb":"Diaspora stores abroad order zobo and hibiscus packs by container."}]},"machines":{"belt":{"name":"Chilled Bottle Conveyor","blurb":"Rolls cold filled bottles from the kitchen straight to the counter."},"auto":{"name":"Hibiscus Brew Tanker","blurb":"Collects zobo leaf, tiger nut and millet, then steeps it by itself."},"pack":{"name":"Pasteurise & Seal Line","blurb":"Heats, seals and labels bottles so they last long enough to export."}},"manager":{"name":"Mrs Halima","title":"Beverage Ops Manager"},"milestones":[{"at":1,"title":"Second Cooler Opens","blurb":"Your first drinks bar outside the lounge. The recipe now lives in two places."},{"at":5,"title":"Central Brew Kitchen","blurb":"One kitchen brews for five bars, so every cup of zobo tastes the same."},{"at":10,"title":"Sealed and Certified","blurb":"Bottles are sealed, labelled and registered. Supermarkets now take you seriously."},{"at":25,"title":"Cold Truck Fleet","blurb":"Your own chiller trucks keep kunu fresh from Lagos to Ibadan and Abeokuta."},{"at":50,"title":"Kano Hibiscus Contract","blurb":"You buy zobo leaf direct from northern farm co-operatives. Costs drop, quality rises."},{"at":100,"title":"A Bar in Every State","blurb":"From Sokoto to Calabar, people can find Aunty Zainab on the high street."},{"at":200,"title":"Bottling Plant Online","blurb":"A full factory fills thousands of bottles an hour for branches and export."},{"at":300,"title":"ECOWAS Refreshment Brand","blurb":"Accra, Cotonou, Lome and Dakar all sip your tiger nut drink daily."},{"at":400,"title":"Diaspora High Streets","blurb":"Drinks bars open in London and Houston. Home taste, far from home."},{"at":500,"title":"Hibiscus to the World","blurb":"500 bars on three continents. A roadside cooler became a global drinks house."}],"chatter":{"staff":["Zobo don chill well well!","Abeg pass me the ginger.","Who hide the Chapman cucumber?","Ice block don finish again o!","Kunu fresh, I just sieve am.","Shake am before you pour!","Tiger nut dey soak since morning.","Aunty, cooler number two is full.","Label straight, no bend am.","Make I taste... for quality o.","Pineapple peel go inside zobo.","Customer don full ground!","Cover the bottles tight, abeg.","Fridge dey hum like generator."],"customer":["Aunty, one cold zobo abeg!","This kunu sweet pass yesterday.","Give me kunu aya, two bottles.","Chapman with plenty ice, please.","Sun too hot, I need water!","Na your zobo bring me come.","No sugar for my own, thank you.","Abeg, the ginger one!","My children love the tiger nut.","Pack six zobo for the office.","Is the Chapman red or very red?","E cold reach? Ah, e cold!","I go carry one crate for party.","Aunty Zainab never disappoint."],"manager":["Check the fridge temperature.","Expiry date on every bottle!","Truck leaves by two, load up.","Madam, Kano leaf has arrived.","Hairnets on, everybody.","First brewed, first sold.","Sales up today, well done team.","Rotate stock, old bottles front."],"night":["My hands still smell of ginger.","Tomorrow, I brew double zobo.","One cooler started all this.","Hope NEPA leaves the fridge on.","Small small, we go reach Accra.","Even me, I need cold Chapman."]},"events":[{"name":"Lagos Heat Wave","text":"Sun dey shine like say e dey vex. Everybody wants something cold.","effect":"demand_up"},{"name":"All-Day Rain","text":"Heavy rain and cool breeze. People want hot tea, not cold zobo.","effect":"demand_down"},{"name":"Hibiscus Price Jump","text":"Export buyers swept the Kano market. Zobo leaf costs more this week.","effect":"cost_hit"},{"name":"Owambe Bulk Order","text":"A wedding planner paid up front for 300 bottles of Chapman.","effect":"bonus_cash"},{"name":"Ice Block Shortage","text":"The ice man's truck broke down. Chilling drinks takes longer today.","effect":"supply_slow"},{"name":"Food Blogger Visit","text":"A popular food blogger posted your kunu aya. Big spenders are coming.","effect":"vip_day"},{"name":"Tiger Nut Season Ends","text":"Fresh tiger nut is scarce, so customers gladly pay premium prices.","effect":"price_up"},{"name":"New Blender Blades","text":"Fresh blades and a serviced juicer. The kitchen is flying today.","effect":"speed_up"}]},"chidi":{"branchNoun":"mart","rankTitles":["Market Shop Trader","Two-Shop Oga","Area Wholesaler","Key Distributor","Retail Chain Chairman","Global Provisions Icon"],"export":{"bay":"Wholesale Dock","pack":"mixed provisions cartons","contracts":[{"buyer":"Mama Nkechi Corner Kiosks","where":"Surulere, Lagos","blurb":"Street kiosks restock by carton so they never close to go to market."},{"buyer":"Eko GreenCart Supermarkets","where":"Lekki, Lagos","blurb":"A Lagos chain wants full pallets on its shelves every Monday."},{"buyer":"Unity Schools & Hotels Co-op","where":"Abuja","blurb":"Boarding schools and hotel kitchens buy milk and beverage in bulk."},{"buyer":"Niger Bridge Distributors","where":"Onitsha, Anambra","blurb":"Big upcountry wholesalers load trailers for the eastern markets."},{"buyer":"Golden Coast Trading House","where":"Accra, Ghana","blurb":"Sealed containers roll down the coast road through Cotonou and Lome."},{"buyer":"Naija Taste Afro Grocers","where":"London, UK","blurb":"Diaspora shops abroad pay top price for the taste of home."}]},"machines":{"belt":{"name":"Shelf Feeder Belt","blurb":"Rolls cartons from the store room straight to the shelves."},"auto":{"name":"Depot Forklift","blurb":"Offloads supplier trucks and stacks pallets without porters."},"pack":{"name":"Shrink-Wrap Pallet Line","blurb":"Wraps and labels mixed cartons so export buyers pay more."}},"manager":{"name":"Mrs Ngozi","title":"Stores Manager"},"milestones":[{"at":1,"title":"Second Shop Opens","blurb":"Chidi is no longer one shop. You now buy by the trailer and get a better carton price."},{"at":5,"title":"Lagos Mini-Chain","blurb":"Five marts across Lagos share one depot, so no shelf waits long for restock."},{"at":10,"title":"Key Distributor Status","blurb":"Manufacturers now sell to you directly. The middleman margin becomes your own."},{"at":25,"title":"South-West Network","blurb":"Marts in Ibadan, Abeokuta and Akure. Your trucks run the expressway every day."},{"at":50,"title":"Nationwide Name","blurb":"From Kano to Port Harcourt, people say 'go Chidi' when they mean 'go buy provisions'."},{"at":100,"title":"One Hundred Marts","blurb":"Regional depots feed every state. You are now among the biggest chains in Nigeria."},{"at":200,"title":"Across the Border","blurb":"Marts open in Cotonou, Lome and Accra. Chidi now sells in naira, cedi and CFA."},{"at":300,"title":"West Africa Giant","blurb":"Abidjan to Douala, your own-label noodles and milk sit on every family table."},{"at":400,"title":"Diaspora Stores Abroad","blurb":"London, Houston and Toronto get a Chidi mart. Home taste, anywhere in the world."},{"at":500,"title":"Global Provisions Empire","blurb":"500 marts on three continents, and it all started from one small shop in Lagos."}],"chatter":{"staff":["Oga, noodles carton don finish o!","Abeg help me carry this detergent.","Shelf three needs milk, sharp sharp.","Customer don full ground today!","Who arranged these tins so fine?","Soft drinks dey cold, fridge is working.","Make I count this stock again.","New price tags are ready, oga.","The supplier truck don land outside.","First in, first out. Check the dates!","My leg don tire but sales sweet.","Aunty, your change is complete.","Na who pack carton for doorway?","Beverage tins up top, milk below."],"customer":["Give me one carton of noodles.","Is this powdered milk the big tin?","Two cold soft drinks, abeg.","This detergent dey foam well well.","My pikin no gree without beverage.","Chidi price still better pass market.","Add small jara for your customer na.","Do you sell half carton?","I came all the way from Ikorodu!","Madam sent me, I have a long list.","Abeg, which milk is best for tea?","I dey buy for my own shop, discount?","Noodles for the children, quick quick.","Fine store! E be like abroad."],"manager":["Smile, the customer is our salary.","Stock count by six, nobody dodge.","Oga, branch sales don pass target!","Cashier, please open a second till.","Check expiry dates before shelving.","The Ibadan truck must leave by noon.","Well done team, today was sweet.","Oga, we need more milk before Friday."],"night":["From one shop to this. God is good.","Tomorrow I must order more noodles.","This Lagos traffic, I almost slept.","Maybe one more mart in Ikeja?","Salary week is coming. I am ready.","Small small, the empire is growing."]},"events":[{"name":"School Resumption Rush","text":"Parents are filling provision boxes for boarding school. Everybody wants milk!","effect":"demand_up"},{"name":"Month-End Salary Shopping","text":"Salaries have dropped and families are doing their bulk monthly shopping.","effect":"vip_day"},{"name":"Supplier Truck Stuck","text":"The restock trailer is held up on the expressway. Cartons will come late.","effect":"supply_slow"},{"name":"Factory Price Increase","text":"Manufacturers raised carton prices, so shelf prices go up for today.","effect":"price_up"},{"name":"Generator Wahala","text":"The fridge generator packed up. You pay the repair man to save the drinks.","effect":"cost_hit"},{"name":"Rainy Day, Empty Road","text":"Heavy rain since morning. Customers are staying indoors today.","effect":"demand_down"},{"name":"Distributor Rebate","text":"You hit the quarterly sales target and the manufacturer sent a cash rebate.","effect":"bonus_cash"},{"name":"New Barcode Scanners","text":"Fresh scanners at the till. The queue is moving like express today.","effect":"speed_up"}]},"sikira":{"branchNoun":"fish depot","rankTitles":["Market Fish Seller","Cold Room Madam","Frozen Fish Distributor","Seafood Chain Boss","West Africa Fish Queen","Global Seafood Icon"],"export":{"bay":"Cold Loading Bay","pack":"frozen & smoked fish cartons","contracts":[{"buyer":"Mama Tobi Frozen Food Mall","where":"Surulere, Lagos","blurb":"Neighbourhood frozen mall wants cartons of tilapia every week."},{"buyer":"Eko Basket Supermarkets","where":"Lagos","blurb":"Twelve stores need labelled fish packs for their freezer aisle."},{"buyer":"Royal Palm Hotels & Caterers","where":"Abuja","blurb":"Hotel kitchens nationwide order cleaned catfish and stockfish."},{"buyer":"Arewa Cold Room Traders","where":"Kano","blurb":"Up-country distributors load reefer trucks with frozen cartons."},{"buyer":"Gold Coast Fish Depot","where":"Accra, Ghana","blurb":"ECOWAS buyers want smoked catfish and crayfish by the pallet."},{"buyer":"Naija Taste Grocers","where":"London, UK","blurb":"Diaspora shops abroad want certified, vacuum-packed smoked fish."}]},"machines":{"belt":{"name":"Ice Conveyor Belt","blurb":"Chilled belt carries cleaned fish from the back to the counter."},"auto":{"name":"Pond Harvest Trawler","blurb":"Motorised net boat hauls tilapia and catfish from the ponds for you."},"pack":{"name":"Blast Freeze & Seal Line","blurb":"Blast freezes, vacuum seals and labels fish to export standard."}},"manager":{"name":"Mrs Yetunde","title":"Cold Chain Manager"},"milestones":[{"at":1,"title":"Second Depot Opens","blurb":"Your first depot outside the market. One cold room, one freezer, big dreams."},{"at":5,"title":"Lagos Cold Room Network","blurb":"Five depots across Lagos. Frozen-food malls now call you before they open."},{"at":10,"title":"Own Fish Hatchery","blurb":"Ten depots need steady fish. You hatch your own fingerlings and stop begging farms."},{"at":25,"title":"Reefer Truck Fleet","blurb":"Refrigerated trucks carry your cartons to the South-West without one fish thawing."},{"at":50,"title":"Modern Smoking Kilns","blurb":"Clean smokeless kilns replace firewood drums. Your smoked catfish passes lab tests."},{"at":100,"title":"Nationwide Fish Brand","blurb":"A depot in every state. Your label sits in freezers from Lagos to Maiduguri."},{"at":200,"title":"ECOWAS Seafood Hub","blurb":"Depots in Ghana, Benin and Togo. Border paperwork knows your trucks by name."},{"at":300,"title":"Export Certified Plant","blurb":"Your processing plant earns export approval. Containers leave Apapa port weekly."},{"at":400,"title":"Diaspora Freezer Favourite","blurb":"African stores in London, Houston and Toronto stock your smoked fish packs."},{"at":500,"title":"Global Seafood Empire","blurb":"500 depots on three continents. From one basin of fish to a world seafood name."}],"chatter":{"staff":["Fresh tilapia don land o!","Abeg bring more ice, sun dey hot.","This catfish dey jump like dancer!","Who carry my scaling knife?","Cold room door, close am sharp sharp!","Customer, I go clean am for you.","Crayfish derica full to the brim!","Smoked fish just comot from kiln.","Stockfish don finish? Check store.","My hand don cold, but money dey warm.","Weigh am well, Madam dey watch.","Catfish wan escape from basin again!","Carton number forty, sealed!","Gen dey on, freezer dey happy."],"customer":["Madam, this tilapia fresh so?","Give me two kilo of catfish.","Abeg cut am for pepper soup.","How much for one derica crayfish?","This smoked fish aroma, chai!","I need stockfish for my egusi.","Na here fish fresh pass for Lagos.","Add jara small now, Iya Sikira.","Pack am with ice, I dey go far.","My husband like point-and-kill.","Do you sell cartons? I get shop.","Sunday rice need big tilapia!","The catfish still dey move o!","I go send this one to my sister abroad."],"manager":["Madam, cold room dey at minus 18.","Reefer truck don reach the bay.","Check every carton label, please.","No break cold chain, I beg una.","Madam, Kano order just double!","Kiln team, well done today.","Ice first, gist later, my people.","Export papers ready for signing."],"night":["My hand still dey smell of fish.","Hope gen no off for cold room.","One basin then, cartons now. Wow.","Tomorrow I go buy another freezer.","This pepper soup na my own catfish.","One day, my fish go reach London."]},"events":[{"name":"Sunday Rice Rush","text":"Everybody wants fried tilapia for Sunday rice. The queue reaches the road!","effect":"demand_up"},{"name":"Generator Wahala","text":"Cold room generator coughed all night. Diesel and repairs chop your money.","effect":"cost_hit"},{"name":"Bad Road to the Ponds","text":"Rain spoil the farm road. Fish deliveries crawl in late today.","effect":"supply_slow"},{"name":"Owambe Weekend","text":"Three big parties in town. Caterers pay top naira for catfish and stockfish.","effect":"price_up"},{"name":"Hot Sun, Slow Market","text":"Sun too hot today. Customers stay indoors and the market is quiet.","effect":"demand_down"},{"name":"Bumper Pond Harvest","text":"The ponds overflow with fat fish. A bulk buyer clears the extra for cash.","effect":"bonus_cash"},{"name":"Hotel Chef Visits","text":"A big hotel chef comes shopping for seafood with a fat wallet.","effect":"vip_day"},{"name":"New Ice Delivery","text":"Ice block truck came early. Staff clean and pack fish double quick.","effect":"speed_up"}]},"sani":{"branchNoun":"pepper depot","rankTitles":["Mile 12 Basket Trader","Pepper Shop Owner","Lagos Pepper Merchant","Sarkin Tumatir of Naija","West Africa Pepper Baron","Global Pepper Icon"],"export":{"bay":"Pepper Loading Bay","pack":"dried pepper & paste cartons","contracts":[{"buyer":"Mama Risi Buka & Neighbours","where":"Ketu, Lagos","blurb":"Bukas and corner shops nearby want fresh crates before stew time."},{"buyer":"GreenBasket Supermarkets","where":"Lagos","blurb":"A Lagos chain wants graded, washed tomatoes and rodo on every shelf."},{"buyer":"Royal Palm Hotels & Catering","where":"Abuja","blurb":"Hotels, schools and party caterers need jollof base by the drum."},{"buyer":"Garden City Food Depot","where":"Port Harcourt","blurb":"State distributors take sachet paste and dried tatashe by the truck."},{"buyer":"Golden Coast Spice Traders","where":"Accra, Ghana","blurb":"ECOWAS traders load ground pepper sacks for markets along the coast."},{"buyer":"Naija Taste Foods UK","where":"London, UK","blurb":"Diaspora shops abroad order sealed dried rodo with a taste of home."}]},"machines":{"belt":{"name":"Crate Roller Belt","blurb":"Rolls sorted crates from the store to the counter. No more squashing."},"auto":{"name":"Reefer Truck from Kano","blurb":"Cold truck brings farm-fresh crates from the North with no spoilage."},"pack":{"name":"Solar Dry & Paste Line","blurb":"Dries, grinds and seals pepper and paste into export-grade packs."}},"manager":{"name":"Mrs Hauwa","title":"Market Operations Boss"},"milestones":[{"at":1,"title":"Second Shed Opens","blurb":"Your first pepper depot outside the flagship. Alhaji Sani is now a two-market man."},{"at":5,"title":"Lagos Stew Supplier","blurb":"Five depots across Lagos. Bukas no longer travel to Mile 12; you come to them."},{"at":10,"title":"Goodbye Raffia Baskets","blurb":"Ten depots share plastic crates, so far fewer tomatoes get crushed on the road."},{"at":25,"title":"Own Farms Up North","blurb":"You contract growers in Kano and Kaduna directly. Steady supply, fair farm price."},{"at":50,"title":"Cold Chain Convoy","blurb":"A reefer fleet runs North to South in two days. Fresh stock reaches every state."},{"at":100,"title":"Paste Factory Fires Up","blurb":"Glut season tomatoes now become paste instead of waste. Nothing rots again."},{"at":200,"title":"ECOWAS Pepper Route","blurb":"Depots open in Cotonou, Lome and Accra. West Africa cooks with your pepper."},{"at":300,"title":"Dried Pepper King","blurb":"Solar dryers feed 300 depots. Your grade A dried rodo sets the market price."},{"at":400,"title":"Diaspora Kitchens","blurb":"Stores in London and Houston. Jollof abroad now tastes the way it does at home."},{"at":500,"title":"World Pepper Icon","blurb":"500 depots on three continents. From one paint bucket to feeding the world."}],"chatter":{"staff":["Fresh tomato! Come see am, e red well!","Oga, the Kano truck don land!","Abeg, no press the tomato like that.","Rodo don finish, bring another crate!","Paint bucket full to the brim, no cheat.","This tatashe fine pass lipstick.","Sort the soft ones out for stew pack.","My eye dey water, na rodo cause am.","Onions sack don reach, who go carry?","Customer don full ground o!","Crate no be chair, stand up from there.","Okra fresh, e dey snap like biscuit.","Jara dey for customer wey smile.","I don sneeze ten times. Pepper work!"],"customer":["How much for the paint bucket tomato?","Abeg add jara, I be your customer.","This rodo hot? I want the real one.","Give me tatashe, na party jollof.","Onions for ₦1,000, make am two.","Okra ₦500? Put am for nylon, quick.","Your tomato firm, e no dey watery.","Na here I dey buy my stew things.","Mix tomato, tatashe and rodo for me.","Sunday rice must red. Fill the bucket!","I come from Ikorodu for this pepper.","My soup go draw well with this okra.","Hmm, this pepper smell alone dey hot.","Alhaji, your market sweet me die."],"manager":["First in, first out. Old crates first!","Oga, we need more rodo before 4 PM.","Count the crates before truck leaves.","Soft tomatoes go to the paste line.","Smile, people. Customer is watching.","Oga, today sales red like tatashe.","Keep the okra in the shade, please.","Truck is two hours out. Clear the bay."],"night":["My hands still smell like onions.","No stew tonight abeg, I saw enough.","Tomorrow the Kano truck must come early.","One paint bucket started all this.","Even my dream dey red like tomato.","Thank God, nothing spoil today."]},"events":[{"name":"Owambe Weekend","text":"Wedding season! Every caterer in Lagos wants tomatoes for party jollof.","effect":"demand_up"},{"name":"Glut Season","text":"Bumper harvest up North. Tomato is everywhere and customers shop around.","effect":"demand_down"},{"name":"Rainy Season Scarcity","text":"Rains cut the harvest. Tomato is scarce and a bucket sells for more.","effect":"price_up"},{"name":"Truck Stuck on the Road","text":"The trailer from Kano broke down near Lokoja. Stock is arriving late.","effect":"supply_slow"},{"name":"Heat Spoils the Baskets","text":"A hot day cooked the bottom crates. You pay to replace the soft ones.","effect":"cost_hit"},{"name":"Paste Factory Buys Seconds","text":"A paste maker buys all your soft tomatoes in bulk. Waste turns to cash!","effect":"bonus_cash"},{"name":"Celebrity Chef Visit","text":"A TV chef is shopping for her stew special. Big spenders follow her in.","effect":"vip_day"},{"name":"New Plastic Crates","text":"Stackable crates arrived. Porters sort and carry twice as fast today.","effect":"speed_up"}]},"bola":{"branchNoun":"fabric store","rankTitles":["Market Fabric Trader","Shop Madam","Aso-Ebi Queen of Lagos","Textile Merchant Princess","Iyaloja of African Fabric","Global Fabric Icon"],"export":{"bay":"Bale Loading Bay","pack":"wrapped fabric bales","contracts":[{"buyer":"Iya Risi Tailoring Plaza","where":"Lagos Island","blurb":"Tailors down the road need Adire and Ankara bundles every week."},{"buyer":"Eko Style Department Stores","where":"Lagos","blurb":"A Lagos store chain wants ready-cut Ankara for all its shelves."},{"buyer":"Royal Owambe Event Planners","where":"Abuja","blurb":"Aso-ebi for 500 wedding guests, same Lace, same colour batch."},{"buyer":"Arewa Cloth Distributors","where":"Kano","blurb":"Upcountry wholesalers buying bales of George and Aso-oke."},{"buyer":"Akwaaba Textile Traders","where":"Accra, Ghana","blurb":"Market women across the border reselling Naija Lace and Adire."},{"buyer":"Peckham Naija Boutique","where":"London, UK","blurb":"Diaspora brides and aunties paying pounds for a taste of home."}]},"machines":{"belt":{"name":"Roll Rail Conveyor","blurb":"Overhead rail glides fabric rolls from the store to the counter."},"auto":{"name":"Bale Forklift","blurb":"Offloads supplier bales from the truck with no porter sweating."},"pack":{"name":"Cut, Fold & Wrap Line","blurb":"Measures 6 yards, folds, labels and seals it for premium export."}},"manager":{"name":"Mrs Ronke","title":"Head of Fabric Sales"},"milestones":[{"at":1,"title":"Second Shop on the Island","blurb":"Your first branch opens near the market. Customers no longer queue at one counter."},{"at":5,"title":"Lagos Aso-Ebi Circuit","blurb":"Five stores from Island to Mainland. Party planners now call you first for aso-ebi."},{"at":10,"title":"The Name Tailors Trust","blurb":"Ten branches. Tailors across Lagos send their customers straight to you."},{"at":25,"title":"Abeokuta Adire Connection","blurb":"You buy direct from the dyers in Abeokuta, so Adire costs less and sells faster."},{"at":50,"title":"South-West Fabric Queen","blurb":"Fifty stores from Ibadan to Akure. Every big owambe has your Lace on the dance floor."},{"at":100,"title":"Every State Wears Bola","blurb":"A hundred branches from Kano to Port Harcourt. Your own trucks run the highways."},{"at":200,"title":"West Africa Opens Up","blurb":"Stores in Accra, Cotonou and Lome. Traders cross borders to buy from your shelves."},{"at":300,"title":"Own Label Prints","blurb":"Mills now print Ankara designs with your name on the selvedge. Nobody else has them."},{"at":400,"title":"Diaspora Flagships","blurb":"Shops open in London and Houston. Brides abroad stop begging aunties to carry fabric."},{"at":500,"title":"Global Fabric Empire","blurb":"500 stores on three continents. From one market stall to a name the world wears."}],"chatter":{"staff":["Six yards Ankara, cutting now!","Who carry my tape rule again?","Aunty, this Lace na original o.","Abeg help me fold this George.","Customer don full ground!","The Adire shelf don nearly finish.","Measure twice, cut once, my sister.","Fine colour! E go fit you well.","Aso-oke for bride, coming now!","My scissors sharp pass my mouth.","Madam, this one just land today.","Next customer, I dey for you!","Careful, no stain the white Lace.","Small small, e go reach everybody."],"customer":["I need aso-ebi for 200 guests!","Is this Ankara colour fast?","Madam, do customer price for me.","The Adire fine die, give me two.","My tailor said six yards, abi?","This Lace must match my gele o.","Wedding is Saturday, please hurry!","Show me your best George wrapper.","Aso-oke for my husband's cap too.","Last price? I be your customer.","My sister in London wants ten.","Same colour batch, no mix am o!","Chai, see quality! I'm coming back.","Add one extra yard as jara now."],"manager":["Oga, Lace stock is running low.","Smile, greet, then show fabric.","Aso-ebi order for Friday, move!","Count the yards, not the stories.","Madam, sales sweet well today.","Keep the rolls neat, please.","New bales land tomorrow morning.","Well done team, customers happy!"],"night":["Today, fabric move like water.","My feet tire, but my purse smile.","Tomorrow I must restock Lace.","One day, a store in London too.","Small stall then, see me now.","Let me sleep, owambe season near."]},"events":[{"name":"Owambe Weekend","text":"Three big weddings this Saturday. Everybody is rushing for aso-ebi!","effect":"demand_up"},{"name":"Celebrity Wore Your Lace","text":"A film star posted her outfit online. Buyers will pay extra for that Lace.","effect":"price_up"},{"name":"Heavy Rain on the Island","text":"The market road is flooded. Few customers can reach the shop today.","effect":"demand_down"},{"name":"Bales Stuck at the Port","text":"Your fabric container is delayed in clearing. Restock crawls today.","effect":"supply_slow"},{"name":"Dye Stain Wahala","text":"Wet Adire stained a bale of white Lace. You pay to replace the lot.","effect":"cost_hit"},{"name":"Diaspora Bulk Deposit","text":"A bride in Houston paid upfront for her whole bridal train's fabric.","effect":"bonus_cash"},{"name":"Society Madam Visits","text":"A high-society madam arrives with her friends to pick Aso-oke and George.","effect":"vip_day"},{"name":"Sharp New Scissors","text":"Fresh scissors and tape rules for the team. Cutting is flying today!","effect":"speed_up"}]},"chinedu":{"branchNoun":"phone store","rankTitles":["Computer Village Hustler","Phone Shop Owner","Gadget Chain Boss","Accessories Importer","West Africa Tech Mogul","Global Gadget Icon"],"export":{"bay":"Gadget Loading Bay","pack":"sealed gadget cartons","contracts":[{"buyer":"Otigba Plaza Phone Kiosks","where":"Ikeja, Lagos","blurb":"Small kiosks down the road restock cases and earpieces weekly."},{"buyer":"BrightMart Supermarkets","where":"Lagos","blurb":"Chargers and power banks for the gadget shelf beside every till."},{"buyer":"Royal Palm Hotels Group","where":"Abuja","blurb":"Guest-room chargers and staff phones for hotels nationwide."},{"buyer":"Onitsha Gadget Distributors","where":"Onitsha, Anambra","blurb":"Big dealers who supply phone shops in other states by the carton."},{"buyer":"Kofi Mobile Traders","where":"Accra, Ghana","blurb":"West African traders load full trucks for the coastal road trip."},{"buyer":"NaijaLink Gadgets UK","where":"London, UK","blurb":"Diaspora shops want your own-brand accessories by the container."}]},"machines":{"belt":{"name":"Showcase Conveyor","blurb":"Carries tested gadgets from the store room straight to the counter."},"auto":{"name":"Warehouse Forklift","blurb":"Offloads import cartons from the container without tired hands."},"pack":{"name":"Shrink-Wrap Seal Line","blurb":"Seals, labels and boxes gadgets so export buyers pay more."}},"manager":{"name":"Mr Emeka","title":"Store Operations Boss"},"milestones":[{"at":1,"title":"Second Shop for Ikeja","blurb":"Your first branch opens near the market. Customers stop queueing at one counter."},{"at":5,"title":"Lagos Gadget Chain","blurb":"Five stores from Ikeja to Lekki. You now buy by the carton, not by the dozen."},{"at":10,"title":"Direct Import Licence","blurb":"Ten stores is enough volume to import your own containers and skip the middleman."},{"at":25,"title":"Abuja and Port Harcourt","blurb":"Stores open outside Lagos. Regional managers now run whole cities for you."},{"at":50,"title":"Own-Brand Accessories","blurb":"Chargers and earpieces now carry your name on the pack, with bigger margins."},{"at":100,"title":"Every State Capital","blurb":"One hundred stores nationwide. Phone makers come to you for launch-day deals."},{"at":200,"title":"West Africa Coast Road","blurb":"Stores in Cotonou, Lome and Accra. Trucks now cross borders with your cartons."},{"at":300,"title":"Lagos Assembly Plant","blurb":"You assemble power banks and chargers at home, creating jobs and cutting costs."},{"at":400,"title":"Diaspora Flagships","blurb":"Stores open in London and Houston. Naija gadgets abroad, with warranty too."},{"at":500,"title":"Global Gadget Empire","blurb":"Five hundred stores on three continents. From one glass showcase to a world brand."}],"chatter":{"staff":["Oga, customer don full ground!","Abeg bring more phone cases come.","This one na original, I swear.","Screen guard free if you buy two!","Who get change for five thousand?","Charger shelf don empty again o.","Make I test am for you first.","Power bank carton just land!","Madam, warranty na one full year.","My leg don tire but sales sweet.","Next customer, please come forward!","I don sell ten earpieces today.","Check the IMEI before you seal am.","Customer, your receipt dey here."],"customer":["How much for this phone case?","Abeg, na original charger be this?","My earpiece don spoil again o.","I need power bank, NEPA no gree.","This smartphone camera clear well?","Last price, my brother, last price!","Give me fast charger, the real one.","E get warranty? I no want story.","Wrap two cases for my children.","Your shop cheap pass that side.","Abeg help me transfer my contacts.","I go bring my friends tomorrow.","This power bank fit charge laptop?","Na here I dey buy since, no wahala."],"manager":["Smile, team, customers are watching.","Oga, we need more smartphones.","Test every charger before selling.","Count the stock before we close.","Oga, today's sales are very sweet!","Keep the showcase clean and shining.","New container lands tomorrow morning.","No customer leaves without receipt."],"night":["From one showcase to all this. Wow.","Tomorrow we restock power banks.","My own phone still has cracked screen.","One day, a store in every state.","Let me charge my phone and my body.","Good sales today. We thank God."]},"events":[{"name":"Salary Week Rush","text":"Month-end alerts have landed. Everybody wants a new phone today!","effect":"demand_up"},{"name":"Container Stuck at Port","text":"Your import container is delayed at Apapa. Restocking is slow today.","effect":"supply_slow"},{"name":"Dollar Rate Jump","text":"The exchange rate jumped overnight. Your next import bill costs extra.","effect":"cost_hit"},{"name":"Fake Charger Rumour","text":"A rumour about fake chargers in the market keeps shoppers cautious today.","effect":"demand_down"},{"name":"Light Off All Day","text":"No power across the area. Power banks and chargers sell at premium prices.","effect":"price_up"},{"name":"Influencer Unboxing","text":"A popular tech reviewer is filming in your store. Big spenders follow!","effect":"vip_day"},{"name":"Supplier Sales Rebate","text":"You hit the phone maker's sales target. A cash rebate lands in the account.","effect":"bonus_cash"},{"name":"New Barcode Scanners","text":"Fresh scanners at the till. Staff check out customers in half the time.","effect":"speed_up"}]}}};
+/* ===== setup ===== */
+const $=id=>document.getElementById(id);
+const cv=$('c'),ctx=cv.getContext('2d');
+let W=0,H=0,DPR=1,SCALE=1;
+function resize(){DPR=Math.min(2,window.devicePixelRatio||1);W=innerWidth;H=innerHeight;cv.width=W*DPR;cv.height=H*DPR;SCALE=W>H?Math.min(H/640,W/1000):Math.min(W/600,H/900);if(window.NMZOOM)SCALE=window.NMZOOM;}
+addEventListener('resize',resize);resize();
+const WW=1000,WH=1420,LX=i=>110+i*170;
+const SEATS=[6,12,24,32,40],VCAP=[9,16,28,36,44],VD=[1,1.7,2.6,3.6,4.6],VM=[1,1.3,1.7,2.5,4],INCAP=[0,0,0,150,1000],VR=[0,0,0,6,26],QTY=[3,4,5,7,9],SM=[1,2,4],ADM=[1,1.35,1.75,2.2];
+const GROW=1.15,CASH=['cash'];
+const rnd=(a,b)=>a+Math.random()*(b-a),dist=(a,b,c,d)=>Math.hypot(a-c,b-d);
+
+/* ===== save ===== */
+const KEY='naijaMarket.v2';
+let SAVE={sound:true,cur:null,biz:{}};
+try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&s.biz)SAVE=s;}catch(e){}
+if(SAVE.snd==null)SAVE.snd=SAVE.sound===false?0:2;
+function save(){try{localStorage.setItem(KEY,JSON.stringify(SAVE));}catch(e){}}
+let S=null,B=null,G=null,PROG=[];
+const lvl=id=>(S.pads[id]?S.pads[id].l:0);
+const flag=()=>Object.values(S.pads).reduce((s,p)=>s+p.l,0);
+const level=()=>1+flag()+empCount();
+const stage=()=>lvl('venue');
+const lineOpen=i=>i===0||lvl('line'+i)>0;
+const openLines=()=>B.lines.map((l,i)=>i).filter(lineOpen);
+const trayCap=()=>20+10*lvl('tray'),staffCap=()=>[16,32,60][lvl('train')],staffSpd=()=>[150,190,235][lvl('train')]*(S.emp.mgr?1.2:1)*(evx('speed_up')?1.3:1)*(S.money<0?.7:1);
+const ropeMax=()=>1150+420*lvl('rope');
+const dayLen=()=>[200,230,265,300][lvl('car')];
+const hour=()=>8+12*Math.min(1,S.clock/dayLen());
+const revenue=(i,vip)=>Math.round(B.lines[i].price*SM[lvl('st'+i)]*VM[stage()]*(vip?5:1)*(evx('price_up')?1.25:1));
+
+/* ===== progression: ordered steps, cost grows with position ===== */
+function nice(n){const p=Math.pow(10,Math.max(0,Math.floor(Math.log10(n))-1));return Math.round(n/p)*p;}
+function buildProg(){const D=B.lines.some(l=>l.src==='depot');
+  const seq=['tray','cook0','hand','server','rope','venue','line1','cook1','cashier',D&&'porter','st0','car','tray','line2','cook2','server','ads','st1','venue','house','hand','rope',D&&'truck','line3','cook3','st2','train',D?'porter':'hand','car','venue','ads','tray','line4','cook4','st0','server','house','st3','st1','rope',D?'porter':'server',D&&'truck','ads','st4','train','st2','car','tray','st3','house','st4','venue'].filter(Boolean);
+  const cnt={};let open=1;const ref=()=>B.lines.slice(0,open).reduce((a,l)=>a+l.price,0)/open;
+  PROG=seq.map((id,i)=>{cnt[id]=(cnt[id]||0)+1;const base=id.replace(/\d/,'');const w=base==='venue'?(cnt[id]===4?4:cnt[id]===3?1.8:2.4):base==='line'?1.7:base==='car'?1.5:base==='house'?2:1;
+    const cost=nice(ref()*12*Math.pow(GROW,i)*w);if(base==='line')open++;return{id,base,arg:+(id.match(/\d/)||[0])[0],i,n:cnt[id],cost};});
+  G.maxOf=cnt;}
+function nextStep(id){const n=lvl(id)+1;return PROG.find(s=>s.id===id&&s.n===n)||null;}
+function visibleSteps(){const bought=flag(),ids=new Set(),out=[];for(const s of PROG){if(ids.has(s.id))continue;if(s.n===lvl(s.id)+1){ids.add(s.id);if(s.i<=bought+3)out.push(s);}}return out;}
+function padPos(s){const i=s.arg;switch(s.base){
+  case'line':return[LX(i),512];case'cook':return[LX(i)+85,498];case'st':return[LX(i)+85,574];
+  case'hand':return[150,392];case'rope':return[240,392];case'tray':return[330,392];
+  case'porter':return[830,410];case'truck':return[915,410];
+  case'server':return[952,478];case'cashier':return[952,548];case'train':return[952,618];
+  case'venue':return[500,1228];case'ads':return[600,1228];case'car':return[215,1228];case'house':return[305,1228];}}
+function padLabel(s){const l=B.lines[s.arg];switch(s.base){
+  case'line':return'New: '+l.n;case'cook':return'Hire '+(B.food?'cook':'packer')+' for '+l.short;case'st':return l.short+': sell x'+SM[s.n]+' per batch';
+  case'hand':return'Hire '+(B.field==='water'?'fisherman':B.field==='yard'?'offloader':B.field==='pasture'?'herdsman':'farmhand');
+  case'rope':return'Longer rope';case'tray':return'Bigger head tray';case'porter':return'Hire porter';case'truck':return'Bigger delivery van';
+  case'server':return'Hire '+(B.food?'server':'sales girl');case'cashier':return'Hire cashier';case'train':return'Staff training';
+  case'venue':return'Renovate: '+B.venue[s.n];case'ads':return ADS[s.n];case'car':return'Buy '+CAR[s.n];case'house':return'Move to '+HOUSE[s.n];}}
+const PICON={hand:'🧑‍🌾',rope:'🪢',tray:'🧺',porter:'📦',truck:'🚚',server:'🏃',cashier:'💰',train:'🎓',venue:'🏗️',ads:'📻',car:'🚗',house:'🏡',cook:'👩‍🍳'};
+
+/* ===== world build ===== */
+function build(){
+  B=BIZ[SAVE.cur];S=migrate(SAVE.biz[SAVE.cur]);
+  G={t:0,flyers:[],parts:[],floats:[],conf:[],custs:[],workers:[],cars:[],crops:[],procIn:[0,0,0,0,0],procT:[0,0,0,0,0],out:[0,0,0,0,0],counter:[0,0,0,0,0],depot:[0,0,0,0,0],
+     player:{x:450,y:400,stack:[],trail:null,face:1,step:0},input:{active:false},keys:{},cam:{x:450,y:400},acc:{pick:0,drop:0,cash:0,payFly:0,spawn:0,v:0,hud:0,save:0,fl:0,chat:3},
+     truck:{state:'wait',t:6,y:-140},exp:{state:'wait',t:10,x:WW+160,ord:null},mach:{x:120,y:160,v:150,acc:0},beltT:[0,0,0,0,0],depT:[0,0,0,0,0],bub:[],closing:false,closeT:0,night:null,inside:0,toastT:0,warnT:0,onPad:null,speed:1};
+  G.F1=B.lines.reduce((a,l)=>a+l.price,0)/5*16*QF[SAVE.cur];buildProg();
+  G.F=B.lines.map((l,i)=>i).filter(i=>B.lines[i].src==='field');G.D=B.lines.map((l,i)=>i).filter(i=>B.lines[i].src==='depot');
+  const f=G.field={x:40,y:30,w:G.D.length?650:920,h:270};G.postA={x:f.x+70,y:325};G.postB={x:f.x+f.w-70,y:325};
+  const sw=f.w/G.F.length;G.strips=G.F.map((li,k)=>({li,x:f.x+k*sw,w:sw}));
+  G.stacks=G.D.map((li,j)=>({li,x:735+j*70,y:338}));
+  const moving=B.field==='pasture'||B.field==='water';
+  for(const s of G.strips){if(moving){const n=Math.round(s.w*f.h/1350);for(let i=0;i<n;i++)G.crops.push(newAnimal(s));}
+    else for(let y=f.y+22;y<f.y+f.h-10;y+=30)for(let x=s.x+18;x<s.x+s.w-8;x+=30)G.crops.push({li:s.li,x:x+rnd(-4,4),y:y+rnd(-4,4),ready:true,t:0});}
+  makeSeats();syncStaff();updateHud(true);
+}
+function newAnimal(s){const f=G.field;return{li:s.li,s,x:rnd(s.x+16,s.x+s.w-16),y:rnd(f.y+16,f.y+f.h-16),vx:rnd(-16,16),vy:rnd(-16,16),ready:true,t:0,mv:true,ph:rnd(0,6)};}
+function makeSeats(){const st=stage(),s=[];G.tables=[];
+  if(st===0){for(let i=0;i<6;i++)s.push({x:330+i*56,y:884});}
+  else{const xs=st<=2?[220,440,660]:[150,320,490,660],ys=st===1?[930]:st<4?[900,1060]:[880,1000,1120];let n=0;
+    for(const y of ys)for(const x of xs){if(n>=SEATS[st]/4)break;G.tables.push({x,y});for(const[dx,dy]of[[-30,-6],[30,-6],[-30,16],[30,16]])s.push({x:x+dx,y:y+dy});n++;}}
+  G.seats=s;G.seatTaken=new Array(s.length).fill(null);for(const c of G.custs){c.st='out';c.seat=-1;}}
+function syncStaff(){const want=[];
+  for(let i=0;i<lvl('hand');i++)want.push('hand');for(let i=0;i<lvl('porter');i++)want.push('porter');for(let i=0;i<lvl('server');i++)want.push('server');
+  for(let i=0;i<5;i++)if(lvl('cook'+i))want.push('cook'+i);if(lvl('cashier'))want.push('cashier');
+  if(S.emp.mgr)want.push('manager');for(let i=0;i<[0,1,1,2,2,3,3][S.emp.con];i++)want.push('loader');
+  for(const k of want){const have=G.workers.filter(w=>w.key===k).length,need=want.filter(x=>x===k).length;
+    for(let j=have;j<need;j++){const w={key:k,kind:k.replace(/\d/,''),li:+(k.match(/\d/)||[0])[0],x:500,y:420,stack:[],state:'idle',wait:rnd(.2,1.5),path:[],trail:null,step:0,face:1,n:j};
+      if(w.kind==='cook'){w.x=LX(w.li)-52;w.y=524;}else if(w.kind==='cashier'){w.x=915;w.y=716;}else if(w.kind==='hand'){w.x=G.postA.x+40+j*30;w.y=350;}else if(w.kind==='porter'){w.x=780+j*30;w.y=380;}else if(w.kind==='loader'){w.x=720+j*36;w.y=1215;}else if(w.kind==='manager'){w.x=500;w.y=660;}else{w.x=300+j*60;w.y=640;}
+      G.workers.push(w);}}}
+
+/* ===== ui ===== */
+function toast(msg,t=2.4){const el=$('toast');el.textContent=msg;el.style.opacity=1;G.toastT=t;}
+function banner(big,small){const el=$('banner');el.innerHTML=big+(small?'<small>'+small+'</small>':'');el.classList.remove('go');void el.offsetWidth;el.classList.add('go');}
+function fmt(n){if(n<0)return'-'+fmt(-n);n=Math.floor(n);if(n>=1e9)return(n/1e9).toFixed(2)+'B';if(n>=1e7)return(n/1e6).toFixed(1)+'M';return n.toLocaleString('en-NG');}
+function short(n){if(n>=1e9)return+(n/1e9).toFixed(2)+'B';if(n>=1e6)return+(n/1e6).toFixed(1)+'M';if(n>=1e4)return+(n/1e3).toFixed(0)+'K';return n.toLocaleString('en-NG');}
+function clockTxt(){const h=hour(),hh=Math.floor(h),m=Math.floor((h-hh)*60/10)*10;return((hh+11)%12+1)+':'+String(m).padStart(2,'0')+(hh<12?' AM':' PM');}
+function updateHud(full){$('money').innerHTML='<b>₦</b>'+fmt(S.money);$('money').classList.toggle('neg',S.money<0);const ev=$('ev');ev.hidden=!S.ev;if(S.ev)ev.textContent=evLabel();
+  $('biz').innerHTML=B.name+'<small>'+(S.emp.br?rank()+' · ':'')+'Level '+level()+' · Day '+S.day+' · '+(G.closing?'Closed':clockTxt())+'</small>';
+  if(full){$('mute').textContent=['🔇','🔉','🔊'][sndLvl()];$('mute').title=['Sound off','Sound, no music','Sound and music'][sndLvl()];}
+  const vis=visibleSteps();let best=null;for(const s of vis){const rem=s.cost-(S.pads[s.id]?S.pads[s.id].paid:0);if(!best||rem<best.rem)best={s,rem};}
+  const g=$('goal');if(!best){g.hidden=false;const its=empItems().sort((a,b)=>a.cost-b.cost),it=its[0];if(!it){$('goalTxt').textContent='🏆 '+rank()+'! 500 stores worldwide.';$('goalBar').style.width='100%';return;}
+    $('goalTxt').textContent='HQ: '+it.name+' · ₦'+short(it.cost);$('goalBar').style.width=Math.max(0,Math.min(100,100*S.money/it.cost))+'%';g.classList.toggle('ready',S.money>=it.cost);return;}
+  g.hidden=false;$('goalTxt').textContent='Next: '+padLabel(best.s)+' · ₦'+short(best.rem);$('goalBar').style.width=Math.min(100,100*S.money/best.rem)+'%';g.classList.toggle('ready',S.money>=best.rem);}
+
+/* ===== input ===== */
+cv.addEventListener('pointerdown',e=>{if(!G)return;audio();if(G.night){nightTap();return;}G.input={active:true,ox:e.clientX,oy:e.clientY,x:e.clientX,y:e.clientY};try{cv.setPointerCapture(e.pointerId);}catch(_){}});
+cv.addEventListener('pointermove',e=>{if(G&&G.input.active){G.input.x=e.clientX;G.input.y=e.clientY;}});
+const endIn=()=>{if(G)G.input.active=false};cv.addEventListener('pointerup',endIn);cv.addEventListener('pointercancel',endIn);
+addEventListener('keydown',e=>{if(G)G.keys[e.key.toLowerCase()]=true});addEventListener('keyup',e=>{if(G)G.keys[e.key.toLowerCase()]=false});
+
+/* ===== fx helpers ===== */
+function inRect(x,y,r){return x>=r.x&&x<=r.x+r.w&&y>=r.y&&y<=r.y+r.h;}
+function pip(x,y,poly){let c=false;for(let i=0,j=poly.length-1;i<poly.length;j=i++){const a=poly[i],b=poly[j];if((a.y>y)!==(b.y>y)&&x<(b.x-a.x)*(y-a.y)/(b.y-a.y)+a.x)c=!c;}return c;}
+function fly(type,x0,y0,z0,x1,y1,z1,dur=.35,delay=0,arc=60){if(G.flyers.length<260)G.flyers.push({type,x0,y0,z0,x1,y1,z1,t:-delay,dur,arc});}
+function puff(x,y,n=6,col='#fff'){if(G.parts.length>220)return;for(let i=0;i<n;i++)G.parts.push({x,y,vx:rnd(-45,45),vy:rnd(-50,10),r:rnd(4,10),t:0,life:rnd(.5,.8),col});}
+function floatTxt(x,y,txt,col='#b9ffcf',size=13){if(G.floats.length<40)G.floats.push({x,y,txt,col,size,t:0});}
+function confetti(n=70){const cols=['#ffc23d','#e8501e','#36b36a','#2a9fd6','#fff','#c9367a'];for(let i=0;i<n;i++)G.conf.push({x:rnd(0,W),y:rnd(-H*.3,0),vx:rnd(-60,60),vy:rnd(120,380),r:rnd(4,9),c:cols[i%6],t:0,rot:rnd(0,6)});}
+
+/* ===== rope ===== */
+function trailLen(tr){let L=0;for(let i=1;i<tr.pts.length;i++)L+=dist(tr.pts[i-1].x,tr.pts[i-1].y,tr.pts[i].x,tr.pts[i].y);return L;}
+function harvest(poly,isPlayer){let n=0;
+  for(const c of G.crops){if(c.ready&&lineOpen(c.li)&&pip(c.x,c.y,poly)){c.ready=false;c.t=rnd(2.6,4.6)*(evx('supply_slow')?1.6:1);n++;G.procIn[c.li]++;fly('r'+c.li,c.x,c.y,6,LX(c.li),500,24,rnd(.45,.8),n*.005,90);}}
+  if(isPlayer){if(n>0){floatTxt(G.player.x,G.player.y-70,'+'+n+(n>=40?'  CORRECT!':''),'#fff',n>=40?20:15);beep(660,.12,'square',.05,1.5);if(n>=40)puff(G.player.x,G.player.y-30,14,'#ffe9a8');}
+    else toast('Nothing inside the circle. Go round the '+(B.field==='yard'?'cartons':B.field==='water'?'fish':B.field==='pasture'?'animals':'crops')+'!',2);}
+  return n;}
+
+/* ===== workers ===== */
+function moveTo(o,tx,ty,sp,dt){const d=dist(o.x,o.y,tx,ty);if(d<4)return true;const s=Math.min(d,sp*dt);o.x+=(tx-o.x)/d*s;o.y+=(ty-o.y)/d*s;o.face=tx<o.x?-1:1;o.step+=dt*10;return false;}
+function updWorker(w,dt){const sp=staffSpd(),cap=staffCap(),f=G.field;
+  if(w.kind==='cook'||w.kind==='cashier'){w.step+=dt*(w.kind==='cook'&&G.procIn[w.li]>0?9:0);return;}
+  if(w.kind==='manager'){if(w.state==='idle'){w.wait-=dt;if(w.wait<=0){w.tx=rnd(120,860);w.ty=pick([640,660,800,470]);w.state='walk';}}else if(moveTo(w,w.tx,w.ty,sp*.6,dt)){w.state='idle';w.wait=rnd(2,5);}return;}
+  if(w.kind==='loader'){const o=G.exp.state==='load'?G.exp.ord:null;
+    if(w.state==='idle'){if(o&&o.got<o.need&&G.out[o.li]>0){w.li=o.li;w.state='load';}else moveTo(w,720+w.n*36,1215,sp,dt);}
+    else if(w.state==='load'){if(moveTo(w,LX(w.li)+30,604,sp,dt)){w.wait-=dt;if(w.wait<=0&&G.out[w.li]>0&&w.stack.length<cap){G.out[w.li]--;w.stack.push('p'+w.li);w.wait=.02;}if(w.stack.length>=cap||G.out[w.li]===0)w.state=w.stack.length?'drop':'idle';}}
+    else{if(moveTo(w,BAY.x+w.n*14,BAY.y,sp,dt)){w.wait-=dt;if(w.wait<=0&&w.stack.length){w.stack.pop();if(o&&o.li===w.li&&o.got<o.need)o.got++;else G.counter[w.li]++;w.wait=.015;}if(!w.stack.length)w.state='idle';}}
+    return;}
+  if(w.kind==='hand'){
+    if(w.state==='idle'){w.wait-=dt;if(w.wait<=0){const ss=G.strips.filter(s=>lineOpen(s.li)&&G.procIn[s.li]<140);if(!ss.length){w.wait=1;return;}const s=ss[Math.floor(Math.random()*ss.length)];
+        const cx=Math.max(f.x+150,Math.min(f.x+f.w-150,s.x+s.w/2+rnd(-40,40))),hw=Math.min(s.w/2+40,rnd(110,140)+lvl('rope')*28),top=f.y+rnd(20,70);
+        w.path=[{x:cx-hw*.4,y:f.y+f.h-4},{x:cx-hw,y:top+90},{x:cx-hw*.6,y:top},{x:cx+hw*.6,y:top},{x:cx+hw,y:top+90},{x:cx+hw*.4,y:f.y+f.h-4},{x:cx,y:f.y+f.h+30}];w.trail=null;w.state='loop';}}
+    else{const p=w.path[0];if(moveTo(w,p.x,p.y,sp,dt))w.path.shift();
+      if(inRect(w.x,w.y,f)){if(!w.trail)w.trail={pts:[{x:w.x,y:w.y}]};const l=w.trail.pts[w.trail.pts.length-1];if(dist(l.x,l.y,w.x,w.y)>12)w.trail.pts.push({x:w.x,y:w.y});}
+      else if(w.trail&&w.y>f.y+f.h){harvest(w.trail.pts,false);w.trail=null;}
+      if(!w.path.length){w.state='idle';w.wait=rnd(.3,.9);}}
+    return;}
+  if(w.kind==='porter'){
+    if(w.state==='idle'){let best=-1,bv=1e9;for(const s of G.stacks){if(lineOpen(s.li)&&G.depot[s.li]>0&&G.procIn[s.li]<bv&&!G.workers.some(o=>o!==w&&o.kind==='porter'&&o.state!=='idle'&&o.li===s.li&&G.D.filter(lineOpen).length>1)){bv=G.procIn[s.li];best=s.li;}}
+      if(best>=0&&bv<120){w.li=best;w.state='load';}else moveTo(w,790+w.n*32,385,sp,dt);}
+    else if(w.state==='load'){const s=G.stacks.find(s=>s.li===w.li);if(moveTo(w,s.x,s.y+34,sp,dt)){w.wait-=dt;if(w.wait<=0&&G.depot[w.li]>0&&w.stack.length<cap*1.5){G.depot[w.li]--;w.stack.push('r'+w.li);w.wait=.02;}
+        if(w.stack.length>=cap*1.5||G.depot[w.li]===0)w.state=w.stack.length?'drop':'idle';}}
+    else{if(moveTo(w,LX(w.li)+rnd(-2,2),470,sp,dt)){w.wait-=dt;if(w.wait<=0&&w.stack.length){w.stack.pop();G.procIn[w.li]++;w.wait=.015;}if(!w.stack.length)w.state='idle';}}
+    return;}
+  if(w.kind==='server'){
+    if(w.state==='idle'){let best=-1,bv=3;for(const i of openLines()){const v=G.out[i]-(G.counter[i]>=70?999:0)-(G.workers.some(o=>o!==w&&o.kind==='server'&&o.state!=='idle'&&o.li===i)?14:0);if(v>bv){bv=v;best=i;}}
+      if(best>=0){w.li=best;w.state='load';}else moveTo(w,330+w.n*90,650,sp,dt);}
+    else if(w.state==='load'){if(moveTo(w,LX(w.li)-30,604,sp,dt)){w.wait-=dt;if(w.wait<=0&&G.out[w.li]>0&&w.stack.length<cap){G.out[w.li]--;w.stack.push('p'+w.li);w.wait=.02;}
+        if(w.stack.length>=cap||G.out[w.li]===0)w.state=w.stack.length?'drop':'idle';}}
+    else{if(moveTo(w,LX(w.li)-18,712,sp,dt)){w.wait-=dt;if(w.wait<=0&&w.stack.length){w.stack.pop();G.counter[w.li]++;w.wait=.015;}if(!w.stack.length)w.state='idle';}}
+  }}
+
+/* ===== sales ===== */
+function sale(i,c,q=1){const amt=revenue(i,c&&c.vip)*q;S.till+=amt;S.dayEarn+=amt;S.mo.rev+=amt;S.daySold+=q;S.sold+=q;
+  const x=c?c.x:rnd(800,945),y=c?c.y:1180;
+  if(c){fly('p'+i,LX(i),738,26,c.x,c.y,30,.2,0,24);fly('cash',c.x,c.y,34,915,734,10,.4,.1,50);}
+  if(c&&c.vip){floatTxt(x,y-60,'BIG SPENDER +₦'+short(amt),'#ffd659',17);puff(x,y-30,10,'#ffe9a8');beep(988,.2,'square',.05,1.5);}
+  else if(G.t-G.acc.fl>.22){G.acc.fl=G.t;floatTxt(x,y-52,'+₦'+short(amt));}
+  if(c)tick(820);}
+function bump(h,c,w){return Math.exp(-Math.pow((h-c)/w,2));}
+function todMult(){const h=hour();let m=.75+.7*bump(h,13,1.2)+.85*bump(h,18.2,1.1);const hl=lvl('house');if(S.clock<[0,30,50,80][hl])m*=[1,1.5,1.75,2][hl];return m;}
+function updCustomers(dt){const st=stage(),rate=1*VD[st]*ADM[lvl('ads')]*todMult()*(evx('demand_up')?1.5:evx('demand_down')?.65:1),ol=openLines();
+  if(!G.closing&&G.custs.length<VCAP[st]){G.acc.spawn+=rate*dt;while(G.acc.spawn>=1){G.acc.spawn--;const li=ol[Math.floor(Math.random()*ol.length)],pal=CPAL[Math.floor(Math.random()*CPAL.length)];
+      G.custs.push({x:rnd(80,720),y:1292,li,st:'in',tx:LX(li)+rnd(-30,30),ty:774+rnd(0,22),pat:rnd(9,13),vip:Math.random()<(evx('vip_day')?.2:.05),q:1+Math.floor(Math.random()*QTY[st]),o:{cloth:pal[0],trim:pal[1],hat:pal[2]},step:rnd(0,6),face:1,seat:-1,t:0});}}
+  else G.acc.spawn=Math.min(G.acc.spawn,1);
+  for(const c of G.custs){
+    if(c.st==='in'){if(moveTo(c,c.tx,c.ty,150,dt))c.st='wait';}
+    else if(c.st==='wait'){if(G.counter[c.li]>0){const q=Math.min(G.counter[c.li],c.q);G.counter[c.li]-=q;sale(c.li,c,q);c.got=true;let s=-1;for(let k=0;k<G.seats.length;k++)if(!G.seatTaken[k]){s=k;break;}
+        if(s>=0){G.seatTaken[s]=c;c.seat=s;c.st='toSeat';}else c.st='out';}
+      else{c.pat-=dt;if(c.pat<=0||G.closing){c.angry=true;c.st='out';S.lost=(S.lost||0)+1;}}}
+    else if(c.st==='toSeat'){const s=G.seats[c.seat];if(!s){c.st='out';}else if(moveTo(c,s.x,s.y,150,dt)){c.st='eat';c.t=rnd(2.5,4.5);}}
+    else if(c.st==='eat'){c.t-=dt;if(c.t<=0){G.seatTaken[c.seat]=null;c.seat=-1;c.st='out';}}
+    else if(moveTo(c,c.tx,1300,160,dt))c.dead=true;}
+  G.custs=G.custs.filter(c=>!c.dead);
+  // indoor diners (abstract) once the building exists
+  const cap=INCAP[st];if(cap){let stock=0;for(const i of ol)stock+=G.counter[i];
+    if(!G.closing&&stock>0){G.acc.v+=VR[st]*ADM[lvl('ads')]*todMult()*(evx('demand_up')?1.5:evx('demand_down')?.65:1)*dt;while(G.acc.v>=1){G.acc.v--;const li=ol[Math.floor(Math.random()*ol.length)];if(G.counter[li]>0){G.counter[li]--;sale(li,null);}}}
+    const tgt=G.closing?0:cap*Math.min(1,.25+.75*Math.min(1,stock/60))*Math.min(1,todMult()/1.4);G.inside+=(tgt-G.inside)*Math.min(1,dt*.4);}
+}
+const CPAL=[['#f2c230','#1f3f8f','none'],['#c9367a','#ffd659','gele'],['#2b8fd6','#f4f1ea','cap'],['#1f8a4c','#f2d16b','fila'],['#f4f1ea','#e8501e','none'],['#7a1f6a','#f2d16b','gele'],['#e8501e','#1b1f27','none'],['#36b3a8','#f4f1ea','none']];
+
+/* ===== pads ===== */
+function buyPad(s){const Lp=S.pads[s.id];Lp.l++;Lp.paid=0;const[x,y]=padPos(s);puff(x,y,18,'#9dffb8');
+  const big=s.base==='venue'||s.base==='line'||s.base==='house'||s.base==='car';fanfare(big);confetti(big?120:50);
+  let msg=padLabel(s);
+  if(s.base==='venue'){makeSeats();msg=B.venue[s.n]+' is open!';if(s.n===4)msg='You built the '+B.venue[4]+'!';}
+  if(s.base==='line')msg=B.lines[s.arg].n+' now on the menu';
+  if(s.base==='car')msg='You bought a '+CAR[s.n]+'. Longer opening hours!';
+  if(s.base==='house')msg='New home: '+HOUSE[s.n]+'. Better sleep, bigger morning rush.';
+  if(s.base==='st')msg=B.lines[s.arg].short+' now sells x'+SM[s.n];
+  if(s.base==='tray')msg='Head tray now carries '+trayCap();
+  syncStaff();banner('LEVEL '+level(),msg);updateHud();save();}
+const staffCount=()=>G.workers.length;
+
+/* ===== main update ===== */
+function update(dt){
+  G.t+=dt;const P=G.player,acc=G.acc,f=G.field;
+  if(G.night){updNight(dt);return;}
+  audioTick(dt);
+  if(!G.closing){S.clock+=dt;if(S.clock>=dayLen()){G.closing=true;G.closeT=0;toast('8 PM. Closing time! Walk to your '+(lvl('car')?CAR[lvl('car')]:'bus stop')+' to go home.',5);beep(330,.4,'sine',.06,.6);}}
+  else{G.closeT+=dt;if(G.closeT>35||dist(P.x,P.y,110,1228)<44)return startNight();}
+  // movement
+  let mx=0,my=0;const I=G.input;
+  if(I.active){const dx=I.x-I.ox,dy=I.y-I.oy,d=Math.hypot(dx,dy);if(d>6){const k=Math.min(1,d/45);mx=dx/d*k;my=dy/d*k;}if(d>70){I.ox=I.x-dx/d*70;I.oy=I.y-dy/d*70;}}
+  const K=G.keys;if(K.a||K.arrowleft)mx-=1;if(K.d||K.arrowright)mx+=1;if(K.w||K.arrowup)my-=1;if(K.s||K.arrowdown)my+=1;
+  const ml=Math.hypot(mx,my);if(ml>1){mx/=ml;my/=ml;}
+  const inF=inRect(P.x,P.y,f),sp=inF?175:225;
+  let nx=Math.max(22,Math.min(978,P.x+mx*sp*dt)),ny=Math.max(34,Math.min(1262,P.y+my*sp*dt));
+  if(inRect(nx,ny,f)&&!inF&&P.y>f.y+f.h){
+    if(P.stack.length){nx=P.x;ny=P.y;if(G.t-(G.blockT||0)>2.5){G.blockT=G.t;toast('Drop your load first, then enter with empty hands.');}}
+    else P.trail={pts:[{x:nx,y:f.y+f.h+6},{x:nx,y:ny}],len:0,strain:0};}
+  if(ml>.05){P.step+=dt*12;if(mx)P.face=mx<0?-1:1;}
+  P.x=nx;P.y=ny;
+  if(P.trail){const tr=P.trail;
+    if(inRect(P.x,P.y,f)){const l=tr.pts[tr.pts.length-1];if(dist(l.x,l.y,P.x,P.y)>10){tr.pts.push({x:P.x,y:P.y});tr.len=trailLen(tr);}tr.strain=tr.len/ropeMax();
+      if(tr.strain>1){puff(P.x,P.y,14,'#cfe8ff');toast('Rope don cut! Make a smaller circle or buy a longer rope.',3);beep(140,.35,'sawtooth',.06,.4);P.trail=null;}
+      else if(tr.strain>.82&&G.t-G.warnT>.6){G.warnT=G.t;beep(220,.12,'sawtooth',.03);}}
+    else if(P.y>f.y+f.h){harvest([...tr.pts,{x:P.x,y:P.y}],true);P.trail=null;}
+    else P.trail=null;}
+  // crops
+  for(const c of G.crops){if(!c.ready){c.t-=dt;if(c.t<=0){c.ready=true;if(c.mv)Object.assign(c,newAnimal(c.s));}}
+    else if(c.mv){c.ph+=dt;c.x+=c.vx*dt;c.y+=c.vy*dt;if(Math.random()<dt*.5){c.vx=rnd(-18,18);c.vy=rnd(-18,18);}
+      const s=c.s;if(c.x<s.x+12||c.x>s.x+s.w-12)c.vx*=-1;if(c.y<f.y+12||c.y>f.y+f.h-12)c.vy*=-1;c.x=Math.max(s.x+12,Math.min(s.x+s.w-12,c.x));c.y=Math.max(f.y+12,Math.min(f.y+f.h-12,c.y));}}
+  // delivery van
+  if(G.D.length){const T=G.truck,tl=lvl('truck');
+    if(T.state==='wait'){T.t-=dt;if(T.t<=0&&G.D.some(lineOpen)){T.state='in';T.y=-140;}}
+    else if(T.state==='in'){T.y+=210*dt;if(T.y>=205){T.y=205;T.state='unload';T.t=1.6;}}
+    else if(T.state==='unload'){T.t-=dt;if(T.t<=0){const load=[30,60,120][tl],cap=[60,120,240][tl];for(const s of G.stacks)if(lineOpen(s.li)){const add=Math.min(load,cap-G.depot[s.li]);G.depot[s.li]+=add;for(let k=0;k<Math.min(add,6);k++)fly('r'+s.li,850,205,20,s.x,s.y,10,.4,k*.06,50);}
+        T.state='out';beep(180,.2,'square',.04);}}
+    else{T.y-=230*dt;if(T.y<-150){T.state='wait';T.t=[20,15,10][tl]*(evx('supply_slow')?1.6:1);}}}
+  // stations
+  for(const i of openLines()){if(G.procIn[i]>0&&G.out[i]<80){G.procT[i]+=dt;const per=lvl('cook'+i)?[.1,.07,.045][lvl('train')]/(S.emp.mgr?1.2:1):.36;
+      while(G.procT[i]>=per&&G.procIn[i]>0&&G.out[i]<80){G.procT[i]-=per;G.procIn[i]--;G.out[i]++;fly('p'+i,LX(i),500,30,LX(i)-21+((G.out[i]-1)/10|0)%4*14,592,6+((G.out[i]-1)%10)*5,.4,0,60);}}
+    else G.procT[i]=0;}
+  updCustomers(dt);
+  for(const w of G.workers)updWorker(w,dt);
+  updMachines(dt);updExport(dt);updChatter(dt);
+  if(lvl('cashier')&&S.till>0){const t=Math.max(1,Math.ceil(S.till*Math.min(1,dt*3)));S.till-=t;S.money+=t;}
+  // player zones
+  let did=false;const top=P.stack[P.stack.length-1];
+  for(const i of openLines()){
+    if(!did&&G.out[i]>0&&P.stack.length<trayCap()&&(!top||top==='p'+i)&&dist(P.x,P.y,LX(i),592)<36){did=true;acc.pick+=dt;while(acc.pick>.035&&G.out[i]>0&&P.stack.length<trayCap()){acc.pick-=.035;G.out[i]--;P.stack.push('p'+i);tick(500+P.stack.length*10);}}
+    if(!did&&top==='p'+i&&dist(P.x,P.y,LX(i),716)<40){did=true;acc.pick+=dt;while(acc.pick>.03&&P.stack.length){acc.pick-=.03;P.stack.pop();G.counter[i]++;tick(380+P.stack.length*8);}}
+    if(!did&&top==='r'+i&&dist(P.x,P.y,LX(i),468)<36){did=true;acc.pick+=dt;while(acc.pick>.03&&P.stack.length){acc.pick-=.03;P.stack.pop();G.procIn[i]++;tick(300+P.stack.length*8);}}}
+  for(const s of G.stacks){if(!did&&lineOpen(s.li)&&G.depot[s.li]>0&&P.stack.length<trayCap()&&(!top||top==='r'+s.li)&&dist(P.x,P.y,s.x,s.y+26)<34){did=true;acc.pick+=dt;while(acc.pick>.035&&G.depot[s.li]>0&&P.stack.length<trayCap()){acc.pick-=.035;G.depot[s.li]--;P.stack.push('r'+s.li);tick(450+P.stack.length*10);}}}
+  {const o=G.exp.state==='load'?G.exp.ord:null;if(!did&&o&&top==='p'+o.li&&o.got<o.need&&dist(P.x,P.y,BAY.x,BAY.y)<52){did=true;acc.pick+=dt;while(acc.pick>.025&&P.stack.length&&o.got<o.need){acc.pick-=.025;P.stack.pop();o.got++;tick(420+P.stack.length*8);}}}
+  if(!did)acc.pick=0;
+  if(S.till>0&&!lvl('cashier')&&dist(P.x,P.y,915,690)<48){const t=Math.max(1,Math.ceil(S.till*Math.min(1,dt*5)));S.till-=t;S.money+=t;acc.cash+=dt;if(acc.cash>.05){acc.cash=0;fly('cash',915,724,10,P.x,P.y,30,.2,0,40);tick(900);}}
+  // pads
+  let onPad=null;for(const s of visibleSteps()){const[x,y]=padPos(s);if(dist(P.x,P.y,x,y)<30){onPad=s;break;}}
+  G.onPad=onPad;
+  if(onPad&&S.money>0){const Lp=(S.pads[onPad.id]=S.pads[onPad.id]||{l:0,paid:0});const pay=Math.min(Math.max(1,Math.ceil(onPad.cost*dt*.9)),S.money,onPad.cost-Lp.paid);S.money-=pay;Lp.paid+=pay;
+    acc.payFly+=dt;if(acc.payFly>.06){acc.payFly=0;const[x,y]=padPos(onPad);fly('cash',P.x,P.y,40,x,y,4,.25,0,40);tick(700);}
+    if(Lp.paid>=onPad.cost)buyPad(onPad);}
+  // street traffic
+  if(Math.random()<dt*.35&&G.cars.length<5){const r=Math.random()<.5;G.cars.push({x:r?-80:WW+80,y:r?1318:1372,v:r?rnd(120,190):-rnd(120,190),k:Math.random()<.6?'danfo':Math.random()<.5?'keke':'car',c:['#c62828','#2a62c9','#f4f1ea','#1b1f27'][Math.floor(Math.random()*4)]});}
+  for(const c of G.cars)c.x+=c.v*dt;G.cars=G.cars.filter(c=>c.x>-120&&c.x<WW+120);
+  // camera
+  {const hw=W/2/SCALE,hh=H/2/SCALE;const tx=hw*2>=WW?WW/2:Math.max(hw,Math.min(WW-hw,P.x)),ty=Math.max(hh-125,Math.min(WH-hh,P.y-20));G.cam.x+=(tx-G.cam.x)*Math.min(1,dt*5);G.cam.y+=(ty-G.cam.y)*Math.min(1,dt*5);}
+  // fx
+  for(const fl of G.flyers)fl.t+=dt;G.flyers=G.flyers.filter(fl=>fl.t<fl.dur);
+  for(const p of G.parts){p.t+=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=60*dt;}G.parts=G.parts.filter(p=>p.t<p.life);
+  for(const p of G.floats){p.t+=dt;p.y-=26*dt;}G.floats=G.floats.filter(p=>p.t<1.1);
+  for(const p of G.conf){p.t+=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.rot+=dt*6;}G.conf=G.conf.filter(p=>p.y<H+20&&p.t<4);
+  if(G.toastT>0){G.toastT-=dt;if(G.toastT<=0)$('toast').style.opacity=0;}
+  acc.hud+=dt;if(acc.hud>.2){acc.hud=0;updateHud();}
+  acc.save+=dt;if(acc.save>4){acc.save=0;save();}
+}
+
+/* ===== bot/guide target ===== */
+function target(){const P=G.player;if(P.trail)return null;
+  if(G.closing)return{x:110,y:1228};
+  const top=P.stack[P.stack.length-1];
+  if(top){const i=+top[1],o=G.exp.state==='load'?G.exp.ord:null;if(o&&top==='p'+o.li&&o.got<o.need)return BAY;return top[0]==='p'?{x:LX(i),y:716}:{x:LX(i),y:468};}
+  if(S.till>=B.lines[0].price*6&&!lvl('cashier'))return{x:915,y:690};
+  let best=null,bd=1e9;for(const s of visibleSteps()){const Lp=S.pads[s.id]||{paid:0};if(S.money>=s.cost-Lp.paid){const[x,y]=padPos(s),d=dist(P.x,P.y,x,y);if(d<bd){bd=d;best={x,y};}}}
+  if(best)return best;
+  const srv=lvl('server');let bi=-1,bv=srv?45:4;for(const i of openLines())if(G.out[i]>bv&&G.counter[i]<60){bv=G.out[i];bi=i;}
+  if(bi>=0)return{x:LX(bi),y:592};
+  if(!lvl('porter'))for(const s of G.stacks)if(lineOpen(s.li)&&G.depot[s.li]>5&&G.procIn[s.li]<6&&G.out[s.li]<20)return{x:s.x,y:s.y+26,depot:1};
+  if(G.F.some(i=>lineOpen(i)&&G.procIn[i]<10&&G.out[i]<30)){const s0=G.strips.find(s=>lineOpen(s.li)&&G.procIn[s.li]<10&&G.out[s.li]<30)||G.strips[0];return{x:s0.x+Math.min(60,s0.w/3),y:G.field.y+G.field.h-12,field:1,strip:s0};}
+  return null;}
+/* ===== empire: managers, machines, export, branches, salaries, tax, events, chatter ===== */
+const EC=PLAN.econ.empire,RG=PLAN.road.regions,ROLE=PLAN.econ.salaries,TAX=PLAN.econ.tax,PAYSH=PLAN.econ.payrollShare;
+const QF={nkechi:12600,tunde:5700,musa:6300,basira:11200,zainab:5000,chidi:5800,sikira:7400,sani:7000,bola:6400,chinedu:5100},BAY={x:800,y:1228},MONTH=30;
+const PBZ=()=>PLAN.biz[SAVE.cur],pick=a=>a[Math.floor(Math.random()*a.length)];
+function migrate(s){s.emp=Object.assign({mgr:0,belt:0,auto:0,pack:0,con:0,reg:0,br:0},s.emp||{});s.mo=Object.assign({rev:0,exp:0,br:0},s.mo||{});
+  s.stat=Object.assign({tax:0,wages:0},s.stat||{});s.resv=s.resv||0;s.dayExp=s.dayExp||0;return s;}
+const Fu=()=>G.F1;
+const empCount=()=>{const e=S.emp;return e.mgr+e.belt+e.auto+e.pack+e.con+e.reg+e.br;};
+const regStart=r=>{let a=0;for(let i=0;i<r;i++)a+=EC.regions[i].size;return a;};
+function regionOf(k){let a=0;for(let r=0;r<EC.regions.length;r++){a+=EC.regions[r].size;if(k<a)return r;}return EC.regions.length-1;}
+const brCost=k=>nice(Fu()*1.2*(EC.branch.c0+EC.branch.c1*Math.pow(k,EC.branch.p)));
+function brDay(){let s=0;for(let r=0;r<EC.regions.length;r++){const n=Math.max(0,Math.min(EC.regions[r].size,S.emp.br-regStart(r)));s+=n*EC.regions[r].mult;}return Math.round(s*EC.branch.b*Fu());}
+function cityOf(k){const r=regionOf(k),c=RG[r].cities,j=k-regStart(r);return c[j%c.length]+(j>=c.length?' '+(Math.floor(j/c.length)+1):'');}
+const expDay=()=>EC.contracts.slice(0,S.emp.con).reduce((a,c)=>a+c.perDay,0)*Fu()*(S.emp.pack?1.15:1)/EC.inefficiency;
+const rank=()=>{const t=[0,1,10,50,150,500];let i=0;for(let k=0;k<6;k++)if(S.emp.br>=t[k])i=k;return PBZ().rankTitles[i];};
+const evx=k=>!!(S.ev&&S.ev.fx===k);
+
+function empItems(){const e=S.emp,P=PBZ(),o=[];if(stage()<4)return o;
+  if(!e.mgr)o.push({id:'mgr',sec:0,ico:'🧑‍💼',name:'Hire '+P.manager.name+', '+P.manager.title,blurb:'Runs the floor so you can think big. All staff work 20% faster.',cost:nice(EC.managerCost*Fu())});
+  for(const m of['belt','auto','pack'])if(!e[m])o.push({id:m,sec:0,ico:{belt:'⚙️',auto:'🚜',pack:'📦'}[m],name:P.machines[m].name,blurb:P.machines[m].blurb,cost:nice(EC.machineCost[m]*Fu())});
+  if(e.con<6){const c=P.export.contracts[e.con];o.push({id:'con',sec:1,ico:'🚛',name:(e.con?'Sign ':'Build '+P.export.bay+' and sign ')+c.buyer,blurb:c.where+'. '+c.blurb,cost:nice(EC.contracts[e.con].cost*Fu())});}
+  if(e.br<500){const r=regionOf(e.br);
+    if(e.reg<=r)o.push({id:'reg',sec:2,ico:RG[r].flag,name:'Hire '+RG[r].managerTitle,blurb:RG[r].story,cost:nice(EC.regions[r].managerCost*Fu())});
+    else o.push({id:'br',sec:2,ico:'🏬',name:'Open a '+P.branchNoun+' in '+cityOf(e.br),blurb:RG[r].name+' · brings in ₦'+short(Math.round(EC.branch.b*EC.regions[r].mult*Fu()))+' a day',cost:brCost(e.br+1)});}
+  return o;}
+function empBuy(id){const it=empItems().find(i=>i.id===id);if(!it||S.money<it.cost)return false;S.money-=it.cost;const e=S.emp,P=PBZ();e[id]++;let big=id!=='br',msg=it.name;
+  if(id==='br'){const m=P.milestones.find(m=>m.at===e.br);if(m){big=true;msg=m.title;toast(m.blurb,7);}else{msg=cityOf(e.br-1)+' is open! '+e.br+' of 500';if(e.br%(e.br<100?5:10)===0){big=true;msg=e.br+' '+P.branchNoun+'s and counting!';}}}
+  if(id==='con'){G.exp.t=Math.min(G.exp.t,3);msg='Signed: '+P.export.contracts[e.con-1].buyer;}
+  if(id==='reg')msg=RG[e.reg-1].name+' is open for business';
+  if(id==='mgr')msg=P.manager.name+' has joined as '+P.manager.title;
+  syncStaff();fanfare(big);confetti(big?120:40);banner('LEVEL '+level(),msg);updateHud();save();return true;}
+
+/* ----- salaries and tax ----- */
+const AVGB=(ROLE.hand+ROLE.porter+ROLE.server+ROLE.cook+ROLE.cashier)/5;
+const payGrade=()=>Math.max(1,PAYSH*MONTH*Fu()/(14*AVGB)*Math.pow(GROW,Math.min(52,flag())-52)*(stage()<4?.55:1));
+const handName=()=>B.field==='water'?'Fisherman':B.field==='yard'?'Offloader':B.field==='pasture'?'Herdsman':'Farmhand';
+const TEAM=[1,3,10,40,150],BRSTAFF=120;
+function payrollList(){const tm=TEAM[stage()],g=Math.max(1,payGrade()/tm),c={},rows=[];for(const w of G.workers)c[w.kind]=(c[w.kind]||0)+1;
+  const nm={hand:handName(),porter:'Porter',server:B.food?'Server':'Sales girl',cook:B.food?'Cook':'Packer',cashier:'Cashier',loader:'Export loader'};
+  for(const k in nm)if(c[k])rows.push({name:nm[k]+(tm>1?'s':c[k]>1?'s':''),n:c[k]*tm,each:nice(ROLE[k]*g)});
+  if(c.manager)rows.push({name:PBZ().manager.name+', '+PBZ().manager.title,n:1,each:nice(ROLE.manager*g*10)});
+  if(S.emp.reg)rows.push({name:'Regional manager'+(S.emp.reg>1?'s':''),n:S.emp.reg,each:nice(ROLE.regional*g*10)});
+  if(S.emp.br)rows.push({name:'Branch staff ('+BRSTAFF+' per '+PBZ().branchNoun+')',n:S.emp.br*BRSTAFF,each:Math.round(PAYSH*brDay()*MONTH/(S.emp.br*BRSTAFF)),br:1});
+  return rows;}
+const dayOfMonth=()=>((S.day-1)%MONTH)+1;
+function monthDue(full){const rows=payrollList(),k=full?1:dayOfMonth()/MONTH;let wages=0;for(const r of rows)if(!r.br)wages+=r.n*r.each*k;
+  wages=Math.round(wages+PAYSH*(S.mo.br+S.mo.exp));const rev=S.mo.rev+S.mo.exp+S.mo.br;const tax=stage()<2?0:Math.round(TAX.gameRate*Math.max(0,rev-wages));return{rev,wages,tax,staff:rows.reduce((a,r)=>a+r.n,0)};}
+
+/* ----- daily events ----- */
+const EVI={demand_up:'📈',demand_down:'🌧️',price_up:'💹',supply_slow:'🐢',cost_hit:'💸',bonus_cash:'🎁',vip_day:'🤑',speed_up:'⚡'};
+const EVT={demand_up:'More customers today',demand_down:'Fewer customers today',price_up:'Prices up 25% today',supply_slow:'Supplies are slow today',cost_hit:'It cost you',bonus_cash:'You received',vip_day:'Big spenders everywhere',speed_up:'Staff are fired up'};
+function rollEvent(){S.ev=null;if(S.day<3||Math.random()>.55)return;const ev=pick(PBZ().events.concat(PLAN.road.commonEvents));S.ev={name:ev.name,text:ev.text,fx:ev.effect,amt:0};
+  if(ev.effect==='cost_hit'){S.ev.amt=Math.round(Math.max(0,S.money)*.04);S.money-=S.ev.amt;}
+  if(ev.effect==='bonus_cash'){S.ev.amt=Math.round((S.lastEarn||0)*.2);S.money+=S.ev.amt;}}
+function evLabel(){const e=S.ev;return e?EVI[e.fx]+' '+e.name+': '+EVT[e.fx]+(e.amt?' ₦'+short(e.amt):''):'';}
+
+/* ----- speech bubbles ----- */
+function say(who,txt,t=3.2){if(G.bub.length<4)G.bub.push({who,txt,t});}
+function updChatter(dt){for(const b of G.bub)b.t-=dt;G.bub=G.bub.filter(b=>b.t>0);G.acc.chat-=dt;if(G.acc.chat>0)return;G.acc.chat=rnd(3.5,6.5);
+  const C=PBZ().chatter,r=Math.random(),mg=G.workers.find(w=>w.kind==='manager');let who=null,line;
+  if(mg&&r<.25){who=mg;line=pick(C.manager);}
+  else if(r<.6&&G.workers.length){who=pick(G.workers);line=pick(who.kind==='manager'?C.manager:C.staff);}
+  else{const cs=G.custs.filter(c=>c.st!=='out');if(cs.length){who=pick(cs);line=pick(C.customer);}}
+  if(who){say(who,line);if(Math.abs(who.y-G.cam.y)<H/2/SCALE)babble();}}
+
+/* ----- export bay ----- */
+function updExport(dt){const e=S.emp,X=G.exp;if(!e.con)return;
+  if(X.state==='wait'){X.t-=dt;if(X.t<=0&&!G.closing){const li=pick(openLines()),need=40+20*e.con;X.ord={li,need,got:0,pay:Math.round(expDay()*50/dayLen()),buyer:PBZ().export.contracts[Math.floor(Math.random()*e.con)]};X.state='in';X.x=WW+160;X.t0=G.t;}}
+  else if(X.state==='in'){X.x-=300*dt;if(X.x<=880){X.x=880;X.state='load';X.t=42;horn();toast('🚛 '+X.ord.buyer.buyer+' wants '+X.ord.need+' '+B.lines[X.ord.li].short+'. Load the truck!',4);}}
+  else if(X.state==='load'){X.t-=dt;const o=X.ord;if(o.got>=o.need||X.t<=0||G.closing){const pay=Math.round(o.pay*Math.min(1,o.got/o.need));if(pay>0){S.money+=pay;S.mo.exp+=pay;S.dayExp+=pay;floatTxt(X.x-40,1210,'EXPORT +₦'+short(pay),'#ffd659',18);puff(BAY.x,BAY.y-20,12,'#ffe9a8');beep(784,.22,'square',.06,1.5);}
+      X.state='out';}}
+  else{X.x-=320*dt;if(X.x<-200){X.state='wait';X.t=Math.max(5,50-(G.t-X.t0));X.ord=null;}}}
+
+/* ----- machines ----- */
+function updMachines(dt){const e=S.emp,f=G.field;
+  if(e.belt)for(const i of openLines()){G.beltT[i]+=dt*30;while(G.beltT[i]>=1){G.beltT[i]--;if(G.out[i]>0&&G.counter[i]<70){G.out[i]--;G.counter[i]++;}}}
+  if(e.auto){const M=G.mach;M.x+=M.v*dt;if(M.x>f.x+f.w-40){M.v=-150;M.y=f.y+rnd(50,f.h-40);}if(M.x<f.x+40){M.v=150;M.y=f.y+rnd(50,f.h-40);}
+    M.acc+=dt;if(M.acc>.12){M.acc=0;let n=0;for(const c of G.crops)if(c.ready&&lineOpen(c.li)&&G.procIn[c.li]<160&&Math.abs(c.x-M.x)<46&&Math.abs(c.y-M.y)<70){c.ready=false;c.t=rnd(2.6,4.6);G.procIn[c.li]++;if(n++<3)fly('r'+c.li,c.x,c.y,6,LX(c.li),500,24,.6,0,90);}}
+    for(const s of G.stacks)if(lineOpen(s.li)&&G.depot[s.li]>0&&G.procIn[s.li]<120){G.depT[s.li]=(G.depT[s.li]||0)+dt*12;while(G.depT[s.li]>=1&&G.depot[s.li]>0){G.depT[s.li]--;G.depot[s.li]--;G.procIn[s.li]++;}}}}
+
+/* ----- HQ panel ----- */
+function hqRender(){const e=S.emp,P=PBZ(),items=empItems(),due=monthDue(false),rows=payrollList();let h='';
+  h+='<header><h1>'+rank()+'<small>'+B.name+' · Day '+S.day+' · Level '+level()+'</small></h1><button class="ghost" id="hqx" type="button">Back to shop</button></header>';
+  h+='<div class="stats"><div class="stat">Cash<b>₦'+fmt(S.money)+'</b></div><div class="stat">Branches<b>'+e.br+' / 500</b></div><div class="stat">People employed<b>'+due.staff.toLocaleString()+'</b></div><div class="stat">Branch income a day<b>₦'+fmt(brDay())+'</b></div></div>';
+  if(stage()<4)h+='<div class="lock">🔒 Your empire starts when you build the '+B.venue[4]+'. After that: a manager, machines, export contracts and up to 500 '+P.branchNoun+'s across Nigeria, Africa and the world.</div>';
+  const sec=['Flagship: manager and machines','Wholesale and export','Branches'];
+  for(let s=0;s<3;s++){const its=items.filter(i=>i.sec===s);if(!its.length)continue;h+='<h2>'+sec[s]+'</h2>';
+    for(const it of its)h+='<button class="it'+(S.money>=it.cost?'':' no')+'" type="button" data-buy="'+it.id+'"><i>'+it.ico+'</i><div><strong>'+it.name+'</strong><span>'+it.blurb+'</span></div><em>₦'+short(it.cost)+'</em></button>';
+    if(s===1&&e.con)h+='<p class="note">Signed so far: '+P.export.contracts.slice(0,e.con).map(c=>c.buyer+' ('+c.where+')').join(', ')+'. Export trucks bring in about ₦'+short(Math.round(expDay()))+' a day when fully loaded.</p>';
+    if(s===2){h+='<div class="regs">';for(let r=0;r<RG.length;r++){const n=Math.max(0,Math.min(RG[r].size,e.br-regStart(r)));h+='<div class="reg'+(n>=RG[r].size?' done':r>=e.reg&&r>regionOf(e.br)?' lock':'')+'">'+RG[r].flag+' '+RG[r].name+' · '+n+'/'+RG[r].size+'<u><s style="width:'+(100*n/RG[r].size)+'%"></s></u></div>';}h+='</div>';}}
+  if(stage()>=4&&e.br>=500&&!items.length)h+='<div class="lock">🏆 500 '+P.branchNoun+'s on four continents. You are the '+P.rankTitles[5]+'!</div>';
+  h+='<h2>Salaries (paid every 30 days)</h2><table>';for(const r of rows)h+='<tr><td>'+r.n.toLocaleString()+' × '+r.name+'</td><td>₦'+short(r.each)+' a month</td></tr>';h+='</table>';
+  h+='<h2>This month so far</h2><table><tr><td>Shop sales</td><td>₦'+fmt(S.mo.rev)+'</td></tr><tr><td>Export</td><td>₦'+fmt(S.mo.exp)+'</td></tr><tr><td>Branches</td><td>₦'+fmt(S.mo.br)+'</td></tr><tr><td>Salaries due so far</td><td>-₦'+fmt(due.wages)+'</td></tr><tr><td>'+TAX.label+' ('+Math.round(TAX.gameRate*100)+'% of profit)</td><td>'+(stage()<2?'₦0 (small business relief)':due.tax?'-₦'+fmt(due.tax):'₦0')+'</td></tr><tr><td>Already set aside</td><td>₦'+fmt(S.resv)+'</td></tr></table>';
+  h+='<p class="note">Payday is in '+(MONTH-dayOfMonth()+1)+' day'+(MONTH-dayOfMonth()?'s':'')+'. Each night your accountant sets money aside so salaries and tax are ready. Total paid so far: salaries ₦'+fmt(S.stat.wages)+', tax ₦'+fmt(S.stat.tax)+'.</p>';
+  $('hqin').innerHTML=h;$('hqx').addEventListener('click',hqClose);
+  document.querySelectorAll('#hqin [data-buy]').forEach(b=>b.addEventListener('click',()=>{if(empBuy(b.dataset.buy))hqRender();else{toast('Not enough cash yet. Keep selling!',2);beep(160,.15,'sawtooth',.04);}}));}
+function hqOpen(){if(!G||G.night)return;G.input.active=false;hqRender();$('hqp').hidden=false;$('hqp').scrollTop=0;}
+function hqClose(){$('hqp').hidden=true;save();}
+$('hq').addEventListener('click',hqOpen);$('goal').addEventListener('click',()=>{if(G&&stage()>=4)hqOpen();});
+/* ===== audio: louder effects, market ambience, radio music, night sounds ===== */
+let AC=null,MG=null,MUS=null,AMB=null,NB=null,lastBeep=0,musT=0,musStep=0,musKind=null,hornT=6;
+const sndLvl=()=>SAVE.snd==null?2:SAVE.snd,quiet=()=>!G||G.speed>1||!sndLvl();
+function audio(){if(AC||quiet())return AC;try{AC=new(window.AudioContext||window.webkitAudioContext)();const comp=AC.createDynamicsCompressor();comp.connect(AC.destination);
+    MG=AC.createGain();MG.gain.value=1;MG.connect(comp);MUS=AC.createGain();MUS.gain.value=0;MUS.connect(MG);AMB=AC.createGain();AMB.gain.value=0;AMB.connect(MG);
+    NB=AC.createBuffer(1,AC.sampleRate*2,AC.sampleRate);const d=NB.getChannelData(0);let b=0;for(let i=0;i<d.length;i++){b=(b+.04*(Math.random()*2-1))/1.04;d[i]=b*9+(Math.random()*2-1)*.25;}
+    const mk=(type,f,q,v)=>{const s=AC.createBufferSource();s.buffer=NB;s.loop=true;const fl=AC.createBiquadFilter();fl.type=type;fl.frequency.value=f;fl.Q.value=q;const g=AC.createGain();g.gain.value=v;s.connect(fl).connect(g).connect(AMB);s.start();};
+    mk('bandpass',520,.7,.55);mk('bandpass',1150,1.1,.22);mk('lowpass',140,.5,.5);setInterval(musTick,90);}catch(e){AC=null;}return AC;}
+function beep(f,d=.06,type='square',v=.05,slide=0,dest){if(quiet()||!audio())return;try{if(AC.state==='suspended')AC.resume();const o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime;o.type=type;o.frequency.value=f;if(slide)o.frequency.exponentialRampToValueAtTime(f*slide,t+d);
+    g.gain.value=Math.min(.5,v*3.4);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g).connect(dest||MG);o.start();o.stop(t+d);}catch(e){}}
+function tick(f){if(G.t-lastBeep>.05){lastBeep=G.t;beep(f,.05,'triangle',.04);}}
+function fanfare(big){(big?[392,523,659,784,1046,1318]:[523,659,784,1046]).forEach((f,i)=>setTimeout(()=>beep(f,.18,'square',.06),i*85));}
+function horn(){if(quiet()||!audio())return;const f=pick([[392,494],[330,415],[440,554]]);for(let k=0;k<2;k++)setTimeout(()=>{beep(f[0],.22,'square',.03,0,AMB);beep(f[1],.22,'sawtooth',.02,0,AMB);},k*300);}
+function babble(){if(quiet())return;const n=4+Math.floor(Math.random()*4),b=rnd(260,420);for(let i=0;i<n;i++)setTimeout(()=>beep(b*rnd(.8,1.5),.07,'triangle',.035,rnd(.85,1.2)),i*75);}
+function noiseHit(t,dur,hp,v,dest){const s=AC.createBufferSource();s.buffer=NB;const fl=AC.createBiquadFilter();fl.type='highpass';fl.frequency.value=hp;const g=AC.createGain();g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+dur);s.connect(fl).connect(g).connect(dest||MUS);s.start(t,Math.random());s.stop(t+dur+.02);}
+function water(dur){if(quiet()||!audio())return;const t=AC.currentTime,s=AC.createBufferSource();s.buffer=NB;s.loop=true;const fl=AC.createBiquadFilter();fl.type='highpass';fl.frequency.value=2200;const g=AC.createGain();g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.2,t+.4);g.gain.setValueAtTime(.2,t+dur-.5);g.gain.linearRampToValueAtTime(.0001,t+dur);s.connect(fl).connect(g).connect(MG);s.start(t);s.stop(t+dur+.05);}
+function crow(){[[620,1.25,.16],[780,1.15,.14],[900,.75,.5]].forEach((n,i)=>setTimeout(()=>beep(n[0],n[2],'sawtooth',.05,n[1]),i*190));}
+function cricket(){for(let i=0;i<3;i++)setTimeout(()=>beep(4300,.035,'sine',.012),i*70);}
+const _=null,HZ=m=>440*Math.pow(2,(m-69)/12);
+const MUSIC={day:{bpm:104,root:57,bass:[0,_,_,0,_,_,7,_,5,_,_,5,_,3,_,_],mel:[12,_,15,_,17,_,15,12,_,10,_,12,_,_,7,_,12,_,15,_,19,_,17,15,_,12,_,10,_,_,12,_]},
+  radio:{bpm:114,root:60,bass:[0,_,0,_,_,3,_,_,5,_,5,_,_,7,_,_],mel:[7,_,10,12,_,10,_,7,_,5,_,7,_,_,3,_,7,_,10,12,_,15,_,12,_,10,_,7,_,5,_,_]}};
+function tone(t,m,dur,type,v,lp){const o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.value=HZ(m);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+  if(lp){const fl=AC.createBiquadFilter();fl.type='lowpass';fl.frequency.value=lp;o.connect(fl).connect(g);}else o.connect(g);g.connect(MUS);o.start(t);o.stop(t+dur+.02);}
+function musTick(){if(!AC||!musKind||sndLvl()<2||quiet()||document.hidden)return;const M=MUSIC[musKind],sd=60/M.bpm/4;if(musT<AC.currentTime)musT=AC.currentTime+.05;
+  while(musT<AC.currentTime+.25){const s=musStep%32,b=s%16;
+    if(b===0||b===6||b===10||(b===3&&s>15)){const o=AC.createOscillator(),g=AC.createGain();o.frequency.setValueAtTime(130,musT);o.frequency.exponentialRampToValueAtTime(45,musT+.12);g.gain.setValueAtTime(.7,musT);g.gain.exponentialRampToValueAtTime(.0001,musT+.16);o.connect(g).connect(MUS);o.start(musT);o.stop(musT+.18);}
+    if(b===0||b===3||b===6||b===10||b===12)tone(musT,96,.04,'triangle',.22);
+    noiseHit(musT,.04,6000,b%4===2?.22:.1);
+    if(M.bass[b]!=null)tone(musT,M.root-24+M.bass[b],sd*1.9,'triangle',.5);
+    if(M.mel[s]!=null)tone(musT,M.root+M.mel[s],sd*1.6,'square',.15,1700);
+    musT+=sd;musStep++;}}
+function audioTick(dt){if(!AC||quiet()){if(AC&&MG)MG.gain.value=sndLvl()&&G&&G.speed<=1?1:0;return;}MG.gain.value=1;const N=G.night,t=AC.currentTime;let amb=0,mus=0,kind=null;
+  if(!$('pick').hidden){amb=0;}
+  else if(N){if(N.st==='drive'){amb=.55;mus=.42;kind='radio';hornT-=dt;if(hornT<=0){hornT=rnd(1.5,3.5);horn();}}
+    else if(N.st==='sleep'||N.st==='stmt'){hornT-=dt;if(hornT<=0){hornT=rnd(.5,1.3);cricket();}}}
+  else{amb=G.closing?.12:.2+.3*Math.min(1,G.custs.length/30);mus=.2;kind='day';hornT-=dt;if(hornT<=0){hornT=rnd(7,16);horn();}}
+  if(kind!==musKind){musKind=kind;musStep=0;}
+  AMB.gain.setTargetAtTime(amb,t,.4);MUS.gain.setTargetAtTime(sndLvl()>1?mus:0,t,.3);}
+/* ===== evening routine: traffic, dinner, bath, sleep, payday statement, morning ===== */
+const NORD=['drive','dinner','bath','sleep','stmt','morning'],DISH=['plate','#e8541e',null,['#b92c14','#ffcf4a'],'#6b3a1f'],CUP=['bottle','#8fd3f7','#1e6fb5'];
+function startNight(){const NL=PLAN.road.night;S.money+=S.till;S.till=0;const br=brDay();S.money+=br;S.mo.br+=br;S.lastEarn=S.dayEarn;
+  const due=monthDue(false),set=Math.max(0,Math.min(S.money,due.wages+due.tax-S.resv));S.money-=set;S.resv+=set;let stmt=null;
+  if(S.day%MONTH===0){const d=monthDue(true),total=d.wages+d.tax,pool=S.resv;S.resv=0;S.money+=pool-total;S.stat.wages+=d.wages;S.stat.tax+=d.tax;
+    stmt={m:S.day/MONTH,rev:d.rev,wages:d.wages,tax:d.tax,staff:d.staff,net:d.rev-total,short:Math.max(0,total-pool)};S.mo={rev:0,exp:0,br:0};}
+  const tr=PLAN.road.night.traffic.slice().sort(()=>Math.random()-.5).slice(0,4);
+  G.night={st:'drive',t:0,T:0,jam:rnd(10,14),off:0,v:0,stmt,sum:{day:S.day,earn:S.dayEarn,sold:S.daySold,exp:S.dayExp,br,set,left:MONTH-dayOfMonth()},
+    L:{tr,radio:pick(NL.radio),dinner:pick(NL.dinner),bath:pick(NL.bath),sleep:pick(Math.random()<.5?NL.sleep:PBZ().chatter.night),morning:pick(NL.morning)}};
+  G.input.active=false;G.custs=[];G.seatTaken.fill(null);G.bub=[];$('toast').style.opacity=0;document.body.classList.add('night');save();}
+function nightNext(){const N=G.night;let i=NORD.indexOf(N.st)+1;if(NORD[i]==='stmt'&&!N.stmt)i++;if(i>=NORD.length)return endNight();N.st=NORD[i];N.t=0;
+  if(N.st==='bath')water(5.2);if(N.st==='morning')crow();if(N.st==='stmt'){fanfare(false);confetti(40);}}
+function nightTap(){const N=G.night;if(N.t>(N.st==='drive'?2.5:1.4))nightNext();}
+function updNight(dt){const N=G.night;N.t+=dt;N.T+=dt;for(const p of G.conf){p.t+=dt;p.y+=p.vy*dt;p.x+=p.vx*dt;}G.conf=G.conf.filter(p=>p.y<H+20&&p.t<4);
+  if(N.st==='drive'){const go=(N.t%4.2)<1.5||N.t>N.jam-2.4;N.v+=((go?1:0)-N.v)*Math.min(1,dt*2.5);N.off+=N.v*190*dt;}
+  if(N.st==='dinner'&&Math.floor(N.t/1.1)!==Math.floor((N.t-dt)/1.1))beep(rnd(1500,2100),.04,'triangle',.02);
+  if(N.t>={drive:N.jam,dinner:6.5,bath:5.5,sleep:18,stmt:24,morning:6}[N.st])nightNext();audioTick(dt);}
+function endNight(){S.day++;S.clock=0;S.dayEarn=0;S.daySold=0;S.dayExp=0;G.closing=false;G.night=null;document.body.classList.remove('night');const P=G.player;P.x=150;P.y=1200;P.stack=[];P.trail=null;G.truck={state:'wait',t:4,y:-140};G.exp={state:'wait',t:12,x:WW+160,ord:null};
+  rollEvent();toast(S.money<0?'Your account is in the red. No upgrades until you sell your way back up!':S.ev?EVI[S.ev.fx]+' '+S.ev.name+'. '+S.ev.text:'Day '+S.day+'. Good morning! '+(lvl('house')?'You slept well: morning rush is on.':'Market don open.'),S.ev?6:3.5);updateHud();save();}
+
+function ncap(title,line,tapAt){const N=G.night,g=ctx;g.textAlign='center';g.font='32px "Lilita One",system-ui';g.lineWidth=5;g.strokeStyle='rgba(20,10,4,.7)';g.strokeText(title,0,-268);g.fillStyle='#ffc23d';g.fillText(title,0,-268);
+  if(line)label(0,262,line,'#2b1608','#fff6e4',14);if(N.t>tapAt){g.globalAlpha=.55+.45*Math.sin(N.T*4);g.font='800 13px Nunito,system-ui';g.fillStyle='#fff';g.fillText('Tap to continue',0,296);g.globalAlpha=1;}}
+function nroom(wall,floor,fy){const g=ctx;g.fillStyle=wall;g.fillRect(-1500,-900,3000,1800);g.fillStyle=floor;g.fillRect(-1500,fy,3000,900);g.fillStyle='rgba(0,0,0,.18)';g.fillRect(-1500,fy,3000,6);}
+function nwindow(x,y,w,h,day){const g=ctx;R(g,x-5,y-5,w+10,h+10,5,'#6b3a1f');R(g,x,y,w,h,3,day?'#9fd8f5':'#141a3a');if(day)E(g,x+w*.7,y+h*.4,13,13,'#ffe27a');else{E(g,x+w*.7,y+h*.35,10,10,'#fff6d8');for(let i=0;i<7;i++)E(g,x+8+(i*37)%(w-14),y+8+(i*23)%(h-14),1.2,1.2,'#fff');}
+  g.fillStyle='#6b3a1f';g.fillRect(x+w/2-2,y,4,h);g.fillRect(x,y+h/2-2,w,4);}
+function drawNight(){const N=G.night,t=N.t,g=ctx,hl=lvl('house'),cl=lvl('car'),o=B.owner,s=Math.min(W/420,H/640);
+  g.setTransform(DPR*s,0,0,DPR*s,DPR*W/2,DPR*H/2);
+  if(N.st==='drive'){const sky=g.createLinearGradient(0,-340,0,60);sky.addColorStop(0,'#2a1f5c');sky.addColorStop(.7,'#c2553a');sky.addColorStop(1,'#f79a3c');g.fillStyle=sky;g.fillRect(-1500,-900,3000,1000);E(g,120,30,46,46,'#ffcf7a');
+    for(let i=0;i<16;i++){const x=((i*170-N.off*.12)%2720+2720)%2720-1360,h=70+(i*53)%130;R(g,x,60-h,110,h,3,i%2?'#2b2350':'#3a2c63');for(let r=0;r<Math.floor(h/26);r++)for(let c=0;c<4;c++)if((i+r*3+c)%3)R(g,x+10+c*25,70-h+r*26,14,12,2,'#ffd98a');}
+    g.fillStyle='#2f2c2a';g.fillRect(-1500,60,3000,190);g.fillStyle='#57514a';g.fillRect(-1500,250,3000,700);g.fillStyle='#e9d27a';for(let x=-1500-(N.off%80);x<1500;x+=80)g.fillRect(x,152,42,5);
+    for(let i=0;i<9;i++){const x=((i*330-N.off)%2970+2970)%2970-1485;g.fillStyle='#1b1a22';g.fillRect(x,-40,5,100);R(g,x-16,-46,36,8,3,'#1b1a22');E(g,x+10,-36,7,4,'#ffe9a8');}
+    const stop=N.v<.35,cars=[[-420,112,'danfo'],[-210,112,'car'],[40,112,'keke'],[250,112,'danfo'],[470,112,'suv'],[-380,200,'car'],[210,200,'danfo'],[430,200,'keke']];
+    const dc=(c,i)=>{const x=c[0]+Math.sin(N.T*.6+i*2)*10+(1-N.v)*0;veh(g,x,c[1],c[2],1.25,['#c62828','#2a62c9','#f4f1ea','#1b1f27'][i%4]);if(stop){E(g,x-52,c[1]-20,5,4,'#ff2a1a');g.globalAlpha=.3;E(g,x-52,c[1]-20,13,9,'#ff2a1a');g.globalAlpha=1;}};
+    cars.slice(0,5).forEach(dc);const hx=260-((N.T*34)%620);drawPerson(hx,156,{cloth:'#c9367a',trim:'#ffd659',hat:'none'},['p0','p0','p0'],N.T*9,-1,1.5);
+    cars.slice(5).forEach((c,i)=>dc(c,i+5));const kind=['danfo','keke','car','suv'][cl],bob=Math.sin(N.T*22)*(N.v>.2?1.2:.5);veh(g,-80,206+bob,kind,1.75,cl===2?'#c62828':'#1b1f27');
+    for(let i=0;i<3;i++){const k=(N.T*.9+i/3)%1;g.globalAlpha=(1-k)*.4;E(g,-165-k*40,196-k*20,6+k*10,5+k*8,'#ddd');g.globalAlpha=1;}
+    label(0,-222,'📻 '+N.L.radio,'#2b1608','#ffc23d',13);const li=N.L.tr[Math.floor(t/3.4)%N.L.tr.length];label(0,-186,li,'#2b1608','#fff6e4',13);
+    R(g,-150,262,300,10,5,'rgba(255,255,255,.25)');R(g,-150,262,300*Math.min(1,t/N.jam),10,5,'#7dff9a');g.font='16px system-ui';g.textAlign='center';g.fillText('🏡',166,273);
+    ncap(stop?'Go-slow...':'Going home',null,2.5);}
+  else if(N.st==='dinner'){nroom(['#b9a58a','#d9c7a8','#f1e2c6','#f4f1ea'][hl],['#6b4a32','#7a4a2a','#8a5a3a','#5b4636'][hl],150);nwindow(-175,-190,90,80,false);
+    g.globalAlpha=.16;E(g,0,-110,150,130,'#ffe9a8');g.globalAlpha=1;g.fillStyle='#3a2a1e';g.fillRect(-1.5,-400,3,190);E(g,0,-205,22,12,'#e8a63c');E(g,0,-196,9,7,'#fff6c8');
+    if(hl>=2){R(g,95,-170,80,56,4,'#3a2a1e');R(g,100,-165,70,46,2,'#2a62c9');E(g,135,-140,12,12,'#ffd659');}
+    R(g,-70,20,140,150,10,'#5b3a22');drawPerson(0,150,o,null,0,1,3.1);
+    R(g,-170,96,340,20,6,'#c98a45');R(g,-160,116,320,10,3,'#8a5426');g.fillStyle='#6b3b18';g.fillRect(-150,126,14,90);g.fillRect(136,126,14,90);
+    drawDef(DISH,0,104,3.2);drawDef(CUP,96,100,1.9);const k=(Math.sin(t*5.6)+1)/2;g.strokeStyle='#d9d9d9';g.lineWidth=4;g.lineCap='round';g.beginPath();g.moveTo(34-k*20,84-k*70);g.lineTo(52-k*20,64-k*70);g.stroke();E(g,32-k*20,86-k*70,7,5,k<.5?'#e8541e':'#d9d9d9');
+    ncap('Dinner time',N.L.dinner,1.4);}
+  else if(N.st==='bath'){nroom('#bfe3f0','#8fb3c4',170);g.strokeStyle='rgba(255,255,255,.55)';g.lineWidth=2;for(let x=-1500;x<1500;x+=44){g.beginPath();g.moveTo(x,-900);g.lineTo(x,170);g.stroke();}for(let y=-340;y<170;y+=44){g.beginPath();g.moveTo(-1500,y);g.lineTo(1500,y);g.stroke();}
+    g.fillStyle='#9aa0a6';g.fillRect(96,-400,8,170);R(g,40,-238,64,10,4,'#9aa0a6');E(g,40,-226,26,9,'#c9ced2');
+    drawPerson(0,134,{cloth:'#6b3a1f',trim:'#6b3a1f',hat:'none'},null,0,1,3.1);E(g,0,0,30,18,'#f5a8c8');E(g,-8,-6,10,5,'rgba(255,255,255,.5)');
+    g.strokeStyle='rgba(120,190,240,.85)';g.lineWidth=2.5;for(let i=0;i<22;i++){const x=-2+((i*37)%96)-48+i%3,y=((t*520+i*71)%380)-216;g.beginPath();g.moveTo(40+x*.9,y);g.lineTo(40+x,y+16);g.stroke();}
+    for(let i=0;i<6;i++){g.fillStyle=i%2?'#f7c948':'#36b3a8';g.fillRect(-135+i*45,70,45,172);}g.fillStyle='rgba(255,255,255,.25)';for(let i=0;i<6;i++)g.fillRect(-135+i*45,70,4,172);R(g,-150,60,300,12,5,'#8a8f96');
+    for(let i=0;i<9;i++){const k=(t*.35+i/9)%1;g.globalAlpha=(1-k)*.8;g.strokeStyle='#fff';g.lineWidth=1.5;g.beginPath();g.arc(-110+i*28+Math.sin(t*2+i)*8,50-k*250,5+(i%3)*3,0,7);g.stroke();}
+    for(let i=0;i<4;i++){const k=(t*.25+i/4)%1;g.globalAlpha=(1-k)*.3;E(g,-80+i*55,-40-k*160,34+k*30,22+k*18,'#fff');}g.globalAlpha=1;
+    ncap('Bath time',N.L.bath,1.4);}
+  else if(N.st==='sleep'||N.st==='stmt'){nroom('#1d2440','#151a30',190);nwindow(96,10,78,70,false);
+    R(g,-190,96,300,110,10,'#4a2e1a');R(g,-200,60,26,150,8,'#3a2212');R(g,-176,84,280,70,12,'#e9e2d2');R(g,-168,74,74,40,14,'#fff');E(g,-130,88,22,19,'#6b3a1f');E(g,-138,74,24,12,o.trim);
+    R(g,-100,98,206,70,14,o.cloth);for(let i=0;i<5;i++)E(g,-76+i*40,132,7,7,o.trim);R(g,-100,98,206,12,6,'rgba(255,255,255,.25)');
+    g.font='900 22px Nunito,system-ui';g.textAlign='left';for(let i=0;i<3;i++){const k=(N.T*.4+i/3)%1;g.globalAlpha=1-k;g.fillStyle='#fff';g.fillText('z',-110+k*50,60-k*70);}g.globalAlpha=1;
+    const pw=372,px=-186,py=-304,M=N.stmt,U=N.sum,rows=[];
+    if(N.st==='sleep'){rows.push(['Shop sales ('+U.sold.toLocaleString()+' orders)','₦'+fmt(U.earn),'#b9ffcf']);if(S.emp.con)rows.push(['Export trucks','₦'+fmt(U.exp),'#b9ffcf']);if(S.emp.br)rows.push([S.emp.br+' branches sent','₦'+fmt(U.br),'#b9ffcf']);
+      rows.push(['Set aside for salaries and tax','-₦'+fmt(U.set),'#ffb3a3']);rows.push(['Payday',U.left?'in '+U.left+' day'+(U.left>1?'s':''):'tonight','#ffe9a8']);if(S.money<0)rows.push(['Account balance','-₦'+fmt(-S.money),'#ff8a7a']);}
+    else{rows.push(['Total revenue','₦'+fmt(M.rev),'#b9ffcf']);rows.push(['Salaries, '+M.staff.toLocaleString()+' people','-₦'+fmt(M.wages),'#ffb3a3']);rows.push([TAX.label,M.tax?'-₦'+fmt(M.tax):'₦0 (relief)','#ffb3a3']);rows.push(['Profit after salaries and tax',(M.net<0?'-₦':'₦')+fmt(Math.abs(M.net)),'#ffd659']);
+      rows.push([M.short?'Payday account was short by':'Paid in full from payday account',M.short?'₦'+fmt(M.short):'✓',M.short?'#ff8a7a':'#7dff9a']);}
+    const ph=74+rows.length*28+34;R(g,px,py,pw,ph,18,'rgba(43,22,8,.93)');g.textAlign='center';g.fillStyle='#ffc23d';g.font='27px "Lilita One",system-ui';g.fillText(N.st==='sleep'?'Day '+U.day+' closed':'Month '+M.m+' payday',0,py+40);
+    g.font='800 14px Nunito,system-ui';rows.forEach((r,i)=>{const y=py+76+i*28;g.textAlign='left';g.fillStyle='#fff6e4';g.fillText(r[0],px+18,y);g.textAlign='right';g.fillStyle=r[2];g.fillText(r[1],px+pw-18,y);g.fillStyle='rgba(255,255,255,.12)';g.fillRect(px+16,y+8,pw-32,1);});
+    g.textAlign='center';g.fillStyle='#fff6e4';g.globalAlpha=.6+.4*Math.sin(N.T*4);g.font='800 13px Nunito,system-ui';g.fillText(N.st==='sleep'?'Tap to sleep till morning':'Tap to continue',0,py+ph-14);g.globalAlpha=1;
+    label(0,262,N.st==='sleep'?N.L.sleep:'Staff are happy. Salaries landed on time!','#2b1608','#fff6e4',14);}
+  else{const k=Math.min(1,t/3),sky=g.createLinearGradient(0,-340,0,150);sky.addColorStop(0,k>.5?'#8fc8f0':'#4a5aa0');sky.addColorStop(1,'#ffc58a');g.fillStyle=sky;g.fillRect(-1500,-900,3000,1100);E(g,-120,130-k*200,40,40,'#fff2b0');
+    g.fillStyle='#8a6a4a';g.fillRect(-1500,150,3000,900);g.fillStyle='#3f3c38';g.fillRect(-1500,186,3000,60);g.fillStyle='#e9d27a';for(let x=-1500;x<1500;x+=80)g.fillRect(x,213,42,5);
+    g.save();g.translate(70,168);g.scale(.8,.8);drawHouse(0,0,hl,t<2.2);g.restore();drawDef(['chicken'],-170,152,2.2);if(t<2.6)label(-150,84,'Kukurukuu!','#2b1608','#fff6e4',13);
+    const out=Math.max(0,t-3.6);veh(g,-60-out*out*90,236,['danfo','keke','car','suv'][cl],1.5,cl===2?'#c62828':'#1b1f27',true);
+    ncap('Day '+(S.day+1),N.L.morning,1.4);}
+  g.setTransform(DPR,0,0,DPR,0,0);for(const p of G.conf){g.fillStyle=p.c;g.fillRect(p.x,p.y,p.r,p.r*.66);}
+}
+/* ===== sprites: every good is drawn once to a small canvas, then stamped ===== */
+function E(g,x,y,rx,ry,col){g.fillStyle=col;g.beginPath();g.ellipse(x,y,Math.max(.1,rx),Math.max(.1,ry),0,0,6.2832);g.fill();}
+function R(g,x,y,w,h,r,col){g.fillStyle=col;g.beginPath();g.roundRect(x,y,w,h,r);g.fill();}
+const HI='rgba(255,255,255,.35)',LO='rgba(0,0,0,.18)';
+function drawKind(g,d){const[k,a,b,c,m]=d;switch(k){
+  case'plate':E(g,0,-3,12,4.6,'#d9d2c2');E(g,0,-4,12,4.6,'#fff');
+    if(b){E(g,4.5,-6.5,5.5,3.2,b);E(g,-3.5,-7.5,5.6,4.2,a);E(g,-5,-9,2,1.2,HI);if(c)c.forEach((s,i)=>E(g,3+i*2.4,-7.2+i*.8,1.5,1,s));}
+    else{E(g,0,-7,8,4,a);E(g,-2,-8.6,3,1.3,HI);if(c)c.forEach((s,i)=>{E(g,-4.5+i*3.2,-6.4-(i%2)*1.8,1.25,.95,s);E(g,3.6-i*2.6,-8.4+(i%2)*1.6,1.1,.85,s);});}
+    if(m){R(g,b?-1.5:2,-12.5,6,4,1.6,m);R(g,b?-1:2.5,-12.3,3,1.2,.6,HI);}break;
+  case'round':E(g,0,-6.5,7,6.5,a);E(g,-2.2,-8.8,2.4,1.6,HI);R(g,-1,-14.5,2,3,0,b||'#3aa336');E(g,0,-13,4,1.5,b||'#3aa336');break;
+  case'chili':g.save();g.rotate(-.3);R(g,-10,-9,19,7,3.5,a);E(g,7,-5.5,4,2.4,a);R(g,-8,-8.4,10,1.6,.8,HI);R(g,-13,-7.5,4,2.4,1,'#3aa336');g.restore();break;
+  case'tuber':g.save();g.rotate(-.22);R(g,-11,-10,22,9,4.5,a);R(g,-9,-9.2,17,2.6,1.3,HI);R(g,9.6,-9,1.6,7,.5,'#f1e2c0');g.restore();break;
+  case'bundle':g.save();g.rotate(-.12);R(g,-11,-9,22,7,3.5,a);R(g,-10,-15,20,7,3.5,a);R(g,-8,-14.2,14,2,1,HI);g.restore();R(g,-2,-17,4,17,1,b);break;
+  case'leafy':E(g,-5,-9,4,7,a);E(g,5,-9,4,7,a);E(g,0,-11,4.5,8,a);E(g,0,-12,1,6,'rgba(255,255,255,.25)');R(g,-1.5,-4,3,4,1,'#2c6e2a');if(b)R(g,-4,-5,8,2.4,1,b);break;
+  case'long':g.save();g.rotate(-.18);R(g,-11,-9,22,6.4,3.2,a);R(g,-8,-8.4,13,1.6,.8,HI);E(g,-11,-5.8,1.6,2,b);E(g,11,-5.8,1.4,1.8,b);g.restore();break;
+  case'plant':E(g,0,-5,9.5,6,'#3f8a2a');E(g,-3,-7,4,3,'#57a83a');[[-5,-5],[1,-9],[5,-5],[-1,-4]].forEach(p=>E(g,p[0],p[1],2.1,2.1,a));break;
+  case'sack':R(g,-8.5,-15,17,15,4.5,a);R(g,-8.5,-10,17,3.4,0,b);R(g,-6,-14,5,2,1,HI);E(g,0,-16,3.4,2,a);R(g,-2.4,-16.6,4.8,1.4,.7,LO);break;
+  case'carton':R(g,-10.5,-14,21,14,1.5,a);R(g,-10.5,-9,21,3.4,0,b);R(g,-10.5,-14,21,2.2,1,LO);R(g,-.6,-14,1.2,5,0,LO);break;
+  case'bottle':R(g,-4.2,-15,8.4,15,3,a);R(g,-2.2,-20,4.4,6,1.2,a);R(g,-2.6,-21.5,5.2,2.6,1,b||'#fff');R(g,-4.2,-10.5,8.4,4.4,0,'rgba(255,255,255,.8)');R(g,-3,-14,1.4,10,.7,HI);break;
+  case'fish':E(g,-1.5,-6.5,9.5,4.8,a);E(g,-1.5,-4.8,7.5,2.3,b);g.fillStyle=a;g.beginPath();g.moveTo(7,-6.5);g.lineTo(12.5,-11);g.lineTo(12.5,-2);g.closePath();g.fill();E(g,-7,-7.5,1.2,1.2,'#111');E(g,-3,-8.6,4,1,HI);break;
+  case'skewer':g.strokeStyle='#d6c08a';g.lineWidth=1.5;g.beginPath();g.moveTo(-13,-4);g.lineTo(13,-10);g.stroke();for(let i=-8;i<9;i+=5.4){E(g,i,-7-i*.23,3.4,2.8,a);E(g,i-.8,-8-i*.23,1.3,.8,b);}break;
+  case'ball':[[-5.5,-5],[5.5,-5],[0,-11]].forEach(p=>{E(g,p[0],p[1],5.6,5.2,a);E(g,p[0]-1.6,p[1]-1.8,2,1.3,b);});break;
+  case'wrap':E(g,0,-6.5,10.5,6.2,a);R(g,-10,-8,20,2.6,1,b);E(g,-3,-9.6,4,1.3,HI);break;
+  case'strip':g.save();g.rotate(-.2);for(let i=0;i<3;i++){R(g,-11+i*2,-6-i*4.6,20,3.6,1,a);R(g,-9+i*2,-5.6-i*4.6,12,1,.5,b);}g.restore();break;
+  case'cloth':R(g,-11.5,-10,23,10,2,a);for(let i=0;i<4;i++)E(g,-8+i*5.4,-5,1.6,1.6,b);R(g,-11.5,-14,23,5,2,b);R(g,-11.5,-10.4,23,1,0,LO);for(let i=0;i<4;i++)E(g,-8+i*5.4,-11.6,1,1,a);break;
+  case'basket':g.fillStyle='#c9a15a';g.beginPath();g.moveTo(-10,-9);g.lineTo(10,-9);g.lineTo(7.5,0);g.lineTo(-7.5,0);g.closePath();g.fill();g.strokeStyle='#8a6a2e';g.lineWidth=.8;for(let i=-6;i<8;i+=4){g.beginPath();g.moveTo(i*1.2,-9);g.lineTo(i,0);g.stroke();}
+    E(g,0,-10,10,4.6,a);[[-5,-11.5],[1,-13],[5.5,-11]].forEach(p=>{E(g,p[0],p[1],3.4,3,a);E(g,p[0]-1,p[1]-1,1.2,.8,HI);});break;
+  case'pack':R(g,-7.5,-15,15,15,2,a);R(g,-7.5,-10,15,4.4,0,b);R(g,-7.5,-15,15,1.8,1,LO);R(g,-5.5,-13.4,3,1.4,.6,HI);break;
+  case'tin':R(g,-6.5,-14,13,14,2,a);E(g,0,-14,6.5,2.2,'#d9d9d9');R(g,-6.5,-10,13,5,0,b);R(g,-5,-13,1.6,11,.8,HI);break;
+  case'gadget':if(a==='charger'){R(g,-6,-12,12,12,2.4,b);R(g,-3.4,-16,1.8,4.4,.5,'#9aa0a6');R(g,1.6,-16,1.8,4.4,.5,'#9aa0a6');E(g,0,-6,2.2,2.2,c);g.strokeStyle=c;g.lineWidth=1.4;g.beginPath();g.moveTo(6,-3);g.quadraticCurveTo(13,-2,10,-10);g.stroke();}
+    else if(a==='ear'){g.strokeStyle=c;g.lineWidth=1.3;g.beginPath();g.moveTo(-6,-12);g.quadraticCurveTo(-7,-3,0,-3);g.quadraticCurveTo(7,-3,6,-12);g.moveTo(0,-3);g.lineTo(0,0);g.stroke();E(g,-6,-13,3.4,3.4,b);E(g,6,-13,3.4,3.4,b);E(g,-6,-13,1.4,1.4,c);E(g,6,-13,1.4,1.4,c);}
+    else if(a==='case'){R(g,-6.5,-18,13,18,3.2,b);R(g,-4.6,-16.4,5,5,1.6,LO);E(g,-2.1,-13.9,1.5,1.5,c);R(g,-5.4,-9,1.6,7,.8,HI);}
+    else if(a==='bank'){R(g,-11,-10,22,10,3,b);for(let i=0;i<4;i++)E(g,-6+i*3.2,-5,1,1,c);R(g,-9,-9,12,1.4,.7,HI);}
+    else{R(g,-6.5,-18,13,18,2.6,b);R(g,-5.3,-16.4,10.6,13.6,1.4,c);R(g,-4.4,-15.6,3,10,1,HI);E(g,0,-1.4,1,1,'#555');}break;
+  case'cow':R(g,-11,-15,19,10.5,5,'#f2ece0');E(g,-5,-11,3,2.4,'#6e4a2c');E(g,3.5,-13,2.5,2,'#6e4a2c');R(g,6,-18,8,8,3,'#f2ece0');E(g,12,-13,2.2,2,'#e6b3a3');g.strokeStyle='#efe0b8';g.lineWidth=1.5;g.beginPath();g.moveTo(7,-18);g.lineTo(4.5,-21.5);g.moveTo(13,-18);g.lineTo(15.5,-21.5);g.stroke();R(g,-9,-5,2.2,5,.5,'#5a3a22');R(g,4,-5,2.2,5,.5,'#5a3a22');break;
+  case'chicken':E(g,-1,-7,7.5,6,'#fff');E(g,-6,-10,3.6,3,'#f1ece0');E(g,5,-13,3.6,3.6,'#fff');R(g,4,-18,3,3,1.2,'#d62828');g.fillStyle='#f2a01e';g.beginPath();g.moveTo(8.4,-13.6);g.lineTo(12,-12.6);g.lineTo(8.4,-11.6);g.fill();E(g,6,-13.6,.8,.8,'#111');R(g,-2,-2,1.2,2.4,0,'#f2a01e');R(g,1.4,-2,1.2,2.4,0,'#f2a01e');break;
+  case'goat':R(g,-10,-13,17,9,4,'#8a6a4a');R(g,-10,-13,7,9,4,'#3a2a1e');R(g,5,-17,7,7,2.6,'#8a6a4a');g.strokeStyle='#d9c9a0';g.lineWidth=1.3;g.beginPath();g.moveTo(7,-17);g.lineTo(4,-21);g.moveTo(10,-17);g.lineTo(9,-21.5);g.stroke();R(g,9.6,-11,1.4,3.6,.6,'#d9d2c2');R(g,-8,-5,2,5,.5,'#2a1e16');R(g,3.6,-5,2,5,.5,'#2a1e16');break;
+  case'fishlive':E(g,0,-6,8.5,3.6,a);E(g,-1,-7,5,1.2,HI);g.fillStyle=a;g.beginPath();g.moveTo(-7,-6);g.lineTo(-12.5,-9.6);g.lineTo(-12.5,-2.4);g.closePath();g.fill();E(g,5.4,-6.6,.9,.9,'#111');break;
+  case'cash':R(g,-9.5,-6,19,6,1,'#0e7a3c');R(g,-9.5,-7,19,2.2,1,'#36b36a');E(g,0,-4,2.6,1.4,'#b7f5c8');break;
+}}
+const SPR={};
+function sprite(def){const key=def.join('|');let c=SPR[key];if(c)return c;c=document.createElement('canvas');c.width=90;c.height=84;const g=c.getContext('2d');g.scale(3,3);g.translate(15,26);drawKind(g,def);return SPR[key]=c;}
+function drawDef(def,x,y,s=1,g=ctx){g.drawImage(sprite(def),x-15*s,y-26*s,30*s,28*s);}
+function itemDef(key){if(key==='cash')return CASH;const l=B.lines[+key[1]];return key[0]==='p'?l.prod:l.raw;}
+function drawItem(key,x,y,s){drawDef(itemDef(key),x,y,s);}
+
+/* ===== world drawing ===== */
+const ell=(x,y,rx,ry,col)=>E(ctx,x,y,rx,ry,col),rr=(x,y,w,h,r,col)=>R(ctx,x,y,w,h,r,col);
+function shadow(x,y,r){ell(x,y,r,r*.45,'rgba(40,15,0,.22)');}
+function label(x,y,txt,col,bg,size=12){ctx.font='900 '+size+'px Nunito,system-ui';ctx.textAlign='center';const w=ctx.measureText(txt).width+12;rr(x-w/2,y-size,w,size+7,8,bg);ctx.fillStyle=col;ctx.fillText(txt,x,y+1);}
+function drawPerson(x,y,o,stack,step,face,scale=1,sway=1){
+  ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);shadow(0,0,11);
+  const sw=Math.sin(step)*3,bob=Math.abs(Math.sin(step))*1.5;
+  ctx.fillStyle='#4a2614';ctx.fillRect(-5+sw*.4,-8,4,8);ctx.fillRect(1-sw*.4,-8,4,8);
+  rr(-10,-30-bob,20,24,8,o.cloth);rr(-10,-14-bob,20,5,2,o.trim);
+  if(o.apron)rr(-6,-27-bob,12,17,3,'#fff');
+  ell(0,-36-bob,8,8,'#6b3a1f');ell(face*3,-36-bob,1.3,1.5,'#1c0b03');
+  const h=o.hat;if(h==='gele'){ell(0,-43-bob,11,5,o.trim);ell(-5,-46-bob,6,4,o.cloth);ell(5,-47-bob,6,4.5,o.trim);}
+  else if(h==='fila')rr(-8,-48-bob,16,8,3,o.trim);else if(h==='cap')rr(-8,-46-bob,16,6,3,o.trim==='#f4f1ea'?'#c62828':o.trim);
+  else if(h==='straw'){ell(0,-43-bob,13,3.5,'#e1c46e');rr(-6,-49-bob,12,6,3,'#e1c46e');}
+  else if(h==='chef'){rr(-7,-54-bob,14,12,4,'#fff');ell(0,-54-bob,8,4,'#fff');}
+  if(stack&&stack.length){const base=-50-bob;ell(0,base+2,13,3.5,'#b07a3a');const n=Math.min(stack.length,36);
+    for(let i=0;i<n;i++)drawItem(stack[i],Math.sin(G.t*3+i*.15)*i*.12*sway,base-i*5.5,.92);
+    if(stack.length>36){ctx.fillStyle='#fff';ctx.font='900 11px Nunito';ctx.textAlign='center';ctx.fillText('x'+stack.length,0,base-n*5.5-8);}}
+  ctx.restore();}
+const OUTFIT={hand:{cloth:'#6d8f2f',trim:'#d9c27a',hat:'straw'},porter:{cloth:'#3a6fb0',trim:'#22252b',hat:'none'},server:{cloth:'#d83a3a',trim:'#222',hat:'cap'},cook:{cloth:'#444b55',trim:'#fff',hat:'chef',apron:1},cashier:{cloth:'#1f8a4c',trim:'#ffc23d',hat:'none'},loader:{cloth:'#f28a1e',trim:'#fff36b',hat:'cap'},manager:{cloth:'#1b2a4a',trim:'#c62828',hat:'none',apron:1}};
+
+function drawGround(){const f=G.field,st=stage(),t=G.t;
+  ctx.fillStyle='#d98c4a';ctx.fillRect(0,0,WW,WH);
+  // field
+  const base={farm:'#6aa23e',pasture:'#8fae45',water:'#2f8fd0',yard:'#a39f96'}[B.field];rr(f.x-6,f.y-6,f.w+12,f.h+12,16,'#8a5a2a');rr(f.x,f.y,f.w,f.h,12,base);
+  for(const s of G.strips){const open=lineOpen(s.li);
+    if(B.field==='farm'){ctx.fillStyle='rgba(60,40,10,.16)';for(let y=f.y+22;y<f.y+f.h;y+=30)ctx.fillRect(s.x+6,y-3,s.w-12,8);}
+    else if(B.field==='water'){ctx.strokeStyle='rgba(255,255,255,.25)';ctx.lineWidth=2;for(let y=f.y+30;y<f.y+f.h;y+=44){ctx.beginPath();for(let x=s.x+10;x<s.x+s.w-10;x+=8)ctx.lineTo(x,y+Math.sin(x*.05+t*1.5+y)*3);ctx.stroke();}}
+    else if(B.field==='yard'){ctx.strokeStyle='rgba(255,220,80,.5)';ctx.lineWidth=2;ctx.setLineDash([12,10]);ctx.strokeRect(s.x+8,f.y+8,s.w-16,f.h-16);ctx.setLineDash([]);}
+    else{for(let i=0;i<10;i++)ell(s.x+((i*97)%s.w),f.y+((i*53)%f.h),6,2,'#7c9a38');}
+    if(s!==G.strips[0]){ctx.fillStyle='rgba(40,20,5,.35)';ctx.fillRect(s.x-1.5,f.y,3,f.h);}
+    ctx.fillStyle=B.lines[s.li].col;ctx.fillRect(s.x+4,f.y+f.h-7,s.w-8,5);
+    if(!open){rr(s.x,f.y,s.w,f.h,0,'rgba(30,14,4,.55)');ctx.font='20px system-ui';ctx.textAlign='center';ctx.fillText('🔒',s.x+s.w/2,f.y+f.h/2);drawItem('r'+s.li,s.x+s.w/2,f.y+f.h/2+34,1.2);}}
+  // delivery road + depot
+  if(G.D.length){rr(712,-20,276,330,0,'#4a4640');ctx.strokeStyle='#e9d27a';ctx.lineWidth=3;ctx.setLineDash([18,16]);ctx.beginPath();ctx.moveTo(850,0);ctx.lineTo(850,150);ctx.stroke();ctx.setLineDash([]);rr(704,300,284,78,8,'#b9b3a6');label(846,316,'DELIVERIES','#fff','rgba(43,22,8,.6)',10);}
+  // kitchen floor
+  const kf=['#cf7f3f','#c79a62','#d6cfc0','#ece8de','#dfe7ec'][st];rr(24,425,962,345,14,kf);
+  ctx.fillStyle='rgba(0,0,0,.06)';if(st<2){for(let y=450;y<765;y+=26)ctx.fillRect(24,y,962,2);}else{for(let y=425;y<770;y+=38)ctx.fillRect(24,y,962,1.5);for(let x=24;x<986;x+=38)ctx.fillRect(x,425,1.5,345);}
+  for(let i=0;i<5;i++){ctx.globalAlpha=lineOpen(i)?.2:.07;rr(LX(i)-46,438,92,322,12,B.lines[i].col);ctx.globalAlpha=1;}
+  // dining / shop floor
+  const dw=st>=3?715:930;
+  if(st===1){rr(40,805,dw,385,14,'#c9773a');for(let i=0;i<24;i++){ctx.fillStyle=['#e8501e','#ffc23d','#1f8a4c'][i%3];ctx.beginPath();const bx=52+i*39;ctx.moveTo(bx,806);ctx.lineTo(bx+16,806);ctx.lineTo(bx+8,822);ctx.fill();}}
+  else if(st===2){rr(40,805,dw,385,14,'#cfc6b4');ctx.fillStyle='rgba(0,0,0,.06)';for(let x=40;x<40+dw;x+=48)ctx.fillRect(x,805,2,385);}
+  else if(st===3){rr(40,805,dw,385,10,'#f1e6d2');ctx.fillStyle='#d98c5a';for(let y=0;y<10;y++)for(let x=0;x<18;x++)if((x+y)%2)ctx.fillRect(40+x*39.7,805+y*38.5,39.7,38.5);}
+  else if(st===4){rr(40,805,dw,385,10,'#262b36');ctx.strokeStyle='rgba(90,209,255,.5)';ctx.lineWidth=2;for(let x=80;x<40+dw;x+=80){ctx.beginPath();ctx.moveTo(x,805);ctx.lineTo(x,1190);ctx.stroke();}ctx.strokeStyle='rgba(255,194,61,.8)';ctx.lineWidth=4;ctx.strokeRect(46,811,dw-12,373);}
+  else{ctx.fillStyle='rgba(120,60,10,.12)';ctx.beginPath();ctx.ellipse(470,890,260,60,0,0,7);ctx.fill();}
+  // parking + street
+  rr(52,1196,116,66,8,'#5a554d');ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.strokeRect(58,1202,104,54);
+  ctx.fillStyle='#bdb5a4';ctx.fillRect(0,1270,WW,12);ctx.fillStyle='#3f3c38';ctx.fillRect(0,1282,WW,138);ctx.fillStyle='#e9d27a';for(let x=10;x<WW;x+=70)ctx.fillRect(x,1343,38,4);
+}
+function drawField(){const farm=B.field==='farm';
+  for(const c of G.crops){if(c.mv||!lineOpen(c.li))continue;
+    if(c.ready){if(farm)ell(c.x,c.y-1,9,5.5,'#3f8a2a');drawItem('r'+c.li,c.x,c.y+3,.82);}else ell(c.x,c.y,3,2,farm?'#3f7a2a':'rgba(0,0,0,.18)');}}
+function drawAnimal(c){const bob=Math.sin(c.ph*6);if(B.field==='water'){ctx.globalAlpha=.35;ell(c.x-(c.vx>0?12:-12),c.y-2,7,2,'#fff');ctx.globalAlpha=1;}else shadow(c.x,c.y+2,10);
+  ctx.save();ctx.translate(c.x,c.y+bob);if(c.vx<0)ctx.scale(-1,1);drawDef(B.lines[c.li].raw,0,4,1.05);ctx.restore();}
+function drawPosts(){for(const p of[G.postA,G.postB]){shadow(p.x,p.y+3,12);rr(p.x-8,p.y-30,16,32,4,'#8a5426');ell(p.x,p.y-30,10,4,'#e8a63c');ctx.strokeStyle='#e8501e';ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(p.x-5,p.y-33);ctx.lineTo(p.x+5,p.y-27);ctx.moveTo(p.x+5,p.y-33);ctx.lineTo(p.x-5,p.y-27);ctx.stroke();}}
+function drawTrail(tr,pos,isP){if(!tr)return;const s=tr.strain||0,warn=isP&&s>.82&&Math.sin(G.t*20)>0;ctx.lineCap='round';ctx.lineJoin='round';
+  ctx.strokeStyle=warn?'#ff3b30':'#f3e08a';ctx.lineWidth=warn?6:5;ctx.beginPath();tr.pts.forEach((p,i)=>i?ctx.lineTo(p.x,p.y-10):ctx.moveTo(p.x,p.y-10));ctx.lineTo(pos.x,pos.y-14);ctx.stroke();
+  ctx.strokeStyle='rgba(120,90,30,.6)';ctx.lineWidth=1.5;ctx.setLineDash([3,4]);ctx.stroke();ctx.setLineDash([]);
+  if(isP)label(pos.x,pos.y-78,'Rope '+Math.min(100,Math.round(s*100))+'%',warn?'#fff':'#2b1608',warn?'#e0281e':'#ffe9a8',10);}
+function unit(kind,x,y,s,col,busy,t){ctx.save();ctx.translate(x,y);ctx.scale(s,s);
+  if(kind==='pot'){for(let i=-2;i<=2;i++){ctx.save();ctx.translate(i*9,8);ctx.rotate(i*.3);rr(-3,-14,6,16,2,'#6b3b18');ctx.restore();}
+    if(busy)for(let i=0;i<5;i++)ell(-14+i*7,2-Math.abs(Math.sin(t*9+i))*6,4,6,i%2?'#ffb02e':'#ff5a1f');
+    ell(0,-14,32,21,'#1f1b1a');ell(0,-28,32,10,'#2c2726');ell(0,-28,27,8,col);ell(-8,-30,9,3,HI);rr(-38,-30,8,5,2,'#1f1b1a');rr(30,-30,8,5,2,'#1f1b1a');}
+  else if(kind==='grill'){rr(-40,-24,80,28,4,'#2a2523');rr(-37,-31,74,13,3,busy?'#e8461e':'#5a463c');ctx.strokeStyle='#bbb';ctx.lineWidth=1;for(let i=-34;i<36;i+=6){ctx.beginPath();ctx.moveTo(i,-31);ctx.lineTo(i,-18);ctx.stroke();}
+    for(let i=0;i<4;i++)rr(-30+i*16,-29,11,5,2,col);ctx.fillStyle='#555';ctx.fillRect(-36,4,4,10);ctx.fillRect(32,4,4,10);}
+  else if(kind==='fryer'){rr(-34,-8,68,14,4,'#3a3330');if(busy)for(let i=0;i<4;i++)ell(-18+i*12,6-Math.abs(Math.sin(t*9+i))*5,3.5,5,i%2?'#ffb02e':'#ff5a1f');
+    ell(0,-16,34,14,'#2c2726');ell(0,-19,29,10,'#e8b93a');for(let i=0;i<6;i++)ell(-16+i*6.5+Math.sin(t*2+i)*1.5,-19+Math.cos(i*2)*4,4.4,3.6,col);rr(32,-22,16,4,2,'#2c2726');}
+  else if(kind==='cooler'){rr(-26,-40,52,44,8,col);rr(-26,-40,52,10,6,'#fff');rr(-20,-24,40,14,3,'rgba(255,255,255,.85)');rr(-22,-36,5,34,2.5,HI);rr(-6,2,12,6,2,'#888');}
+  else{rr(-44,-24,88,30,5,'#8a5426');rr(-42,-30,84,24,4,'#c98a45');rr(-38,-27,76,5,2,col);ctx.fillStyle='#6b3b18';ctx.fillRect(-40,2,6,12);ctx.fillRect(34,2,6,12);}
+  if(busy&&kind!=='cooler'&&kind!=='table')for(let i=0;i<3;i++){const k=(t*.6+i/3)%1;ctx.globalAlpha=(1-k)*.75;ell(-10+i*10,-40-k*36,6+k*8,5+k*6,'#fff');ctx.globalAlpha=1;}
+  ctx.restore();}
+function drawStation(i){const l=B.lines[i],x=LX(i),y=512,sl=lvl('st'+i),busy=G.procIn[i]>0&&G.out[i]<80;
+  if(!lineOpen(i)){ctx.globalAlpha=.25;unit(l.st,x,y,.9,'#888',false,0);ctx.globalAlpha=1;return;}
+  shadow(x,y+8,44);const n=sl+1,sc=[1,.78,.64][sl],off=[[0],[-24,24],[-32,0,32]][sl];for(let k=0;k<n;k++)unit(l.st,x+off[k],y+(k%2)*4,sc,l.col,busy,G.t+k);
+  if(busy&&l.st==='table')for(let k=0;k<Math.min(5,G.procIn[i]);k++)drawItem('r'+i,x-28+k*14,y-26,.8);
+  label(x,y-74,l.short+(sl?' x'+SM[sl]:''),'#fff',l.col,11);
+  if(G.procIn[i]>0)label(x,y-56,G.procIn[i]+' waiting','#2b1608','rgba(255,246,228,.9)',10);
+  if(l.src==='depot'&&G.player.stack[0]==='r'+i){ctx.strokeStyle='#7dff9a';ctx.lineWidth=2.5;ctx.setLineDash([7,5]);ctx.strokeRect(x-26,448,52,34);ctx.setLineDash([]);}}
+function drawOut(i){if(!lineOpen(i))return;const x=LX(i),y=592,full=G.out[i]>=80,near=dist(G.player.x,G.player.y,x,y)<36;
+  ctx.strokeStyle=full?'#ff3b30':near?'#7dff9a':'rgba(255,255,255,.85)';ctx.lineWidth=2.5;ctx.setLineDash([7,5]);ctx.strokeRect(x-27,y-20,54,34);ctx.setLineDash([]);
+  if(!G.out[i]){ctx.globalAlpha=.4;drawItem('p'+i,x,y+6,1.1);ctx.globalAlpha=1;}
+  const cols=Math.ceil(G.out[i]/10);for(let c=0;c<Math.min(cols,4);c++){const n=Math.min(10,G.out[i]-c*10);for(let k=0;k<n;k++)drawItem('p'+i,x-21+c*14,y+8-k*5,.9);}
+  if(G.out[i]>40)label(x+30,y+26,''+G.out[i],'#fff','rgba(43,22,8,.7)',9);if(full)label(x,y-70,'! FULL','#fff','#e0281e',12);}
+function drawStacks(){for(const s of G.stacks){const open=lineOpen(s.li),n=G.depot[s.li];rr(s.x-26,s.y-8,52,24,3,'#8a6a3a');ctx.fillStyle=B.lines[s.li].col;ctx.fillRect(s.x-26,s.y+12,52,4);
+    if(!open){ctx.globalAlpha=.3;drawItem('r'+s.li,s.x,s.y+8,1);ctx.globalAlpha=1;continue;}
+    const m=Math.min(18,Math.ceil(n/Math.max(1,[60,120,240][lvl('truck')]/18)));for(let k=0;k<m;k++)drawItem('r'+s.li,s.x-14+(k%3)*14,s.y+8-Math.floor(k/3)*7,.85);
+    if(n)label(s.x,s.y-54,''+n,'#fff','rgba(43,22,8,.7)',10);}}
+function drawTruck(){const T=G.truck;if(T.state==='wait')return;const x=850,y=T.y;shadow(x,y+50,40);
+  rr(x-27,y-70,54,96,6,'#f4f1ea');rr(x-27,y-30,54,10,0,B.tone);rr(x-25,y+26,50,34,8,B.tone);rr(x-20,y+38,40,14,4,'#bfe6fb');ell(x-18,y+58,5,3,'#ffe9a8');ell(x+18,y+58,5,3,'#ffe9a8');
+  ctx.fillStyle='#22252b';for(const[dx,dy]of[[-30,-50],[24,-50],[-30,30],[24,30]])ctx.fillRect(x+dx,y+dy,6,18);}
+function drawCounter(){const st=stage(),wood=['#8a5426','#8a5426','#a9764a','#5b4636','#3a4250'][st],topc=['#b8743a','#c98a45','#e9dcc6','#f4f1ea','#dfe7ec'][st];
+  rr(34,744,860,22,4,wood);rr(30,728,868,20,5,topc);
+  for(let i=0;i<5;i++){const l=B.lines[i],x=LX(i),open=lineOpen(i);ctx.globalAlpha=open?1:.3;rr(x-40,729,80,18,4,l.col);ctx.globalAlpha=1;if(!open)continue;
+    const n=Math.min(G.counter[i],24);for(let k=0;k<n;k++)drawItem('p'+i,x-24+(k%4)*16,738-Math.floor(k/4)*5,.82);
+    if(G.counter[i]>24)label(x+34,712,''+G.counter[i],'#fff','rgba(43,22,8,.7)',9);
+    ctx.font='900 10px Nunito,system-ui';ctx.textAlign='center';const txt='₦'+short(revenue(i));const w=ctx.measureText(txt).width+10;rr(x-w/2,751,w,14,3,'#fff6e4');ctx.fillStyle='#2b1608';ctx.fillText(txt,x,762);
+    if(G.player.stack[0]==='p'+i){ctx.strokeStyle='#7dff9a';ctx.lineWidth=2.5;ctx.setLineDash([7,5]);ctx.strokeRect(x-28,694,56,30);ctx.setLineDash([]);}}
+  // till
+  rr(897,716,38,30,4,'#2c2f36');rr(901,706,30,14,3,'#4b515c');rr(905,709,22,7,2,'#9dffb8');
+  if(S.till>0&&!lvl('cashier')){const n=Math.min(30,Math.ceil(S.till/(B.lines[0].price*4)));for(let k=0;k<n;k++)drawItem('cash',905+(k%3)*10,696-Math.floor(k/3)*5,1);label(915,640-Math.min(40,n*1.6),'₦'+short(S.till),'#b9ffcf','rgba(12,60,30,.9)',11);}}
+function drawTable(tb){const st=stage();shadow(tb.x,tb.y+14,34);
+  if(B.food){ell(tb.x,tb.y+2,26,13,st>=4?'#1b1f27':'#6b3b18');ell(tb.x,tb.y-2,26,13,st>=3?'#fff':'#c98a45');if(st>=4)ell(tb.x,tb.y-2,20,9,'rgba(90,209,255,.25)');}
+  else{rr(tb.x-28,tb.y-12,56,24,4,'#8a5426');rr(tb.x-26,tb.y-16,52,20,3,st>=3?'#f4f1ea':'#c98a45');for(let k=0;k<3;k++)drawItem('p'+openLines()[k%openLines().length],tb.x-16+k*16,tb.y-4,.7);}}
+function drawBench(){rr(300,890,340,10,3,'#8a5426');rr(300,884,340,8,3,'#b8743a');ctx.fillStyle='#6b3b18';ctx.fillRect(310,898,6,10);ctx.fillRect(624,898,6,10);
+  ctx.fillStyle='#6b3b18';ctx.fillRect(468,820,4,60);for(let i=0;i<6;i++){ctx.fillStyle=i%2?'#ffc23d':B.tone;ctx.beginPath();ctx.moveTo(470,812);ctx.arc(470,826,46,Math.PI+i*Math.PI/6,Math.PI+(i+1)*Math.PI/6);ctx.fill();}}
+function drawBuilding(){const st=stage(),x=770,y=815,w=205,h=360,t=G.t;shadow(x+w/2,y+h+6,110);
+  if(st===3){rr(x,y,w,h,8,'#f1e2c6');rr(x,y,w,26,8,B.tone);for(let r=0;r<2;r++)for(let c=0;c<4;c++)rr(x+16+c*47,y+70+r*120,32,58,4,(r*4+c+Math.floor(t/3))%5?'#ffe9a8':'#8fb8d6');rr(x+w/2-24,y+h-70,48,70,6,'#5b3a22');}
+  else{const gr=ctx.createLinearGradient(x,y,x+w,y+h);gr.addColorStop(0,'#16324a');gr.addColorStop(1,'#0b1a2b');rr(x,y-22,w,h+22,12,gr);
+    for(let r=0;r<9;r++)for(let c=0;c<6;c++){const on=((r*7+c*13+Math.floor(t*.7+r))%6)!==0;rr(x+12+c*32,y+44+r*30,24,20,3,on?(r+c)%3?'#ffe9a8':'#7ad1ff':'#1d3550');}
+    ctx.strokeStyle='#5ad1ff';ctx.lineWidth=2.5;ctx.strokeRect(x+4,y-18,w-8,h+14);rr(x+w/2-34,y+h-56,68,56,8,'#7ad1ff');ctx.fillStyle='#ff3b30';ctx.fillRect(x+w/2-1.5,y-52,3,32);ell(x+w/2,y-54,4,4,Math.sin(t*4)>0?'#ff3b30':'#7a1c12');}
+  ctx.font='16px "Lilita One",system-ui';ctx.textAlign='center';ctx.fillStyle=st===4?'#ffd659':'#fff';ctx.fillText(B.name.split("'")[0].split(' ').slice(0,2).join(' ').toUpperCase(),x+w/2,y+(st===4?16:19));
+  label(x+w/2,y+(st===4?38:48),'Inside: '+Math.round(G.inside).toLocaleString()+' / '+INCAP[st].toLocaleString(),'#fff','rgba(0,0,0,.55)',11);}
+function veh(g,x,y,k,s,col,flip){g.save();g.translate(x,y);g.scale(flip?-s:s,s);
+  if(k==='danfo'){R(g,-44,-40,88,34,7,'#f2c230');R(g,-44,-22,88,6,0,'#1b1f27');for(let i=0;i<4;i++)R(g,-38+i*20,-36,15,11,2,'#bfe6fb');R(g,36,-20,8,6,2,'#ffe9a8');}
+  else if(k==='keke'){R(g,-26,-36,50,30,9,'#f2c230');R(g,-20,-32,22,13,3,'#bfe6fb');R(g,-26,-36,50,7,6,'#1b1f27');R(g,18,-14,10,8,3,'#f2c230');}
+  else if(k==='suv'){R(g,-46,-30,92,24,7,col||'#1b1f27');R(g,-34,-46,62,20,7,col||'#1b1f27');R(g,-28,-42,22,13,3,'#bfe6fb');R(g,-2,-42,24,13,3,'#bfe6fb');R(g,40,-22,7,6,2,'#ffe9a8');}
+  else{R(g,-42,-24,84,18,7,col||'#c62828');R(g,-24,-38,46,16,7,col||'#c62828');R(g,-19,-35,17,11,3,'#bfe6fb');R(g,2,-35,16,11,3,'#bfe6fb');R(g,36,-18,7,5,2,'#ffe9a8');}
+  const wx=k==='keke'?[-14,12]:[-26,26];for(const w of wx){E(g,w,-5,8,8,'#111');E(g,w,-5,3.4,3.4,'#999');}g.restore();}
+function drawPad(s){const Lp=S.pads[s.id]||{l:0,paid:0},[x,y]=padPos(s),on=G.onPad===s,rem=s.cost-Lp.paid,can=S.money>=rem,pr=Lp.paid/s.cost,pulse=can?1+Math.sin(G.t*6)*.05:1;
+  ctx.save();ctx.translate(x,y);ctx.scale(pulse,pulse);
+  rr(-27,-21,54,42,9,'rgba(30,14,4,.86)');if(pr>0)rr(-27,21-42*pr,54,42*pr,9,'rgba(48,190,96,.6)');
+  ctx.strokeStyle=on?'#7dff9a':can?'#ffd659':'#fff';ctx.lineWidth=on||can?3:2;for(const[sx,sy]of[[-1,-1],[1,-1],[-1,1],[1,1]]){ctx.beginPath();ctx.moveTo(sx*31,sy*15);ctx.lineTo(sx*31,sy*25);ctx.lineTo(sx*21,sy*25);ctx.stroke();}
+  if(s.base==='line'||s.base==='st'){drawItem('p'+s.arg,s.base==='st'?-5:0,4,1);if(s.base==='st'){ctx.fillStyle='#ffd659';ctx.font='900 11px Nunito';ctx.textAlign='left';ctx.fillText('x'+SM[s.n],6,-4);}}
+  else{ctx.font='17px system-ui';ctx.textAlign='center';ctx.fillStyle='#fff';ctx.fillText(PICON[s.base],0,-1);}
+  rr(-25,5,50,13,4,can?'#0e9a48':'#0e5a30');ctx.fillStyle='#fff';ctx.font='900 10.5px Nunito,system-ui';ctx.textAlign='center';ctx.fillText('₦'+short(rem),0,15.5);
+  ctx.restore();
+  if(on||dist(G.player.x,G.player.y,x,y)<95)label(x,y-32,padLabel(s),'#fff','rgba(43,22,8,.82)',10);}
+function drawCust(c){const seated=c.st==='eat';drawPerson(c.x,c.y,c.o,null,seated?0:c.step,c.face,.86);
+  if(c.vip){ctx.strokeStyle='#ffd659';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(c.x,c.y,13,6,0,0,7);ctx.stroke();}
+  if(seated||c.st==='toSeat'){drawItem('p'+c.li,c.x+(seated?0:8),c.y-(seated?30:22),.62);}
+  else if(c.st==='in'||c.st==='wait'){const bx=c.x,by=c.y-52,low=c.st==='wait'&&c.pat<4;ell(bx,by,12,10.5,low?'#ffd0c8':'#fff');ctx.fillStyle=low?'#ffd0c8':'#fff';ctx.beginPath();ctx.moveTo(bx-4,by+8);ctx.lineTo(bx,by+14);ctx.lineTo(bx+3,by+8);ctx.fill();drawItem('p'+c.li,bx,by+7,.72);}
+  else if(c.angry){const bx=c.x,by=c.y-50;ell(bx,by,8,8,'#e8331e');ctx.fillStyle='#2b0a03';ctx.fillRect(bx-5,by-3,3,1.5);ctx.fillRect(bx+2,by-3,3,1.5);ctx.fillRect(bx-3,by+3,6,1.5);}}
+function drawBelts(){for(const i of openLines()){const x=LX(i);rr(x-9,606,18,108,4,'#2c2f36');ctx.fillStyle='#7ad1ff';for(let k=0;k<6;k++){const y=608+((k*18+G.t*60)%104);ctx.fillRect(x-6,y,12,3);}if(G.out[i]>0)drawItem('p'+i,x,640+((G.t*60)%60),.7);}}
+function drawBay(){const X=G.exp,P=PBZ();rr(690,1196,286,66,8,'#4b5563');ctx.strokeStyle='#ffd659';ctx.lineWidth=2;ctx.setLineDash([10,8]);ctx.strokeRect(696,1202,274,54);ctx.setLineDash([]);
+  label(833,1194,P.export.bay.toUpperCase(),'#fff','rgba(43,22,8,.75)',10);
+  if(S.emp.pack){rr(900,1206,66,44,6,'#1f3f5a');rr(906,1212,54,10,3,'#7ad1ff');for(let k=0;k<3;k++)rr(908+((k*20+G.t*30)%44),1228,12,12,2,'#c9a15a');}
+  const o=X.state==='load'?X.ord:null;if(o){const near=dist(G.player.x,G.player.y,BAY.x,BAY.y)<52;ctx.strokeStyle=near?'#7dff9a':'#fff';ctx.lineWidth=3;ctx.setLineDash([7,5]);ctx.strokeRect(BAY.x-32,BAY.y-22,64,40);ctx.setLineDash([]);
+    const n=Math.min(12,Math.ceil(o.got/Math.max(1,o.need/12)));for(let k=0;k<n;k++)drawDef(['carton','#c9a15a',B.lines[o.li].col],BAY.x-20+(k%4)*13,BAY.y+10-Math.floor(k/4)*9,.8);
+    drawItem('p'+o.li,BAY.x-52,BAY.y+8,1);label(BAY.x,BAY.y-34,B.lines[o.li].short+' '+o.got+'/'+o.need+' · ₦'+short(o.pay)+' · '+Math.ceil(X.t)+'s','#2b1608','#ffd659',11);}}
+function drawExpTruck(){const X=G.exp;if(X.state==='wait')return;const x=X.x,y=1300;shadow(x,y+4,70);rr(x-20,y-58,104,50,5,'#f4f1ea');rr(x-20,y-30,104,8,0,B.tone);rr(x-62,y-44,40,36,7,B.tone);rr(x-58,y-40,20,16,3,'#bfe6fb');ell(x-62,y-14,4,3,'#ffe9a8');
+  for(const wx of[-44,10,60]){ell(x+wx,y-6,9,9,'#111');ell(x+wx,y-6,4,4,'#999');}if(X.ord){ctx.font='900 9px Nunito,system-ui';ctx.textAlign='center';ctx.fillStyle='#2b1608';ctx.fillText(X.ord.buyer.buyer.slice(0,18),x+32,y-40);}}
+function drawMach(){const M=G.mach,x=M.x,y=M.y;ctx.save();ctx.translate(x,y);if(M.v<0)ctx.scale(-1,1);
+  if(B.field==='water'){ctx.globalAlpha=.4;ell(-34,4,22,5,'#fff');ctx.globalAlpha=1;ctx.fillStyle='#f4f1ea';ctx.beginPath();ctx.moveTo(-36,-10);ctx.lineTo(36,-10);ctx.lineTo(24,8);ctx.lineTo(-28,8);ctx.closePath();ctx.fill();rr(-14,-28,24,18,3,'#2a62c9');rr(-10,-24,10,8,2,'#bfe6fb');ctx.fillStyle='#6b3b18';ctx.fillRect(16,-40,3,30);}
+  else if(B.field==='yard'){shadow(0,10,30);rr(-24,-22,40,28,5,'#f2c230');rr(-18,-38,24,18,4,'#22252b');rr(-14,-34,14,10,2,'#bfe6fb');ctx.fillStyle='#555';ctx.fillRect(18,-40,4,48);ctx.fillRect(18,2,24,4);drawDef(['carton','#c9b08a','#8a6a3a'],32,2,.9);ell(-14,8,7,7,'#111');ell(10,8,7,7,'#111');}
+  else{shadow(0,10,34);rr(-30,-20,44,24,5,'#2e8b3d');rr(-22,-40,26,22,4,'#1f6a2c');rr(-18,-36,16,12,2,'#bfe6fb');rr(14,-14,26,16,3,'#c62828');ctx.fillStyle='#ffd659';for(let k=0;k<4;k++)ctx.fillRect(40,-12+k*4,8,2);ell(-18,8,11,11,'#111');ell(-18,8,5,5,'#f2c230');ell(18,10,7,7,'#111');}
+  ctx.restore();}
+function tint(){const h=hour();let c=null;if(G.closing)c='rgba(20,20,70,'+Math.min(.5,.3+G.closeT*.02)+')';else if(h<9)c='rgba(255,200,120,'+(.1*(9-h))+')';else if(h>17)c=h<19?'rgba(255,120,30,'+(.11*(h-17))+')':'rgba(90,50,110,'+(.22+.12*(h-19))+')';
+  if(c){ctx.fillStyle=c;ctx.fillRect(0,0,W,H);}}
+
+function draw(){
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+  if(G.night){drawNight();return;}
+  ctx.fillStyle='#3a2210';ctx.fillRect(0,0,W,H);
+  const s=SCALE,P=G.player;ctx.setTransform(DPR*s,0,0,DPR*s,DPR*(W/2-G.cam.x*s),DPR*(H/2-G.cam.y*s));
+  const vy0=G.cam.y-H/2/s-80,vy1=G.cam.y+H/2/s+140,vis=y=>y>vy0&&y<vy1;
+  drawGround();drawField();if(S.emp.belt)drawBelts();
+  const steps=visibleSteps();for(const st of steps)if(vis(padPos(st)[1]))drawPad(st);
+  drawPosts();for(const w of G.workers)if(w.trail)drawTrail(w.trail,w,false);drawTrail(P.trail,P,true);
+  const Ls=[];
+  for(const c of G.crops)if(c.mv&&c.ready&&lineOpen(c.li))Ls.push({y:c.y,f:()=>drawAnimal(c)});
+  for(let i=0;i<5;i++){Ls.push({y:512,f:()=>drawStation(i)});Ls.push({y:566,f:()=>drawOut(i)});}
+  if(G.D.length){Ls.push({y:340,f:drawStacks});Ls.push({y:G.truck.y+60,f:drawTruck});}
+  Ls.push({y:748,f:drawCounter});
+  if(stage()===0)Ls.push({y:880,f:drawBench});for(const tb of G.tables)Ls.push({y:tb.y-8,f:()=>drawTable(tb)});
+  if(stage()>=3)Ls.push({y:1176,f:drawBuilding});
+  if(S.emp.con){Ls.push({y:1190,f:drawBay});Ls.push({y:1300,f:drawExpTruck});}if(S.emp.auto)Ls.push({y:G.mach.y+10,f:drawMach});
+  const cl=lvl('car');Ls.push({y:1236,f:()=>{if(cl)veh(ctx,110,1250,['','keke','car','suv'][cl],.62,cl===2?'#c62828':'#1b1f27');else{ctx.fillStyle='#6b3b18';ctx.fillRect(108,1196,4,50);rr(92,1186,36,18,4,'#f2c230');ctx.fillStyle='#1b1f27';ctx.font='900 9px Nunito';ctx.textAlign='center';ctx.fillText('BUS',110,1199);}}});
+  for(const c of G.custs)if(vis(c.y))Ls.push({y:c.y,f:()=>drawCust(c)});
+  for(const w of G.workers)Ls.push({y:w.y,f:()=>drawPerson(w.x,w.y,OUTFIT[w.kind],w.stack,w.step,w.face,.92)});
+  Ls.push({y:P.y,f:()=>drawPerson(P.x,P.y,B.owner,P.stack,P.step,P.face,1.1,G.input.active?1.7:1)});
+  for(const c of G.cars)Ls.push({y:c.y,f:()=>veh(ctx,c.x,c.y,c.k,.8,c.c,c.v<0)});
+  Ls.sort((a,b)=>a.y-b.y);for(const o of Ls)o.f();
+  for(const b of G.bub){const w=b.who;if(vis(w.y)){ctx.globalAlpha=Math.min(1,b.t*2);label(Math.max(90,Math.min(WW-90,w.x)),w.y-66,b.txt,'#2b1608','#fff',11);ctx.globalAlpha=1;}}
+  for(const f of G.flyers){if(f.t<0)continue;const k=f.t/f.dur;drawItem(f.type,f.x0+(f.x1-f.x0)*k,f.y0+(f.y1-f.y0)*k-(f.z0+(f.z1-f.z0)*k+Math.sin(k*Math.PI)*f.arc),1);}
+  for(const p of G.parts){ctx.globalAlpha=1-p.t/p.life;ell(p.x,p.y,p.r*(1+p.t),p.r*(1+p.t),p.col);}ctx.globalAlpha=1;
+  for(const p of G.floats){ctx.globalAlpha=Math.min(1,(1.1-p.t)*2.5);ctx.font='900 '+p.size+'px Nunito,system-ui';ctx.textAlign='center';ctx.lineWidth=3;ctx.strokeStyle='rgba(30,14,4,.85)';ctx.strokeText(p.txt,p.x,p.y);ctx.fillStyle=p.col;ctx.fillText(p.txt,p.x,p.y);}ctx.globalAlpha=1;
+  const T=target();if(T){const bob=Math.sin(G.t*6)*5;ctx.fillStyle='#ffc23d';ctx.strokeStyle='#2b1608';ctx.lineWidth=2.5;
+    ctx.beginPath();ctx.moveTo(T.x,T.y-30+bob);ctx.lineTo(T.x-11,T.y-46+bob);ctx.lineTo(T.x-4,T.y-46+bob);ctx.lineTo(T.x-4,T.y-60+bob);ctx.lineTo(T.x+4,T.y-60+bob);ctx.lineTo(T.x+4,T.y-46+bob);ctx.lineTo(T.x+11,T.y-46+bob);ctx.closePath();ctx.fill();ctx.stroke();
+    const sx=(T.x-G.cam.x)*s,sy=(T.y-G.cam.y)*s;if(Math.abs(sx)>W/2-30||Math.abs(sy)>H/2-40){const ang=Math.atan2(T.y-P.y,T.x-P.x);ctx.save();ctx.translate(P.x+Math.cos(ang)*50,P.y-22+Math.sin(ang)*50);ctx.rotate(ang);ctx.beginPath();ctx.moveTo(13,0);ctx.lineTo(-7,-9);ctx.lineTo(-7,9);ctx.closePath();ctx.fill();ctx.stroke();ctx.restore();}}
+  ctx.setTransform(DPR,0,0,DPR,0,0);tint();
+  for(const p of G.conf){ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.c;ctx.fillRect(-p.r/2,-p.r/3,p.r,p.r*.66);ctx.restore();}
+  const I=G.input;if(I.active){ctx.globalAlpha=.3;E(ctx,I.ox,I.oy,50,50,'#fff');ctx.globalAlpha=.8;const dx=I.x-I.ox,dy=I.y-I.oy,m=Math.hypot(dx,dy)||1,d=Math.min(50,m);E(ctx,I.ox+dx/m*d,I.oy+dy/m*d,22,22,'#fff');ctx.globalAlpha=1;}
+}
+
+/* ===== night scene ===== */
+function drawHouse(x,y,k,lit){const g=ctx,win=lit?'#ffe9a8':'#5a6a7a';
+  if(k===0){R(g,x-110,y-70,220,70,3,'#b9a58a');R(g,x-116,y-82,232,14,3,'#7a4a2a');for(let i=0;i<4;i++){R(g,x-98+i*54,y-48,22,48,2,'#5b3a22');R(g,x-70+i*54,y-52,16,16,2,i===1?win:'#5a6a7a');}}
+  else if(k===1){R(g,x-80,y-120,160,120,4,'#d9c7a8');R(g,x-86,y-130,172,14,3,'#8a3a1e');for(let r=0;r<2;r++)for(let c=0;c<3;c++)R(g,x-62+c*48,y-108+r*52,28,26,3,r===1&&c===1?'#5b3a22':(c+r)%2?win:'#5a6a7a');}
+  else if(k===2){R(g,x-120,y-76,240,76,4,'#f1e2c6');g.fillStyle='#a8431f';g.beginPath();g.moveTo(x-136,y-74);g.lineTo(x,y-128);g.lineTo(x+136,y-74);g.fill();R(g,x-14,y-46,28,46,3,'#5b3a22');R(g,x-92,y-52,44,28,3,win);R(g,x+48,y-52,44,28,3,win);R(g,x-170,y-34,40,34,2,'#8a8a8a');}
+  else{R(g,x-140,y-150,280,150,6,'#f4f1ea');R(g,x-150,y-162,300,16,4,'#2b3a55');R(g,x-140,y-80,280,6,0,'#c9b070');for(let r=0;r<2;r++)for(let c=0;c<4;c++)R(g,x-118+c*64,y-138+r*72,40,40,4,win);R(g,x-20,y-56,40,56,5,'#5b3a22');R(g,x-60,y-62,8,62,2,'#e9dcc6');R(g,x+52,y-62,8,62,2,'#e9dcc6');R(g,x-200,y-40,44,40,2,'#3a3a3a');R(g,x+156,y-40,44,40,2,'#3a3a3a');}}
+/* ===== menu + loop ===== */
+function cardHtml(k){const b=BIZ[k],s=SAVE.biz[k];const lv=s?1+Object.values(s.pads).reduce((a,p)=>a+p.l,0):0;
+  return'<button class="card" type="button" data-biz="'+k+'" style="--tone:'+b.tone+'"><canvas width="120" height="120" data-k="'+k+'"></canvas><div><h2>'+b.name+'</h2><span>'+b.lines.map(l=>l.short).join(', ')+'</span>'+
+    (s?'<em>Level '+lv+' · Day '+s.day+' · ₦'+short(Math.floor(s.money))+'</em>':'<em class="new">Start: '+b.lines[0].short+' at ₦'+b.lines[0].price.toLocaleString()+' per '+b.lines[0].unit+'</em>')+'</div></button>';}
+function showMenu(){$('cards').innerHTML=Object.keys(BIZ).map(cardHtml).join('');
+  document.querySelectorAll('#cards canvas').forEach(c=>{const g=c.getContext('2d'),b=BIZ[c.dataset.k];E(g,60,60,58,58,'#ffe2b8');drawDef(b.lines[0].prod,60,96,3.6,g);});
+  document.querySelectorAll('#cards .card').forEach(el=>el.addEventListener('click',()=>enter(el.dataset.biz)));
+  $('back').hidden=!G;$('reset').hidden=!G;$('reset').textContent='Restart this business';$('reset').dataset.arm='';$('pick').hidden=false;$('pick').scrollTop=0;}
+function enter(k){if(G)save();SAVE.cur=k;const fresh=!SAVE.biz[k];if(fresh)SAVE.biz[k]={money:0,pads:{},day:1,clock:0,till:0,dayEarn:0,daySold:0,sold:0};$('hqp').hidden=true;
+  build();save();$('pick').hidden=true;
+  toast(fresh?'Welcome to '+B.name+'! Walk into the '+(B.field==='water'?'river':B.field==='yard'?'yard':'farm')+', make a circle and come back out.':'Welcome back! Day '+S.day+'.',4.5);}
+$('mute').addEventListener('click',()=>{SAVE.snd=(sndLvl()+2)%3;SAVE.sound=!!SAVE.snd;audio();$('mute').textContent=['🔇','🔉','🔊'][sndLvl()];save();});$('mute').textContent=['🔇','🔉','🔊'][sndLvl()];
+$('menu').addEventListener('click',()=>{if(G)save();showMenu();});
+$('back').addEventListener('click',()=>{$('pick').hidden=true;});
+$('reset').addEventListener('click',e=>{const b=e.currentTarget;if(!b.dataset.arm){b.dataset.arm='1';b.textContent='Tap again to wipe '+B.name;return;}delete SAVE.biz[SAVE.cur];const k=SAVE.cur;G=null;enter(k);});
+let last=0;
+function frame(t){const dt=Math.min(.05,(t-last)/1000||0);last=t;if(G&&$('pick').hidden&&$('hqp').hidden){for(let i=0;i<G.speed;i++)update(dt);draw();}requestAnimationFrame(frame);}
+if(SAVE.cur&&SAVE.biz[SAVE.cur]){build();}
+showMenu();requestAnimationFrame(frame);
+window.__nm={get G(){return G},get S(){return S},get B(){return B},update,target,visibleSteps,padPos,harvest,lvl,level,enter,get PROG(){return PROG},empItems,empBuy,nightNext,startNight,brDay,expDay,monthDue,payrollList,hqOpen,hqClose,Fu,flag,buyPad,save};
+})();
+</script></body></html>

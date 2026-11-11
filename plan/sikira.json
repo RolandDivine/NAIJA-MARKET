@@ -1,0 +1,110 @@
+{
+  "key": "sikira",
+  "branchNoun": "fish depot",
+  "rankTitles": [
+    "Market Fish Seller",
+    "Cold Room Madam",
+    "Frozen Fish Distributor",
+    "Seafood Chain Boss",
+    "West Africa Fish Queen",
+    "Global Seafood Icon"
+  ],
+  "export": {
+    "bay": "Cold Loading Bay",
+    "pack": "frozen & smoked fish cartons",
+    "contracts": [
+      {"buyer": "Mama Tobi Frozen Food Mall", "where": "Surulere, Lagos", "blurb": "Neighbourhood frozen mall wants cartons of tilapia every week."},
+      {"buyer": "Eko Basket Supermarkets", "where": "Lagos", "blurb": "Twelve stores need labelled fish packs for their freezer aisle."},
+      {"buyer": "Royal Palm Hotels & Caterers", "where": "Abuja", "blurb": "Hotel kitchens nationwide order cleaned catfish and stockfish."},
+      {"buyer": "Arewa Cold Room Traders", "where": "Kano", "blurb": "Up-country distributors load reefer trucks with frozen cartons."},
+      {"buyer": "Gold Coast Fish Depot", "where": "Accra, Ghana", "blurb": "ECOWAS buyers want smoked catfish and crayfish by the pallet."},
+      {"buyer": "Naija Taste Grocers", "where": "London, UK", "blurb": "Diaspora shops abroad want certified, vacuum-packed smoked fish."}
+    ]
+  },
+  "machines": {
+    "belt": {"name": "Ice Conveyor Belt", "blurb": "Chilled belt carries cleaned fish from the back to the counter."},
+    "auto": {"name": "Pond Harvest Trawler", "blurb": "Motorised net boat hauls tilapia and catfish from the ponds for you."},
+    "pack": {"name": "Blast Freeze & Seal Line", "blurb": "Blast freezes, vacuum seals and labels fish to export standard."}
+  },
+  "manager": {"name": "Mrs Folake", "title": "Cold Chain Manager"},
+  "milestones": [
+    {"at": 1, "title": "Second Depot Opens", "blurb": "Your first depot outside the market. One cold room, one freezer, big dreams."},
+    {"at": 5, "title": "Lagos Cold Room Network", "blurb": "Five depots across Lagos. Frozen-food malls now call you before they open."},
+    {"at": 10, "title": "Own Fish Hatchery", "blurb": "Ten depots need steady fish. You hatch your own fingerlings and stop begging farms."},
+    {"at": 25, "title": "Reefer Truck Fleet", "blurb": "Refrigerated trucks carry your cartons to the South-West without one fish thawing."},
+    {"at": 50, "title": "Modern Smoking Kilns", "blurb": "Clean smokeless kilns replace firewood drums. Your smoked catfish passes lab tests."},
+    {"at": 100, "title": "Nationwide Fish Brand", "blurb": "A depot in every state. Your label sits in freezers from Lagos to Maiduguri."},
+    {"at": 200, "title": "ECOWAS Seafood Hub", "blurb": "Depots in Ghana, Benin and Togo. Border paperwork knows your trucks by name."},
+    {"at": 300, "title": "Export Certified Plant", "blurb": "Your processing plant earns export approval. Containers leave Apapa port weekly."},
+    {"at": 400, "title": "Diaspora Freezer Favourite", "blurb": "African stores in London, Houston and Toronto stock your smoked fish packs."},
+    {"at": 500, "title": "Global Seafood Empire", "blurb": "500 depots on three continents. From one basin of fish to a world seafood name."}
+  ],
+  "chatter": {
+    "staff": [
+      "Fresh tilapia don land o!",
+      "Abeg bring more ice, sun dey hot.",
+      "This catfish dey jump like dancer!",
+      "Who carry my scaling knife?",
+      "Cold room door, close am sharp sharp!",
+      "Customer, I go clean am for you.",
+      "Crayfish derica full to the brim!",
+      "Smoked fish just comot from kiln.",
+      "Stockfish don finish? Check store.",
+      "My hand don cold, but money dey warm.",
+      "Weigh am well, Madam dey watch.",
+      "Catfish wan escape from basin again!",
+      "Carton number forty, sealed!",
+      "Gen dey on, freezer dey happy."
+    ],
+    "customer": [
+      "Madam, this tilapia fresh so?",
+      "Give me two kilo of catfish.",
+      "Abeg cut am for pepper soup.",
+      "How much for one derica crayfish?",
+      "This smoked fish aroma, chai!",
+      "I need stockfish for my egusi.",
+      "Na here fish fresh pass for Lagos.",
+      "Add jara small now, Iya Sikira.",
+      "Pack am with ice, I dey go far.",
+      "My husband like point-and-kill.",
+      "Do you sell cartons? I get shop.",
+      "Sunday rice need big tilapia!",
+      "The catfish still dey move o!",
+      "I go send this one to my sister abroad."
+    ],
+    "manager": [
+      "Madam, cold room dey at minus 18.",
+      "Reefer truck don reach the bay.",
+      "Check every carton label, please.",
+      "No break cold chain, I beg una.",
+      "Madam, Kano order just double!",
+      "Kiln team, well done today.",
+      "Ice first, gist later, my people.",
+      "Export papers ready for signing."
+    ],
+    "night": [
+      "My hand still dey smell of fish.",
+      "Hope gen no off for cold room.",
+      "One basin then, cartons now. Wow.",
+      "Tomorrow I go buy another freezer.",
+      "This pepper soup na my own catfish.",
+      "One day, my fish go reach London."
+    ]
+  },
+  "events": [
+    {"name": "Sunday Rice Rush", "text": "Everybody wants fried tilapia for Sunday rice. The queue reaches the road!", "effect": "demand_up"},
+    {"name": "Generator Wahala", "text": "Cold room generator coughed all night. Diesel and repairs chop your money.", "effect": "cost_hit"},
+    {"name": "Bad Road to the Ponds", "text": "Rain spoil the farm road. Fish deliveries crawl in late today.", "effect": "supply_slow"},
+    {"name": "Owambe Weekend", "text": "Three big parties in town. Caterers pay top naira for catfish and stockfish.", "effect": "price_up"},
+    {"name": "Hot Sun, Slow Market", "text": "Sun too hot today. Customers stay indoors and the market is quiet.", "effect": "demand_down"},
+    {"name": "Bumper Pond Harvest", "text": "The ponds overflow with fat fish. A bulk buyer clears the extra for cash.", "effect": "bonus_cash"},
+    {"name": "Hotel Chef Visits", "text": "A big hotel chef comes shopping for seafood with a fat wallet.", "effect": "vip_day"},
+    {"name": "New Ice Delivery", "text": "Ice block truck came early. Staff clean and pack fish double quick.", "effect": "speed_up"}
+  ],
+  "research": [
+    {"claim": "Nigeria imports about 2.5 million tonnes of frozen fish a year, and local farms scale by adding their own hatchery, feed mill and drying ovens in place of roadside wood smoking.", "url": "https://www.howwemadeitinafrica.com/p/nigeria-four-businesses-seizing-opportunities-in-the-fish-industry"},
+    {"claim": "Lagos processors began shipping branded smoked fish to the US after FDA lab tests of samples and an FDA Food Facility Registration number for the plant.", "url": "https://www.seafoodsource.com/news/aquaculture/lagos-farmers-export-smoked-fish-to-us-market"},
+    {"claim": "The US stopped smoked fish imports from Nigeria in March 2018 over documentation not supplied in time, so export paperwork and processing standards decide market access.", "url": "https://www.africahousingnews.com/exporters-lament-u-s-ban-on-nigerias-catfish"},
+    {"claim": "Industry reports say Nigeria needs at least 25,000 refrigerated trucks but has fewer than 1,000, with unreliable power a main cold-chain obstacle.", "url": "https://www.trade.gov/market-intelligence/nigerias-cold-chain-industry"}
+  ]
+}

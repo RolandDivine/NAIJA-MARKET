@@ -1,0 +1,110 @@
+{
+ "key": "chidi",
+ "branchNoun": "mart",
+ "rankTitles": [
+  "Market Shop Trader",
+  "Two-Shop Oga",
+  "Area Wholesaler",
+  "Key Distributor",
+  "Retail Chain Chairman",
+  "Global Provisions Icon"
+ ],
+ "export": {
+  "bay": "Wholesale Dock",
+  "pack": "mixed provisions cartons",
+  "contracts": [
+   {"buyer": "Mama Nkechi Corner Kiosks", "where": "Surulere, Lagos", "blurb": "Street kiosks restock by carton so they never close to go to market."},
+   {"buyer": "Eko GreenCart Supermarkets", "where": "Lekki, Lagos", "blurb": "A Lagos chain wants full pallets on its shelves every Monday."},
+   {"buyer": "Unity Schools & Hotels Co-op", "where": "Abuja", "blurb": "Boarding schools and hotel kitchens buy milk and beverage in bulk."},
+   {"buyer": "Niger Bridge Distributors", "where": "Onitsha, Anambra", "blurb": "Big upcountry wholesalers load trailers for the eastern markets."},
+   {"buyer": "Golden Coast Trading House", "where": "Accra, Ghana", "blurb": "Sealed containers roll down the coast road through Cotonou and Lome."},
+   {"buyer": "Naija Taste Afro Grocers", "where": "London, UK", "blurb": "Diaspora shops abroad pay top price for the taste of home."}
+  ]
+ },
+ "machines": {
+  "belt": {"name": "Shelf Feeder Belt", "blurb": "Rolls cartons from the store room straight to the shelves."},
+  "auto": {"name": "Depot Forklift", "blurb": "Offloads supplier trucks and stacks pallets without porters."},
+  "pack": {"name": "Shrink-Wrap Pallet Line", "blurb": "Wraps and labels mixed cartons so export buyers pay more."}
+ },
+ "manager": {"name": "Mrs Ngozi", "title": "Stores Manager"},
+ "milestones": [
+  {"at": 1, "title": "Second Shop Opens", "blurb": "Chidi is no longer one shop. You now buy by the trailer and get a better carton price."},
+  {"at": 5, "title": "Lagos Mini-Chain", "blurb": "Five marts across Lagos share one depot, so no shelf waits long for restock."},
+  {"at": 10, "title": "Key Distributor Status", "blurb": "Manufacturers now sell to you directly. The middleman margin becomes your own."},
+  {"at": 25, "title": "South-West Network", "blurb": "Marts in Ibadan, Abeokuta and Akure. Your trucks run the expressway every day."},
+  {"at": 50, "title": "Nationwide Name", "blurb": "From Kano to Port Harcourt, people say 'go Chidi' when they mean 'go buy provisions'."},
+  {"at": 100, "title": "One Hundred Marts", "blurb": "Regional depots feed every state. You are now among the biggest chains in Nigeria."},
+  {"at": 200, "title": "Across the Border", "blurb": "Marts open in Cotonou, Lome and Accra. Chidi now sells in naira, cedi and CFA."},
+  {"at": 300, "title": "West Africa Giant", "blurb": "Abidjan to Douala, your own-label noodles and milk sit on every family table."},
+  {"at": 400, "title": "Diaspora Stores Abroad", "blurb": "London, Houston and Toronto get a Chidi mart. Home taste, anywhere in the world."},
+  {"at": 500, "title": "Global Provisions Empire", "blurb": "500 marts on three continents, and it all started from one small shop in Lagos."}
+ ],
+ "chatter": {
+  "staff": [
+   "Oga, noodles carton don finish o!",
+   "Abeg help me carry this detergent.",
+   "Shelf three needs milk, sharp sharp.",
+   "Customer don full ground today!",
+   "Who arranged these tins so fine?",
+   "Soft drinks dey cold, fridge is working.",
+   "Make I count this stock again.",
+   "New price tags are ready, oga.",
+   "The supplier truck don land outside.",
+   "First in, first out. Check the dates!",
+   "My leg don tire but sales sweet.",
+   "Aunty, your change is complete.",
+   "Na who pack carton for doorway?",
+   "Beverage tins up top, milk below."
+  ],
+  "customer": [
+   "Give me one carton of noodles.",
+   "Is this powdered milk the big tin?",
+   "Two cold soft drinks, abeg.",
+   "This detergent dey foam well well.",
+   "My pikin no gree without beverage.",
+   "Chidi price still better pass market.",
+   "Add small jara for your customer na.",
+   "Do you sell half carton?",
+   "I came all the way from Ikorodu!",
+   "Madam sent me, I have a long list.",
+   "Abeg, which milk is best for tea?",
+   "I dey buy for my own shop, discount?",
+   "Noodles for the children, quick quick.",
+   "Fine store! E be like abroad."
+  ],
+  "manager": [
+   "Smile, the customer is our salary.",
+   "Stock count by six, nobody dodge.",
+   "Oga, branch sales don pass target!",
+   "Cashier, please open a second till.",
+   "Check expiry dates before shelving.",
+   "The Ibadan truck must leave by noon.",
+   "Well done team, today was sweet.",
+   "Oga, we need more milk before Friday."
+  ],
+  "night": [
+   "From one shop to this. God is good.",
+   "Tomorrow I must order more noodles.",
+   "This Lagos traffic, I almost slept.",
+   "Maybe one more mart in Ikeja?",
+   "Salary week is coming. I am ready.",
+   "Small small, the empire is growing."
+  ]
+ },
+ "events": [
+  {"name": "School Resumption Rush", "text": "Parents are filling provision boxes for boarding school. Everybody wants milk!", "effect": "demand_up"},
+  {"name": "Month-End Salary Shopping", "text": "Salaries have dropped and families are doing their bulk monthly shopping.", "effect": "vip_day"},
+  {"name": "Supplier Truck Stuck", "text": "The restock trailer is held up on the expressway. Cartons will come late.", "effect": "supply_slow"},
+  {"name": "Factory Price Increase", "text": "Manufacturers raised carton prices, so shelf prices go up for today.", "effect": "price_up"},
+  {"name": "Generator Wahala", "text": "The fridge generator packed up. You pay the repair man to save the drinks.", "effect": "cost_hit"},
+  {"name": "Rainy Day, Empty Road", "text": "Heavy rain since morning. Customers are staying indoors today.", "effect": "demand_down"},
+  {"name": "Distributor Rebate", "text": "You hit the quarterly sales target and the manufacturer sent a cash rebate.", "effect": "bonus_cash"},
+  {"name": "New Barcode Scanners", "text": "Fresh scanners at the till. The queue is moving like express today.", "effect": "speed_up"}
+ ],
+ "research": [
+  {"claim": "Informal channels such as open markets and street vendors account for about 98% of retailing in Nigeria, and a single Onitsha market hosts around 50,000 vendors with roughly $1.5bn of annual FMCG trade.", "url": "https://oxfordbusinessgroup.com/reports/nigeria/2016-report/economy/make-it-snappy-the-fast-moving-consumer-goods-segment-is-looking-for-specialised-products-and-efficient-distribution"},
+  {"claim": "Small Nigerian retailers traditionally close for a day to restock at a central market, which is why B2B suppliers that deliver cartons to the shop within hours have grown in a roughly $100bn informal retail sector.", "url": "https://techcrunch.com/2021/08/20/alerzo-raises-10-5m-series-a-to-bring-nigerias-informal-retail-sector-online"},
+  {"claim": "Nigeria's largest supermarket chain by store count had 124 outlets in 2025, with the next biggest at 44, 36, 31 and 26 stores, so small-format local chains lead on store numbers.", "url": "https://nairametrics.com/2025/03/30/top-10-supermarket-chains-in-nigeria-by-store-count-dominating-the-retail-sector"},
+  {"claim": "Informal cross-border trade between Nigeria and Benin is extensive and sensitive to policy; Nigeria closed its land borders to all goods in 2019, disrupting traders along the coast route.", "url": "https://www.brookings.edu/articles/the-effects-of-nigerias-closed-borders-on-informal-trade-with-benin/"}
+ ]
+}

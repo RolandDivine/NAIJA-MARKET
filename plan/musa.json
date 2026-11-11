@@ -1,0 +1,110 @@
+{
+ "key": "musa",
+ "branchNoun": "suya spot",
+ "rankTitles": [
+  "Roadside Suya Man",
+  "Suya Spot Owner",
+  "Grill Master of Lagos",
+  "Suya Chain Chairman",
+  "West Africa Grill Baron",
+  "Global Suya Icon"
+ ],
+ "export": {
+  "bay": "Suya Loading Bay",
+  "pack": "sealed kilishi & yaji packs",
+  "contracts": [
+   {"buyer": "Allen Junction Mini Marts", "where": "Ikeja, Lagos", "blurb": "Neighbourhood shops want yaji sachets and kilishi by the till."},
+   {"buyer": "GreenBasket Supermarkets", "where": "Lagos", "blurb": "A Lagos chain gives Musa's spice jars a full snack shelf."},
+   {"buyer": "Royal Palm Hotels & Events", "where": "Abuja", "blurb": "Hotels and party caterers order marinated grill packs in bulk."},
+   {"buyer": "Arewa Snacks Distributors", "where": "Kano", "blurb": "Distributors truck boxed kilishi to motor parks in other states."},
+   {"buyer": "Gold Coast Food Traders", "where": "Accra, Ghana", "blurb": "ECOWAS buyers take pallets of kilishi and yaji across the border."},
+   {"buyer": "Naija Taste Imports", "where": "London, UK", "blurb": "Diaspora shops in Peckham and Houston can't keep it on the shelf."}
+  ]
+ },
+ "machines": {
+  "belt": {"name": "Skewer Conveyor Grill", "blurb": "Sticks ride over the coals and arrive at the counter hot."},
+  "auto": {"name": "Cold Room Meat Slicer", "blurb": "Slices and skewers beef, chicken and goat without a farmhand."},
+  "pack": {"name": "Vacuum Seal Line", "blurb": "Seals kilishi and yaji airtight so they survive the trip abroad."}
+ },
+ "manager": {"name": "Mr Ibrahim", "title": "Grill Operations Boss"},
+ "milestones": [
+  {"at": 1, "title": "Second Fire Lit", "blurb": "Your first suya spot outside the flagship. The same yaji must taste the same there."},
+  {"at": 5, "title": "Five Grills in Lagos", "blurb": "Island and Mainland both covered. You now buy beef by the half cow, not by the kilo."},
+  {"at": 10, "title": "Central Spice Kitchen", "blurb": "One kitchen blends yaji for every spot, so your secret recipe stays secret."},
+  {"at": 25, "title": "Suya Reaches Abuja", "blurb": "Spots open in Abuja, Ibadan and Port Harcourt. Refrigerated trucks join the fleet."},
+  {"at": 50, "title": "Own Cattle Ranch Deal", "blurb": "You sign ranchers in the north directly. Meat costs drop and quality stays steady."},
+  {"at": 100, "title": "A Spot in Every State", "blurb": "From Sokoto to Calabar, travellers plan their road stops around your grills."},
+  {"at": 200, "title": "West Africa Smoke", "blurb": "Accra, Cotonou and Dakar queue for suya. Your kilishi is the region's road snack."},
+  {"at": 300, "title": "Peckham Grand Opening", "blurb": "The first London spot sells out by 9 PM. Diaspora customers bring their neighbours."},
+  {"at": 400, "title": "Houston to Toronto", "blurb": "North America falls for asun and masa. Airport kiosks sell kilishi as gifts."},
+  {"at": 500, "title": "Suya Capital of the World", "blurb": "500 spots on four continents, and it all started with one grill and one newspaper."}
+ ],
+ "chatter": {
+  "staff": [
+   "Oga, customer don full ground!",
+   "Fire dey hot, suya dey ready!",
+   "Who order chicken with extra yaji?",
+   "Abeg bring more onions and tomato.",
+   "Charcoal don finish, I dey go store.",
+   "Turn that stick before e burn o!",
+   "Asun for table six, e dey come!",
+   "Masa just comot fire, soft like pillow.",
+   "Zobo cold well well today.",
+   "My hand don sabi this knife.",
+   "Wrap am for paper, add toothpick.",
+   "Smoke dey my eye but money dey come.",
+   "One more tray of beef for grill!",
+   "Queue long reach road, make we hurry."
+  ],
+  "customer": [
+   "Mallam, beef suya two thousand!",
+   "Abeg add plenty pepper for me.",
+   "This asun dey scatter my head!",
+   "Chicken suya, cut am small small.",
+   "I fit get masa to follow am?",
+   "Zobo first, pepper don catch me.",
+   "Na this aroma bring me from Lekki.",
+   "Put extra onions, no be fight.",
+   "My wife say make I no come empty.",
+   "Best suya for Lagos, no argument.",
+   "Pack kilishi, I dey travel tomorrow.",
+   "Is the goat meat fresh today?",
+   "Ah, this yaji get secret inside.",
+   "One more stick, last one, I promise."
+  ],
+  "manager": [
+   "Oga, all the grills dey full today.",
+   "Wash hand before you touch meat!",
+   "Meat truck go land by 7 AM sharp.",
+   "Smile for customer, e dey add tip.",
+   "Yaji stock low, I don order more.",
+   "Export truck dey wait for bay, sir.",
+   "Nobody chop suya on duty, abeg.",
+   "Sales pass yesterday own, well done!"
+  ],
+  "night": [
+   "My cloth still dey smell of smoke.",
+   "Tomorrow I go buy bigger grill.",
+   "From one stick to all this. Wow.",
+   "Even my dream get suya aroma.",
+   "Mama go proud of this spot.",
+   "Sleep now, fire must light by 8."
+  ]
+ },
+ "events": [
+  {"name": "Friday Night Suya Rush", "text": "Offices close early and everybody wants suya for the weekend.", "effect": "demand_up"},
+  {"name": "Heavy Evening Rain", "text": "Rain chases the crowd indoors and the open grill stays quiet.", "effect": "demand_down"},
+  {"name": "Big Match Night", "text": "Football fans pay extra for hot suya before kick-off.", "effect": "price_up"},
+  {"name": "Cattle Truck Delayed", "text": "The meat truck from the north is stuck on the expressway.", "effect": "supply_slow"},
+  {"name": "Charcoal Price Jump", "text": "Charcoal sellers raise prices and today's fire costs more.", "effect": "cost_hit"},
+  {"name": "Wedding Party Order", "text": "A caterer pays cash upfront for 300 sticks and a tray of asun.", "effect": "bonus_cash"},
+  {"name": "Food Blogger Visit", "text": "A famous food blogger films your grill and big spenders follow.", "effect": "vip_day"},
+  {"name": "Harmattan Breeze", "text": "Dry wind keeps the coals glowing and the meat cooks faster.", "effect": "speed_up"}
+ ],
+ "research": [
+  {"claim": "A Lagos suya-focused quick-service chain opened its 12th location, in Yaba, in December 2024, showing suya scales as a multi-branch restaurant brand.", "url": "https://thisdaylive.com/index.php/2024/12/15/sooyah-bistro-pushes-to-12th-location-now-in-yaba"},
+  {"claim": "The same suya chain is reported to have grown from N20,000 of starting capital to about N5 billion despite rising costs.", "url": "https://nairametrics.com/2026/10/17/from-n20000-to-n5-billion-how-sooyah-bistro-scaled-despite-rising-costs/"},
+  {"claim": "Nigerian kilishi producers are packaging the dried spiced meat for international markets and global retail shelves.", "url": "https://sunnewsonline.com/kilishi-targets-international-market"},
+  {"claim": "Nigerian suya restaurants operate in diaspora hubs in Texas, such as a suya spot in Euless near Fort Worth.", "url": "https://fortworth.culturemap.com/news/restaurants-bars/nigerian-osuma-suya-euless"}
+ ]
+}

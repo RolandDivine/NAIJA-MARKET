@@ -1,0 +1,230 @@
+{
+  "key": "bola",
+  "branchNoun": "fabric store",
+  "rankTitles": [
+    "Market Fabric Trader",
+    "Shop Madam",
+    "Aso-Ebi Queen of Lagos",
+    "Textile Merchant Princess",
+    "Iyaloja of African Fabric",
+    "Global Fabric Icon"
+  ],
+  "export": {
+    "bay": "Bale Loading Bay",
+    "pack": "wrapped fabric bales",
+    "contracts": [
+      {
+        "buyer": "Iya Risi Tailoring Plaza",
+        "where": "Lagos Island",
+        "blurb": "Tailors down the road need Adire and Ankara bundles every week."
+      },
+      {
+        "buyer": "Eko Style Department Stores",
+        "where": "Lagos",
+        "blurb": "A Lagos store chain wants ready-cut Ankara for all its shelves."
+      },
+      {
+        "buyer": "Royal Owambe Event Planners",
+        "where": "Abuja",
+        "blurb": "Aso-ebi for 500 wedding guests, same Lace, same colour batch."
+      },
+      {
+        "buyer": "Arewa Cloth Distributors",
+        "where": "Kano",
+        "blurb": "Upcountry wholesalers buying bales of George and Aso-oke."
+      },
+      {
+        "buyer": "Akwaaba Textile Traders",
+        "where": "Accra, Ghana",
+        "blurb": "Market women across the border reselling Naija Lace and Adire."
+      },
+      {
+        "buyer": "Peckham Naija Boutique",
+        "where": "London, UK",
+        "blurb": "Diaspora brides and aunties paying pounds for a taste of home."
+      }
+    ]
+  },
+  "machines": {
+    "belt": {
+      "name": "Roll Rail Conveyor",
+      "blurb": "Overhead rail glides fabric rolls from the store to the counter."
+    },
+    "auto": {
+      "name": "Bale Forklift",
+      "blurb": "Offloads supplier bales from the truck with no porter sweating."
+    },
+    "pack": {
+      "name": "Cut, Fold & Wrap Line",
+      "blurb": "Measures 6 yards, folds, labels and seals it for premium export."
+    }
+  },
+  "manager": {
+    "name": "Mrs Folake",
+    "title": "Head of Fabric Sales"
+  },
+  "milestones": [
+    {
+      "at": 1,
+      "title": "Second Shop on the Island",
+      "blurb": "Your first branch opens near the market. Customers no longer queue at one counter."
+    },
+    {
+      "at": 5,
+      "title": "Lagos Aso-Ebi Circuit",
+      "blurb": "Five stores from Island to Mainland. Party planners now call you first for aso-ebi."
+    },
+    {
+      "at": 10,
+      "title": "The Name Tailors Trust",
+      "blurb": "Ten branches. Tailors across Lagos send their customers straight to you."
+    },
+    {
+      "at": 25,
+      "title": "Abeokuta Adire Connection",
+      "blurb": "You buy direct from the dyers in Abeokuta, so Adire costs less and sells faster."
+    },
+    {
+      "at": 50,
+      "title": "South-West Fabric Queen",
+      "blurb": "Fifty stores from Ibadan to Akure. Every big owambe has your Lace on the dance floor."
+    },
+    {
+      "at": 100,
+      "title": "Every State Wears Bola",
+      "blurb": "A hundred branches from Kano to Port Harcourt. Your own trucks run the highways."
+    },
+    {
+      "at": 200,
+      "title": "West Africa Opens Up",
+      "blurb": "Stores in Accra, Cotonou and Lome. Traders cross borders to buy from your shelves."
+    },
+    {
+      "at": 300,
+      "title": "Own Label Prints",
+      "blurb": "Mills now print Ankara designs with your name on the selvedge. Nobody else has them."
+    },
+    {
+      "at": 400,
+      "title": "Diaspora Flagships",
+      "blurb": "Shops open in London and Houston. Brides abroad stop begging aunties to carry fabric."
+    },
+    {
+      "at": 500,
+      "title": "Global Fabric Empire",
+      "blurb": "500 stores on three continents. From one market stall to a name the world wears."
+    }
+  ],
+  "chatter": {
+    "staff": [
+      "Six yards Ankara, cutting now!",
+      "Who carry my tape rule again?",
+      "Aunty, this Lace na original o.",
+      "Abeg help me fold this George.",
+      "Customer don full ground!",
+      "The Adire shelf don nearly finish.",
+      "Measure twice, cut once, my sister.",
+      "Fine colour! E go fit you well.",
+      "Aso-oke for bride, coming now!",
+      "My scissors sharp pass my mouth.",
+      "Madam, this one just land today.",
+      "Next customer, I dey for you!",
+      "Careful, no stain the white Lace.",
+      "Small small, e go reach everybody."
+    ],
+    "customer": [
+      "I need aso-ebi for 200 guests!",
+      "Is this Ankara colour fast?",
+      "Madam, do customer price for me.",
+      "The Adire fine die, give me two.",
+      "My tailor said six yards, abi?",
+      "This Lace must match my gele o.",
+      "Wedding is Saturday, please hurry!",
+      "Show me your best George wrapper.",
+      "Aso-oke for my husband's cap too.",
+      "Last price? I be your customer.",
+      "My sister in London wants ten.",
+      "Same colour batch, no mix am o!",
+      "Chai, see quality! I'm coming back.",
+      "Add one extra yard as jara now."
+    ],
+    "manager": [
+      "Oga, Lace stock is running low.",
+      "Smile, greet, then show fabric.",
+      "Aso-ebi order for Friday, move!",
+      "Count the yards, not the stories.",
+      "Madam, sales sweet well today.",
+      "Keep the rolls neat, please.",
+      "New bales land tomorrow morning.",
+      "Well done team, customers happy!"
+    ],
+    "night": [
+      "Today, fabric move like water.",
+      "My feet tire, but my purse smile.",
+      "Tomorrow I must restock Lace.",
+      "One day, a store in London too.",
+      "Small stall then, see me now.",
+      "Let me sleep, owambe season near."
+    ]
+  },
+  "events": [
+    {
+      "name": "Owambe Weekend",
+      "text": "Three big weddings this Saturday. Everybody is rushing for aso-ebi!",
+      "effect": "demand_up"
+    },
+    {
+      "name": "Celebrity Wore Your Lace",
+      "text": "A film star posted her outfit online. Buyers will pay extra for that Lace.",
+      "effect": "price_up"
+    },
+    {
+      "name": "Heavy Rain on the Island",
+      "text": "The market road is flooded. Few customers can reach the shop today.",
+      "effect": "demand_down"
+    },
+    {
+      "name": "Bales Stuck at the Port",
+      "text": "Your fabric container is delayed in clearing. Restock crawls today.",
+      "effect": "supply_slow"
+    },
+    {
+      "name": "Dye Stain Wahala",
+      "text": "Wet Adire stained a bale of white Lace. You pay to replace the lot.",
+      "effect": "cost_hit"
+    },
+    {
+      "name": "Diaspora Bulk Deposit",
+      "text": "A bride in Houston paid upfront for her whole bridal train's fabric.",
+      "effect": "bonus_cash"
+    },
+    {
+      "name": "Society Madam Visits",
+      "text": "A high-society madam arrives with her friends to pick Aso-oke and George.",
+      "effect": "vip_day"
+    },
+    {
+      "name": "Sharp New Scissors",
+      "text": "Fresh scissors and tape rules for the team. Cutting is flying today!",
+      "effect": "speed_up"
+    }
+  ],
+  "research": [
+    {
+      "claim": "Idumota Market in Lagos is renowned for textiles including Ankara prints, lace, George and traditional wrappers, and is described as one of the oldest and largest markets in West Africa.",
+      "url": "https://nairametrics.com/2025/10/04/10-lagos-markets-to-buy-wholesale-clothing-for-your-business"
+    },
+    {
+      "claim": "Balogun Market traders serve both retail and bulk buyers, and buyers of event (aso-ebi) quantities are advised to confirm yardage, width, dye fastness and colour batch before paying.",
+      "url": "https://www.finelib.com/knowledge/markets/balogun-market-lagos-island/"
+    },
+    {
+      "claim": "Handcrafted cotton adire from Abeokuta areas such as Itoku and Asero sells for roughly N4,000 to N15,000 and faces competition from cheap mass-printed imported imitations.",
+      "url": "https://gazettengr.com/special-influx-of-cheap-bogus-chinese-adire-threatens-major-nigerian-tribes-livelihood-tradition/"
+    },
+    {
+      "claim": "Ogun State launched an online adire portal so that buyers worldwide can place orders, reflecting export and diaspora demand for the cloth.",
+      "url": "https://gazettengr.com/special-influx-of-cheap-bogus-chinese-adire-threatens-major-nigerian-tribes-livelihood-tradition/"
+    }
+  ]
+}

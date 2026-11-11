@@ -1,0 +1,230 @@
+{
+  "key": "sani",
+  "branchNoun": "pepper depot",
+  "rankTitles": [
+    "Mile 12 Basket Trader",
+    "Pepper Shop Owner",
+    "Lagos Pepper Merchant",
+    "Sarkin Tumatir of Naija",
+    "West Africa Pepper Baron",
+    "Global Pepper Icon"
+  ],
+  "export": {
+    "bay": "Pepper Loading Bay",
+    "pack": "dried pepper & paste cartons",
+    "contracts": [
+      {
+        "buyer": "Mama Risi Buka & Neighbours",
+        "where": "Ketu, Lagos",
+        "blurb": "Bukas and corner shops nearby want fresh crates before stew time."
+      },
+      {
+        "buyer": "GreenBasket Supermarkets",
+        "where": "Lagos",
+        "blurb": "A Lagos chain wants graded, washed tomatoes and rodo on every shelf."
+      },
+      {
+        "buyer": "Royal Palm Hotels & Catering",
+        "where": "Abuja",
+        "blurb": "Hotels, schools and party caterers need jollof base by the drum."
+      },
+      {
+        "buyer": "Garden City Food Depot",
+        "where": "Port Harcourt",
+        "blurb": "State distributors take sachet paste and dried tatashe by the truck."
+      },
+      {
+        "buyer": "Golden Coast Spice Traders",
+        "where": "Accra, Ghana",
+        "blurb": "ECOWAS traders load ground pepper sacks for markets along the coast."
+      },
+      {
+        "buyer": "Naija Taste Foods UK",
+        "where": "London, UK",
+        "blurb": "Diaspora shops abroad order sealed dried rodo with a taste of home."
+      }
+    ]
+  },
+  "machines": {
+    "belt": {
+      "name": "Crate Roller Belt",
+      "blurb": "Rolls sorted crates from the store to the counter. No more squashing."
+    },
+    "auto": {
+      "name": "Reefer Truck from Kano",
+      "blurb": "Cold truck brings farm-fresh crates from the North with no spoilage."
+    },
+    "pack": {
+      "name": "Solar Dry & Paste Line",
+      "blurb": "Dries, grinds and seals pepper and paste into export-grade packs."
+    }
+  },
+  "manager": {
+    "name": "Mrs Hauwa",
+    "title": "Market Operations Boss"
+  },
+  "milestones": [
+    {
+      "at": 1,
+      "title": "Second Shed Opens",
+      "blurb": "Your first pepper depot outside the flagship. Alhaji Sani is now a two-market man."
+    },
+    {
+      "at": 5,
+      "title": "Lagos Stew Supplier",
+      "blurb": "Five depots across Lagos. Bukas no longer travel to Mile 12; you come to them."
+    },
+    {
+      "at": 10,
+      "title": "Goodbye Raffia Baskets",
+      "blurb": "Ten depots share plastic crates, so far fewer tomatoes get crushed on the road."
+    },
+    {
+      "at": 25,
+      "title": "Own Farms Up North",
+      "blurb": "You contract growers in Kano and Kaduna directly. Steady supply, fair farm price."
+    },
+    {
+      "at": 50,
+      "title": "Cold Chain Convoy",
+      "blurb": "A reefer fleet runs North to South in two days. Fresh stock reaches every state."
+    },
+    {
+      "at": 100,
+      "title": "Paste Factory Fires Up",
+      "blurb": "Glut season tomatoes now become paste instead of waste. Nothing rots again."
+    },
+    {
+      "at": 200,
+      "title": "ECOWAS Pepper Route",
+      "blurb": "Depots open in Cotonou, Lome and Accra. West Africa cooks with your pepper."
+    },
+    {
+      "at": 300,
+      "title": "Dried Pepper King",
+      "blurb": "Solar dryers feed 300 depots. Your grade A dried rodo sets the market price."
+    },
+    {
+      "at": 400,
+      "title": "Diaspora Kitchens",
+      "blurb": "Stores in London and Houston. Jollof abroad now tastes the way it does at home."
+    },
+    {
+      "at": 500,
+      "title": "World Pepper Icon",
+      "blurb": "500 depots on three continents. From one paint bucket to feeding the world."
+    }
+  ],
+  "chatter": {
+    "staff": [
+      "Fresh tomato! Come see am, e red well!",
+      "Oga, the Kano truck don land!",
+      "Abeg, no press the tomato like that.",
+      "Rodo don finish, bring another crate!",
+      "Paint bucket full to the brim, no cheat.",
+      "This tatashe fine pass lipstick.",
+      "Sort the soft ones out for stew pack.",
+      "My eye dey water, na rodo cause am.",
+      "Onions sack don reach, who go carry?",
+      "Customer don full ground o!",
+      "Crate no be chair, stand up from there.",
+      "Okra fresh, e dey snap like biscuit.",
+      "Jara dey for customer wey smile.",
+      "I don sneeze ten times. Pepper work!"
+    ],
+    "customer": [
+      "How much for the paint bucket tomato?",
+      "Abeg add jara, I be your customer.",
+      "This rodo hot? I want the real one.",
+      "Give me tatashe, na party jollof.",
+      "Onions for ₦1,000, make am two.",
+      "Okra ₦500? Put am for nylon, quick.",
+      "Your tomato firm, e no dey watery.",
+      "Na here I dey buy my stew things.",
+      "Mix tomato, tatashe and rodo for me.",
+      "Sunday rice must red. Fill the bucket!",
+      "I come from Ikorodu for this pepper.",
+      "My soup go draw well with this okra.",
+      "Hmm, this pepper smell alone dey hot.",
+      "Alhaji, your market sweet me die."
+    ],
+    "manager": [
+      "First in, first out. Old crates first!",
+      "Oga, we need more rodo before 4 PM.",
+      "Count the crates before truck leaves.",
+      "Soft tomatoes go to the paste line.",
+      "Smile, people. Customer is watching.",
+      "Oga, today sales red like tatashe.",
+      "Keep the okra in the shade, please.",
+      "Truck is two hours out. Clear the bay."
+    ],
+    "night": [
+      "My hands still smell like onions.",
+      "No stew tonight abeg, I saw enough.",
+      "Tomorrow the Kano truck must come early.",
+      "One paint bucket started all this.",
+      "Even my dream dey red like tomato.",
+      "Thank God, nothing spoil today."
+    ]
+  },
+  "events": [
+    {
+      "name": "Owambe Weekend",
+      "text": "Wedding season! Every caterer in Lagos wants tomatoes for party jollof.",
+      "effect": "demand_up"
+    },
+    {
+      "name": "Glut Season",
+      "text": "Bumper harvest up North. Tomato is everywhere and customers shop around.",
+      "effect": "demand_down"
+    },
+    {
+      "name": "Rainy Season Scarcity",
+      "text": "Rains cut the harvest. Tomato is scarce and a bucket sells for more.",
+      "effect": "price_up"
+    },
+    {
+      "name": "Truck Stuck on the Road",
+      "text": "The trailer from Kano broke down near Lokoja. Stock is arriving late.",
+      "effect": "supply_slow"
+    },
+    {
+      "name": "Heat Spoils the Baskets",
+      "text": "A hot day cooked the bottom crates. You pay to replace the soft ones.",
+      "effect": "cost_hit"
+    },
+    {
+      "name": "Paste Factory Buys Seconds",
+      "text": "A paste maker buys all your soft tomatoes in bulk. Waste turns to cash!",
+      "effect": "bonus_cash"
+    },
+    {
+      "name": "Celebrity Chef Visit",
+      "text": "A TV chef is shopping for her stew special. Big spenders follow her in.",
+      "effect": "vip_day"
+    },
+    {
+      "name": "New Plastic Crates",
+      "text": "Stackable crates arrived. Porters sort and carry twice as fast today.",
+      "effect": "speed_up"
+    }
+  ],
+  "research": [
+    {
+      "claim": "Post-harvest losses in Nigeria's tomato sector reach as high as 40%, and on the 1,000 km Kaduna to Lagos trip in raffia baskets barely half the produce is said to arrive in good condition, which is why plastic crates are being promoted.",
+      "url": "https://www.freshplaza.com/asia/article/9783492/nigeria-promotes-plastic-crates-to-cut-tomato-losses"
+    },
+    {
+      "claim": "The first refrigerated tomato truck from Kaduna State to Lagos in December 2017 carried 933 crates of 20 kg each and took about two days.",
+      "url": "https://businessday.ng/exclusives/article/first-refrigerated-tomato-shipment-arrives-lagos-from-north/"
+    },
+    {
+      "claim": "Traders in Kano State sun-dry tomato, pepper and okra to cope with gluts and sell in the off season; dried pepper is the most profitable and is graded A, B or C by colour.",
+      "url": "https://avrdc.org/?p=111563"
+    },
+    {
+      "claim": "Kano has yearly tomato gluts where surplus rots, only about 20% of Nigeria's vegetables are processed, and the country spent over $350m importing tomato paste in 2025.",
+      "url": "https://thewhistler.ng/why-kano-cannot-cash-in-on-its-tomatoes/"
+    }
+  ]
+}

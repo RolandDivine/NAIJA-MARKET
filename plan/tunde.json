@@ -1,0 +1,110 @@
+{
+  "key": "tunde",
+  "branchNoun": "produce depot",
+  "rankTitles": [
+    "Market Farmer",
+    "Depot Owner",
+    "Lagos Produce Merchant",
+    "Food Basket Chairman",
+    "West Africa Agro Baron",
+    "Global Yam King"
+  ],
+  "export": {
+    "bay": "Farm Loading Bay",
+    "pack": "graded yam & plantain crates",
+    "contracts": [
+      {"buyer": "Mama Sikira Corner Stores", "where": "Ikeja, Lagos", "blurb": "Neighbourhood shops want fresh ugu, cucumbers and a few yam tubers."},
+      {"buyer": "FreshWay Supermarkets", "where": "Lagos", "blurb": "A supermarket chain needs washed, graded produce on the shelf by 7 AM."},
+      {"buyer": "Royal Palm Hotels & Catering", "where": "Abuja", "blurb": "Hotel kitchens and party caterers order rice and plantain every week."},
+      {"buyer": "Arewa Food Distributors", "where": "Kano", "blurb": "Trailer loads of yam and local rice for depots in other states."},
+      {"buyer": "Akwaaba Fresh Imports", "where": "Accra, Ghana", "blurb": "Cross-border trucks carry Naija yam and rice down the coast road."},
+      {"buyer": "Peckham Tropical Foods", "where": "London, UK", "blurb": "A cool container of yam every week for diaspora shops abroad."}
+    ]
+  },
+  "machines": {
+    "belt": {"name": "Crate Roller Conveyor", "blurb": "Rolls washed, sorted produce from the barn straight to the counter."},
+    "auto": {"name": "Farm Tractor & Harvester", "blurb": "Ridges, plants and harvests the plots without waiting for farmhands."},
+    "pack": {"name": "Wash & Grade Pack Line", "blurb": "Washes, sorts by size, bags and labels produce to export standard."}
+  },
+  "manager": {"name": "Mr Kunle", "title": "Farm Operations Lead"},
+  "milestones": [
+    {"at": 1, "title": "First Produce Depot", "blurb": "A second selling point in Lagos. Baba Tunde is no longer a one-market man."},
+    {"at": 5, "title": "Lagos Market Ring", "blurb": "Five depots around Lagos share one truck route, so nothing sits and spoils."},
+    {"at": 10, "title": "Farmer Aggregator", "blurb": "You now buy from outgrower farmers at the farm gate, not only your own plots."},
+    {"at": 25, "title": "South-West Food Chain", "blurb": "Depots in Ogun, Oyo and Ondo sit close to the yam and plantain farms."},
+    {"at": 50, "title": "Cold Room Network", "blurb": "Solar cold rooms at every hub keep ugu and cucumbers fresh for days, not hours."},
+    {"at": 100, "title": "Nationwide Food Basket", "blurb": "From Benue yam belt to Kano rice mills, your trailers cover every region."},
+    {"at": 200, "title": "ECOWAS Produce Corridor", "blurb": "Depots open along the coast in Cotonou, Lomé and Accra. Border papers in order."},
+    {"at": 300, "title": "Plantain Flour Factory", "blurb": "Unsold plantain and yam now become flour and chips. Waste turns to profit."},
+    {"at": 400, "title": "Diaspora Shelf Space", "blurb": "Your labelled yam boxes sit in African stores from London to Houston."},
+    {"at": 500, "title": "Global Agro Empire", "blurb": "500 depots on three continents. The world eats from Baba Tunde's farm."}
+  ],
+  "chatter": {
+    "staff": [
+      "Oga, yam don land from farm!",
+      "This ugu fresh pass morning dew.",
+      "Abeg help me carry this bunch.",
+      "Cucumber crate don finish o!",
+      "Who measure rice with small derica?",
+      "Truck don come, make we offload.",
+      "Careful! No bruise the plantain.",
+      "I don sort the big yams one side.",
+      "Sun hot today, cover the ugu.",
+      "Customer don full ground o!",
+      "Na me harvest this one myself.",
+      "Tractor dey work, my back dey rest.",
+      "Rain dey come, pack the rice inside!",
+      "Oga, we need more crates abeg."
+    ],
+    "customer": [
+      "How much for this yam tuber?",
+      "Abeg add jara for the ugu.",
+      "This plantain ripe well well.",
+      "Give me four derica of rice.",
+      "Your cucumber sweet, e dey crunch.",
+      "No stones for this rice, abi?",
+      "I need yam for Sunday pounded yam.",
+      "Baba Tunde, your price too high o!",
+      "I come all the way from Lekki.",
+      "Na here get the freshest ugu.",
+      "My dodo must be from this bunch.",
+      "Wrap am well, I dey enter bus.",
+      "I dey buy for my restaurant.",
+      "Ofada rice! My stew is ready."
+    ],
+    "manager": [
+      "Oga, the Kano trailer is loaded.",
+      "First in, first out. No spoilage!",
+      "Sort by size before you pack.",
+      "Farm gate price went up today, sir.",
+      "Cold room temperature is okay.",
+      "Team, export truck comes by noon.",
+      "Oga, three new depots are ready.",
+      "Well done all, zero waste today!"
+    ],
+    "night": [
+      "From one stall to all this. Hmm.",
+      "Tomorrow, yam must reach Abuja.",
+      "My late papa farmed with only hoe.",
+      "Pounded yam and egusi, then sleep.",
+      "Hope rain falls on the farm tonight.",
+      "One day, my yam go reach London."
+    ]
+  },
+  "events": [
+    {"name": "New Yam Season", "text": "Fresh new yam just arrived. Everybody wants pounded yam today.", "effect": "demand_up"},
+    {"name": "Heavy Rain on Farm Road", "text": "The farm road is all mud. Produce trucks are crawling in late.", "effect": "supply_slow"},
+    {"name": "Owambe Weekend", "text": "Party caterers are buying rice and plantain in bulk for weddings.", "effect": "vip_day"},
+    {"name": "Plantain Scarcity", "text": "Dry season cut the plantain harvest. Buyers pay more per bunch.", "effect": "price_up"},
+    {"name": "Hot Sun Spoils Ugu", "text": "Heat wilted a batch of ugu and cucumbers. You must replace the stock.", "effect": "cost_hit"},
+    {"name": "Glut in the Market", "text": "Every trader has yam today. Customers are spread thin.", "effect": "demand_down"},
+    {"name": "Agro Fair Prize", "text": "Your giant yam tuber won best produce at the state agro fair!", "effect": "bonus_cash"},
+    {"name": "Cool Harmattan Morning", "text": "Cool breeze, no sweat. The farmhands are harvesting at double pace.", "effect": "speed_up"}
+  ],
+  "research": [
+    {"claim": "Nigeria grows over 60% of the world's yams, yet Ghana supplies more than 90% of West Africa's yam exports and 20-30% of export volume arrives rotten.", "url": "https://african.business/2019/02/economy/agriculture-why-much-more-can-come-out-of-west-africa-yam-production"},
+    {"claim": "After Nigeria's 2017 yam export launch at a Lagos container terminal, a UK importer said he expected at least one container of yams from Nigeria every week.", "url": "https://www.freshplaza.com/north-america/article/2183867/nigerian-exporters-concerned-due-to-false-reports-of-rejected-yams"},
+    {"claim": "About half of Nigeria's fresh fruit and vegetables spoil before reaching consumers, and solar walk-in cold rooms rent space per 20 kg crate per day to farmers and traders.", "url": "https://www.agrilinks.org/post/stopping-losses-creating-gains-partnering-innovation-and-coldhubs-reduce-postharvest-loss"},
+    {"claim": "Plantain post-harvest loss in Nigeria is about 30%, and processing into flour and snacks (some exported to Europe and the US) reduces it; main harvest is August to December.", "url": "https://businessday.ng/agriculture/article/opportunity-mounts-for-plantain-growers-as-nigerians-demand-for-flour-snacks-rises/"}
+  ]
+}

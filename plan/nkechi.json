@@ -1,0 +1,230 @@
+{
+  "key": "nkechi",
+  "branchNoun": "kitchen",
+  "rankTitles": [
+    "Buka Madam",
+    "Two-Kitchen Madam",
+    "Lagos Food Boss",
+    "Jollof Queen of Nigeria",
+    "West Africa Food Mogul",
+    "Global Jollof Icon"
+  ],
+  "export": {
+    "bay": "Food Loading Bay",
+    "pack": "sealed frozen meal trays",
+    "contracts": [
+      {
+        "buyer": "Sunrise Plaza Food Court",
+        "where": "Ikeja, Lagos",
+        "blurb": "Lunch packs of jollof and fried rice for the office crowd next door."
+      },
+      {
+        "buyer": "FreshBasket Supermarkets",
+        "where": "Lagos",
+        "blurb": "Ready meals for the chiller aisle in every store across the city."
+      },
+      {
+        "buyer": "Royal Palm Hotels & Events",
+        "where": "Abuja",
+        "blurb": "Party trays for weddings, conferences, schools and hospital canteens."
+      },
+      {
+        "buyer": "Garden City Food Depot",
+        "where": "Port Harcourt",
+        "blurb": "Frozen egusi and amala packs trucked cold to shops in other states."
+      },
+      {
+        "buyer": "Gold Coast Frozen Foods",
+        "where": "Accra, Ghana",
+        "blurb": "Cold trucks cross the border. Yes, they are buying Nigerian jollof."
+      },
+      {
+        "buyer": "Taste of Home Afro Grocers",
+        "where": "London, UK",
+        "blurb": "Containers of frozen meals for homesick Nigerians in the diaspora."
+      }
+    ]
+  },
+  "machines": {
+    "belt": {
+      "name": "Hot Plate Conveyor",
+      "blurb": "Carries steaming plates from the kitchen straight to the counter."
+    },
+    "auto": {
+      "name": "Giant Auto-Stir Pots",
+      "blurb": "Big jacketed pots that cook and stir party jollof with no cook."
+    },
+    "pack": {
+      "name": "Seal & Blast Freezer",
+      "blurb": "Seals meal trays and freezes them fast, so export pays much more."
+    }
+  },
+  "manager": {
+    "name": "Mrs Folake",
+    "title": "Head of Kitchens"
+  },
+  "milestones": [
+    {
+      "at": 1,
+      "title": "Second Pot on the Fire",
+      "blurb": "Your first branch opens in Lagos. The recipe must now taste the same in two places."
+    },
+    {
+      "at": 5,
+      "title": "Five Kitchens, One Taste",
+      "blurb": "Recipe cards and measured spice mixes keep every pot of jollof the same."
+    },
+    {
+      "at": 10,
+      "title": "Central Kitchen Opens",
+      "blurb": "One big kitchen now preps stew base and soups for all the Lagos branches."
+    },
+    {
+      "at": 25,
+      "title": "Lagos Lunch Champion",
+      "blurb": "Offices across the city order daily. Bulk buying of rice and beef cuts your costs."
+    },
+    {
+      "at": 50,
+      "title": "Beyond Lagos",
+      "blurb": "Branches in other states. Local farmers now supply yam, pepper and palm oil directly."
+    },
+    {
+      "at": 100,
+      "title": "A Household Name",
+      "blurb": "One hundred kitchens. Travellers know they can find your egusi in any big city."
+    },
+    {
+      "at": 200,
+      "title": "West Africa Is Eating",
+      "blurb": "Kitchens open along the coast. The jollof debate now happens inside your shop."
+    },
+    {
+      "at": 300,
+      "title": "Cooking School Founded",
+      "blurb": "Your own academy trains cooks and managers, so new branches open faster."
+    },
+    {
+      "at": 400,
+      "title": "Kitchens Overseas",
+      "blurb": "Diaspora cities queue for amala and pounded yam that tastes like home."
+    },
+    {
+      "at": 500,
+      "title": "The World's Nigerian Kitchen",
+      "blurb": "Five hundred kitchens on three continents, all from one pot by the roadside."
+    }
+  ],
+  "chatter": {
+    "staff": [
+      "Jollof don ready, bring plates!",
+      "Who dey turn the egusi? E dey burn o!",
+      "Abeg, more pepper for this stew.",
+      "Pounded yam smooth like baby cheek.",
+      "Table six wants extra beef.",
+      "Chicken don golden, comot am!",
+      "Water don cold well well.",
+      "The rice is finishing, cook another pot!",
+      "My hand dey pain from pounding.",
+      "Madam, firewood jollof na the best.",
+      "Ewedu dey draw today, e sweet!",
+      "Wash those plates sharp sharp.",
+      "Customer don full ground o!",
+      "Taste am first before you serve."
+    ],
+    "customer": [
+      "Madam, add extra meat abeg.",
+      "This jollof na party jollof!",
+      "One fried rice and chicken, please.",
+      "Your egusi reminds me of my mama.",
+      "Amala with plenty gbegiri, please.",
+      "Cold water first, the sun is hot!",
+      "I came from Ikorodu for this food.",
+      "Pounded yam, make it two wraps.",
+      "Na here I dey chop every day.",
+      "Is the chicken ready yet?",
+      "This ewedu dey draw well!",
+      "Abeg pack one jollof for takeaway.",
+      "The aroma called me from the road.",
+      "I go bring my whole office tomorrow."
+    ],
+    "manager": [
+      "Smile, the customer is our guest.",
+      "Hairnets on, everybody!",
+      "Good morning Ma, all pots are on.",
+      "Ma, the Abuja order is loaded.",
+      "Keep the queue moving, please.",
+      "Check the freezer temperature.",
+      "Well done team, clean kitchen today!",
+      "Ma, rice stock is running low."
+    ],
+    "night": [
+      "My feet! But the pots were empty.",
+      "Tomorrow I will cook even more.",
+      "Mama's recipe is feeding Lagos.",
+      "I still smell like jollof. Good.",
+      "One day, a kitchen in every city.",
+      "Let me rest, the pots wake early."
+    ]
+  },
+  "events": [
+    {
+      "name": "Owambe Weekend",
+      "text": "Wedding parties everywhere! Everybody wants party jollof today.",
+      "effect": "demand_up"
+    },
+    {
+      "name": "Heavy Rain",
+      "text": "Rain since morning. Customers are staying at home.",
+      "effect": "demand_down"
+    },
+    {
+      "name": "Tomato Scarcity",
+      "text": "A basket of tomatoes costs double, so stew prices go up today.",
+      "effect": "price_up"
+    },
+    {
+      "name": "Rice Truck Delayed",
+      "text": "The rice truck is stuck on the expressway. Supplies come in slowly.",
+      "effect": "supply_slow"
+    },
+    {
+      "name": "Gas Cylinder Finished",
+      "text": "Cooking gas ran out in the middle of service. Emergency refill!",
+      "effect": "cost_hit"
+    },
+    {
+      "name": "Jollof Cook-Off Win",
+      "text": "Your jollof wins the Lagos food festival. Prize money lands!",
+      "effect": "bonus_cash"
+    },
+    {
+      "name": "Food Blogger Visit",
+      "text": "A famous food blogger is filming your egusi. Big spenders follow.",
+      "effect": "vip_day"
+    },
+    {
+      "name": "Steady Light All Day",
+      "text": "Power is steady and the blenders never stop. The kitchen is flying!",
+      "effect": "speed_up"
+    }
+  ],
+  "research": [
+    {
+      "claim": "A Nigerian quick-service group has grown its local-food restaurant brand state by state, opening a Kaduna branch to target the northern market.",
+      "url": "https://www.foodbusinessmea.com/sundry-foods-expands-with-new-kilimanjaro-branch-in-kaduna/"
+    },
+    {
+      "claim": "A Lagos casual food chain reached its 12th location in late 2024, showing how city chains grow outlet by outlet before leaving Lagos.",
+      "url": "https://thisdaylive.com/index.php/2024/12/15/sooyah-bistro-pushes-to-12th-location-now-in-yaba"
+    },
+    {
+      "claim": "Entrepreneurs are selling frozen, ready-to-heat West African meals such as jollof through grocery stores in the United States.",
+      "url": "https://face2faceafrica.com/article/perteet-and-fred-spencer-the-couple-bringing-authentic-frozen-west-african-cuisine-to-grocers-in-u-s/amp"
+    },
+    {
+      "claim": "Catering for owambe events (weddings and large parties) is a recognised route for Nigerian cooks to scale into bulk food production.",
+      "url": "https://www.withinnigeria.com/2026/06/12/complete-guide-to-starting-a-catering-business-in-nigeria-for-owambe-events/?amp=1"
+    }
+  ]
+}

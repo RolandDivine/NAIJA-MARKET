@@ -1,0 +1,253 @@
+{
+  "regions": [
+    {
+      "name": "Lagos",
+      "size": 20,
+      "flag": "🏙️",
+      "managerTitle": "Lagos Area Manager",
+      "cities": ["Ikeja", "Surulere", "Yaba", "Lekki", "Victoria Island", "Ikoyi", "Ajah", "Festac Town", "Oshodi", "Mushin", "Agege", "Ogba", "Maryland", "Gbagada", "Magodo", "Egbeda", "Apapa", "Ikorodu", "Badagry", "Epe"],
+      "story": "Home turf. If your name rings from Ikeja to Epe, the whole country will hear it."
+    },
+    {
+      "name": "South-West",
+      "size": 40,
+      "flag": "🥁",
+      "managerTitle": "South-West Regional Manager",
+      "cities": ["Ibadan", "Abeokuta", "Sagamu", "Ijebu-Ode", "Ota", "Osogbo", "Ile-Ife", "Ilesa", "Akure", "Ondo", "Ado-Ekiti", "Ogbomoso", "Oyo", "Iseyin", "Owo", "Ikare", "Ikere-Ekiti", "Ede", "Iwo", "Ilaro", "Saki", "Okitipupa"],
+      "story": "One expressway from Lagos: big cities, busy markets and customers who love a party."
+    },
+    {
+      "name": "South-South",
+      "size": 40,
+      "flag": "🌴",
+      "managerTitle": "South-South Regional Manager",
+      "cities": ["Benin City", "Warri", "Asaba", "Port Harcourt", "Uyo", "Calabar", "Yenagoa", "Sapele", "Ughelli", "Eket", "Ikot Ekpene", "Bonny", "Auchi", "Ekpoma", "Agbor", "Oron", "Ikom", "Ogoja", "Uromi", "Abraka", "Eleme", "Ahoada"],
+      "story": "Port cities and oil-town salaries: customers here pay well for quality."
+    },
+    {
+      "name": "South-East",
+      "size": 35,
+      "flag": "⚙️",
+      "managerTitle": "South-East Regional Manager",
+      "cities": ["Onitsha", "Aba", "Enugu", "Owerri", "Awka", "Umuahia", "Abakaliki", "Nnewi", "Nsukka", "Orlu", "Okigwe", "Afikpo", "Ohafia", "Arochukwu", "Ekwulobia", "Ihiala", "Oguta", "Awgu", "Ogidi", "Obosi", "Udi"],
+      "story": "Giant trading markets and factories: win the traders here and stock moves fast."
+    },
+    {
+      "name": "North-Central + Abuja",
+      "size": 45,
+      "flag": "🏛️",
+      "managerTitle": "North-Central Regional Manager",
+      "cities": ["Abuja", "Wuse", "Garki", "Maitama", "Gwarinpa", "Kubwa", "Gwagwalada", "Ilorin", "Jos", "Minna", "Lokoja", "Makurdi", "Lafia", "Suleja", "Karu", "Keffi", "Offa", "Bida", "Kontagora", "Okene", "Kabba", "Gboko", "Otukpo", "Bukuru", "Akwanga", "Idah"],
+      "story": "The capital and the food basket: steady office money and the road to the north."
+    },
+    {
+      "name": "North-West",
+      "size": 40,
+      "flag": "🌾",
+      "managerTitle": "North-West Regional Manager",
+      "cities": ["Kano", "Kaduna", "Zaria", "Katsina", "Sokoto", "Gusau", "Birnin Kebbi", "Dutse", "Funtua", "Kafanchan", "Daura", "Hadejia", "Gumel", "Kazaure", "Wudil", "Bichi", "Argungu", "Yauri", "Zuru", "Kaura Namoda", "Malumfashi", "Birnin Kudu", "Jega"],
+      "story": "Centuries-old trade routes and the most people of any zone: volume is king here."
+    },
+    {
+      "name": "North-East",
+      "size": 30,
+      "flag": "🌄",
+      "managerTitle": "North-East Regional Manager",
+      "cities": ["Bauchi", "Gombe", "Yola", "Maiduguri", "Jalingo", "Damaturu", "Jimeta", "Mubi", "Numan", "Azare", "Misau", "Biu", "Potiskum", "Nguru", "Gashua", "Wukari", "Takum", "Kaltungo", "Billiri", "Ganye", "Dukku"],
+      "story": "The last zone: finish here and your brand is in all 36 states plus Abuja."
+    },
+    {
+      "name": "West Africa",
+      "size": 60,
+      "flag": "🌍",
+      "managerTitle": "West Africa Director",
+      "cities": ["Cotonou", "Porto-Novo", "Lome", "Accra", "Tema", "Kumasi", "Takoradi", "Cape Coast", "Tamale", "Abidjan", "Yamoussoukro", "Bouake", "Parakou", "Niamey", "Ouagadougou", "Bobo-Dioulasso", "Bamako", "Dakar", "Thies", "Banjul", "Serekunda", "Freetown", "Monrovia", "Conakry", "Bissau", "Praia"],
+      "story": "First border crossing: follow the coast road and your export trucks become shops."
+    },
+    {
+      "name": "Rest of Africa",
+      "size": 50,
+      "flag": "🦁",
+      "managerTitle": "Africa Operations Director",
+      "cities": ["Douala", "Yaounde", "Libreville", "Malabo", "N'Djamena", "Kinshasa", "Brazzaville", "Luanda", "Nairobi", "Mombasa", "Kampala", "Kigali", "Dar es Salaam", "Addis Ababa", "Lusaka", "Harare", "Gaborone", "Windhoek", "Maputo", "Johannesburg", "Pretoria", "Durban", "Cape Town", "Cairo", "Casablanca"],
+      "story": "From Douala to Cape Town: a truly continental brand, one capital city at a time."
+    },
+    {
+      "name": "UK + Europe",
+      "size": 60,
+      "flag": "🇬🇧",
+      "managerTitle": "UK and Europe Director",
+      "cities": ["Peckham", "Woolwich", "Dagenham", "Croydon", "Tottenham", "Manchester", "Birmingham", "Leeds", "Liverpool", "Glasgow", "Aberdeen", "Cardiff", "Dublin", "Paris", "Brussels", "Antwerp", "Amsterdam", "Berlin", "Hamburg", "Munich", "Vienna", "Rome", "Milan", "Turin", "Madrid", "Barcelona", "Lisbon", "Stockholm"],
+      "story": "Diaspora customers miss home badly. They pay in pounds and euros for a taste of it."
+    },
+    {
+      "name": "North America",
+      "size": 50,
+      "flag": "🇺🇸",
+      "managerTitle": "North America Director",
+      "cities": ["Houston", "Dallas", "Atlanta", "New York", "Newark", "Baltimore", "Washington DC", "Chicago", "Philadelphia", "Boston", "Minneapolis", "Columbus", "Charlotte", "Miami", "Los Angeles", "Toronto", "Brampton", "Ottawa", "Montreal", "Winnipeg", "Calgary", "Edmonton", "Vancouver"],
+      "story": "Dollar market: huge diaspora cities where one branch earns like ten back home."
+    },
+    {
+      "name": "Middle East + Asia",
+      "size": 30,
+      "flag": "🌏",
+      "managerTitle": "Middle East & Asia Director",
+      "cities": ["Dubai", "Sharjah", "Abu Dhabi", "Doha", "Riyadh", "Jeddah", "Muscat", "Kuwait City", "Manama", "Istanbul", "Guangzhou", "Shanghai", "Beijing", "Hong Kong", "Kuala Lumpur", "Singapore", "Mumbai", "New Delhi", "Bangalore", "Bangkok", "Manila", "Seoul", "Tokyo"],
+      "story": "The final frontier: store number 500 opens here and the sun never sets on you."
+    }
+  ],
+  "phases": [
+    {
+      "name": "Roadside Hustle",
+      "days": "1-30",
+      "playerGoal": "Grow the flagship from roadside stall to a proper shop and survive the first month-end.",
+      "newThings": ["5 products and first staff", "Delivery van", "First renovations", "Daily events", "First month-end statement"],
+      "hook": "Tomorrow's event is teased tonight, and the next renovation is always one good day away."
+    },
+    {
+      "name": "Flagship Boss",
+      "days": "31-90",
+      "playerGoal": "Finish the flagship ladder: mega venue, car, house and a full, paid team.",
+      "newThings": ["Belt machine", "Auto machine", "Shop Manager hire", "Salaries and tax", "Export Bay tiers 1-2"],
+      "hook": "A truck is booked for tomorrow morning: stock up tonight or miss the bulk order."
+    },
+    {
+      "name": "Lagos Takeover",
+      "days": "91-180",
+      "playerGoal": "Open all 20 Lagos branches and fill supermarket and hotel contracts.",
+      "newThings": ["Branches open one at a time", "Lagos Area Manager", "Pack machine", "Export tiers 3-4", "Branch daily profit"],
+      "hook": "Branches keep earning while you sleep: open the app to collect and place the next one."
+    },
+    {
+      "name": "Southern Conquest",
+      "days": "181-330",
+      "playerGoal": "Plant 115 branches across South-West, South-South and South-East.",
+      "newThings": ["3 regional managers", "State capital milestones", "Distributor contracts", "Region completion bonus"],
+      "hook": "Each state capital you open lights up the map, and the next one is already half paid for."
+    },
+    {
+      "name": "One Nigeria",
+      "days": "331-500",
+      "playerGoal": "Cover Abuja and the three northern zones: all 36 states plus the capital.",
+      "newThings": ["Abuja head office", "General Manager", "3 northern regional managers", "All-36-states trophy"],
+      "hook": "The map shows how many states are left. Nobody stops at 31 out of 37."
+    },
+    {
+      "name": "ECOWAS Express",
+      "days": "501-680",
+      "playerGoal": "Cross the border: 60 West Africa branches, then 50 more across the continent.",
+      "newThings": ["Export tier 5 trucks", "Country flags on the map", "Managing Director", "Cross-border contracts"],
+      "hook": "A new country unlocks every few days, each with a bigger first-week opening bonus."
+    },
+    {
+      "name": "Diaspora Dream",
+      "days": "681-880",
+      "playerGoal": "Open in the UK, Europe and North America where homesick customers pay top price.",
+      "newThings": ["Export tier 6 containers", "Pound and dollar branches", "Diaspora rush weekends", "Detty December returnees"],
+      "hook": "Containers take days to land: come back to see it dock and cash out the big cheque."
+    },
+    {
+      "name": "Global Legend",
+      "days": "881-1000",
+      "playerGoal": "Open store 500 in Asia, appoint the Group CEO and reach day 1,000.",
+      "newThings": ["Middle East + Asia region", "Group CEO", "Store 500 ceremony", "Day 1,000 legacy trophy"],
+      "hook": "A countdown to store 500 and day 1,000 sits on screen. You are too close to stop now."
+    }
+  ],
+  "commonEvents": [
+    {"name": "Fuel Scarcity", "text": "Queue at every filling station. Delivery van is crawling today.", "effect": "supply_slow"},
+    {"name": "Heavy Rain", "text": "Rain don start since morning. Customers are hiding under umbrellas.", "effect": "demand_down"},
+    {"name": "Salary Week", "text": "Alert don enter! Workers are spending like tomorrow no dey.", "effect": "demand_up"},
+    {"name": "Detty December", "text": "Returnees have landed with strong currency and big appetite.", "effect": "price_up"},
+    {"name": "Power Cut", "text": "Light don go. Generator is drinking diesel like zobo.", "effect": "cost_hit"},
+    {"name": "Owambe Weekend", "text": "Three parties on one street. Aso-ebi crowd wants bulk orders.", "effect": "vip_day"},
+    {"name": "Public Holiday", "text": "Independence Day! Everybody is outside and ready to enjoy.", "effect": "demand_up"},
+    {"name": "Market Sanitation Day", "text": "Sweep first, sell later. Shop opens late after the clean-up.", "effect": "supply_slow"},
+    {"name": "Go-Slow on the Bridge", "text": "Truck break down for bridge. Supplies will reach when they reach.", "effect": "supply_slow"},
+    {"name": "Customer Went Viral", "text": "One happy customer posted you online. Phones are ringing nonstop!", "effect": "demand_up"},
+    {"name": "Ajo Payout", "text": "It is your turn to collect the thrift contribution. Sweet alert!", "effect": "bonus_cash"},
+    {"name": "Staff Sharp Sharp", "text": "Everybody resumed early and in good mood. Work is flying today.", "effect": "speed_up"}
+  ],
+  "night": {
+    "traffic": [
+      "Conductor: Oshodi! Oshodi! Hold your change o!",
+      "Hawker: Gala! Cold pure water! Plantain chips!",
+      "LASTMA officer is watching. Stay on your lane.",
+      "Pothole ahead. Car is doing shaku shaku.",
+      "Danfo squeezed in front. Madam just sighed.",
+      "Third Mainland: 2 km in 40 minutes. Normal.",
+      "Okada passed between two trailers. Na wa o.",
+      "Boy selling phone chargers runs beside the car",
+      "Keke horn sounds like an angry goat.",
+      "Trailer park for road at Mile 2. We wait."
+    ],
+    "radio": [
+      "DJ Sabi: This go-slow jam na for you!",
+      "Now playing: 'Jollof for Two' by Lady Zobo",
+      "Traffic report: everywhere red. Stay strong.",
+      "Next up: 'My Alert Don Enter' by Baba Credit",
+      "Caller: I left work at 5, I still dey Ikeja!",
+      "Oldie: 'Sweet Like Boli' by The Suya Kings",
+      "You dey listen to Go-Slow FM, 99.9 patience",
+      "Fresh one: 'Generator Lullaby' by Mama NEPA"
+    ],
+    "dinner": [
+      "Pounded yam and egusi. Phone on silent.",
+      "Jollof rice, fried plantain and cold zobo.",
+      "Amala and ewedu with plenty assorted meat.",
+      "Hot pepper soup to chase the traffic away.",
+      "Beans and dodo. Simple, sweet, correct.",
+      "Eba and okra soup, eaten in happy silence."
+    ],
+    "bath": [
+      "Bucket of warm water. Today's stress dey go.",
+      "Singing in the bathroom like a superstar.",
+      "Tap is rushing tonight. Small miracle!",
+      "Scrubbing off market dust and traffic smoke."
+    ],
+    "sleep": [
+      "Fan on, wrapper up. Counting naira, not sheep.",
+      "Dreaming of branch number 500...",
+      "Neighbour's generator hums a lullaby.",
+      "Alarm set for 5:30. Tomorrow we go again."
+    ],
+    "morning": [
+      "Cock crow before alarm. No snooze for boss.",
+      "Quick stretch, then check yesterday's sales.",
+      "Hot tea, bread and fried egg. Fuel for hustle.",
+      "Tie the gele sharp. Boss must look like boss.",
+      "Akara woman already frying outside. Buy 200.",
+      "Keys, phone, cashbook. Shop opens at 8!"
+    ]
+  },
+  "managerRoles": [
+    {"title": "Shop Manager", "unlockAt": "Flagship level 20, before the first branch", "does": "Runs the flagship while you are away: restocks, serves and banks cash at 60% efficiency."},
+    {"title": "Area Manager", "unlockAt": "When you open the 5th Lagos branch", "does": "Collects profit from every Lagos branch automatically and cuts their running costs by 10%."},
+    {"title": "Regional Manager", "unlockAt": "First branch in any new region (one per region)", "does": "Lets branches open in that region and lifts their daily profit by 15%."},
+    {"title": "General Manager", "unlockAt": "100 branches and all southern regions open", "does": "Opens the next branch for you when cash allows and pays salaries and tax on time."},
+    {"title": "Group CEO", "unlockAt": "400 branches across at least 10 regions", "does": "Doubles offline earnings and lifts profit of every store worldwide by 20%."}
+  ],
+  "retention": [
+    {"mechanic": "Offline earnings", "psychology": "Money that piles up while away makes every return feel like a reward and absence feel like waste.", "inGame": "Branches and managers earn overnight; a 'While you slept' cheque greets you, capped until the next manager."},
+    {"mechanic": "Daily login streak", "psychology": "Loss aversion: people protect a streak they have built more fiercely than they chase a new prize.", "inGame": "7-day 'Market Week' calendar ending in a big Saturday bonus; one missed day is forgiven by the Shop Manager."},
+    {"mechanic": "Always-visible next goal", "psychology": "The goal-gradient effect: effort rises the closer a finish line looks, so one must always be close.", "inGame": "The map shows the next city greyed out with a progress bar for its cost, plus region and store-500 counters."},
+    {"mechanic": "Appointment timers", "psychology": "A scheduled payoff gives a concrete reason and a time to reopen the app.", "inGame": "Export trucks and overseas containers arrive at a stated time; stock the bay before then to earn in full."},
+    {"mechanic": "Variable daily events", "psychology": "Unpredictable rewards stay exciting far longer than fixed ones; curiosity pulls players into the next day.", "inGame": "One random event per day, hinted at on the night radio, so each morning plays a little differently."},
+    {"mechanic": "Month-end statement", "psychology": "A regular scorecard gives closure and a personal best to beat next time.", "inGame": "Every 30 days: sales, salaries, tax and net profit with a grade and a 'beat last month' target."},
+    {"mechanic": "Collection and completion", "psychology": "Unfinished sets nag at people; filling the last gap is deeply satisfying.", "inGame": "State capitals, country flags and region stamps fill a passport book; full regions give a permanent profit boost."},
+    {"mechanic": "Steady unlock drip", "psychology": "Novelty resets boredom; a new toy every few sessions keeps the core loop feeling fresh.", "inGame": "Machines, contract tiers, manager ranks and regions are spaced so something new opens every 10 to 20 days."},
+    {"mechanic": "Seasonal calendar", "psychology": "Limited-time moments create urgency and something to anticipate long in advance.", "inGame": "Salary week every month and Detty December every game year bring price spikes worth preparing stock for."},
+    {"mechanic": "Status and story growth", "psychology": "Visible status and a personal rise from nothing make progress feel like identity, not just numbers.", "inGame": "Her title, car, house and night routine upgrade from roadside trader to Group Chairman as the empire grows."}
+  ],
+  "sources": [
+    {"claim": "Nigeria has six geopolitical zones (North-Central, North-East, North-West, South-East, South-South, South-West) covering the 36 states and the FCT; used for region grouping and state capitals.", "url": "https://www.wikiwand.com/en/articles/Geopolitical_zones_in_Nigeria"},
+    {"claim": "Zone-by-zone list of Nigerian states used to cross-check that every state capital appears in its region.", "url": "https://nigerianqueries.com/SIX-GEOPOLITICAL-ZONES-IN-NIGERIA-AND-THEIR-STATES/"},
+    {"claim": "London, especially south-east areas such as Peckham, is a centre of the British Nigerian community.", "url": "https://www.worldremit.com/en/blog/community/nigerians-in-london"},
+    {"claim": "Houston and other large US metro areas host the biggest Nigerian communities in the United States.", "url": "https://guardian.ng/?p=2856106"},
+    {"claim": "The Oshodi-Apapa expressway and Mile 2 axis are notorious Lagos gridlock points, often blocked by trucks.", "url": "https://www.nigeriahousingmarket.com/news/gridlock-returns-as-trucks-shut-mile-2-axis-of-oshodi-apapa-expressway"},
+    {"claim": "Lagos areas with the heaviest traffic, used for the go-slow night lines.", "url": "https://www.zikoko.com/?p=151507"},
+    {"claim": "Idle games retain players through offline earnings, regular new content, events and clear long-term goals.", "url": "https://www.gameanalytics.com/blog/how-to-keep-players-engaged-and-coming-back-to-your-idle-game"},
+    {"claim": "Long-running idle games rely on live events and layered progression for multi-year retention.", "url": "https://www.pocketgamer.biz/deconstructing-a-100m-idle-game-what-5-years-of-gold-and-goblins-reveals-about-live-ops-and-retention/"}
+  ]
+}

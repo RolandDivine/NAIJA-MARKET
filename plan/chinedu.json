@@ -1,0 +1,230 @@
+{
+  "key": "chinedu",
+  "branchNoun": "phone store",
+  "rankTitles": [
+    "Computer Village Hustler",
+    "Phone Shop Owner",
+    "Gadget Chain Boss",
+    "Accessories Importer",
+    "West Africa Tech Mogul",
+    "Global Gadget Icon"
+  ],
+  "export": {
+    "bay": "Gadget Loading Bay",
+    "pack": "sealed gadget cartons",
+    "contracts": [
+      {
+        "buyer": "Otigba Plaza Phone Kiosks",
+        "where": "Ikeja, Lagos",
+        "blurb": "Small kiosks down the road restock cases and earpieces weekly."
+      },
+      {
+        "buyer": "BrightMart Supermarkets",
+        "where": "Lagos",
+        "blurb": "Chargers and power banks for the gadget shelf beside every till."
+      },
+      {
+        "buyer": "Royal Palm Hotels Group",
+        "where": "Abuja",
+        "blurb": "Guest-room chargers and staff phones for hotels nationwide."
+      },
+      {
+        "buyer": "Onitsha Gadget Distributors",
+        "where": "Onitsha, Anambra",
+        "blurb": "Big dealers who supply phone shops in other states by the carton."
+      },
+      {
+        "buyer": "Kofi Mobile Traders",
+        "where": "Accra, Ghana",
+        "blurb": "West African traders load full trucks for the coastal road trip."
+      },
+      {
+        "buyer": "NaijaLink Gadgets UK",
+        "where": "London, UK",
+        "blurb": "Diaspora shops want your own-brand accessories by the container."
+      }
+    ]
+  },
+  "machines": {
+    "belt": {
+      "name": "Showcase Conveyor",
+      "blurb": "Carries tested gadgets from the store room straight to the counter."
+    },
+    "auto": {
+      "name": "Warehouse Forklift",
+      "blurb": "Offloads import cartons from the container without tired hands."
+    },
+    "pack": {
+      "name": "Shrink-Wrap Seal Line",
+      "blurb": "Seals, labels and boxes gadgets so export buyers pay more."
+    }
+  },
+  "manager": {
+    "name": "Mr Emeka",
+    "title": "Store Operations Boss"
+  },
+  "milestones": [
+    {
+      "at": 1,
+      "title": "Second Shop for Ikeja",
+      "blurb": "Your first branch opens near the market. Customers stop queueing at one counter."
+    },
+    {
+      "at": 5,
+      "title": "Lagos Gadget Chain",
+      "blurb": "Five stores from Ikeja to Lekki. You now buy by the carton, not by the dozen."
+    },
+    {
+      "at": 10,
+      "title": "Direct Import Licence",
+      "blurb": "Ten stores is enough volume to import your own containers and skip the middleman."
+    },
+    {
+      "at": 25,
+      "title": "Abuja and Port Harcourt",
+      "blurb": "Stores open outside Lagos. Regional managers now run whole cities for you."
+    },
+    {
+      "at": 50,
+      "title": "Own-Brand Accessories",
+      "blurb": "Chargers and earpieces now carry your name on the pack, with bigger margins."
+    },
+    {
+      "at": 100,
+      "title": "Every State Capital",
+      "blurb": "One hundred stores nationwide. Phone makers come to you for launch-day deals."
+    },
+    {
+      "at": 200,
+      "title": "West Africa Coast Road",
+      "blurb": "Stores in Cotonou, Lome and Accra. Trucks now cross borders with your cartons."
+    },
+    {
+      "at": 300,
+      "title": "Lagos Assembly Plant",
+      "blurb": "You assemble power banks and chargers at home, creating jobs and cutting costs."
+    },
+    {
+      "at": 400,
+      "title": "Diaspora Flagships",
+      "blurb": "Stores open in London and Houston. Naija gadgets abroad, with warranty too."
+    },
+    {
+      "at": 500,
+      "title": "Global Gadget Empire",
+      "blurb": "Five hundred stores on three continents. From one glass showcase to a world brand."
+    }
+  ],
+  "chatter": {
+    "staff": [
+      "Oga, customer don full ground!",
+      "Abeg bring more phone cases come.",
+      "This one na original, I swear.",
+      "Screen guard free if you buy two!",
+      "Who get change for five thousand?",
+      "Charger shelf don empty again o.",
+      "Make I test am for you first.",
+      "Power bank carton just land!",
+      "Madam, warranty na one full year.",
+      "My leg don tire but sales sweet.",
+      "Next customer, please come forward!",
+      "I don sell ten earpieces today.",
+      "Check the IMEI before you seal am.",
+      "Customer, your receipt dey here."
+    ],
+    "customer": [
+      "How much for this phone case?",
+      "Abeg, na original charger be this?",
+      "My earpiece don spoil again o.",
+      "I need power bank, NEPA no gree.",
+      "This smartphone camera clear well?",
+      "Last price, my brother, last price!",
+      "Give me fast charger, the real one.",
+      "E get warranty? I no want story.",
+      "Wrap two cases for my children.",
+      "Your shop cheap pass that side.",
+      "Abeg help me transfer my contacts.",
+      "I go bring my friends tomorrow.",
+      "This power bank fit charge laptop?",
+      "Na here I dey buy since, no wahala."
+    ],
+    "manager": [
+      "Smile, team, customers are watching.",
+      "Oga, we need more smartphones.",
+      "Test every charger before selling.",
+      "Count the stock before we close.",
+      "Oga, today's sales are very sweet!",
+      "Keep the showcase clean and shining.",
+      "New container lands tomorrow morning.",
+      "No customer leaves without receipt."
+    ],
+    "night": [
+      "From one showcase to all this. Wow.",
+      "Tomorrow we restock power banks.",
+      "My own phone still has cracked screen.",
+      "One day, a store in every state.",
+      "Let me charge my phone and my body.",
+      "Good sales today. We thank God."
+    ]
+  },
+  "events": [
+    {
+      "name": "Salary Week Rush",
+      "text": "Month-end alerts have landed. Everybody wants a new phone today!",
+      "effect": "demand_up"
+    },
+    {
+      "name": "Container Stuck at Port",
+      "text": "Your import container is delayed at Apapa. Restocking is slow today.",
+      "effect": "supply_slow"
+    },
+    {
+      "name": "Dollar Rate Jump",
+      "text": "The exchange rate jumped overnight. Your next import bill costs extra.",
+      "effect": "cost_hit"
+    },
+    {
+      "name": "Fake Charger Rumour",
+      "text": "A rumour about fake chargers in the market keeps shoppers cautious today.",
+      "effect": "demand_down"
+    },
+    {
+      "name": "Light Off All Day",
+      "text": "No power across the area. Power banks and chargers sell at premium prices.",
+      "effect": "price_up"
+    },
+    {
+      "name": "Influencer Unboxing",
+      "text": "A popular tech reviewer is filming in your store. Big spenders follow!",
+      "effect": "vip_day"
+    },
+    {
+      "name": "Supplier Sales Rebate",
+      "text": "You hit the phone maker's sales target. A cash rebate lands in the account.",
+      "effect": "bonus_cash"
+    },
+    {
+      "name": "New Barcode Scanners",
+      "text": "Fresh scanners at the till. Staff check out customers in half the time.",
+      "effect": "speed_up"
+    }
+  ],
+  "research": [
+    {
+      "claim": "Computer Village in Ikeja is described as the largest ICT accessory market in Africa and draws ICT dealers from across the continent.",
+      "url": "https://en.wikipedia.org/wiki/Computer_Village"
+    },
+    {
+      "claim": "Daily turnover at Computer Village was estimated at N1 billion to N1.5 billion in 2020, with many vendors also acting as importers and suppliers.",
+      "url": "https://businessday.ng/lead-story/article/inside-computer-village-nigerias-largest-phone-hub/"
+    },
+    {
+      "claim": "Nigeria's biggest phone retailers started as single shops in Ikeja and grew to between 19 and 90 outlets, with one chain spanning 12 states.",
+      "url": "https://nairametrics.com/2025/10/23/these-people-control-the-smartphone-market-in-nigeria/"
+    },
+    {
+      "claim": "A leading Nigerian phone retailer founded in 1999 reached 40 outlets by 2014 and was considering bases elsewhere in West Africa.",
+      "url": "https://www.nigeriacommunicationsweek.com.ng/slot-systems-celebrates-40-outlets-15th-anniversary/"
+    }
+  ]
+}
