@@ -1,0 +1,315 @@
+{
+ "key": "factory",
+ "name": "Omi-Ola Industries",
+ "tagline": "From one sealing machine to factories on two continents.",
+ "ownerCharacter": {
+  "name": "Engr. Tobi Adeleke",
+  "look": "Early 30s, lean and quick. Sky-blue overalls rolled to the elbow, yellow hard hat, white rubber boots. Signature prop: a clipboard with a pen on a string.",
+  "backstory": "A laid-off plant technician who repaired other people's machines for years. With a small gratuity and Mama's backyard in Agege, Tobi buys one second-hand sealing machine and promises the street clean, cold water."
+ },
+ "storyline": [
+  {
+   "title": "One Machine, One Borehole",
+   "stage": "A backyard shed in Agege: one borehole, one filter, one manual sealing machine.",
+   "story": "Tobi seals sachets by hand while Mama counts bags. Diesel is dear and the nylon supplier wants cash. Sell enough bags to the street hawkers to pay for the first lab test, or the shed closes.",
+   "unlock": "Sachet water line, the borehole tap and the first loading gate."
+  },
+  {
+   "title": "The Number on the Nylon",
+   "stage": "A tiled production room with a changing room, hand-wash point and treatment tanks.",
+   "story": "The food and drug inspector is coming. No registration number, no selling. Tobi must tile the room, pass the water test and keep the place spotless. Fail and every bag is seized.",
+   "unlock": "Registration number, Quality Score meter and the lab technician."
+  },
+  {
+   "title": "Bottles on the Line",
+   "stage": "A small bottling plant with a rinse-fill-cap line and a delivery truck.",
+   "story": "Hotels and event planners want bottled water with a proper label. A rival cuts price by skipping filters. Tobi keeps the filters and wins with quality. One bad batch would undo it all.",
+   "unlock": "Bottled water line, distributor accounts and the first truck."
+  },
+  {
+   "title": "Sweet Success",
+   "stage": "A food and drinks factory with mixing tanks, a pasteuriser and a cold store.",
+   "story": "Mango pulp arrives in drums from Benue. Fruit drink sells fast, but only if the cold store stays cold. Power cuts bite hard, so Tobi must choose: more diesel or a gas line.",
+   "unlock": "Fruit drink line, cold store and the power switchboard."
+  },
+  {
+   "title": "Flour, Oil and Steam",
+   "stage": "An industrial park in Ogun: noodle hall, soap hall, packaging shop, tank farm.",
+   "story": "Tobi buys land and builds three halls. Flour trucks and palm oil tankers queue at the gate. Making nylon and cartons in-house cuts costs, but the bank loan is big and due every month.",
+   "unlock": "Noodles and soap lines, packaging shop and the plant manager."
+  },
+  {
+   "title": "North and East",
+   "stage": "Three plants: Lagos, Kano and Aba, each with its own manager and distributors.",
+   "story": "Trucking water across Nigeria eats the profit, so Tobi builds near the buyers. Kano wants noodles, Aba wants soap. Each plant needs a fresh inspection and a visit from the boss.",
+   "unlock": "Kano and Aba plants, branch inspections and domestic flights."
+  },
+  {
+   "title": "Across the Border",
+   "stage": "Five plants: Tema and Nairobi join, with a container yard at the Lagos port.",
+   "story": "West and East Africa open up. New standards, new labels, new currencies. Tobi needs an exporter certificate and clean paperwork for every container. One wrong label sends it back.",
+   "unlock": "Tema and Nairobi plants, export desk and container contracts."
+  },
+  {
+   "title": "Made in Nigeria, Sold Abroad",
+   "stage": "A listed conglomerate with a glass head office and goods on European shelves.",
+   "story": "A European supermarket group audits every plant before signing. Pass all five audits and Omi-Ola noodles and soap sail to Rotterdam. Mama cuts the ribbon. The old sealing machine sits in the lobby.",
+   "unlock": "Europe export contracts, the Founder's Museum and group chairman title."
+  }
+ ],
+ "productLines": [
+  {
+   "name": "Sachet Water (bag of 20)",
+   "raw": "Borehole water and printed nylon rolls",
+   "station": "Filter tanks and sealing machine",
+   "customer": "Street vendors, kiosks and truck-pushers",
+   "price": 400,
+   "priceNote": "Lagos factory-gate price in 2026: buyers reported 10 bags for N4,000."
+  },
+  {
+   "name": "Bottled Water (pack of 12)",
+   "raw": "Treated water, bottle preforms, caps",
+   "station": "Blow, rinse, fill and cap line",
+   "customer": "Hotels, event planners, supermarkets",
+   "price": 1600,
+   "priceNote": "Packs retail near N1,700 in Lagos in 2026; wholesale sits just below."
+  },
+  {
+   "name": "Fruit Drink (carton of 24)",
+   "raw": "Mango pulp drums, sugar, water",
+   "station": "Mixing tank and pasteuriser",
+   "customer": "School canteen suppliers, provision stores",
+   "price": 7000,
+   "priceNote": "About N290 a pack to the wholesaler; shops sell at N350 to N400."
+  },
+  {
+   "name": "Noodles (carton of 40)",
+   "raw": "Flour sacks and palm oil from tankers",
+   "station": "Dough roller, steamer and fryer",
+   "customer": "Market wholesalers and distributors",
+   "price": 12000,
+   "priceNote": "N300 a pack at the gate; flour and frying oil are most of the cost."
+  },
+  {
+   "name": "Bar Soap (carton of 48)",
+   "raw": "Palm oil, caustic soda, perfume",
+   "station": "Soap kettle, cutter and stamper",
+   "customer": "Provision wholesalers and export buyers",
+   "price": 16000,
+   "priceNote": "About N330 a bar wholesale; palm oil price sets the margin."
+  }
+ ],
+ "howItFitsTheEngine": "Tankers and trucks park at the delivery bay with raw goods: water from the borehole tap, nylon rolls, flour sacks, palm oil drums, pulp. The player carries them to production lines where operators make bags, packs and cartons. The player carries finished goods to the factory gate, where wholesalers and distributors queue with barrows, keke and trucks, pay and load.",
+ "staffRoles": [
+  {
+   "role": "Machine Operator",
+   "does": "Runs a sealing, filling or noodle line and turns raw goods into products.",
+   "look": "Blue overalls, hair net, ear muffs round the neck, hand on a green start button.",
+   "monthlySalary": 110000
+  },
+  {
+   "role": "Packer",
+   "does": "Counts sachets into bags and packs into cartons, then stacks them.",
+   "look": "Yellow apron over a T-shirt, hair net, white gloves, tape gun on the hip.",
+   "monthlySalary": 75000
+  },
+  {
+   "role": "Loader",
+   "does": "Carries finished goods to the gate and loads distributors' trucks.",
+   "look": "Strong build, orange reflective vest, work gloves, hand trolley.",
+   "monthlySalary": 80000
+  },
+  {
+   "role": "Lab Technician",
+   "does": "Tests water and batches every day; keeps the Quality Score high.",
+   "look": "White lab coat, safety glasses, test tube rack, neat braids under a cap.",
+   "monthlySalary": 180000
+  },
+  {
+   "role": "Maintenance Fitter",
+   "does": "Fixes broken machines and services the generator before it fails.",
+   "look": "Grey oil-stained overalls, big spanner, tool belt, pencil behind the ear.",
+   "monthlySalary": 150000
+  },
+  {
+   "role": "Store Keeper",
+   "does": "Receives tankers and trucks, weighs raw materials and records stock.",
+   "look": "Checked shirt, brown dust coat, big ledger, reading glasses on a cord.",
+   "monthlySalary": 120000
+  },
+  {
+   "role": "Plant Manager",
+   "does": "Runs a whole plant while the owner travels; collects the day's sales.",
+   "look": "White hard hat, crisp white shirt, navy trousers, tablet and walkie-talkie.",
+   "monthlySalary": 450000
+  }
+ ],
+ "machines": [
+  {
+   "name": "Roller Conveyor",
+   "does": "Rolls raw goods from the delivery bay to one production line without carrying.",
+   "look": "Waist-high steel rollers on green legs, a short run with a small red motor box."
+  },
+  {
+   "name": "Auto Fill-and-Seal Line",
+   "does": "Makes and bags products by itself; one operator watches three lines.",
+   "look": "Stainless steel tower with a nylon reel on top, glass guard, blinking amber lamp."
+  },
+  {
+   "name": "Robot Palletiser",
+   "does": "Stacks cartons on pallets and a forklift takes them to the gate automatically.",
+   "look": "Orange robot arm in a yellow safety cage beside a small electric forklift."
+  }
+ ],
+ "moneyMechanics": [
+  {
+   "rule": "Power: grid, diesel or gas",
+   "howItWorks": "Each day the plant runs on grid when it is on, else the generator. Diesel costs about N3,000 a litre, so a blackout day cuts profit by 30%. A gas line (big one-off cost) ends the diesel penalty.",
+   "realBasis": "Nigerian factories self-generate most power; diesel averaged N3,277 a litre in May 2026 and many firms are moving to gas."
+  },
+  {
+   "rule": "Registration and Quality Score",
+   "howItWorks": "Each new product needs N300,000 and an inspection before sale. Daily lab tests keep the Quality Score up. Below 60% the line is sealed for a day; above 90% buyers pay 10% more.",
+   "realBasis": "Packaged water needs lab analysis, a facility inspection and a registration number printed on the pack before sale."
+  },
+  {
+   "rule": "Raw material price swings",
+   "howItWorks": "Nylon, flour and palm oil prices move every week, up to 20% either way. Buy a full tanker or truck when prices are low and store it; the tank farm holds 30 days of stock.",
+   "realBasis": "Producers raised bag prices in 2026 after imported nylon and other inputs rose by about 80%."
+  },
+  {
+   "rule": "Distributor credit",
+   "howItWorks": "Registered distributors take goods now and pay in 7 days for a 5% higher price. Each has a trust rating; late payers lose credit. Cash-and-carry buyers pay at once at the normal price.",
+   "realBasis": "Manufacturers sell through key distributors on short credit terms and track who pays on time."
+  },
+  {
+   "rule": "Make your own packaging",
+   "howItWorks": "A printed nylon roll costs N20,000 from a supplier. The packaging shop makes it for N12,000 and sells spare rolls and cartons to small producers at the gate.",
+   "realBasis": "Large food and drinks makers integrate backward into film, cartons and preforms to cut input cost."
+  },
+  {
+   "rule": "Export paperwork",
+   "howItWorks": "Pay N20,000 for an exporter certificate (lasts 24 months), then file an export form at the bank for each container. Complete papers earn 2x price abroad; a wrong label returns the container.",
+   "realBasis": "Exporters must be registered companies, hold an exporter certificate and file a bank export form and invoice per shipment."
+  }
+ ],
+ "travel": [
+  {
+   "place": "Tema, Ghana",
+   "why": "Open the port-side plant, meet the Ghana standards office and sign West Africa distributors.",
+   "how": "international flight"
+  },
+  {
+   "place": "Aba",
+   "why": "Inspect the soap plant, buy palm oil from eastern mills and meet the Ariaria wholesalers.",
+   "how": "domestic flight"
+  },
+  {
+   "place": "Kano",
+   "why": "Inspect the noodle plant, agree flour supply and greet distributors serving the north.",
+   "how": "domestic flight"
+  },
+  {
+   "place": "Nairobi, Kenya",
+   "why": "Launch the East Africa plant, hire the local manager and pass the first quality audit.",
+   "how": "international flight"
+  },
+  {
+   "place": "Rotterdam, Netherlands",
+   "why": "Meet supermarket buyers, check arriving containers and renew the export contract.",
+   "how": "international flight"
+  }
+ ],
+ "rivalsAndAllies": [
+  {
+   "name": "Alhaji Sule Danbaba",
+   "role": "mentor",
+   "line": "A machine wey you service no go disgrace you. Oil am before e cry."
+  },
+  {
+   "name": "Chief Ezenwa Okpara",
+   "role": "rival",
+   "line": "My Crystal Peak water is cheaper. Let us see who the market will follow."
+  },
+  {
+   "name": "Inspector Bisi Fashina",
+   "role": "regulator",
+   "line": "I no dey collect anything. Just show me your hand-wash point and logbook."
+  },
+  {
+   "name": "Mama Adeleke",
+   "role": "family",
+   "line": "I counted bags for you in my backyard. Now count your blessings, my child."
+  }
+ ],
+ "events": [
+  {
+   "name": "Heat Wave",
+   "text": "Sun dey hot die! Sachet and bottled water sell twice as fast today.",
+   "good": true
+  },
+  {
+   "name": "Grid Collapse",
+   "text": "No light all day. The generator drinks diesel and profit drops.",
+   "good": false
+  },
+  {
+   "name": "Owambe Weekend",
+   "text": "Three big parties order bottled water and fruit drink in bulk.",
+   "good": true
+  },
+  {
+   "name": "Surprise Inspection",
+   "text": "The inspector is at the gate. A clean factory earns a quality bonus.",
+   "good": true
+  },
+  {
+   "name": "Nylon Price Jump",
+   "text": "Nylon rolls cost 20% more this week. Use your stored stock if you have it.",
+   "good": false
+  },
+  {
+   "name": "Sealing Machine Jams",
+   "text": "One line stops until the fitter repairs it. Did you service it?",
+   "good": false
+  },
+  {
+   "name": "Palm Oil Harvest",
+   "text": "Plenty palm oil in the east. Tankers arrive cheap for noodles and soap.",
+   "good": true
+  },
+  {
+   "name": "Fake Product Alert",
+   "text": "Someone is copying your label. Report it and add a security seal.",
+   "good": false
+  }
+ ],
+ "endgame": "Omi-Ola Industries is a listed group with plants in Lagos, Kano, Aba, Tema and Nairobi, gas-powered lines, a 5-star quality record and containers leaving for Europe every week. The backyard shed is now a training school for young technicians.",
+ "risksToHandleCarefully": "Food safety: never reward skipping filters or tests. Inspectors are honest and never bribed. All workers are adults paid above minimum wage. Schools appear only as buyers' customers. Show waste nylon being recycled, not dumped.",
+ "research": [
+  {
+   "claim": "In May 2026 Lagos buyers reported paying about N400 a bag at the factory (10 bags for N4,000), with retail at N500 to N800 and producers citing nylon, diesel and transport costs.",
+   "url": "https://gazettengr.com/lagos-residents-groan-over-rising-cost-of-sachet-bottled-water/"
+  },
+  {
+   "claim": "A 2026 cost guide puts a manual or semi-automatic sachet machine at N800,000 to N1.5 million, a borehole at N500,000 to N1.5 million, a nylon roll at N15,000 to N25,000 and worker pay at N30,000 to N80,000 a month.",
+   "url": "https://9japolytv.com/how-much-does-it-cost-to-start-a-pure-water-business-in-nigeria-2026-complete-breakdown/"
+  },
+  {
+   "claim": "Registering packaged water involves preparing the facility, laboratory water analysis, an application with fees, a facility inspection and then a registration number printed on the sachet, typically taking 1 to 3 months.",
+   "url": "https://9japolytv.com/nafdac-registration-for-pure-water-business-in-nigeria-requirements-approval-process/"
+  },
+  {
+   "claim": "The national statistics office reported average diesel at N3,277.47 a litre in May 2026, up 86.40% from N1,758.26 a year earlier.",
+   "url": "https://www.legit.ng/business-economy/energy/1716140-nbs-diesel-price-rises-8640-n3277litre-2026/"
+  },
+  {
+   "claim": "Only incorporated companies can get an exporter certificate, which costs about N20,000 and is valid for 24 months, and each shipment needs a bank export form, commercial invoice and packing list.",
+   "url": "https://www.dhl.com/discover/en-ng/logistics-advice/import-export-advice/how-to-register-with-nepc-and-start-exporting-from-nigeria"
+  },
+  {
+   "claim": "More than 150 Nigerian firms in Abia, Bayelsa, Ogun and Rivers states now take piped gas as manufacturers move away from diesel generators.",
+   "url": "https://allafrica.com/stories/202605260237.html"
+  }
+ ]
+}

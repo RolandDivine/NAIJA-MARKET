@@ -1,0 +1,311 @@
+{
+  "key": "council",
+  "name": "Okele Council Services",
+  "tagline": "Serve the ward, fix the town, earn the trust to lead Marobi State.",
+  "ownerCharacter": {
+    "name": "Hon. Sade Umeh-Garba",
+    "look": "Woman, 34, medium build, teal ankara jacket over white blouse, navy trousers, flat shoes, low bun, council ID lanyard; always holds a fat brown ledger.",
+    "backstory": "Sade kept the books for her mother's pepper stall. When Okele Market gutters flooded again, traders begged her to be association secretary. She said yes, opened a ledger and posted every kobo on the gate. People noticed."
+  },
+  "storyline": [
+    {
+      "title": "The Secretary's Table",
+      "stage": "A wooden table and umbrella at the gate of Okele Market, with a ledger and a notice board.",
+      "story": "The market association elects you secretary. Traders pay a small daily ticket and want to see what it buys. Clear the gutter, fix the gate light and post the accounts every Friday. If the board stays empty, they stop paying.",
+      "unlock": "Market ticket desk, notice board and the first depot delivery truck."
+    },
+    {
+      "title": "Ward 7 Wants You",
+      "stage": "A one-room ward office beside the market, with a bench for residents and a complaints box.",
+      "story": "Residents ask you to run for councillor. No money shared, no noise: you walk door to door with your ledger and a list of what you fixed. The Orange and Purple teams both want the seat. Win on your record or go back to the table.",
+      "unlock": "Approval rating meter, town hall meetings and the health post."
+    },
+    {
+      "title": "Councillor With a List",
+      "stage": "Ward office plus a small health post and a three-classroom primary school to look after.",
+      "story": "Now you vote on the council budget. The clinic has no drugs and the school has four textbooks for forty pupils. Carry supplies from the depot yourself and argue for your ward in the chamber. Empty shelves cost approval fast.",
+      "unlock": "Clinic and school service points, budget vote screen."
+    },
+    {
+      "title": "Chairman of Okele LGA",
+      "stage": "The council secretariat: a two-storey block with treasury, depot yard and five service points.",
+      "story": "You win the chairmanship. The monthly allocation lands in the council account and ten wards want everything at once. Pay staff first, stock the depot, start waste collection and patch the motor park road before the rains.",
+      "unlock": "Treasury, waste service, motor park, managers for each service point."
+    },
+    {
+      "title": "The Audit Season",
+      "stage": "A busy secretariat with e-ticket kiosks, a compactor truck and an auditors' desk in the hall.",
+      "story": "State auditors arrive. They find two ghost workers on the old payroll and a road invoice with padded figures. Remove them, recover the money and publish the report. Hide it and the council is suspended. Clean it and trust jumps.",
+      "unlock": "Internal auditor, e-payroll check, published budget page, second term."
+    },
+    {
+      "title": "Madam Commissioner",
+      "stage": "A state ministry office in the capital of Marobi State, overseeing service depots in 18 councils.",
+      "story": "The governor appoints you Commissioner for Local Services. Your Okele system must now work in 18 councils you cannot walk in one day. Travel, inspect, train chairmen and keep drugs, books and bins moving across the state.",
+      "unlock": "Branch councils across the state, inspection travel, state depot."
+    },
+    {
+      "title": "The Long Road Tour",
+      "stage": "A campaign bus doubling as a mobile service office, touring all 18 councils of Marobi State.",
+      "story": "You run for governor. The tour is not rallies and rice: at each stop you open the books, hear complaints and fix one thing before leaving. Your rival promises the sky. You show receipts. The whole state is watching.",
+      "unlock": "Statewide approval map, debate night, campaign bus as moving depot."
+    },
+    {
+      "title": "Governor of Marobi State",
+      "stage": "Government House with a live service dashboard wall and a state logistics hub outside.",
+      "story": "You are sworn in. Every clinic stocked, every school with books, clean streets, smooth park roads, and a budget anyone can read on their phone. Other states send teams to copy you. Keep approval high and win a second term.",
+      "unlock": "State budget, open data wall, peer visits from other states and countries."
+    }
+  ],
+  "productLines": [
+    {
+      "name": "Market Stall Ticket",
+      "raw": "Ticket rolls and stall number plates",
+      "station": "Market revenue desk",
+      "customer": "Traders opening their stalls each morning",
+      "price": 200,
+      "priceNote": "Daily market tolls in Nigerian towns usually run from N100 to N500 per stall."
+    },
+    {
+      "name": "Clinic Visit",
+      "raw": "Cartons of essential drugs",
+      "station": "Primary health centre pharmacy",
+      "customer": "Residents and families needing basic care",
+      "price": 1000,
+      "priceNote": "Stands for the card and drug-revolving-fund fee at a public health centre."
+    },
+    {
+      "name": "School Term Pack",
+      "raw": "Textbooks, chalk and exercise books",
+      "station": "Primary school store room",
+      "customer": "Parents enrolling pupils for the term",
+      "price": 1500,
+      "priceNote": "Tuition is free; this is the small parents' association levy per term."
+    },
+    {
+      "name": "Waste Collection",
+      "raw": "Waste bins and bin bags",
+      "station": "Refuse truck loading bay",
+      "customer": "Households and shop owners on each street",
+      "price": 2500,
+      "priceNote": "Monthly household refuse fee, in line with city waste bills of N2,000 to N5,000."
+    },
+    {
+      "name": "Motor Park Ticket",
+      "raw": "Bags of asphalt for patching",
+      "station": "Road gang yard at the park gate",
+      "customer": "Bus, keke and okada drivers loading passengers",
+      "price": 500,
+      "priceNote": "Daily loading ticket; council parks commonly charge N300 to N1,000 per vehicle."
+    }
+  ],
+  "howItFitsTheEngine": "The depot truck drops drugs, textbooks, asphalt, bins and ticket rolls in the council yard. You carry each load to its service point (clinic, school, park gate, refuse bay, market desk) where staff turn it into a ready service. Residents queue at each point, pay the set fee or levy into the council till, get served and leave happy. Empty shelves make queues grow and approval fall.",
+  "staffRoles": [
+    {
+      "role": "Revenue Clerk",
+      "does": "Issues market and park tickets and records every payment in the council till.",
+      "look": "Young man, light blue shirt, council reflective vest, ticket machine on a neck strap, friendly smile.",
+      "monthlySalary": 85000
+    },
+    {
+      "role": "Community Health Worker",
+      "does": "Unpacks drug cartons and attends to residents at the health centre.",
+      "look": "Woman in pale green uniform and white cap, stethoscope, small drug tray in hand.",
+      "monthlySalary": 130000
+    },
+    {
+      "role": "Primary School Teacher",
+      "does": "Shares textbooks, enrols pupils and keeps the classroom running.",
+      "look": "Man in tucked-in striped shirt and brown trousers, glasses, chalk dust on fingers, register under arm.",
+      "monthlySalary": 110000
+    },
+    {
+      "role": "Sanitation Crew",
+      "does": "Loads bins onto the refuse truck and sweeps the collection street.",
+      "look": "Pair in orange coveralls with reflective strips, heavy gloves, boots, one holding a broom.",
+      "monthlySalary": 75000
+    },
+    {
+      "role": "Road Works Foreman",
+      "does": "Turns asphalt bags into patched potholes around the motor park.",
+      "look": "Stocky man, yellow hard hat, dusty khaki overalls, hand tamper over one shoulder.",
+      "monthlySalary": 160000
+    },
+    {
+      "role": "Internal Auditor",
+      "does": "Checks payroll and invoices, flags ghost workers and padded bills early.",
+      "look": "Slim woman, grey skirt suit, reading glasses on a chain, red pen and a clipboard.",
+      "monthlySalary": 240000
+    },
+    {
+      "role": "Council Treasurer",
+      "does": "Manages the council account, pays salaries on time and prepares the budget.",
+      "look": "Older man in cream kaftan-style suit, calculator in hand, thick file marked BUDGET.",
+      "monthlySalary": 350000
+    }
+  ],
+  "machines": [
+    {
+      "name": "Cargo Keke Runner",
+      "does": "Carries supplies from the yard to the two nearest service points without you.",
+      "look": "Teal three-wheeler with a flat cargo bed, council crest on the door, crates strapped on the back."
+    },
+    {
+      "name": "E-Ticket Kiosk",
+      "does": "Residents pay fees by card or transfer; every naira is logged and no cash goes missing.",
+      "look": "Waist-high teal kiosk with touch screen, receipt slot, small solar panel and a green status light."
+    },
+    {
+      "name": "Compactor Fleet and Hub",
+      "does": "Trucks restock all five service points and clear waste routes on a fixed timetable.",
+      "look": "Three white compactor trucks with teal stripes parked at a roofed depot with a conveyor and loading dock."
+    }
+  ],
+  "moneyMechanics": [
+    {
+      "rule": "Monthly allocation",
+      "howItWorks": "On day 30 the council account receives a federation allocation, about N690m at full chairman scale, shown scaled down in play. It lands in the council treasury, never in your pocket.",
+      "realBasis": "Nigeria's 774 councils got N4.3tn net from the Federation Account in Jan to Aug 2026, about N690m each per month on average."
+    },
+    {
+      "rule": "Own revenue from fees",
+      "howItWorks": "Tickets, levies and rates paid at service points add to the treasury daily. Cash desks record 60% of what is due; E-Ticket Kiosks lift that to 95% by closing leaks.",
+      "realBasis": "Councils collect market and motor park fees and tenement rates as internally generated revenue, often with heavy cash leakage."
+    },
+    {
+      "rule": "Two separate wallets",
+      "howItWorks": "Council money only buys service pads: staff, stock, depots, roads. Your own house and car come from a fixed official salary, about N76,000 a month basic as chairman, plus allowances.",
+      "realBasis": "The revenue commission fixes pay for office holders; a chairman's basic salary was reported as N908,312 a year."
+    },
+    {
+      "rule": "Publish the budget",
+      "howItWorks": "Each quarter, stand on the notice-board pad to post the budget and spending. Costs N50,000 to print; gives +5 approval and +10% fee compliance for 30 days. Skip it twice and approval drops 8.",
+      "realBasis": "A 2026 civic report found only 10 of 36 states had council budgets the public could access online."
+    },
+    {
+      "rule": "Audit and clean-up",
+      "howItWorks": "Auditors visit at random. They may flag a ghost worker or padded invoice from the old system. Fix it within 3 days: funds return and approval +6. Ignore it: spending pads freeze and approval -15.",
+      "realBasis": "State auditors-general and payroll verification exercises regularly uncover ghost workers on council payrolls."
+    },
+    {
+      "rule": "Approval decides elections",
+      "howItWorks": "Approval (0 to 100) rises with short queues, stocked shelves and posted budgets. At term end, 50+ wins re-election and 70+ opens the next office. Nothing can be bought to raise it.",
+      "realBasis": "Council chairmen and councillors serve fixed terms set by state law and face voters again at the end."
+    }
+  ],
+  "travel": [
+    {
+      "place": "Abuja",
+      "why": "Attend the monthly allocation briefing and collect federal health and school supply grants.",
+      "how": "car"
+    },
+    {
+      "place": "Enugu",
+      "why": "Peer visit to councils that publish every budget online; copy their template.",
+      "how": "domestic flight"
+    },
+    {
+      "place": "Lagos",
+      "why": "Inspect compactor trucks and e-ticket kiosks from suppliers and sign open-tender contracts.",
+      "how": "domestic flight"
+    },
+    {
+      "place": "Ghana",
+      "why": "West African local government forum in Accra; swap market and motor park ideas.",
+      "how": "international flight"
+    },
+    {
+      "place": "Rwanda",
+      "why": "Study tour of Kigali's clean streets and community sanitation days before the state rollout.",
+      "how": "international flight"
+    }
+  ],
+  "rivalsAndAllies": [
+    {
+      "name": "Mama Risi Okele",
+      "role": "mentor",
+      "line": "My daughter, write am down. Wetin dey paper, nobody fit deny."
+    },
+    {
+      "name": "Hon. Dayo Purple-Cap",
+      "role": "rival",
+      "line": "I will build ten flyovers in Ward 7! Details? Later, later."
+    },
+    {
+      "name": "Auditor Kemi Dogo",
+      "role": "regulator",
+      "line": "Good afternoon, Chairman. Bring the payroll and every receipt, please."
+    },
+    {
+      "name": "Papa Garba",
+      "role": "family",
+      "line": "You are home by eight? Wonders! Sit, the stew is still warm."
+    }
+  ],
+  "events": [
+    {
+      "name": "Allocation Day",
+      "text": "The monthly allocation has landed in the council account. Salaries can go out on time.",
+      "good": true
+    },
+    {
+      "name": "Gutter Flood",
+      "text": "Heavy rain blocks the market gutter. Traders cannot open until the crew clears it.",
+      "good": false
+    },
+    {
+      "name": "Ghost Worker Found",
+      "text": "The auditor finds a name on payroll that nobody has ever seen. Remove it today.",
+      "good": false
+    },
+    {
+      "name": "Free Drug Donation",
+      "text": "A health charity donates ten cartons of malaria drugs to the clinic. Shelves are full.",
+      "good": true
+    },
+    {
+      "name": "Town Hall Praise",
+      "text": "Residents clap at the town hall meeting. Approval rises and fee payments go up today.",
+      "good": true
+    },
+    {
+      "name": "Truck Breakdown",
+      "text": "The refuse truck will not start. Bins pile up on three streets until it is repaired.",
+      "good": false
+    },
+    {
+      "name": "Pothole Season",
+      "text": "Rain opens new potholes at the motor park. Drivers avoid the park until you patch them.",
+      "good": false
+    },
+    {
+      "name": "Budget Goes Viral",
+      "text": "A resident shares your posted budget online. People say: see council wey dey show work!",
+      "good": true
+    }
+  ],
+  "endgame": "Governor of Marobi State on a second term: 18 councils with stocked clinics, full classrooms, clean streets and a public budget wall. Approval above 80, a clean audit five years running, and other states sending teams to learn.",
+  "risksToHandleCarefully": "Invented state, colour-only parties, no tribe, faith or real figures. No bribe, vote-buying or rigging mechanic. Fees are council funds, never the player's; reward is approval. Graft is only audit clean-up. Belongs, but optional and last.",
+  "research": [
+    {
+      "claim": "The constitution's Fourth Schedule gives councils markets, motor parks, slaughter houses, local roads, drains, street lights, refuse disposal and tenement rates.",
+      "url": "https://nigerian-constitution.com/fourth-schedule-functions-of-a-local-government-council/"
+    },
+    {
+      "claim": "Councils also take part with the state in providing primary, adult and vocational education and health services.",
+      "url": "https://nigerian-constitution.com/fourth-schedule-functions-of-a-local-government-council/"
+    },
+    {
+      "claim": "Nigeria's 774 local governments received a net N4.3 trillion from the Federation Account between January and August 2026.",
+      "url": "https://nairametrics.com/2026/10/30/local-governments-receive-n4-3-trillion-in-8-months-from-federation-account/"
+    },
+    {
+      "claim": "A 2026 civic budget report found only 10 states had publicly accessible council budgets, 6 had partial data and 18 published nothing.",
+      "url": "https://budgit.org/post_publications/the-missing-tier-mapping-local-government-budget-transparency-in-nigeria/"
+    },
+    {
+      "claim": "A council chairman's annual basic salary under the revenue commission's scale was reported in 2021 as N908,312, before allowances.",
+      "url": "https://saharareporters.com/2021/08/07/how-nigeria’s-local-government-chairmen-feed-jumbo-salaries-17-allowances-despite-ailing"
+    }
+  ]
+}

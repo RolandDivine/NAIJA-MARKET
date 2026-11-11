@@ -1,0 +1,311 @@
+{
+ "key": "ibank",
+ "name": "Kolanut Crown Capital",
+ "tagline": "From one desk in the market to ringing the bell for Africa's big deals",
+ "ownerCharacter": {
+  "name": "Madam Ronke Adigun",
+  "look": "Woman, 38, medium build, low-cut natural hair, emerald green skirt suit with gold ankara lapels, flat shoes, reading glasses on a chain, fat red deal folder.",
+  "backstory": "Daughter of a pepper seller, she kept her mother's sales book from age 12. After ten years as a junior accountant she set a plastic desk beside the market gate to help traders register and raise money properly."
+ },
+ "storyline": [
+  {
+   "title": "One Desk, One Umbrella",
+   "stage": "A plastic desk, a stamp and a borrowed laptop under an umbrella at the market gate",
+   "story": "Traders want loans and partners but have no papers. Ronke registers their businesses and writes their first simple accounts. If the first ten clients are not happy, the desk goes back to the landlord.",
+   "unlock": "Client bench, first analyst desk and the Business Starter Pack line"
+  },
+  {
+   "title": "The First Fund Raise",
+   "stage": "A one-room office above a fabric shop with two desks and a noisy fan",
+   "story": "Mama Sikira's cold room needs N100 million. Ronke must write a clean investment memo and find honest investors. One wrong number in the memo and nobody will trust her name again.",
+   "unlock": "Private Fund Raise line, an associate, and the success fee rule"
+  },
+  {
+   "title": "Boutique on the Island",
+   "stage": "A small glass-fronted advisory office on Lagos Island with a proper client lounge",
+   "story": "Bigger clients arrive: a bakery chain, a bus company. To be taken seriously, the firm needs a licence from the securities regulator and N2 billion in capital. Partners must be found.",
+   "unlock": "Adviser licence, compliance desk and a pool car for client visits"
+  },
+  {
+   "title": "Ring the Bell",
+   "stage": "Two floors with a deal room, a printing corner and a wall clock for each market",
+   "story": "A family noodle maker wants to list on the exchange. The prospectus must pass the regulator, the roadshow must fill the order book, and listing day cannot slip. The whole market is watching.",
+   "unlock": "IPO Prospectus line, roadshow travel and the order book mini-game"
+  },
+  {
+   "title": "Bonds for the Bridge",
+   "stage": "A full floor in a Lagos tower with a bond desk and a visiting room for officials",
+   "story": "A state needs N20 billion for a bridge and a water plant. Ronke flies to Abuja for approvals and proves every naira will be tracked. A late coupon would hurt pensioners, so the plan must hold.",
+   "unlock": "Bond Issue line, Abuja office and the underwriting licence at N7 billion capital"
+  },
+  {
+   "title": "Two Become One",
+   "stage": "A tower headquarters with a locked data room and a quiet floor for secret deals",
+   "story": "Two rival cement makers want to merge. Both sides fear being cheated. Ronke must value each fairly, keep the deal secret until announced, and win approval from the competition regulator.",
+   "unlock": "Merger Deal line, the secure data room and the wall between teams"
+  },
+  {
+   "title": "Money That Works",
+   "stage": "Headquarters plus an asset management floor serving pensions and cooperatives",
+   "story": "Old clients now ask her to look after their savings. Teachers' cooperatives and pension funds join. Growing it slowly and safely matters more than showing off, because this is people's retirement.",
+   "unlock": "Asset management fees, the London office and international flights"
+  },
+  {
+   "title": "Lagos to New York",
+   "stage": "A full investment bank with offices in Lagos, Abuja, London, Dubai and New York",
+   "story": "A Nigerian tech company wants to list in Lagos and abroad on the same day. Five offices, three time zones, one bell. If it works, the pepper seller's daughter becomes Africa's dealmaker.",
+   "unlock": "Dubai and New York offices, dual listings and the Dealmaker of the Year trophy"
+  }
+ ],
+ "productLines": [
+  {
+   "name": "Business Starter Pack",
+   "raw": "Trader's shoebox of receipts and ID",
+   "station": "Registration desk",
+   "customer": "Market traders and small shop owners",
+   "price": 150000,
+   "priceNote": "Company registration, tax number and first-year accounts in one bundle"
+  },
+  {
+   "name": "Private Fund Raise",
+   "raw": "Client file with accounts and plans",
+   "station": "Analyst desk (investment memo)",
+   "customer": "Growing firms seeking N50m to N500m from investors",
+   "price": 2500000,
+   "priceNote": "About 2.5% success fee on a N100 million private placement"
+  },
+  {
+   "name": "IPO Prospectus",
+   "raw": "Audited accounts and board papers",
+   "station": "Prospectus desk and printing corner",
+   "customer": "Family companies listing shares on the exchange",
+   "price": 75000000,
+   "priceNote": "About 1.5% issuing house fee on a N5 billion share offer"
+  },
+  {
+   "name": "Bond Issue",
+   "raw": "Budget books and project plans",
+   "station": "Bond desk (pricing and rating file)",
+   "customer": "State governments and big companies borrowing long",
+   "price": 200000000,
+   "priceNote": "About 1% arranging fee on a N20 billion 10-year bond"
+  },
+  {
+   "name": "Merger Deal",
+   "raw": "Sealed data room boxes from both sides",
+   "station": "Valuation desk in the data room",
+   "customer": "Company boards buying, selling or joining together",
+   "price": 300000000,
+   "priceNote": "About 1.5% advisory fee on a N20 billion merger, paid at closing"
+  }
+ ],
+ "howItFitsTheEngine": "Clients arrive in the client lounge and drop files: receipts, accounts, budget books, sealed data boxes. The player carries files to analyst desks, where staff turn them into finished deals: a starter pack, a memo, a prospectus, a bond, a merger agreement. The player carries each bound deal to the deal room, where the client signs, shakes hands, pays the fee and rings a small bell.",
+ "staffRoles": [
+  {
+   "role": "Front Desk Officer",
+   "does": "Welcomes clients in the lounge and checks every file is complete",
+   "look": "Young woman, navy blazer, bright headwrap, visitor book and a tray of ID tags",
+   "monthlySalary": 180000
+  },
+  {
+   "role": "Analyst",
+   "does": "Builds the numbers and drafts memos; the basic desk worker",
+   "look": "Fresh graduate, white shirt, loose tie, sleeves rolled, laptop and a big mug, tired but smiling",
+   "monthlySalary": 400000
+  },
+  {
+   "role": "Associate",
+   "does": "Checks analysts' work and speeds up two desks at once",
+   "look": "Late 20s, sharp grey suit, tablet under arm, red pen behind the ear",
+   "monthlySalary": 850000
+  },
+  {
+   "role": "Compliance Officer",
+   "does": "Stops bad files before the regulator sees them; cuts fines",
+   "look": "Calm woman, 40s, black suit, round glasses, thick rule book and a green approval stamp",
+   "monthlySalary": 1100000
+  },
+  {
+   "role": "Vice President",
+   "does": "Runs a whole deal team and takes clients on roadshows",
+   "look": "Tall man, 30s, navy suit with ankara pocket square, rolling suitcase and phone headset",
+   "monthlySalary": 1800000
+  },
+  {
+   "role": "Fund Manager",
+   "does": "Grows clients' savings safely and earns the yearly management fee",
+   "look": "Woman, 40s, cream agbada-style jacket, pearl earrings, small screen showing a steady green line",
+   "monthlySalary": 2200000
+  },
+  {
+   "role": "Managing Director",
+   "does": "Manages the office while the owner travels; wins big clients",
+   "look": "Grey-haired man, 50s, charcoal three-piece suit, gold pen, walks slowly with hands behind back",
+   "monthlySalary": 4500000
+  }
+ ],
+ "machines": [
+  {
+   "name": "File Trolley Runner",
+   "does": "A clerk with a trolley moves client files from the lounge to the analyst desks",
+   "look": "Small brass office trolley stacked with coloured folders, pushed by a clerk in a green waistcoat"
+  },
+  {
+   "name": "Deal Tube System",
+   "does": "Air tubes shoot finished documents from every desk straight to the deal room",
+   "look": "Clear tubes along the ceiling with gold capsules whooshing through, brass hatch at each desk"
+  },
+  {
+   "name": "Digital Deal Vault",
+   "does": "A secure online data room: files arrive, get checked and are delivered with no carrying",
+   "look": "Glass server pillar glowing green, big wall screen of moving deal cards, a padlock icon on top"
+  }
+ ],
+ "moneyMechanics": [
+  {
+   "rule": "Success fee, not salary",
+   "howItWorks": "Each deal pays a small retainer at the start (10% of the fee) and the rest only when the deal closes: about 2.5% on small raises, 1.5% on IPOs and mergers, 1% on bonds.",
+   "realBasis": "Advisers are mostly paid a negotiated percentage of the money raised or the deal value, on completion. The game's rates are simplified."
+  },
+  {
+   "rule": "Licence capital gate",
+   "howItWorks": "IPO and bond lines stay locked until the firm holds N2 billion in capital for the advisory licence. Underwriting unlocks at N7 billion. Capital is kept aside and cannot be spent.",
+   "realBasis": "The securities regulator's 2026 rules set N2bn for advisory-only issuing houses and N7bn for those that underwrite."
+  },
+  {
+   "rule": "Fill the order book",
+   "howItWorks": "During an IPO or bond, investor orders fill a bar over 3 game days. Roadshow trips add up to 40%. At 100% or more the full fee is paid; under 100% the fee shrinks in line.",
+   "realBasis": "Big offers use book building: investors bid over a set period and the price or coupon is fixed from the bids."
+  },
+  {
+   "rule": "Underwriting promise",
+   "howItWorks": "With the N7bn licence, you may promise to buy unsold shares for an extra 1.5% fee. If the book fills only 80%, your capital buys the 20% and is tied up for 10 game days.",
+   "realBasis": "Underwriters guarantee an offer by taking up securities investors do not buy, for a commission."
+  },
+  {
+   "rule": "Management fee on savings",
+   "howItWorks": "The asset management floor earns 1.5% a year on money looked after, paid monthly. N10 billion under care pays about N12.5 million a month, deal or no deal.",
+   "realBasis": "Fund managers charge a yearly percentage of assets under management, giving steady income between deals."
+  },
+  {
+   "rule": "Bonus season",
+   "howItWorks": "Each December, staff expect a bonus of 30% to 150% of yearly pay, scaled to deals closed. Pay it and speed rises 10% next year; skip it and your best analyst may leave.",
+   "realBasis": "Investment banking pay in Nigeria is base salary plus a performance bonus that can exceed the base."
+  }
+ ],
+ "travel": [
+  {
+   "place": "Abeokuta",
+   "why": "Sit with a state finance team to plan a bond for roads and water, and inspect the project sites",
+   "how": "car"
+  },
+  {
+   "place": "Abuja",
+   "why": "Meet the securities regulator on licences and approvals, and open the Abuja office for state clients",
+   "how": "domestic flight"
+  },
+  {
+   "place": "London",
+   "why": "Roadshow to pension funds and diaspora investors, and open the London office for cross-border deals",
+   "how": "international flight"
+  },
+  {
+   "place": "Dubai",
+   "why": "Meet Gulf funds looking for African deals, and close mergers with trading groups based there",
+   "how": "international flight"
+  },
+  {
+   "place": "New York",
+   "why": "Pitch the big global funds and ring the bell for a dual listing; the last office to open",
+   "how": "international flight"
+  }
+ ],
+ "rivalsAndAllies": [
+  {
+   "name": "Chief Dele Bankole-Ray",
+   "role": "rival",
+   "line": "Small madam, IPO no be pepper soup. Leave am for big boys."
+  },
+  {
+   "name": "Prof. Ngozi Umeh",
+   "role": "mentor",
+   "line": "A deal you cannot explain to your mother is a deal you should not sign."
+  },
+  {
+   "name": "Director Halima Sule",
+   "role": "regulator",
+   "line": "Page 47 does not match page 12. Fix it, then we can talk approval."
+  },
+  {
+   "name": "Mama Sikira",
+   "role": "family",
+   "line": "Ronke, you chop today? Deal fit wait, stomach no fit."
+  }
+ ],
+ "events": [
+  {
+   "name": "Oversubscribed!",
+   "text": "Investors want twice the shares on offer. Order book bonus for today's deals.",
+   "good": true
+  },
+  {
+   "name": "Regulator's Query",
+   "text": "The regulator sends back a prospectus with ten questions. That desk pauses to fix it.",
+   "good": false
+  },
+  {
+   "name": "Market Wobble",
+   "text": "Share prices dip and investors turn shy. Order books fill slower today.",
+   "good": false
+  },
+  {
+   "name": "Referral From Mama",
+   "text": "Mama Sikira sends five traders with their shoeboxes. Extra starter pack clients.",
+   "good": true
+  },
+  {
+   "name": "Leak Scare",
+   "text": "Someone left a merger file on the printer. Lock it up fast or the client loses trust.",
+   "good": false
+  },
+  {
+   "name": "Deal of the Year",
+   "text": "A finance magazine names your bond Deal of the Year. More clients in the lounge.",
+   "good": true
+  },
+  {
+   "name": "Generator Wahala",
+   "text": "Power cuts out at deadline. Desks slow down until the generator kicks in.",
+   "good": false
+  },
+  {
+   "name": "Rates Come Down",
+   "text": "Interest rates ease. States and companies rush to issue bonds. Bond fees up today.",
+   "good": true
+  }
+ ],
+ "endgame": "Kolanut Crown Capital runs five offices from Lagos to New York, leads Africa's biggest listings, bonds and mergers, looks after N1 trillion in savings, and funds a free business clinic at the market gate where it all began.",
+ "risksToHandleCarefully": "Never reward insider dealing, kickbacks or cooked numbers; show them only as mistakes to stop. State clients are unnamed and non-partisan. The order book must not feel like gambling. Make clear in-game money and returns are not real.",
+ "research": [
+  {
+   "claim": "Nigeria's securities regulator raised minimum capital in January 2026 to N7 billion for issuing houses that underwrite and N2 billion for advisory-only issuing houses, with a June 30, 2027 deadline.",
+   "url": "https://nairametrics.com/2026/01/16/sec-raises-capital-requirements-for-brokers-fund-managers-digital-firms/"
+  },
+  {
+   "claim": "Investment banking base pay in Nigeria runs about N250,000 to N600,000 a month for analysts and N500,000 to N1.2 million for associates, with bonuses of roughly 30% to 150% on top.",
+   "url": "https://www.profolio.ng/investment-banker/salary-guide"
+  },
+  {
+   "claim": "A 2026 Lagos State 10-year bond of up to N200 billion was priced by book building at an indicative 16.50% to 16.75%, with a N5 million minimum subscription and a sinking fund fed by a standing payment order.",
+   "url": "https://nairametrics.com/2026/10/10/lagos-launches-up-to-n200-billion-10-year-bond-key-takeaways-for-investors/"
+  },
+  {
+   "claim": "A N42 billion public share offer in January 2026 used one lead issuing house, seven joint issuing houses and a registrar, and stayed open to investors for about two weeks.",
+   "url": "https://allafrica.com/stories/202601100011.html"
+  },
+  {
+   "claim": "Fund managers overseeing more than N20 billion now need N5 billion in capital, and mid-tier managers need N2 billion.",
+   "url": "https://nairametrics.com/2026/01/16/sec-raises-capital-requirements-for-brokers-fund-managers-digital-firms/"
+  }
+ ]
+}

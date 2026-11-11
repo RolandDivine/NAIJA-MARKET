@@ -1,0 +1,315 @@
+{
+ "key": "bank",
+ "name": "PadiTrust Bank",
+ "tagline": "From one POS under an umbrella to the bank the whole street trusts.",
+ "ownerCharacter": {
+  "name": "Mrs. Folake Adigun",
+  "look": "Woman, 38, medium build, navy skirt suit with gold ankara lapels, low heels, neat low bun, reading glasses on a chain; always holds a green POS terminal.",
+  "backstory": "A retrenched bank teller who started again with one POS machine under an umbrella at the bus stop. She knows every customer by name and swears her bank will never lose one person's kobo."
+ },
+ "storyline": [
+  {
+   "title": "Umbrella and One POS",
+   "stage": "A plastic table, an umbrella and one POS terminal beside a busy bus stop.",
+   "story": "Folake's severance is small, so she becomes an agent for a bigger bank. Traders bring cash, commuters withdraw. Each day she may only move a capped amount, and if her float finishes before noon the queue walks to the next umbrella.",
+   "unlock": "Cash in, cash out and the first cash bag run to the float box."
+  },
+  {
+   "title": "The Agent Shop",
+   "stage": "A painted lock-up kiosk with a burglar-proof window, two POS terminals and a bench.",
+   "story": "The umbrella becomes a shop. Bills, airtime and transfers join the menu, and market women ask her to keep their daily contributions. She cannot legally hold deposits as an agent, so she must save towards a real licence.",
+   "unlock": "Transfers and bills desk, a second staff member and the savings ledger."
+  },
+  {
+   "title": "Licence on the Wall",
+   "stage": "A one-room unit microfinance bank with a counter, a small safe and a framed licence.",
+   "story": "With N50 million raised from family, a cooperative and her own profit, Folake wins a unit microfinance licence. Now deposits are hers to protect. The first loans go to traders she knows, and every unpaid loan hurts.",
+   "unlock": "Savings accounts, small business loans, the vault and the Credit Officer."
+  },
+  {
+   "title": "Bank for the Whole State",
+   "stage": "A two-storey state microfinance bank head office with a banking hall and an ATM.",
+   "story": "A N1 billion capital pad opens branches across the state. Salary accounts arrive from schools and clinics. The examiner visits for the first time, and a tidy loan book decides whether growth continues or pauses.",
+   "unlock": "ATM cards, branch manager, first branches by car and regulator inspections."
+  },
+  {
+   "title": "Going Regional",
+   "stage": "A regional commercial bank: glass banking hall, strong room and bullion van bay.",
+   "story": "Investors help her reach N50 billion and a regional commercial licence. Bullion vans replace hand-carried bags. Chief Okoro's bigger bank starts poaching her best tellers, and factories ask for loans larger than she has ever signed.",
+   "unlock": "Bullion van deliveries, corporate loans and treasury bill placements."
+  },
+  {
+   "title": "National and Listed",
+   "stage": "A national bank head office tower in Lagos with branches in every state capital.",
+   "story": "PadiTrust lists its shares, crosses N200 billion in capital and goes national. Now a network outage in one city is a headline. Folake flies weekly to keep queues short, vaults balanced and managers honest.",
+   "unlock": "National branch map, mobile app data centre and domestic flights."
+  },
+  {
+   "title": "Branches Abroad",
+   "stage": "An international bank with offices in Nairobi and London under one green logo.",
+   "story": "The N500 billion international licence is the biggest pad in the game. Nigerians abroad want to send money home through a bank they know. Each country has its own regulator, and each one must be satisfied.",
+   "unlock": "International flights, foreign branches and diaspora remittance customers."
+  },
+  {
+   "title": "The People's Bank",
+   "stage": "A landmark headquarters with a museum corner holding the first umbrella and POS.",
+   "story": "Millions of customers, thousands of staff and a clean record. Folake returns to the bus stop to open a free financial skills centre, and names her successor from the tellers who started with her.",
+   "unlock": "Chairman mode, the PadiTrust Foundation and the golden umbrella trophy."
+  }
+ ],
+ "productLines": [
+  {
+   "name": "Cash In and Cash Out",
+   "raw": "Cash bags from walk-in customers",
+   "station": "Teller counter with note counter",
+   "customer": "Traders, commuters and bus drivers",
+   "price": 200,
+   "priceNote": "Usual agent fee for a N10,000 withdrawal; about N100 per N5,000."
+  },
+  {
+   "name": "Transfers and Bills",
+   "raw": "Float cash from the till box",
+   "station": "Transfer and bills desk",
+   "customer": "Shop owners, students and families paying bills",
+   "price": 50,
+   "priceNote": "Top regulated e-transfer fee band is N50, for transfers above N50,000."
+  },
+  {
+   "name": "Savings and ATM Cards",
+   "raw": "Deposit bags from savers",
+   "station": "Account opening desk and card printer",
+   "customer": "Salary earners, market women and students (18+)",
+   "price": 1000,
+   "priceNote": "Card issuance costs about N1,000; the savings account itself is free."
+  },
+  {
+   "name": "Small Business Loans",
+   "raw": "Vault cash approved for lending",
+   "station": "Credit Officer's loan desk",
+   "customer": "Traders, tailors, farmers and keke owners",
+   "price": 15000,
+   "priceNote": "One month of interest on a N500,000 microloan at about 3% a month."
+  },
+  {
+   "name": "Corporate Loans",
+   "raw": "Bullion van cash boxes for the vault",
+   "station": "Corporate banking suite",
+   "customer": "Factories, importers, schools and hospitals",
+   "price": 250000,
+   "priceNote": "One month of interest on a N10 million loan at about 30% a year."
+  }
+ ],
+ "howItFitsTheEngine": "Deposits are the raw goods. The player carries cash bags from depositors at the door, and later from a bullion van in the yard, into the vault. Staff at desks turn vault cash into products: paid withdrawals, transfers, cards and loan packs. The player carries these to counters where customers queue, collect and pay a fee or interest. Repaid loans return as new cash bags.",
+ "staffRoles": [
+  {
+   "role": "Teller",
+   "does": "Counts cash, pays withdrawals and receives deposits at the counter.",
+   "look": "Young adult in green polo with name tag, sleeve garters, quick hands on a note counter.",
+   "monthlySalary": 130000
+  },
+  {
+   "role": "Customer Care Officer",
+   "does": "Opens accounts, prints ATM cards and calms the queue.",
+   "look": "Smiling woman in green blazer and ankara scarf, tablet in hand, lanyard ID.",
+   "monthlySalary": 150000
+  },
+  {
+   "role": "Credit Officer",
+   "does": "Checks borrowers properly so that more loans are repaid on time.",
+   "look": "Man in white shirt and loosened tie, thick loan folder, dusty shoes from visiting shops.",
+   "monthlySalary": 250000
+  },
+  {
+   "role": "Vault Custodian",
+   "does": "Stores cash bags in the vault and balances the books each evening.",
+   "look": "Stern older woman in grey waistcoat, big key ring on her belt, ledger under her arm.",
+   "monthlySalary": 220000
+  },
+  {
+   "role": "Security Guard",
+   "does": "Escorts cash from the door and the bullion van to the vault.",
+   "look": "Tall guard in dark blue uniform and beret, reflective vest, hand-held metal detector.",
+   "monthlySalary": 90000
+  },
+  {
+   "role": "Compliance Officer",
+   "does": "Checks customer identity and stops suspicious transactions before they pass.",
+   "look": "Slim woman in charcoal trouser suit, magnifier glasses, red stamp and a checklist clipboard.",
+   "monthlySalary": 400000
+  },
+  {
+   "role": "Branch Manager",
+   "does": "Runs the branch while the owner travels and approves bigger loans.",
+   "look": "Confident man in tailored navy suit and green tie, gold name plate, phone always at his ear.",
+   "monthlySalary": 650000
+  }
+ ],
+ "machines": [
+  {
+   "name": "Note Counting Machine",
+   "does": "Counts and bundles deposits at once, so each teller serves twice as fast.",
+   "look": "Desktop grey counter with spinning rollers, green digit display and stacks of banded notes."
+  },
+  {
+   "name": "ATM Gallery",
+   "does": "Serves withdrawals without a teller, and the vault refills it automatically.",
+   "look": "Row of three green ATMs under a glass canopy with a glowing logo and a short queue rail."
+  },
+  {
+   "name": "Mobile App Data Centre",
+   "does": "Handles transfers, bills and small loans on phones; cash moves by vault conveyor.",
+   "look": "Glass room of blinking server racks, cooling pipes and a conveyor belt running to the vault door."
+  }
+ ],
+ "moneyMechanics": [
+  {
+   "rule": "Reserve Lock",
+   "howItWorks": "Of every N100 deposited, N45 is locked with the central bank and earns nothing. The other N55 is yours to use: about N40 for loans, N10 for treasury bills and N5 kept as till cash.",
+   "realBasis": "The cash reserve ratio for deposit money banks was held at 45% in 2026, so banks lend and invest only what is left."
+  },
+  {
+   "rule": "The Spread",
+   "howItWorks": "Savers are paid about 8% a year. Borrowers pay about 30% a year at the bank stage and about 3% a month at the microfinance stage. Profit is the gap, minus salaries and bad loans.",
+   "realBasis": "Banks earn net interest margin. With the policy rate at 26.5%, lending rates sit near or above 30%."
+  },
+  {
+   "rule": "Loans Must Come Home",
+   "howItWorks": "Every loan has a repay chance. A Credit Officer check lifts it from 80% to 97%. If bad loans pass 5% of all loans, the examiner freezes new lending until you recover or write them off.",
+   "realBasis": "Regulators watch the non-performing loan ratio, with 5% as the usual prudential limit."
+  },
+  {
+   "rule": "Licence Ladder",
+   "howItWorks": "Bigger venues need capital pads: N50m unit microfinance, N1bn state microfinance, N50bn regional bank, N200bn national bank and N500bn international bank.",
+   "realBasis": "Central bank minimum capital rules by licence class, including the recapitalisation that ended in March 2026."
+  },
+  {
+   "rule": "Agent Daily Cap",
+   "howItWorks": "At kiosk stage each customer may cash out up to N100,000 a day, and the kiosk may move N1.2m a day in total. When the cap is reached, the kiosk closes until the next morning.",
+   "realBasis": "Agent banking rules cap daily cash-out per customer and total daily transactions per agent."
+  },
+  {
+   "rule": "Trust Meter",
+   "howItWorks": "If a customer asks for cash and the till is empty, trust drops 10 points. Below 50, savers queue to withdraw. Keep 5% of deposits as till cash and trust climbs back by 2 points a day.",
+   "realBasis": "Banks must hold liquid cash for withdrawals, because lost confidence can trigger a run on deposits."
+  }
+ ],
+ "travel": [
+  {
+   "place": "Ibadan",
+   "why": "Open the first branch outside Lagos and sign up the market women's cooperative.",
+   "how": "car"
+  },
+  {
+   "place": "Abuja",
+   "why": "Meet the central bank for licence upgrades and capital verification.",
+   "how": "domestic flight"
+  },
+  {
+   "place": "Kano",
+   "why": "Inspect the northern hub vault and meet grain and textile traders who need loans.",
+   "how": "domestic flight"
+  },
+  {
+   "place": "Kenya",
+   "why": "Open the Nairobi subsidiary and satisfy the regulator there.",
+   "how": "international flight"
+  },
+  {
+   "place": "United Kingdom",
+   "why": "Launch the London branch so Nigerians abroad can send money home safely.",
+   "how": "international flight"
+  }
+ ],
+ "rivalsAndAllies": [
+  {
+   "name": "Chief Bamidele Okoro",
+   "role": "rival",
+   "line": "Madam, my Goldcrest Bank has marble floors. You get umbrella. Who go win?"
+  },
+  {
+   "name": "Mama Risi",
+   "role": "mentor",
+   "line": "Thirty years I keep people's ajo. Trust first, my daughter. Money follows."
+  },
+  {
+   "name": "Examiner Halima Bello",
+   "role": "regulator",
+   "line": "Your books are clean today. I will come back when you least expect it."
+  },
+  {
+   "name": "Tunde Adigun",
+   "role": "family",
+   "line": "Sister, I go drive the bullion van. Just no tell Mama say I dey carry cash."
+  }
+ ],
+ "events": [
+  {
+   "name": "Salary Day Rush",
+   "text": "Month end! Workers flood in to withdraw. Fees double if the till holds.",
+   "good": true
+  },
+  {
+   "name": "Network Is Down",
+   "text": "POS and transfers hang for a while. Only cash services work until it returns.",
+   "good": false
+  },
+  {
+   "name": "Ajo Payout Day",
+   "text": "The market cooperative deposits its full contribution. Extra cash bags arrive.",
+   "good": true
+  },
+  {
+   "name": "Bullion Van in Traffic",
+   "text": "The van is stuck on the bridge. No vault refill until the road clears.",
+   "good": false
+  },
+  {
+   "name": "Clean Inspection",
+   "text": "The examiner finds every kobo in place. Trust rises and a fee is waived.",
+   "good": true
+  },
+  {
+   "name": "Fake Alert Attempt",
+   "text": "Someone shows a fake credit alert. Confirm on the system before paying out.",
+   "good": false
+  },
+  {
+   "name": "Rate Cut News",
+   "text": "The central bank trims its rate. More traders come asking for loans today.",
+   "good": true
+  },
+  {
+   "name": "ATM Swallowed a Card",
+   "text": "A customer's card is stuck. Fix it quickly or the queue loses patience.",
+   "good": false
+  }
+ ],
+ "endgame": "PadiTrust holds an international licence, 500 branches across Nigeria, Africa and the world, and a bad-loan ratio under 5%. Folake becomes chairman, hands over to a teller she trained and opens a free financial skills centre.",
+ "risksToHandleCarefully": "Use game cash only and never present rates as real financial advice. Loan recovery must be polite, with no shaming of borrowers. Fraud appears only as something to stop. Loan repayment odds must be shown openly. Customers are 18+.",
+ "research": [
+  {
+   "claim": "The central bank's Monetary Policy Committee held the policy rate at 26.5% and the cash reserve ratio for deposit money banks at 45% in July 2026.",
+   "url": "https://allafrica.com/stories/202607220158.html"
+  },
+  {
+   "claim": "Bank recapitalisation ended on 31 March 2026 with 33 banks meeting the new minimums and N4.65 trillion raised; an international licence needs N500bn, national N200bn and regional N50bn.",
+   "url": "https://african.business/2026/04/finance-services/nigeria-concludes-4-65-trillion-bank-recapitalisation-programme"
+  },
+  {
+   "claim": "Microfinance bank minimum capital is N50m for Unit Tier II, N200m for Unit Tier I, N1bn for State and N5bn for National licences.",
+   "url": "https://nairametrics.com/2026/01/26/cbn-upgrades-opay-moniepoint-other-major-fintechs-mfbs-to-national-status"
+  },
+  {
+   "claim": "Agent banking rules cap POS agents at N1.2 million in transactions per day and individual customers at N100,000 per day.",
+   "url": "https://www.icirnigeria.org/cbn-caps-pos-agents-daily-transactions-at-%e2%82%a61-2m-insists-on-geo-tagging-of-operators/"
+  },
+  {
+   "claim": "Bank tellers earn about N120,000 to N150,000 a month at entry level in top commercial banks and N60,000 to N85,000 in microfinance banks.",
+   "url": "https://www.profolio.ng/bank-teller/salary-guide"
+  },
+  {
+   "claim": "Bank branch managers earn about N299,000 to N902,000 a month, with mid-size commercial banks paying N450,000 to N650,000.",
+   "url": "https://www.profolio.ng/bank-branch-manager/salary-guide"
+  }
+ ]
+}

@@ -1,0 +1,315 @@
+{
+  "key": "tech",
+  "name": "KoboWave Technologies",
+  "tagline": "From one cracked screen to code that carries Africa's money.",
+  "ownerCharacter": {
+    "name": "Engr. Kelechi Adebayo",
+    "look": "Late 20s, slim, round glasses, teal hoodie over white tee, grey joggers, orange sneakers, always carrying a sticker-covered laptop with a tiny screwdriver behind one ear.",
+    "backstory": "Kelechi fixed cracked phone screens under an umbrella in Ikeja and spent the profit on night browsing at a cyber cafe, learning to code from free videos. One customer asked, \"You fit build app?\" Kelechi said yes first, then learned how."
+  },
+  "storyline": [
+    {
+      "title": "Umbrella Repair Stand",
+      "stage": "A wooden table and umbrella at Computer Village, fixing phones and flashing software.",
+      "story": "Kelechi swaps screens by day. Traders keep asking for a simple page to show their goods online. Each small job pays for one more hour of learning. If the stand fails, the dream stops at the umbrella.",
+      "unlock": "Product board, first dev desk and the Shop Page line."
+    },
+    {
+      "title": "Night Class at the Cafe",
+      "stage": "A rented corner seat in Bright Byte Cyber Cafe with one borrowed desktop.",
+      "story": "NEPA takes light mid-code and unsaved work vanishes. Kelechi learns to save every five minutes and ships a first invoice app for a provisions seller. One happy customer tells ten others.",
+      "unlock": "Invoice and Stock App line, plus a small UPS battery."
+    },
+    {
+      "title": "Two Laptops, One Room",
+      "stage": "A one-room app studio in a Yaba face-me-I-face-you flat, with a friend as co-founder.",
+      "story": "Old classmate Ngozi joins as designer. Clients want everything by Friday and pay by next month. The studio must choose: keep doing one-off jobs, or build one product that many businesses subscribe to.",
+      "unlock": "Sales desk queue, first junior developer and monthly subscriptions."
+    },
+    {
+      "title": "The Pay Link Idea",
+      "stage": "A shared co-working floor in Yaba with six desks and a noisy generator downstairs.",
+      "story": "A tailor loses a big order because the buyer cannot pay by transfer on time. Kelechi builds a pay link over one weekend. It works, but moving people's money needs a licence, a partner bank and real care.",
+      "unlock": "Pay Link Checkout line and the trip to Abuja for approval."
+    },
+    {
+      "title": "Seed Money, Real Pressure",
+      "stage": "A full Yaba office floor with a glass meeting room, product wall and server closet.",
+      "story": "Investor Aunty Folake offers seed money for a slice of the company. Now there is a board, a salary bill and a runway clock. Spend wisely and grow, or burn the cash and start begging for a bridge.",
+      "unlock": "Funding rounds, runway meter, senior developers and a manager."
+    },
+    {
+      "title": "Series A and the Rack Room",
+      "stage": "A three-floor KoboWave building in Lagos with its own server room and delivery bay.",
+      "story": "One Friday the cloud goes down and every shop on KoboWave cannot collect money. Never again. Kelechi raises a bigger round, buys real servers and opens Nairobi so the service has a second home.",
+      "unlock": "Server racks, Cloud Rack Plan line, Nairobi office and machines."
+    },
+    {
+      "title": "Five Cities, One Codebase",
+      "stage": "A campus in Lagos with offices in Nairobi, Cairo and London and a team of hundreds.",
+      "story": "Every country has its own rules, currency and holidays. A rival copies the product and poaches staff with big offers. Kelechi must keep people happy, keep data safe and keep the service up everywhere.",
+      "unlock": "Country offices as branches, payroll suite and data protection audits."
+    },
+    {
+      "title": "The Unicorn Bell",
+      "stage": "KoboWave Tower in Lagos, two data centres and a San Francisco office with a rooftop garden.",
+      "story": "A new round values KoboWave at over one billion dollars. Kelechi rings a bell at the old repair stand, now a free coding school. The job now is to stay honest, stay up and train the next builders.",
+      "unlock": "Unicorn status, free coding school and the pan-African expansion map."
+    }
+  ],
+  "productLines": [
+    {
+      "name": "Shop Page Starter",
+      "raw": "Website tickets from the product board",
+      "station": "Junior developer desk",
+      "customer": "Market traders and small shop owners",
+      "price": 5000,
+      "priceNote": "Monthly plan a small trader can pay from one good day of sales."
+    },
+    {
+      "name": "Invoice and Stock App",
+      "raw": "App feature tickets from the board",
+      "station": "Mobile app developer desk",
+      "customer": "Pharmacies, boutiques and provisions stores",
+      "price": 15000,
+      "priceNote": "Monthly plan per shop, in line with small business software in Lagos."
+    },
+    {
+      "name": "Pay Link Checkout",
+      "raw": "Payment tickets and bank API keys",
+      "station": "Senior developer desk",
+      "customer": "Online sellers, schools and event planners",
+      "price": 45000,
+      "priceNote": "About a month of 1.5% + N100 fees from a seller doing N2.5m in sales."
+    },
+    {
+      "name": "Payroll and HR Suite",
+      "raw": "Enterprise tickets from the board",
+      "station": "Product squad table",
+      "customer": "Factories, hospitals and private schools",
+      "price": 120000,
+      "priceNote": "N2,400 per worker each month for a 50-staff company."
+    },
+    {
+      "name": "Cloud Rack Plan",
+      "raw": "Server parts from the delivery bay",
+      "station": "Server rack in the rack room",
+      "customer": "Banks, telcos and other startups",
+      "price": 600000,
+      "priceNote": "Monthly rent for one managed server with diesel, cooling and support."
+    }
+  ],
+  "howItFitsTheEngine": "The player picks feature tickets off the product board and server parts off the delivery bay truck, then carries tickets to developer desks and parts to server racks. Developers and racks turn them into shipped app features. The player carries those to the sales desk, where shop owners, school bursars and bank managers queue to subscribe and pay.",
+  "staffRoles": [
+    {
+      "role": "Junior Developer",
+      "does": "Turns simple tickets into Shop Page and app features at a desk.",
+      "look": "Early 20s, headphones round neck, yellow tee, backpack, energy drink can on the desk.",
+      "monthlySalary": 300000
+    },
+    {
+      "role": "Senior Developer",
+      "does": "Builds payment and payroll features fast and with fewer bugs.",
+      "look": "30s, calm, navy polo, smart watch, two monitors, mug that says Ship It.",
+      "monthlySalary": 2000000
+    },
+    {
+      "role": "Product Manager",
+      "does": "Refills the product board so tickets never run out.",
+      "look": "Late 20s woman, ankara blazer, tablet in hand, pocket full of sticky notes.",
+      "monthlySalary": 900000
+    },
+    {
+      "role": "Server Engineer",
+      "does": "Fits server parts into racks and keeps the service online.",
+      "look": "30s, grey overalls with teal trim, anti-static wrist strap, torch on belt.",
+      "monthlySalary": 1200000
+    },
+    {
+      "role": "Sales Rep",
+      "does": "Serves the queue at the sales desk and signs up businesses.",
+      "look": "Mid 20s, crisp white shirt, teal tie, big smile, lanyard and demo phone.",
+      "monthlySalary": 250000
+    },
+    {
+      "role": "Support Agent",
+      "does": "Answers customer calls so subscribers stay instead of leaving.",
+      "look": "20s woman, headset, teal cardigan, small desk plant, patient face.",
+      "monthlySalary": 180000
+    },
+    {
+      "role": "Data Protection Officer",
+      "does": "Keeps customer data safe and files the yearly audit on time.",
+      "look": "40s, glasses on a chain, grey suit, thick green file under one arm.",
+      "monthlySalary": 700000
+    }
+  ],
+  "machines": [
+    {
+      "name": "Ticket Trolley Bot",
+      "does": "Rolls tickets from the product board to developer desks without the player.",
+      "look": "Knee-high teal robot on wheels with a tray of coloured cards and blinking eyes."
+    },
+    {
+      "name": "Auto-Deploy Belt",
+      "does": "Carries finished features from every desk straight to the sales desk.",
+      "look": "Glowing overhead conveyor rail with small glass boxes sliding along, green lights."
+    },
+    {
+      "name": "Data Centre Robot Arm",
+      "does": "Unloads the delivery bay and fits server parts into racks all day and night.",
+      "look": "Tall orange robot arm on a floor rail between rows of black racks with blue LEDs."
+    }
+  ],
+  "moneyMechanics": [
+    {
+      "rule": "Fee per payment, with a cap",
+      "howItWorks": "Each Pay Link payment earns 1.5% plus N100, never more than N2,000. The N100 is waived on payments under N2,500. Payments from abroad earn 3.9%. Many small payments beat one giant one.",
+      "realBasis": "Nigerian payment processors publish local card fees of 1.5% + N100 capped at N2,000, and 3.9% on international cards."
+    },
+    {
+      "rule": "Funding rounds cost a slice",
+      "howItWorks": "Seed gives about $2m for 20% of the company. Series A gives about $15m for another 20%. Cash arrives at once, but your share of daily profit drops to 80%, then 64%.",
+      "realBasis": "Lagos seed rounds run about $1m to $3m. Nigerian Series A rounds in 2025 ranged from $11m to $22m."
+    },
+    {
+      "rule": "Runway meter",
+      "howItWorks": "Salaries leave on the 28th. A junior dev costs N300,000 and a senior N2,000,000 a month. If cash covers under 3 months of pay, staff slow by 25% until you sell more or raise.",
+      "realBasis": "Startups track burn and months of runway. Developer pay is the biggest cost for most Nigerian tech firms."
+    },
+    {
+      "rule": "Diesel and uptime",
+      "howItWorks": "The office generator drinks 6 litres an hour at about N1,650 a litre, near N80,000 for an 8-hour day. If fuel runs out, racks stop and subscribers leave. Solar cuts the bill by 70%.",
+      "realBasis": "Lagos offices and server rooms run on diesel when grid power fails. Average diesel was about N1,648 a litre in March 2026."
+    },
+    {
+      "rule": "Data protection audit",
+      "howItWorks": "Past 200 customers you must register, hire a Data Protection Officer and file an audit by 31 March. Late filing adds 50% to the fee. Ignore it and pay N10m or 2% of yearly income.",
+      "realBasis": "Nigerian firms of major importance register with the data regulator and file yearly audit returns by 31 March."
+    },
+    {
+      "rule": "Customers' money is not yours",
+      "howItWorks": "Pay Link money sits in a locked settlement vault and goes to sellers next day. You only keep the fee. Settle on time for 30 days to earn a trust star and 10% more customers.",
+      "realBasis": "Licensed payment firms must keep customer funds separate and settle merchants on a fixed schedule."
+    }
+  ],
+  "travel": [
+    {
+      "place": "Abuja, Nigeria",
+      "why": "Meet the central bank and data regulator teams for your payments licence and yearly audit.",
+      "how": "domestic flight"
+    },
+    {
+      "place": "Nairobi, Kenya",
+      "why": "Open the East Africa office, hire engineers and inspect the second data centre.",
+      "how": "international flight"
+    },
+    {
+      "place": "Cairo, Egypt",
+      "why": "Launch the North Africa office and sign a partner bank for Arabic-language checkout.",
+      "how": "international flight"
+    },
+    {
+      "place": "London, United Kingdom",
+      "why": "Serve diaspora customers sending money home and meet investors for the next round.",
+      "how": "international flight"
+    },
+    {
+      "place": "San Francisco, USA",
+      "why": "Pitch global investors, visit the cloud partner and speak at a big tech conference.",
+      "how": "international flight"
+    }
+  ],
+  "rivalsAndAllies": [
+    {
+      "name": "Aunty Folake Bankole",
+      "role": "mentor",
+      "line": "I no dey invest in slides, my dear. Show me customers wey pay you twice."
+    },
+    {
+      "name": "Dayo Zest of ZapPadi",
+      "role": "rival",
+      "line": "Nice feature, Kelechi. We go launch our own version by Monday."
+    },
+    {
+      "name": "Mrs. Hadiza Umar",
+      "role": "regulator",
+      "line": "Your app is fine. Now show me where you keep people's data."
+    },
+    {
+      "name": "Mama Kelechi",
+      "role": "family",
+      "line": "This your computer work, e dey pay? Ehen, then chop before you code."
+    }
+  ],
+  "events": [
+    {
+      "name": "Light Don Go",
+      "text": "Grid power is out. Generator kicks in and diesel burns twice as fast today.",
+      "good": false
+    },
+    {
+      "name": "Trader Went Viral",
+      "text": "A shoe seller's Shop Page trends online. Double queue at the sales desk today.",
+      "good": true
+    },
+    {
+      "name": "Bug in Production",
+      "text": "A release broke checkout. Carry 3 fix tickets to a senior dev before customers leave.",
+      "good": false
+    },
+    {
+      "name": "Hackathon Win",
+      "text": "Your juniors won a weekend hackathon. All developer desks work 20% faster today.",
+      "good": true
+    },
+    {
+      "name": "Rival Poaching",
+      "text": "ZapPadi offers your senior dev more pay. Give a raise or lose that desk for a day.",
+      "good": false
+    },
+    {
+      "name": "Server Parts Stuck",
+      "text": "The delivery truck is held at the port. No server parts until this evening.",
+      "good": false
+    },
+    {
+      "name": "Clean Audit",
+      "text": "The data audit passed with no issues. Trust rises and big companies join the queue.",
+      "good": true
+    },
+    {
+      "name": "School Fees Season",
+      "text": "Schools are collecting fees with Pay Link. Payment income is up 50% today.",
+      "good": true
+    }
+  ],
+  "endgame": "KoboWave is a billion-dollar company with a Lagos tower, two data centres and offices in Nairobi, Cairo, London and San Francisco, carrying payments for millions of African businesses while its free school trains the next coders.",
+  "risksToHandleCarefully": "Show the cyber cafe only as a place to learn, never for scams. Customer money and data stay protected. Funding is not a gamble or loot box. No promise of real income. Hacking appears only as attacks to defend against. Staff are adults.",
+  "research": [
+    {
+      "claim": "Nigerian developers earn a median of about N300,000 a month as juniors and N2,000,000 as seniors, with seniors ranging from N1m to N4m.",
+      "url": "https://mctaba.com/learn/nigeria/software-developer-salaries-nigeria"
+    },
+    {
+      "claim": "Lagos seed rounds in 2026 typically run about $1m to $3m, usually as a post-money SAFE or a priced round.",
+      "url": "https://hub.causo.ai/guides/raising-seed-nigeria-lagos-2026"
+    },
+    {
+      "claim": "Nigerian startups raised $442.8m in 2025, with Series A rounds of $11m, $11m, $20m and $22m among the named deals.",
+      "url": "https://nairametrics.com/2026/01/29/nigerias-most-funded-startups-capture-82-9-of-2025-capital-inflow/"
+    },
+    {
+      "claim": "A leading Nigerian payment processor charges 1.5% + N100 on local payments, waives the N100 under N2,500, caps fees at N2,000 and charges 3.9% on international cards.",
+      "url": "https://paystack.com/pricing"
+    },
+    {
+      "claim": "Nigeria's average diesel price was N1,648.08 a litre in March 2026, up from N1,420.17 in February.",
+      "url": "https://nairametrics.com/2026/04/28/petrol-price-rises-to-n1288-diesel-hits-n1648-in-march-nbs/"
+    },
+    {
+      "claim": "Major data controllers in Nigeria must file audit returns by 31 March each year, with a 50% late penalty and sanctions up to N10m or 2% of annual gross revenue.",
+      "url": "https://www.mondaq.com/nigeria/data-protection/1734060/what-you-should-know-about-the-new-data-protection-compliance-audit-regime-in-nigeria"
+    }
+  ]
+}

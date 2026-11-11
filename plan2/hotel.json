@@ -1,0 +1,315 @@
+{
+  "key": "hotel",
+  "name": "Adunni Palms Hotels",
+  "tagline": "From four rooms in Surulere to seven cities. Every guest sleeps well.",
+  "ownerCharacter": {
+    "name": "Madam Adunni Bakare",
+    "look": "Woman, 38, medium build, emerald ankara blazer over cream dress, gold gele-style headwrap, low heels, warm smile; always holds a big brass key ring.",
+    "backstory": "A former front-desk clerk who was laid off, Adunni inherits her aunty's tired four-room guest house in Surulere. She knows one thing well: how a guest should feel. She decides to build the hotel she never got to manage."
+  },
+  "storyline": [
+    {
+      "title": "Four Rooms, One Dream",
+      "stage": "A four-room guest house in Surulere, Lagos, with one bucket, one generator, one desk.",
+      "story": "Adunni washes sheets by hand and checks guests in herself. NEPA takes light at night and the small gen coughs. If the first reviews are bad, the rooms stay empty and the house goes back to the family for sale.",
+      "unlock": "Reception desk, 4 rooms, the laundry yard and your first housekeeper."
+    },
+    {
+      "title": "The Budget Hotel",
+      "stage": "A 20-room budget hotel on a busy Yaba road with a small canteen and a signboard.",
+      "story": "Traders and corpers start to book ahead. Adunni takes a loan for the building next door. Now the rooms must stay 60% full every week or the repayment will swallow the profit.",
+      "unlock": "Kitchen and breakfast line, a supply van, a receptionist and a porter."
+    },
+    {
+      "title": "Stars on the Door",
+      "stage": "The same hotel, repainted, with fire exits, staff uniforms and a guest register.",
+      "story": "The tourism board inspector arrives with a clipboard. Fire extinguishers, clean kitchen, proper records: pass and the hotel earns its first stars and better rates. Fail and you fix every item before guests return.",
+      "unlock": "Star rating system, a maintenance engineer and the big soundproof generator."
+    },
+    {
+      "title": "Ikeja Means Business",
+      "stage": "A 60-room business hotel in Ikeja with a 300-seat conference hall and a car park.",
+      "story": "Companies want halls for trainings and AGMs. One good conference pays more than a week of rooms, but the hall must be dressed, cooled and fed on time. Rival Chief Dotun opens across the road.",
+      "unlock": "Conference hall line, executive suites, banquet stewards and the hotel manager."
+    },
+    {
+      "title": "Abuja Calling",
+      "stage": "Two hotels: Ikeja and a new 80-room tower in Abuja near the business district.",
+      "story": "Adunni can no longer be in every lobby. She must trust managers, fly to Abuja to inspect, and keep the same standard in both cities. One sloppy branch can drag the whole name down.",
+      "unlock": "Second branch, domestic flights, branch inspections and corporate contracts."
+    },
+    {
+      "title": "Sand, Sea and Calabar",
+      "stage": "A beach resort outside Calabar with villas, a pool, a grill bar and a jetty.",
+      "story": "Holiday guests are different: they stay longer and spend more, but only in season. December is gold, the rainy months are quiet. Adunni must fill the resort with weddings and retreats or it will bleed diesel.",
+      "unlock": "Beach villa line, seasons and festive pricing, wedding packages, solar power."
+    },
+    {
+      "title": "Across the Continent",
+      "stage": "Five hotels: Lagos, Abuja, Calabar, plus Accra city hotel and a Zanzibar beach lodge.",
+      "story": "New countries bring new rules, new currencies and new tastes. Adunni hires local teams, learns each licence properly and sells one promise everywhere: the Adunni Palms welcome. Investors begin to notice.",
+      "unlock": "Africa branches, international flights, a loyalty card and a central laundry."
+    },
+    {
+      "title": "The Seven-City Crown",
+      "stage": "A luxury chain with flagship towers in Dubai and London and a head office in Lagos.",
+      "story": "The last step is the hardest: five-star service in two of the toughest hotel cities on earth. Adunni trains Nigerian hospitality graduates to lead them and hangs her aunty's old brass key in every lobby.",
+      "unlock": "Dubai and London flagships, five-star grading and the hospitality academy."
+    }
+  ],
+  "productLines": [
+    {
+      "name": "Standard Room Night",
+      "raw": "Clean bed linen from the laundry",
+      "station": "Guest room made up by housekeeper",
+      "customer": "Traders, corpers and travellers on a budget",
+      "price": 45000,
+      "priceNote": "Guest houses and budget hotels in Lagos sit around ₦30,000 to ₦60,000 a night."
+    },
+    {
+      "name": "Breakfast Buffet Plate",
+      "raw": "Food supplies from the supply van",
+      "station": "Hotel kitchen with chef",
+      "customer": "House guests and walk-in diners",
+      "price": 15000,
+      "priceNote": "A mid-range hotel buffet in Lagos runs about ₦12,000 to ₦20,000 per head."
+    },
+    {
+      "name": "Executive Suite Night",
+      "raw": "Fresh linen plus toiletries packs",
+      "station": "Suite turned down by senior housekeeper",
+      "customer": "Business travellers and conference guests",
+      "price": 205000,
+      "priceNote": "Matches the reported Lagos average daily rate of about ₦205,534."
+    },
+    {
+      "name": "Conference Hall Day",
+      "raw": "Table linen and tea-break food crates",
+      "station": "Hall dressed by banquet stewards",
+      "customer": "Companies, weddings and associations",
+      "price": 1500000,
+      "priceNote": "Mid-size Lagos hotel halls list at about ₦1.3m to ₦2m; big ballrooms cost more."
+    },
+    {
+      "name": "Beach Villa Night",
+      "raw": "Linen, toiletries and a welcome food tray",
+      "station": "Villa prepared by the butler team",
+      "customer": "Holiday families, honeymooners, retreats",
+      "price": 480000,
+      "priceNote": "Five-star and resort villas run two to three times the city average rate."
+    }
+  ],
+  "howItFitsTheEngine": "The player collects clean linen from the laundry yard and food supplies and toiletries from the supply van. Linen and toiletries go to rooms, where housekeepers make them ready. Food goes to the kitchen; linen and tea-break crates go to the hall. Guests check in at reception, walk to a ready room, eat or meet, then pay at checkout. Used linen goes back to the laundry.",
+  "staffRoles": [
+    {
+      "role": "Housekeeper",
+      "does": "Turns linen and toiletries into a ready room and strips used beds.",
+      "look": "Young woman, teal tunic and white apron, hair in a neat bun, pushing a trolley stacked with towels.",
+      "monthlySalary": 80000
+    },
+    {
+      "role": "Receptionist",
+      "does": "Checks guests in, hands out keys and takes payment at checkout.",
+      "look": "Smiling man in his 20s, emerald waistcoat, gold name tag, behind a desk with a brass bell.",
+      "monthlySalary": 110000
+    },
+    {
+      "role": "Porter",
+      "does": "Carries guest bags and brings linen bundles from the laundry.",
+      "look": "Tall, lean man, short-sleeve green uniform with gold trim, pillbox cap, pulling a luggage cart.",
+      "monthlySalary": 70000
+    },
+    {
+      "role": "Head Chef",
+      "does": "Turns food supplies into buffet plates and hall catering.",
+      "look": "Stout woman in her 40s, white double-breasted jacket, ankara headscarf, wooden ladle in hand.",
+      "monthlySalary": 350000
+    },
+    {
+      "role": "Banquet Steward",
+      "does": "Dresses the hall with linen and serves tea breaks to delegates.",
+      "look": "Slim young man, white shirt, black bow tie, green cummerbund, balancing a tray of glasses.",
+      "monthlySalary": 75000
+    },
+    {
+      "role": "Maintenance Engineer",
+      "does": "Keeps the generator, water pump and air conditioners running.",
+      "look": "Broad man in navy overalls, yellow hard hat, grease on one cheek, big spanner and a jerrycan.",
+      "monthlySalary": 180000
+    },
+    {
+      "role": "Hotel Manager",
+      "does": "Runs a branch while you travel; collects takings and watches standards.",
+      "look": "Elegant woman in her 40s, charcoal skirt suit, emerald scarf, tablet under arm, reading glasses.",
+      "monthlySalary": 650000
+    }
+  ],
+  "machines": [
+    {
+      "name": "Self-Rolling Linen Cart",
+      "does": "Carries clean linen and toiletries from the laundry to the rooms on its own.",
+      "look": "Waist-high brass and green trolley on four small wheels, towels stacked high, tiny bell on top."
+    },
+    {
+      "name": "Service Lift and Chute",
+      "does": "Lifts food to the hall and upper rooms; drops used linen straight to the laundry.",
+      "look": "Steel dumbwaiter door in the wall with a green light, beside a round laundry chute hatch."
+    },
+    {
+      "name": "Central Laundry Plant",
+      "does": "Washes, dries and delivers linen for every room and hall with no carrying at all.",
+      "look": "Long shed of giant drum washers, a steam press and a conveyor feeding a branded delivery van."
+    }
+  ],
+  "moneyMechanics": [
+    {
+      "rule": "Occupancy fills the till",
+      "howItWorks": "A room only earns when a guest sleeps in it. Base occupancy is 50%. Clean rooms, stars and adverts lift it to about 67% in a normal month and up to 95% in peak season.",
+      "realBasis": "Hotels live on occupancy times average daily rate; Lagos occupancy was reported at 66.7% in October 2025."
+    },
+    {
+      "rule": "Diesel eats the profit",
+      "howItWorks": "When grid light goes, the gen burns 20 litres an hour at about ₦3,277 a litre: roughly ₦65,500 an hour. Solar and inverter upgrades cut gen hours by 60%.",
+      "realBasis": "Nigerian hotels self-generate most of their power; NBS put average diesel at ₦3,277 a litre in May 2026."
+    },
+    {
+      "rule": "No clean room, no sale",
+      "howItWorks": "Guests pay at checkout. After checkout the room is dirty and earns ₦0 until fresh linen and toiletries arrive. Each ready room sells once per night.",
+      "realBasis": "Room turnaround by housekeeping decides how many rooms a hotel can actually sell each night."
+    },
+    {
+      "rule": "Detty December peak",
+      "howItWorks": "From mid December to early January room and villa rates rise 50% and occupancy jumps to 95%. The peak is on the game calendar, so stock up on linen before it.",
+      "realBasis": "Lagos hotels report their strongest bookings and rates during the December festive season."
+    },
+    {
+      "rule": "VAT and service charge",
+      "howItWorks": "Every bill adds 7.5% VAT, set aside for the monthly tax run, and a 10% service charge shared among staff. Paid on time, staff speed rises 10%.",
+      "realBasis": "Nigerian hotel bills carry VAT plus a customary 10% service charge; staff ranges exclude service charge."
+    },
+    {
+      "rule": "Earn your stars",
+      "howItWorks": "Once a year the tourism board inspects safety, hygiene and records. Each star gained lifts room rates 15%. Miss an item and you fix it first; there is no shortcut.",
+      "realBasis": "Hotels must register with the tourism authority and are inspected and graded before they can trade."
+    }
+  ],
+  "travel": [
+    {
+      "place": "Accra",
+      "why": "Open the first hotel outside Nigeria, meet the Ghana tourism office and hire the local team.",
+      "how": "international flight"
+    },
+    {
+      "place": "Abuja",
+      "why": "Inspect the Abuja tower, sign corporate room contracts and attend the tourism board grading.",
+      "how": "domestic flight"
+    },
+    {
+      "place": "Calabar",
+      "why": "Check the beach resort before carnival season and walk every villa with the housekeepers.",
+      "how": "domestic flight"
+    },
+    {
+      "place": "London",
+      "why": "Launch the London flagship, meet travel agents and bring diaspora guests home for December.",
+      "how": "international flight"
+    },
+    {
+      "place": "Dubai",
+      "why": "Buy linen and kitchen equipment at the hotel trade fair and inspect the Dubai tower.",
+      "how": "international flight"
+    }
+  ],
+  "rivalsAndAllies": [
+    {
+      "name": "Chief Dotun Okoya",
+      "role": "rival",
+      "line": "My Royal Peacock Suites has gold taps. What does your small place have?"
+    },
+    {
+      "name": "Mama Ekaette Bassey",
+      "role": "mentor",
+      "line": "My dear, guest no dey remember marble. Guest dey remember how you treat am."
+    },
+    {
+      "name": "Inspector Halima Sule",
+      "role": "regulator",
+      "line": "I check the fire exit first, then the kitchen. Smile does not earn a star."
+    },
+    {
+      "name": "Tunde Bakare",
+      "role": "family",
+      "line": "Sister, aunty left you four rooms. You don turn am to four countries!"
+    }
+  ],
+  "events": [
+    {
+      "name": "Light Don Go",
+      "text": "Grid power is out all evening. The generator runs and diesel costs double today.",
+      "good": false
+    },
+    {
+      "name": "Wedding Party Books Hall",
+      "text": "A couple books the hall and 12 rooms for Saturday. Hall income is doubled today.",
+      "good": true
+    },
+    {
+      "name": "One-Star Review",
+      "text": "A guest posts about a stained pillow. Occupancy drops 10% until rooms are spotless.",
+      "good": false
+    },
+    {
+      "name": "Conference Delegation",
+      "text": "Forty delegates arrive for a three-day training. Every suite is taken.",
+      "good": true
+    },
+    {
+      "name": "Burst Pipe on Floor Two",
+      "text": "Water floods two rooms. They close until the engineer repairs them.",
+      "good": false
+    },
+    {
+      "name": "Nollywood Crew Checks In",
+      "text": "A film crew shoots in your lobby. Free publicity lifts bookings for three days.",
+      "good": true
+    },
+    {
+      "name": "Diesel Price Jumps",
+      "text": "Depot prices rise overnight. Generator cost is up 30% this week.",
+      "good": false
+    },
+    {
+      "name": "Inspection Passed",
+      "text": "The inspector finds every exit clear and every record neat. Guests trust you more.",
+      "good": true
+    }
+  ],
+  "endgame": "Adunni Palms is a listed luxury chain with hotels in Lagos, Abuja, Calabar, Accra, Zanzibar, Dubai and London, five-star graded, mostly solar powered, with a hospitality academy training thousands of young Nigerians.",
+  "risksToHandleCarefully": "Keep hotel bars 18+ and never push drinking. No romance or escort hints; guests are families, workers and tourists. Protect guest privacy. Inspectors are never bribed. Show other countries with respect. Game money only.",
+  "research": [
+    {
+      "claim": "The average daily hotel rate in Lagos reached a record ₦205,534 in October 2025, up from ₦83,105 in 2023, with occupancy at 66.7%.",
+      "url": "https://atqnews.com/news-lagos-hotel-prices-surge-to-n205534-amid-rising-demand-and-limited-supply/"
+    },
+    {
+      "claim": "Event halls in top Lagos and Abuja hotels were listed from about ₦1.3 million for a 60 to 120 seat room up to ₦10 million to ₦25 million for the largest ballrooms.",
+      "url": "https://nairametrics.com/2025/11/18/see-costs-of-renting-event-halls-in-top-lagos-and-abuja-hotels/"
+    },
+    {
+      "claim": "The statistics bureau reported the average retail price of diesel at ₦3,277.47 per litre in May 2026, up 86.4% from a year earlier.",
+      "url": "https://www.legit.ng/business-economy/energy/1716140-nbs-diesel-price-rises-8640-n3277litre-2026/"
+    },
+    {
+      "claim": "Chefs in Nigeria earn from about ₦60,000 to ₦120,000 a month at entry level, ₦300,000 to ₦500,000 as head chef and ₦450,000 to ₦800,000 or more as executive chef.",
+      "url": "https://www.profolio.ng/chef/salary-guide"
+    },
+    {
+      "claim": "Entry-level housekeepers earn about ₦50,000 to ₦100,000 a month and housekeeping supervisors ₦70,000 to ₦250,000, excluding service charge.",
+      "url": "https://www.profolio.ng/housekeeping-supervisor/salary-guide"
+    },
+    {
+      "claim": "A salary survey puts hotel managers in Nigeria at roughly ₦131,555 to ₦645,718 gross a month for the middle 80% of respondents.",
+      "url": "https://www.paylab.com/ng/salaryinfo/management/hotel-manager?lang=en"
+    }
+  ]
+}

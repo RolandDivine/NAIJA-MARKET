@@ -1,0 +1,315 @@
+{
+ "key": "estate",
+ "name": "Oke-Ile Homes & Towers",
+ "tagline": "From one bunch of keys to a skyline with your name on it.",
+ "ownerCharacter": {
+  "name": "Mr. Dele Oyekanmi",
+  "look": "Early 30s, lean and quick. White short-sleeve shirt, navy trousers, dusty brown shoes, yellow hard hat under one arm. Signature prop: huge jangling ring of keys.",
+  "backstory": "Dele slept in a face-me-I-face-you room and showed other people's flats for a living. He promised his mum one thing: one day she go collect key to a house he built himself, with clean papers."
+ },
+ "storyline": [
+  {
+   "title": "Keys and Trekking",
+   "stage": "A wooden kiosk with a TO LET board, a bench and a ring of borrowed keys.",
+   "story": "Dele shows rooms on foot and earns a small, honest commission each time a tenant pays. One landlord says: bring me ten good tenants and I go trust you with the whole street. Trek, show, close.",
+   "unlock": "Letting desk and the first product line: Flat Letting"
+  },
+  {
+   "title": "Sand, Cement, Sweat",
+   "stage": "A fenced yard behind the kiosk with a hand mould, sand heaps and blocks drying in rows.",
+   "story": "Builders keep asking Dele where to buy strong blocks. He rents a yard and starts moulding. Mix it rich and the blocks ring like a bell; mix it weak and every site in town will know your name for the wrong reason.",
+   "unlock": "Block-moulding station and the 9-inch Blocks line"
+  },
+  {
+   "title": "Tipper on Credit",
+   "stage": "A busy block yard with a vibrating machine, a second-hand tipper and a signboard.",
+   "story": "Cement jumps again and customers queue at the gate. Dele takes a tipper on hire purchase to bring sharp sand from Abeokuta himself. If the blocks sell, the tipper pays for itself. If not, the tipper goes back.",
+   "unlock": "Delivery tipper, bulk material orders and the first road trip"
+  },
+  {
+   "title": "First Bungalow",
+   "stage": "One titled plot beside the yard, pegged out, with a site office in a container.",
+   "story": "A nurse brings her savings and one question: can you build my bungalow with no story? Dele must get survey, title and building permit first, then raise it stage by stage. She pays only as each stage stands.",
+   "unlock": "Building plots that rise in stages and the Bungalow line"
+  },
+  {
+   "title": "Gate and Street Lights",
+   "stage": "A walled estate of twenty plots with a gatehouse, paved road, drainage and a sales office.",
+   "story": "Dele buys a whole layout and sells serviced plots. Buyers want roads, light and proof of title before they pay. A rival sells cheaper land next door with no papers. Dele chooses the slow, clean way.",
+   "unlock": "Sales office, estate venue stage and the Estate Plots line"
+  },
+  {
+   "title": "The Plaza",
+   "stage": "A two-storey shopping plaza at the estate gate with forty lock-up shops and parking.",
+   "story": "Residents are tired of driving far for bread. Dele builds a plaza and learns a new kind of money: rent that comes every year, even when he is asleep. He opens an Abuja office and starts flying to site.",
+   "unlock": "Yearly rent income, a manager and branches in Abuja and beyond"
+  },
+  {
+   "title": "Going Up",
+   "stage": "A fifteen-floor tower site in Lagos with a tower crane, hoardings and a show flat.",
+   "story": "Land is too costly to build flat, so Dele builds up. Towers need piling, engineers, tests on every pour and buyers from abroad who pay off-plan. One failed concrete test can stop the whole site. Test everything.",
+   "unlock": "Tower crane, off-plan sales and the Tower Flats line"
+  },
+  {
+   "title": "Skyline",
+   "stage": "Glass towers in Lagos, Abuja, Accra, Nairobi, Dubai and London under one logo.",
+   "story": "Oke-Ile cranes now stand in six cities. Dele flies from site to site with the same key ring on his belt. Last stop is home: he walks his mum to a front door, hands her one key, and she no fit talk.",
+   "unlock": "World branches, skyline view and the Mama's Key ending"
+  }
+ ],
+ "productLines": [
+  {
+   "name": "Flat Letting",
+   "raw": "Keys and TO LET boards from landlords",
+   "station": "Letting desk: agent shows and signs",
+   "customer": "Tenants looking for a room or mini flat",
+   "price": 100000,
+   "priceNote": "5% commission on a mini flat renting at N2m a year in Lagos"
+  },
+  {
+   "name": "9-inch Blocks",
+   "raw": "Sharp sand and cement bags from tipper",
+   "station": "Block-moulding machine and drying rows",
+   "customer": "Site builders and bricklayers buying by the load",
+   "price": 900,
+   "priceNote": "Estimate: about 35 blocks per N13,000 cement bag plus sand and labour"
+  },
+  {
+   "name": "Bungalow Build",
+   "raw": "Blocks, iron rods and roofing sheets",
+   "station": "Building plot that rises in 5 stages",
+   "customer": "Families paying one stage at a time",
+   "price": 6000000,
+   "priceNote": "One of 5 stage payments on a N30m, 120 sqm two-bedroom bungalow"
+  },
+  {
+   "name": "Estate Plots",
+   "raw": "Survey pegs and stamped title files",
+   "station": "Survey and title desk in the estate",
+   "customer": "Savers and diaspora buyers wanting land with papers",
+   "price": 15000000,
+   "priceNote": "Game figure for a serviced, titled plot on the city outskirts"
+  },
+  {
+   "name": "Tower Flats",
+   "raw": "Iron rods, cement and glass panels",
+   "station": "Tower plot with crane, floor by floor",
+   "customer": "Executives and investors buying off-plan",
+   "price": 30000000,
+   "priceNote": "20% deposit on a N150m two-bedroom city flat; the rest follows by stage"
+  }
+ ],
+ "howItFitsTheEngine": "A delivery tipper drops sand, cement bags, blocks and iron rods at the yard gate. The player carries them to the block machine and to building plots, where bricklayers raise each plot through five visible stages: foundation, walls, lintel, roof, finish. Buyers and tenants queue at the sales office to pay commission, stage payments and deposits, then walk off with keys.",
+ "staffRoles": [
+  {
+   "role": "Letting Agent",
+   "does": "Shows flats to tenants, signs them up and collects the fair 5% commission.",
+   "look": "Young woman, bright orange polo, black trousers, trainers, clipboard and a small bunch of keys.",
+   "monthlySalary": 150000
+  },
+  {
+   "role": "Block Machine Operator",
+   "does": "Mixes sand and cement, moulds blocks and stacks them to cure.",
+   "look": "Stocky man, grey singlet, cement-dusted khaki shorts, rubber boots, shovel on his shoulder.",
+   "monthlySalary": 120000
+  },
+  {
+   "role": "Bricklayer",
+   "does": "Lays blocks and pours concrete to move a plot to its next stage.",
+   "look": "Wiry man in his 40s, faded blue overall, red hard hat, trowel in hand, spirit level in back pocket.",
+   "monthlySalary": 200000
+  },
+  {
+   "role": "Tipper Driver",
+   "does": "Brings sand, cement and rods from depot to the yard gate on time.",
+   "look": "Big cheerful man, green face cap, check shirt, towel round his neck, always holding a waybill.",
+   "monthlySalary": 130000
+  },
+  {
+   "role": "Site Engineer",
+   "does": "Checks every stage and tests concrete before the next stage can start.",
+   "look": "Woman in her 30s, white hard hat, hi-vis yellow vest over a blue shirt, rolled drawings under her arm.",
+   "monthlySalary": 350000
+  },
+  {
+   "role": "Title Officer",
+   "does": "Handles survey, title papers and building permits so every sale is clean.",
+   "look": "Neat older man, grey waistcoat, round glasses, fat green file tied with red ribbon.",
+   "monthlySalary": 400000
+  },
+  {
+   "role": "Sales Executive",
+   "does": "Serves buyers at the sales office and collects stage payments and deposits.",
+   "look": "Sharp young man, navy blazer, white shirt, no tie, tablet in hand, a scale model house on his desk.",
+   "monthlySalary": 250000
+  }
+ ],
+ "machines": [
+  {
+   "name": "Wheelbarrow Train",
+   "does": "A motor barrow carries sand and cement from the gate to the block machine by itself.",
+   "look": "Three green wheelbarrows hooked behind a tiny rattling three-wheel motor cart with a yellow lamp."
+  },
+  {
+   "name": "Site Forklift",
+   "does": "Moves pallets of cured blocks and bundles of rods to any plot that is waiting.",
+   "look": "Chunky orange forklift with mud on the tyres, a flashing beacon and a pallet of grey blocks."
+  },
+  {
+   "name": "Tower Crane",
+   "does": "Lifts all materials to every plot and tower floor; the player only directs and collects.",
+   "look": "Tall yellow lattice crane with a red hook, a small glass cab and the company flag on top."
+  }
+ ],
+ "moneyMechanics": [
+  {
+   "rule": "Fair fee, more referrals",
+   "howItWorks": "Letting pays 5% of one year's rent: N100,000 on a N2m flat. Total extra fees stay within 10% of rent. Fair fees fill a trust meter that brings 20% more tenants.",
+   "realBasis": "Lagos has reaffirmed a 10% limit on tenancy fees and a 2026 bill proposes capping agent commission at 5% of a year's rent."
+  },
+  {
+   "rule": "Caution money is not yours",
+   "howItWorks": "A tenant's caution deposit sits in a locked box, not in profit. When the tenant moves out with no damage, it goes back in full and the trust meter rises.",
+   "realBasis": "A caution fee is a refundable security deposit held against damage, although tenants often struggle to get it back."
+  },
+  {
+   "rule": "Paid by stage",
+   "howItWorks": "A N30m bungalow is paid in 5 parts of N6m: deposit, foundation, walls, roof, finish. The next payment unlocks only when the site engineer passes the stage.",
+   "realBasis": "Builders and off-plan developers collect milestone payments tied to construction progress."
+  },
+  {
+   "rule": "Cement price swings",
+   "howItWorks": "Each week a cement bag costs between N12,000 and N15,000 and rods about N1m a tonne. Stock the store when it is cheap; block and build margins move with it.",
+   "realBasis": "Cement rose from about N7,500 in March 2025 to about N13,000 by September 2026, with N12,000 to N15,000 across the country."
+  },
+  {
+   "rule": "Papers before sales",
+   "howItWorks": "A plot cannot be sold or built until three pads are paid: survey, title and building permit. The game sets these at 10% of land cost and 2 days of waiting.",
+   "realBasis": "Lagos permits are processed on an online platform, with authorisation to start work and stage certificates required."
+  },
+  {
+   "rule": "Rent that comes yearly",
+   "howItWorks": "Plaza shops and unsold flats can be let. Each pays one year's rent upfront, once per game year; 5% goes to upkeep. Empty shops earn nothing until advertised.",
+   "realBasis": "Nigerian landlords usually collect rent yearly in advance, and Lagos is moving to limit advance rent to one year."
+  }
+ ],
+ "travel": [
+  {
+   "place": "Abeokuta",
+   "why": "Inspect the sand and granite quarry and agree a steady tipper supply before prices move.",
+   "how": "car"
+  },
+  {
+   "place": "Accra",
+   "why": "Open the first estate outside Nigeria and meet the local partner and surveyors on the land.",
+   "how": "international flight"
+  },
+  {
+   "place": "Abuja",
+   "why": "Check the Abuja estate site, sign for new land and attend the developers' meeting.",
+   "how": "domestic flight"
+  },
+  {
+   "place": "London",
+   "why": "Hold a diaspora homes fair, hand keys to buyers abroad and inspect the London tower.",
+   "how": "international flight"
+  },
+  {
+   "place": "Dubai",
+   "why": "Order glass, lifts and finishes for the towers and study how the tall ones are built.",
+   "how": "international flight"
+  }
+ ],
+ "rivalsAndAllies": [
+  {
+   "name": "Mama Risi Blocks",
+   "role": "mentor",
+   "line": "My son, block wey no strong na biscuit. Add cement, sleep well."
+  },
+  {
+   "name": "Chief Bambo Fastlane",
+   "role": "rival",
+   "line": "Papers? Tests? Dele, you too like long thing. I go finish before you."
+  },
+  {
+   "name": "Insp. Nkechi Obiora",
+   "role": "regulator",
+   "line": "No permit, no pouring. Upload your drawings and I will be there by eight."
+  },
+  {
+   "name": "Alhaji Sani Gidado",
+   "role": "partner",
+   "line": "Bring your blocks to Abuja. I have the land, you have the discipline."
+  }
+ ],
+ "events": [
+  {
+   "name": "Cement Price Jump",
+   "text": "Cement adds N1,500 a bag overnight. Material cost is up today.",
+   "good": false
+  },
+  {
+   "name": "Rainy Day",
+   "text": "Heavy rain. Blocks cure slowly and the tipper is stuck. Work is at half speed.",
+   "good": false
+  },
+  {
+   "name": "Diaspora Buyer Calls",
+   "text": "A buyer abroad saw your clean papers online. One plot sells at once.",
+   "good": true
+  },
+  {
+   "name": "Surprise Site Inspection",
+   "text": "Your permit and stage certificate are on the wall. Passed! Trust goes up.",
+   "good": true
+  },
+  {
+   "name": "Land Claim at the Gate",
+   "text": "Strangers claim your plot. Your title file settles it, but sales pause one hour.",
+   "good": false
+  },
+  {
+   "name": "Concrete Test Passed",
+   "text": "The cube test came back strong. Bricklayers work faster for the rest of the day.",
+   "good": true
+  },
+  {
+   "name": "Tenant Referral",
+   "text": "A happy tenant got her caution money back and sent three friends to your desk.",
+   "good": true
+  },
+  {
+   "name": "Tipper Breakdown",
+   "text": "The tipper has a flat tyre on the expressway. No delivery until it is fixed.",
+   "good": false
+  }
+ ],
+ "endgame": "Oke-Ile towers stand in Lagos, Abuja, Accra, Nairobi, Dubai and London, 500 sites send in rent and sales, and the skyline screen lights up one building at a time. Dele's last act is small: he gives his mum the key to her own house.",
+ "risksToHandleCarefully": "Never reward weak mixes, skipped tests, sales without title or paying anyone to jump approval. Building collapse appears only as a stopped site, never as injury. Land disputes are settled with papers, with no named groups. Prices are game money.",
+ "research": [
+  {
+   "claim": "A 50kg bag of cement cost about N13,000 in September 2026, up from about N7,500 in March 2025, with N12,000 to N15,000 in many parts of Nigeria.",
+   "url": "https://www.legit.ng/business-economy/industry/1730491-cement-prices-rise-n13000bag-experts-unveils-step-crash-prices/"
+  },
+  {
+   "claim": "Reinforcement steel is around N1 million or more per tonne, and a standard 120 sqm two-bedroom bungalow in Lagos costs about N25m to N35m to build, excluding land.",
+   "url": "https://www.withinnigeria.com/2026/09/01/rough-estimate-of-building-a-2-bedroom-house-in-nigeria-in-2026-cement-labour-roofing-and-finishing-explained/"
+  },
+  {
+   "claim": "A Lagos tenancy bill, still before the House of Assembly in September 2026, would cap agent commission at 5% of one year's rent and bar landlords from demanding more than one year's rent in advance.",
+   "url": "https://brandspurng.com/2026/09/09/lagos-tenancy-bill-proposes-one-year-advance-rent-limit-5-agency-fee-cap/"
+  },
+  {
+   "claim": "The Lagos State Government has warned against rent exploitation and reaffirmed a 10% limit on tenancy fees.",
+   "url": "https://nairametrics.com/2025/05/15/lagos-govt-warns-against-rent-exploitation-reaffirms-10-limit-in-tenancy-fees/"
+  },
+  {
+   "claim": "From 1 April 2026 Lagos planning permits are processed only on an online platform, which also handles authorisation to commence construction and stage certifications.",
+   "url": "https://nairametrics.com/2026/04/14/lagos-govt-automates-building-approvals-deploys-eppps-platform/"
+  },
+  {
+   "claim": "Site engineer job postings in Nigeria show roughly N250,000 to N400,000 a month at mid level and N400,000 to N900,000 at senior level.",
+   "url": "https://www.profolio.ng/site-engineer/salary-guide"
+  }
+ ]
+}

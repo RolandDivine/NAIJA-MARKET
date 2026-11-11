@@ -1,0 +1,315 @@
+{
+ "key": "shipping",
+ "name": "Wakaway Global Logistics",
+ "tagline": "From one okada to container ships. If e fit move, we go move am.",
+ "ownerCharacter": {
+  "name": "Oga Ifeanyi Waybill",
+  "look": "Early 30s, lean. Orange reflective rider jacket over white shirt, navy trousers, scuffed boots, orange helmet under arm. Prop: fat waybill booklet and pen.",
+  "backstory": "Lost his shop job, borrowed a second-hand motorbike from his uncle and started carrying parcels across Lagos. He never lost a package, so customers nicknamed him Waybill. Now he wants his name on a ship."
+ },
+ "storyline": [
+  {
+   "title": "One Bike, One Phone",
+   "stage": "A roadside umbrella stand in Yaba with one motorbike and a delivery box.",
+   "story": "Ifeanyi collects parcels from online sellers and delivers them himself. Rain, traffic and a cracked phone screen fight him daily. If he loses one parcel, the sellers will go back to his rival. Every safe delivery builds his name.",
+   "unlock": "Bike parcel line, the drop-off yard and the dispatch counter"
+  },
+  {
+   "title": "The Rider Squad",
+   "stage": "A small shop front with five bikes, a sorting shelf and a signboard.",
+   "story": "Orders are more than one man can carry. Ifeanyi hires riders, buys helmets and insures the bikes. A rider who speeds can spoil the brand, so he trains them: safe first, fast second. Sellers start calling Wakaway by name.",
+   "unlock": "Riders as staff, the sorting table and the Chief Rider"
+  },
+  {
+   "title": "Waybill to Every State",
+   "stage": "A courier office with two vans, a parcel cage and a weighing scale.",
+   "story": "A fabric trader in Kano begs for next-day parcels. Ifeanyi opens an interstate waybill desk and sends vans up north. One van breaks down in Lokoja with 200 parcels inside. He must rescue the load before trust breaks.",
+   "unlock": "Interstate waybill line, delivery vans and the first Kano trip"
+  },
+  {
+   "title": "Big Wheels",
+   "stage": "A truck park in Ogba with three 40-foot flatbeds and a diesel tank.",
+   "story": "A factory owner offers a contract: move containers to Kano every week. The trucks cost more than everything Ifeanyi owns. He takes a bank loan from Harmattan Trust Bank. Now diesel prices and empty return trips decide if he sleeps.",
+   "unlock": "Haulage line, trailer trucks, the loading bay and diesel costs"
+  },
+  {
+   "title": "The Warehouse Years",
+   "stage": "A fenced warehouse with racks, a forklift, loading bays and a gatehouse.",
+   "story": "Customers want storage as well as transport. Ifeanyi builds a warehouse on the Lagos-Ibadan road. An auditor finds stock that does not match the books. He fixes the records, adds scanners, and wins a big supermarket contract.",
+   "unlock": "Warehouse venue, the Parcel Belt machine and bulk contracts"
+  },
+  {
+   "title": "Clearing Agent Licence",
+   "stage": "A clearing and forwarding office beside Apapa port with a container yard.",
+   "story": "Importers keep asking who can clear their goods. Ifeanyi sits the customs licence exam and opens at the port. A stranger offers a shortcut to skip inspection. He says no, declares every item properly, and becomes the agent people trust.",
+   "unlock": "Container clearing line, customs paperwork desk and the demurrage clock"
+  },
+  {
+   "title": "Borders and Hubs",
+   "stage": "A regional group: Lagos head office, Cotonou depot, Durban and Dubai desks.",
+   "story": "Cargo is jumping to Cotonou and Wakaway must follow it. Ifeanyi opens hubs abroad and learns new rules in each one. A late shipment in Durban threatens his biggest client. He flies out himself to sort it and saves the account.",
+   "unlock": "Branches abroad, international flights and the Gantry Crane"
+  },
+  {
+   "title": "MV Waybill Sails",
+   "stage": "A shipping line with container ships and offices on four continents.",
+   "story": "Ifeanyi charters his first container ship from Guangzhou to Lagos, then buys it. Freight rates swing wildly and one bad season could sink the line. The ship docks at Tin Can with his nickname on the hull, and his uncle cuts the ribbon.",
+   "unlock": "Ocean freight line, own ships, and Rotterdam and Guangzhou offices"
+  }
+ ],
+ "productLines": [
+  {
+   "name": "Bike Parcel Delivery",
+   "raw": "Small parcels from online sellers",
+   "station": "Sorting table and rider box",
+   "customer": "Online sellers and their Lagos buyers",
+   "price": 3000,
+   "priceNote": "Lagos bike delivery runs about N1,500 to N4,000 by zone in 2026"
+  },
+  {
+   "name": "Interstate Waybill",
+   "raw": "Taped cartons and sacks for other states",
+   "station": "Weighing scale and waybill desk",
+   "customer": "Traders sending goods to Kano, Abuja and Onitsha",
+   "price": 9000,
+   "priceNote": "Long-haul parcels cost about N8,000 to N12,000 before weight extras"
+  },
+  {
+   "name": "Trailer Haulage Trip",
+   "raw": "Loaded 40-foot containers",
+   "station": "Loading bay with twist-lock check",
+   "customer": "Factories and importers up north",
+   "price": 3200000,
+   "priceNote": "40ft Lagos to Kano was up to N2.3m in 2023; diesel has pushed it higher"
+  },
+  {
+   "name": "Container Clearing",
+   "raw": "Import containers from a ship at quay",
+   "station": "Customs paperwork desk",
+   "customer": "Importers waiting to collect their goods",
+   "price": 250000,
+   "priceNote": "Forwarding service fee is about N200,000 to N250,000 per container"
+  },
+  {
+   "name": "Ocean Freight Booking",
+   "raw": "Containers booked for the ship",
+   "station": "Crane loading bay and booking desk",
+   "customer": "Importers and exporters booking China to Lagos",
+   "price": 7400000,
+   "priceNote": "About $5,067 for a 40ft from China to Apapa, at roughly N1,460 per dollar"
+  }
+ ],
+ "howItFitsTheEngine": "The player carries parcels from the customer drop-off yard, and later containers from a ship at the quay (by trolley, then forklift), to stations: sorting table, weighing scale, customs paperwork desk and loading bay. Processed loads go to the dispatch counter, where riders, trucks and customers collect them and pay. Venues grow from umbrella stand to shop, depot, warehouse and port terminal.",
+ "staffRoles": [
+  {
+   "role": "Dispatch Rider",
+   "does": "Takes sorted parcels from the dispatch counter and delivers them round the city.",
+   "look": "Young, slim, orange helmet and reflective vest, knee guards, delivery box on a red motorbike.",
+   "monthlySalary": 90000
+  },
+  {
+   "role": "Parcel Sorter",
+   "does": "Sorts, labels and weighs parcels at the sorting table.",
+   "look": "Woman in navy polo and orange apron, hair in a bun, label gun in hand, marker behind her ear.",
+   "monthlySalary": 80000
+  },
+  {
+   "role": "Truck Driver",
+   "does": "Drives loaded trailers from the loading bay to other states and back.",
+   "look": "Stocky man in his 40s, faded blue coverall, face cap, towel on shoulder, big bunch of keys.",
+   "monthlySalary": 180000
+  },
+  {
+   "role": "Motor Boy",
+   "does": "Helps the driver, checks tyres and locks, and guards the load on the road.",
+   "look": "Wiry man of 20, grey singlet under open orange vest, wheel spanner in hand.",
+   "monthlySalary": 70000
+  },
+  {
+   "role": "Forklift Operator",
+   "does": "Moves pallets and containers between the yard, racks and loading bays.",
+   "look": "Calm woman in yellow hard hat, green coverall and safety boots, seated on a yellow forklift.",
+   "monthlySalary": 150000
+  },
+  {
+   "role": "Licensed Clearing Agent",
+   "does": "Prepares customs documents and declares every container correctly.",
+   "look": "Sharp man in white shirt and loosened tie, ID lanyard, thick file under arm, stamp in hand.",
+   "monthlySalary": 250000
+  },
+  {
+   "role": "Fleet Manager",
+   "does": "Tracks every bike, truck and ship and keeps the whole site running without you.",
+   "look": "Tall woman in navy blazer over ankara top, tablet showing a map, headset, calm smile.",
+   "monthlySalary": 450000
+  }
+ ],
+ "machines": [
+  {
+   "name": "Parcel Conveyor Belt",
+   "does": "Carries parcels from the drop-off yard to the sorting table by itself.",
+   "look": "Waist-high grey roller belt with orange side rails, small scanner arch and a blinking green light."
+  },
+  {
+   "name": "Yard Forklift Team",
+   "does": "Automatic forklifts move containers from the paperwork desk to the loading bays.",
+   "look": "Two yellow forklifts with orange beacons, Wakaway logo on the side, following painted floor lines."
+  },
+  {
+   "name": "Quay Gantry Crane",
+   "does": "Lifts containers off the ship and stacks them in the yard with no carrying.",
+   "look": "Huge blue and orange crane on rails over the quay, cabin at the top, cables lifting a red container."
+  }
+ ],
+ "moneyMechanics": [
+  {
+   "rule": "The rider's share",
+   "howItWorks": "Hired riders keep 70% of each N3,000 delivery fee. You keep N900 but riders deliver while you do other things. Deliver it yourself and you keep the full fee.",
+   "realBasis": "Lagos couriers typically take around 60 to 75 percent of the delivery fee; the platform or company keeps the rest."
+  },
+  {
+   "rule": "Diesel eats the trip",
+   "howItWorks": "A N3.2m Lagos to Kano trip costs about 45% in diesel, tolls and driver allowance. A daily diesel price can swing this from 40% to 55%. A better truck cuts it by 5%.",
+   "realBasis": "Fuel is the biggest cost in Nigerian haulage, and energy price rises have pushed interstate container rates up sharply."
+  },
+  {
+   "rule": "No empty return",
+   "howItWorks": "A truck coming back empty earns N0. Find a return load in Kano (grains, hides or textiles) and the trip earns an extra 50%, about N1.6m.",
+   "realBasis": "Hauliers hunt for backhaul cargo because an empty return leg doubles the real cost of a trip."
+  },
+  {
+   "rule": "The demurrage clock",
+   "howItWorks": "Each container has 3 free days at the quay. After that the customer is charged N40,000 a day and your trust rating drops 2 points daily until it is cleared.",
+   "realBasis": "Terminals and shipping lines give a few free days, then charge daily storage and demurrage on uncleared containers."
+  },
+  {
+   "rule": "Duty is not your money",
+   "howItWorks": "Customers give you duty money with the job. It sits in a locked pot and goes to customs in full. Your income is only the N250,000 fee. Wrong declarations are fined N500,000.",
+   "realBasis": "Clearing agents pay duty on behalf of importers and earn an agency fee; false declaration attracts penalties and seizure."
+  },
+  {
+   "rule": "Freight is in dollars",
+   "howItWorks": "Ocean freight is quoted at $5,067 per 40ft. The naira value changes daily by up to 5% with the exchange rate, and by season: up 20% before Christmas.",
+   "realBasis": "Shipping lines quote freight in US dollars and rates rise in peak season, so naira earnings move with the exchange rate."
+  }
+ ],
+ "travel": [
+  {
+   "place": "Apapa, Lagos",
+   "why": "Visit the port yard to check that containers are cleared before the demurrage clock runs out.",
+   "how": "car"
+  },
+  {
+   "place": "Cotonou, Benin Republic",
+   "why": "Inspect the border depot and handle cargo that importers have routed through the Cotonou port.",
+   "how": "car"
+  },
+  {
+   "place": "Kano",
+   "why": "Meet northern traders, inspect the truck depot and find return loads so trailers never come back empty.",
+   "how": "domestic flight"
+  },
+  {
+   "place": "Rotterdam, Netherlands",
+   "why": "Sign export contracts for cocoa and sesame and inspect the European office.",
+   "how": "international flight"
+  },
+  {
+   "place": "Guangzhou, China",
+   "why": "Book ship space, meet factory suppliers and watch Wakaway containers get loaded at the port.",
+   "how": "international flight"
+  }
+ ],
+ "rivalsAndAllies": [
+  {
+   "name": "Baba Trailer",
+   "role": "mentor",
+   "line": "My son, truck no dey lie. Service am well, e go carry you reach Kano and back."
+  },
+  {
+   "name": "Madam Sharp-Sharp",
+   "role": "rival",
+   "line": "My riders reach before your own start engine. Catch me if you can!"
+  },
+  {
+   "name": "Officer Ngozi Dutyfree",
+   "role": "regulator",
+   "line": "Declare everything correctly and we will be friends. Hide one carton, wahala."
+  },
+  {
+   "name": "Uncle Chidi",
+   "role": "family",
+   "line": "That okada I lend you, na so e turn to ship? Remember my small share o!"
+  }
+ ],
+ "events": [
+  {
+   "name": "Detty December Rush",
+   "text": "Everybody is sending gifts. Parcel orders double for today.",
+   "good": true
+  },
+  {
+   "name": "Third Mainland Go-Slow",
+   "text": "Heavy traffic on the bridge. Bike deliveries take twice as long today.",
+   "good": false
+  },
+  {
+   "name": "Diesel Price Jump",
+   "text": "Diesel is up again. Every haulage trip costs 10% more today.",
+   "good": false
+  },
+  {
+   "name": "Return Load Found",
+   "text": "A Kano trader has grains for Lagos. Your truck earns on the way back.",
+   "good": true
+  },
+  {
+   "name": "Rainy Day Parcels",
+   "text": "Heavy rain. Wrap parcels in nylon or pay for two soaked cartons.",
+   "good": false
+  },
+  {
+   "name": "Five-Star Review",
+   "text": "A big online seller praises Wakaway. New customers arrive all day.",
+   "good": true
+  },
+  {
+   "name": "Port System Down",
+   "text": "The customs portal is offline. Paperwork desks are slow until evening.",
+   "good": false
+  },
+  {
+   "name": "Naira Gains Today",
+   "text": "The exchange rate moved your way. Ocean freight earns 5% more today.",
+   "good": true
+  }
+ ],
+ "endgame": "Wakaway Lines owns a fleet of container ships and offices in Lagos, Cotonou, Durban, Rotterdam, Dubai and Guangzhou. Ifeanyi sits on the national shippers' council, runs a rider training school, and MV Waybill is the pride of Tin Can quay.",
+ "risksToHandleCarefully": "Port bribery, smuggling and false declaration must only appear as offers the player refuses or errors to fix. Show riders with helmets and safe riding, never reward speeding. No child staff. Exchange-rate swings must not feel like gambling.",
+ "research": [
+  {
+   "claim": "Lagos last-mile delivery in 2026 costs roughly N1,500 to N4,000 by zone and N8,000 to N12,000 for long-haul parcels, with couriers taking about 60 to 75 percent of the fee.",
+   "url": "https://kolonell.com/en/blog/last-mile-delivery-pricing-lagos-2026"
+  },
+  {
+   "claim": "In February 2023 hauling a 40-foot container from the Lagos ports to Kano, Kaduna, Abuja or Onitsha cost N1.8 million to N2.3 million, up from about N1.2 million.",
+   "url": "https://businessday.ng/maritime/article/interstate-container-haulage-costs-surge-on-lingering-energy-crisis/"
+  },
+  {
+   "claim": "A May 2026 breakdown of Apapa export costs lists freight forwarding at N200,000 to N250,000 and terminal handling at N100,000 to N120,000 per 20-foot container.",
+   "url": "https://nairametrics.com/2026/05/31/how-much-it-costs-to-ship-a-container-out-of-apapa-in-2026/"
+  },
+  {
+   "claim": "Ocean freight for a 40-foot container from north China to Apapa was quoted at about $5,067 in May 2026, with 35 to 48 days port to port from South China.",
+   "url": "https://goodhopefreight.com/nigeria/2026-freight.html"
+  },
+  {
+   "claim": "In May 2026 an importers' association official said clearing through Lagos costs about N3 million to N4 million more per container than Cotonou, pushing cargo there.",
+   "url": "https://shippingposition.com.ng/n3m-n4m-per-container-gap-triggers-cargo-diversion-to-cotonou-iman/"
+  },
+  {
+   "claim": "A 2026 wage survey puts most Nigerian heavy truck drivers at about N24,000 to N65,000 a month base pay, so the game pays above this with trip allowances included.",
+   "url": "https://wageindicator.org/en-ng/work-in-nigeria/jobs-and-pay/heavy-truck-and-lorry-drivers"
+  }
+ ]
+}

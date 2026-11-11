@@ -1,0 +1,315 @@
+{
+ "key": "school",
+ "name": "Almond Shade Schools Group",
+ "tagline": "From one blackboard under a tree to campuses around the world.",
+ "ownerCharacter": {
+  "name": "Aunty Ifeoma Bakare",
+  "look": "Woman, 34, medium build, warm smile. Teal ankara dress, cream cardigan, flat brown sandals, short natural hair, round glasses. Always holds a wooden chalk box.",
+  "backstory": "A trained teacher who lost her job when her school closed. She put a blackboard under the almond tree in her compound and taught six neighbours' children. Parents saw the results and begged her to open a proper school."
+ },
+ "storyline": [
+  {
+   "title": "Lesson Under the Almond Tree",
+   "stage": "A blackboard, two benches and a mat under a tree in a Lagos compound.",
+   "story": "Six pupils come after school for maths and reading. Aunty Ifeoma buys chalk and exercise books herself. If the children improve, more parents will come. If not, the benches stay empty and her savings finish.",
+   "unlock": "First product line: After-School Lessons, plus the book basket."
+  },
+  {
+   "title": "Two Rooms and a Signboard",
+   "stage": "A rented two-room bungalow with a small playground and a painted signboard.",
+   "story": "Parents want a full day school. She must register the name, fill the state ministry form and pass a site inspection: clean toilets, safe fence, trained teachers. Fail the visit and the school cannot open.",
+   "unlock": "Nursery and Primary line, first class teacher, provisional approval."
+  },
+  {
+   "title": "The School Bus Is Yellow",
+   "stage": "A one-storey primary school with six classrooms, a library corner and a bus.",
+   "story": "The school is full and has a waiting list. Term fees now come in big bursts, but salaries are due every month, even in the holidays. Aunty Ifeoma learns to save in term time so no teacher is owed in August.",
+   "unlock": "Bursar's desk upgrade, instalment plans, yellow school bus."
+  },
+  {
+   "title": "Test Tubes and Lab Coats",
+   "stage": "A secondary block with a science lab, computer room and sports field.",
+   "story": "Primary 6 parents refuse to leave. A secondary school needs a real lab, subject teachers and exam centre status. The first SS3 class will sit national exams, and the whole town will hear the results.",
+   "unlock": "Secondary line, science lab station, lab kit trolley machine."
+  },
+  {
+   "title": "Lights Out at Nine",
+   "stage": "A boarding campus with hostels, a dining hall, a sick bay and a matron's office.",
+   "story": "Families from other states want boarding. Now the school must feed, house and care for students day and night. One late supply van means a cold dinner, so meals, water and power must never fail.",
+   "unlock": "Boarding line, dining hall, supply van, matron and school nurse."
+  },
+  {
+   "title": "Three States, One Uniform",
+   "stage": "Campuses in Lagos, Abeokuta, Abuja and Kano, each with its own principal.",
+   "story": "Each state has its own ministry, its own inspectors and its own fee level. Aunty Ifeoma can't be in four places, so she hires principals and travels every term to check classrooms, kitchens and results.",
+   "unlock": "Branch campuses, principals as managers, car and domestic flights."
+  },
+  {
+   "title": "The University Licence",
+   "stage": "A 100-hectare site with a senate building, lecture halls, a library and hostels.",
+   "story": "Old students ask, \"Aunty, where is our university?\" The universities regulator wants forms, large fees, a master plan and many inspection visits. It takes years and deep pockets. Rush it and the licence is refused.",
+   "unlock": "University line, lecture hall station, provisional licence quest."
+  },
+  {
+   "title": "Chancellor Aunty Ifeoma",
+   "stage": "A school group with a university and campuses in Nigeria, Kenya and the UK.",
+   "story": "The first set graduates in gowns. A girl from the almond tree class is now a lecturer. Aunty Ifeoma opens campuses abroad and funds scholarships, so the next child with no money still gets a desk.",
+   "unlock": "International campuses, scholarship fund, convocation ceremony."
+  }
+ ],
+ "productLines": [
+  {
+   "name": "After-School Lessons",
+   "raw": "Chalk and exercise books",
+   "station": "Blackboard under the almond tree",
+   "customer": "Parents in the compound paying lesson fees",
+   "price": 15000,
+   "priceNote": "Per term. Home lesson groups cost less than the cheapest private school."
+  },
+  {
+   "name": "Nursery and Primary",
+   "raw": "Storybooks, crayons and workbooks",
+   "station": "Bright classroom with a class teacher",
+   "customer": "Parents of nursery and primary pupils",
+   "price": 60000,
+   "priceNote": "Per term. Low-cost primary runs 15,000 to 80,000 a term in 2026."
+  },
+  {
+   "name": "Secondary Day School",
+   "raw": "Science lab kits and textbooks",
+   "station": "Science lab and subject classrooms",
+   "customer": "Parents of JSS and SSS day students",
+   "price": 180000,
+   "priceNote": "Per term. Mid-range senior secondary is 150,000 to 400,000 a term."
+  },
+  {
+   "name": "Boarding House",
+   "raw": "Meal crates from the supply van",
+   "station": "Dining hall kitchen and hostel store",
+   "customer": "Parents of boarders, paid on top of tuition",
+   "price": 450000,
+   "priceNote": "Per term add-on for room and meals. Mid-range is 450,000 to 900,000."
+  },
+  {
+   "name": "University Degree",
+   "raw": "Course packs and lab equipment",
+   "station": "Lecture halls and faculty labs",
+   "customer": "Undergraduates and their sponsors",
+   "price": 750000,
+   "priceNote": "Per semester. Our estimate for a mid-priced private university."
+  }
+ ],
+ "howItFitsTheEngine": "The player carries teaching materials, never children: chalk, books, lab kits and meal crates from the supply van to classrooms, the lab and the dining hall. Teachers and cooks turn them into ready lessons and hot meals. Each ready lesson fills a term report card. Parents come to the bursar's desk, see the report cards and pay term fees. Pupils walk in by themselves, play and learn.",
+ "staffRoles": [
+  {
+   "role": "Class Teacher",
+   "does": "Turns books and chalk into ready lessons for nursery and primary classes.",
+   "look": "Woman, 20s, yellow blouse, navy skirt, lanyard, holding a big storybook and a piece of chalk.",
+   "monthlySalary": 90000
+  },
+  {
+   "role": "Science Teacher",
+   "does": "Uses lab kits to run practical lessons for secondary students.",
+   "look": "Man, 30s, white lab coat over a blue shirt, safety goggles on his forehead, holding a test tube rack.",
+   "monthlySalary": 160000
+  },
+  {
+   "role": "Bursar",
+   "does": "Collects term fees from parents, gives receipts and tracks instalment plans.",
+   "look": "Woman, 40s, green iro and buba, reading glasses on a chain, calculator and receipt book on her desk.",
+   "monthlySalary": 200000
+  },
+  {
+   "role": "Head Cook",
+   "does": "Turns meal crates into hot, balanced meals in the dining hall.",
+   "look": "Woman, 50s, white apron and hair net, orange headscarf, big smile, holding a long serving spoon.",
+   "monthlySalary": 95000
+  },
+  {
+   "role": "House Matron",
+   "does": "Looks after boarders, checks the hostel and keeps bedtime on schedule.",
+   "look": "Woman, 40s, purple uniform dress, white sneakers, clipboard, a bunch of keys on her belt.",
+   "monthlySalary": 120000
+  },
+  {
+   "role": "School Nurse",
+   "does": "Runs the sick bay, checks the first aid box and keeps pupils well.",
+   "look": "Man, 30s, light blue scrubs, stethoscope, friendly face, carrying a red first aid bag.",
+   "monthlySalary": 150000
+  },
+  {
+   "role": "Principal",
+   "does": "Runs one campus without the owner: restocks rooms and keeps standards.",
+   "look": "Man, 50s, grey suit, maroon tie, neat grey beard, walkie-talkie in hand, whistle round his neck.",
+   "monthlySalary": 350000
+  }
+ ],
+ "machines": [
+  {
+   "name": "Book Trolley",
+   "does": "Rolls books and chalk from the store room to the classrooms without the player.",
+   "look": "Small wooden trolley with red wheels, stacked with colourful books and a chalk tin on top."
+  },
+  {
+   "name": "Lab Kit Conveyor",
+   "does": "Moves lab kits from the delivery bay to the science lab and lecture halls.",
+   "look": "Slim blue conveyor belt along the corridor wall, carrying clear boxes of beakers and microscopes."
+  },
+  {
+   "name": "Campus Supply Fleet",
+   "does": "Vans restock every classroom, lab and dining hall on a campus at term start.",
+   "look": "Three white vans with a teal almond leaf logo, roller doors open, crates of books and food inside."
+  }
+ ],
+ "moneyMechanics": [
+  {
+   "rule": "Three terms, twelve salaries",
+   "howItWorks": "Fees arrive in 3 bursts a year, at the start of each term. Salaries are due all 12 months. Save about a third of each term's fees or the holiday months of April, August and December run dry.",
+   "realBasis": "Nigerian schools bill per term, three terms a year, but staff are paid monthly, including during the holidays."
+  },
+  {
+   "rule": "Instalment plans, no shaming",
+   "howItWorks": "A parent may pay 60% at resumption and 40% by mid-term. Late fees cut your cash, never a pupil's lessons. The bursar sends a polite reminder and enrolment grows 5% as trust rises.",
+   "realBasis": "Many private schools accept part payment at resumption and collect the balance later in the term."
+  },
+  {
+   "rule": "Exam fees pass through",
+   "howItWorks": "For each SS3 student you collect 27,000 for one national exam or 22,250 for the other, and send all of it to the exam body. No profit. Good results add reputation and new enrolment.",
+   "realBasis": "In 2026 the two national school-leaving exams cost 27,000 and 22,250 naira. A rise to 50,000 was suspended in July 2026."
+  },
+  {
+   "rule": "Approval before expansion",
+   "howItWorks": "Each new venue stage needs 4 steps: name search, ministry form, site inspection, approval letter. Skip a step and the pad stays locked. Each state you enter repeats the 4 steps.",
+   "realBasis": "State ministries register a school by form, an evaluator's visit, grading, an invoice and then a formal letter."
+  },
+  {
+   "rule": "The university licence",
+   "howItWorks": "Buy the form for 5 million, pay a 25 million processing fee, then pass 5 inspection visits to the site. The licence is provisional first. Fees are not refunded if you fail a visit.",
+   "realBasis": "In 2025 the universities regulator raised its form to 5 million naira and its processing fee to 25 million."
+  },
+  {
+   "rule": "Scholarship seats",
+   "howItWorks": "1 seat in every 20 is a free scholarship seat. It earns no fee but lifts reputation by 2 points per term, which brings more families and unlocks premium fee levels sooner.",
+   "realBasis": "Many private schools give merit and need-based scholarships, and good results are their strongest advert."
+  }
+ ],
+ "travel": [
+  {
+   "place": "Abeokuta",
+   "why": "Open the second campus and meet the Ogun State ministry inspectors on site.",
+   "how": "car"
+  },
+  {
+   "place": "Abuja",
+   "why": "Defend the university plan before the universities regulator and visit the Abuja campus.",
+   "how": "domestic flight"
+  },
+  {
+   "place": "Kano",
+   "why": "Inspect the northern boarding campus, taste the dining hall food and meet parents.",
+   "how": "domestic flight"
+  },
+  {
+   "place": "Kenya",
+   "why": "Open the first campus abroad in Nairobi and hire a local principal.",
+   "how": "international flight"
+  },
+  {
+   "place": "United Kingdom",
+   "why": "Sign an exchange deal with a partner university and speak at an education fair in London.",
+   "how": "international flight"
+  }
+ ],
+ "rivalsAndAllies": [
+  {
+   "name": "Chief Dapo Lawanson",
+   "role": "rival",
+   "line": "My school has a swimming pool. Does your almond tree have a swimming pool?"
+  },
+  {
+   "name": "Mama Uduak Essien",
+   "role": "mentor",
+   "line": "Forty years as headmistress, my dear. Pay your teachers first, then yourself."
+  },
+  {
+   "name": "Inspector Hauwa Garba",
+   "role": "regulator",
+   "line": "I check toilets before classrooms. Clean toilets tell me everything."
+  },
+  {
+   "name": "Prof. Tunde Okafor",
+   "role": "partner",
+   "line": "Build the library before the gate, Aunty. Gates don't teach anybody."
+  }
+ ],
+ "events": [
+  {
+   "name": "Best Result in the State",
+   "text": "Your SS3 class tops the national exam. Parents are calling non-stop. Reputation up.",
+   "good": true
+  },
+  {
+   "name": "Surprise Inspection",
+   "text": "The ministry inspector is at the gate. Classrooms are clean, so you pass with praise.",
+   "good": true
+  },
+  {
+   "name": "Supply Van Breaks Down",
+   "text": "The van is stuck on the expressway. Carry meal crates by hand today.",
+   "good": false
+  },
+  {
+   "name": "Old Student Gives Back",
+   "text": "A past pupil, now a doctor, donates 20 microscopes to the science lab.",
+   "good": true
+  },
+  {
+   "name": "Generator Wahala",
+   "text": "No light in the computer room. Buy diesel or lessons there pause for the day.",
+   "good": false
+  },
+  {
+   "name": "Exam Cheat Seller",
+   "text": "A man offers leaked exam papers. Send him away and report him. Clean results only.",
+   "good": false
+  },
+  {
+   "name": "Inter-House Sports Day",
+   "text": "Blue House wins the relay! Happy parents pay next term's fees early.",
+   "good": true
+  },
+  {
+   "name": "Book Prices Jump",
+   "text": "Paper costs more this term. Books cost 15% extra until the next resumption.",
+   "good": false
+  }
+ ],
+ "endgame": "Aunty Ifeoma is Chancellor of Almond Shade University, with 500 campuses across Nigeria, Africa and the world, a scholarship fund in her name and former pupils teaching in her classrooms. The almond tree still stands at campus one.",
+ "risksToHandleCarefully": "Pupils are shown happy, safe and learning, never as goods, stock or workers. The player carries books, meals and kits, not children. Fees are per term and paid by parents. No child is sent out over fees. No exam cheating, no real schools.",
+ "research": [
+  {
+   "claim": "In 2026, low-cost nursery and primary schools in Nigeria charge about 15,000 to 80,000 naira a term, mid-range 80,000 to 250,000 and high-end 250,000 to 800,000 or more.",
+   "url": "https://schoolregistry.ng/school-fees-nigeria-2026"
+  },
+  {
+   "claim": "Boarding is an add-on of about 150,000 to 450,000 naira a term at low-cost schools, 450,000 to 900,000 at mid-range and 900,000 to over 3 million at high-end schools.",
+   "url": "https://schoolregistry.ng/school-fees-nigeria-2026"
+  },
+  {
+   "claim": "Most secondary teachers earn 70,000 to 150,000 naira a month, low-fee private schools pay 40,000 to 70,000, and the national minimum wage is 70,000 (85,000 in Lagos).",
+   "url": "https://www.profolio.ng/secondary-school-teacher/salary-guide"
+  },
+  {
+   "claim": "The 2026 registration fee is 27,000 naira for the West African school certificate exam and 22,250 for the national council exam; a planned rise to 50,000 was suspended on 13 July 2026.",
+   "url": "https://www.premiumtimesng.com/news/top-news/894950-nigerian-govt-suspends-plan-to-review-waec-neco-costs.html"
+  },
+  {
+   "claim": "In February 2025 the universities regulator raised the private university application form from 1 million to 5 million naira and the processing fee from 5 million to 25 million, with a one-year pause on new applications.",
+   "url": "https://nairametrics.com/2025/03/09/education-stakeholders-urge-nuc-to-review-hike-in-nigerian-private-university-application-fees/"
+  },
+  {
+   "claim": "Lagos registers a private school through a form, an evaluator's visit, review and grading, entry in the quality assurance database, an invoice and a formal letter of registration.",
+   "url": "https://soluap.com/?p=41274"
+  }
+ ]
+}

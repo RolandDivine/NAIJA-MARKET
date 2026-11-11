@@ -1,0 +1,311 @@
+{
+  "key": "health",
+  "name": "Dawnfield Health Group",
+  "tagline": "From one small chemist to hospitals that heal across Africa.",
+  "ownerCharacter": {
+    "name": "Pharm. Amara Dosunmu",
+    "look": "Woman, 29, slim and upright. White pharmacy coat over teal ankara dress, teal headwrap, white trainers, gold name badge. Prop: green cooler box with white cross.",
+    "backstory": "A final-year pharmacy student who keeps her aunt's licensed chemist open at weekends. One night a neighbour had to travel three hours for care. Amara promised her street that good care would one day be close to home."
+  },
+  "storyline": [
+    {
+      "title": "Aunty's Chemist",
+      "stage": "A licensed one-room patent medicine shop with a wooden counter on a busy Lagos street.",
+      "story": "Aunty Nkechi hands Amara the keys. The shop may sell only simple shelf remedies, so anything bigger is sent to the clinic down the road. Keep the shelves clean, the dates fresh and the neighbours trusting you.",
+      "unlock": "Home Care Pack line, first shelf and a referral notebook."
+    },
+    {
+      "title": "The Green Cross",
+      "stage": "A registered pharmacy with a glass dispensary, a medicine fridge and a consulting corner.",
+      "story": "Amara qualifies and the pharmacy regulator inspects the premises. Pass and the green cross goes up. Now malaria is tested before it is treated, and prescriptions are checked before anything leaves the counter.",
+      "unlock": "Malaria Test and Care, Prescription Refill, cold-chain van deliveries."
+    },
+    {
+      "title": "Doctor in the House",
+      "stage": "A two-floor clinic: pharmacy downstairs, two consulting rooms and a small lab upstairs.",
+      "story": "The landlord offers the upstairs flat. Amara hires Dr. Tunde and a lab scientist. Patients now see a doctor, get tested and collect medicine in one visit. The state health inspector must register the clinic first.",
+      "unlock": "Doctor Visit and Lab Test line, lab station, nurse hire."
+    },
+    {
+      "title": "Lights On All Night",
+      "stage": "A 20-bed clinic with wards, a 24-hour emergency room and one ambulance.",
+      "story": "A night emergency teaches the team a rule: treat first, talk money later. Amara adds wards, solar backup and an ambulance. Cases too big for the clinic are stabilised and driven to a partner hospital.",
+      "unlock": "Ward Care line, emergency bay, ambulance, solar backup."
+    },
+    {
+      "title": "The Specialist Wing",
+      "stage": "A 60-bed specialist hospital with theatre, scan room and mother-and-baby wing.",
+      "story": "Health plans start sending their members. Rival Dr. Kolawole opens a flashy plaza across the road. Amara answers with real specialists, honest bills and records so neat that every claim gets paid.",
+      "unlock": "Health plan contracts, claims desk, manager, theatre and scan room."
+    },
+    {
+      "title": "Abuja Calling",
+      "stage": "Two hospitals, Lagos and Abuja, sharing one medicine warehouse and one records system.",
+      "story": "Opening in Abuja means new inspections, new staff and weekly flights. Good nurses are being hired abroad, so Amara must pay well and train more. One bad ward round in Abuja can dent the whole name.",
+      "unlock": "Branches, domestic flights, central warehouse, nurse training fund."
+    },
+    {
+      "title": "Across the Borders",
+      "stage": "A hospital group with sites in Lagos, Abuja, Accra and Nairobi.",
+      "story": "Each country has its own health regulator and its own rules. Amara flies to Accra and Nairobi to earn licences the proper way, hire local teams and keep one promise everywhere: same care, same honesty.",
+      "unlock": "International branches, international flights, group medical director."
+    },
+    {
+      "title": "The Teaching Hospital",
+      "stage": "A 400-bed teaching hospital in Lagos, the home of the group, linked to a London partner.",
+      "story": "The group opens its own teaching hospital and signs a referral partnership with a London hospital. Rare cases get a second opinion by video. Young doctors and nurses now train where Amara once sold plasters.",
+      "unlock": "Teaching hospital, London referral desk, scholarships, group headquarters."
+    }
+  ],
+  "productLines": [
+    {
+      "name": "Home Care Pack",
+      "raw": "Cartons of shelf remedies",
+      "station": "Shelf and counter with attendant",
+      "customer": "Neighbours with small everyday aches",
+      "price": 1500,
+      "priceNote": "Pain relief card, rehydration salts and plasters, all sold over the counter."
+    },
+    {
+      "name": "Malaria Test and Care",
+      "raw": "Test kits and treatment packs",
+      "station": "Testing corner and dispensary",
+      "customer": "Families and workers with fever",
+      "price": 6500,
+      "priceNote": "Rapid test about ₦1,500 plus a treatment pack, only if the test is positive."
+    },
+    {
+      "name": "Prescription Refill",
+      "raw": "Sealed prescription medicine boxes",
+      "station": "Dispensary with pharmacist check",
+      "customer": "Patients holding a doctor's prescription",
+      "price": 6000,
+      "priceNote": "A typical short course or monthly refill, sold only against a prescription."
+    },
+    {
+      "name": "Doctor Visit and Lab Test",
+      "raw": "Lab reagents and sample tubes",
+      "station": "Consulting room and lab bench",
+      "customer": "Walk-in patients and health plan members",
+      "price": 15000,
+      "priceNote": "Consultation about ₦5,000 plus a basic test panel at a private clinic."
+    },
+    {
+      "name": "Ward Care (per night)",
+      "raw": "Drip sets, linen and oxygen",
+      "station": "Ward nurses' station",
+      "customer": "Admitted patients and their families",
+      "price": 75000,
+      "priceNote": "Mid-range private ward night with nursing, meals and ward-round review."
+    }
+  ],
+  "howItFitsTheEngine": "A cold-chain van parks at the back gate. The player carries medicine cartons, test kits, lab reagents and ward supplies to the dispensary, lab and wards before the cold timer runs out. Staff turn them into checked prescriptions, test results and ready beds. Patients queue at each point, are served, pay or use a health plan, and walk out better or with a referral.",
+  "staffRoles": [
+    {
+      "role": "Shop Attendant",
+      "does": "Sells shelf remedies, checks expiry dates and sends bigger cases to the pharmacist.",
+      "look": "Young man, 22, green polo and apron, lanyard, price gun in hand, friendly grin.",
+      "monthlySalary": 90000
+    },
+    {
+      "role": "Pharmacist",
+      "does": "Checks every prescription, dispenses medicine and counsels patients at the counter.",
+      "look": "Woman, 30s, white coat, navy hijab, glasses on a chain, tablet-counting tray.",
+      "monthlySalary": 430000
+    },
+    {
+      "role": "Lab Scientist",
+      "does": "Runs tests at the lab bench and sends results to the doctor's screen.",
+      "look": "Man, 30s, blue lab coat, clear goggles, purple gloves, rack of sample tubes.",
+      "monthlySalary": 300000
+    },
+    {
+      "role": "Nurse",
+      "does": "Takes vital signs, prepares beds and looks after patients on the ward.",
+      "look": "Woman, 20s, sky-blue scrubs, white clogs, fob watch pinned to chest, clipboard.",
+      "monthlySalary": 250000
+    },
+    {
+      "role": "Doctor",
+      "does": "Sees patients, orders tests, writes prescriptions and refers hard cases.",
+      "look": "Man, 40s, white coat over striped shirt, stethoscope round neck, warm tired smile.",
+      "monthlySalary": 860000
+    },
+    {
+      "role": "Consultant Surgeon",
+      "does": "Leads the theatre team and teaches junior doctors on ward rounds.",
+      "look": "Woman, 50s, dark-green scrubs, patterned theatre cap, reading glasses, calm stance.",
+      "monthlySalary": 1300000
+    },
+    {
+      "role": "Claims Officer",
+      "does": "Files health plan claims with full records so the group gets paid on time.",
+      "look": "Man, 30s, grey waistcoat, rolled sleeves, headset, tall stack of folders.",
+      "monthlySalary": 180000
+    }
+  ],
+  "machines": [
+    {
+      "name": "Medicine Trolley",
+      "does": "A porter wheels cartons from the van to the dispensary so the player carries less.",
+      "look": "White steel trolley with green trim, two shelves, a small cooler box strapped on top."
+    },
+    {
+      "name": "Tube Sample Runner",
+      "does": "Air tubes send samples to the lab and results back, so lab patients are served faster.",
+      "look": "Clear pipes along the ceiling with small capsules whooshing through, green lights at each stop."
+    },
+    {
+      "name": "Smart Dispensing Robot",
+      "does": "Picks and labels checked prescriptions, and restocks wards from the central store.",
+      "look": "Glass cabinet with a robotic arm on rails, rows of boxes, touch screen, soft blue light."
+    }
+  ],
+  "moneyMechanics": [
+    {
+      "rule": "First to expire, first out",
+      "howItWorks": "Every carton has an expiry of 10 game days. Staff sell the oldest first. Expired stock can never be sold: it goes in the return bin and you lose its full cost, so order only what you can use.",
+      "realBasis": "Pharmacies rotate stock by expiry date and must remove and safely dispose of expired medicines."
+    },
+    {
+      "rule": "Keep the cold chain",
+      "howItWorks": "Cold items from the van must reach a fridge in 60 seconds or they spoil. A power cut warms the fridge in 2 minutes unless solar backup (₦4,500,000) is bought.",
+      "realBasis": "Vaccines, insulin and lab reagents need unbroken cold storage from supplier to patient."
+    },
+    {
+      "rule": "Health plan patients",
+      "howItWorks": "Plan members pay ₦0 at the counter. The plan pays a fixed monthly fee per enrolled member plus claims 30 days later. Claims with incomplete records (about 1 in 10) bounce until fixed.",
+      "realBasis": "Health maintenance organisations pay providers by capitation and fee-for-service, often late."
+    },
+    {
+      "rule": "No prescription, no sale",
+      "howItWorks": "Prescription lines sell only after a doctor or pharmacist stamp. Fever patients are tested first: a positive test opens the treatment sale, a negative one earns ₦1,500 and a doctor referral.",
+      "realBasis": "Prescription-only medicines need a valid prescription, and testing before malaria treatment is standard."
+    },
+    {
+      "rule": "Emergency first, bill later",
+      "howItWorks": "Emergency patients are always treated at once. 2% of daily income fills a Care Fund that pays for those who cannot. Each emergency handled well adds 5 trust points, which bring more patients.",
+      "realBasis": "Health facilities are obliged to give emergency care without demanding payment first."
+    },
+    {
+      "rule": "Licences and inspections",
+      "howItWorks": "Each site renews its licence every game year. Score 80% or more on the inspector's checklist (clean, cold, dated, staffed) to renew. Below 80%, fix the gaps before the next day opens.",
+      "realBasis": "Pharmacy premises and hospitals are inspected and relicensed yearly by pharmacy and state health regulators."
+    }
+  ],
+  "travel": [
+    {
+      "place": "Lagos",
+      "why": "Drive across town to the medicine wholesalers and inspect the Lagos sites and the warehouse.",
+      "how": "car"
+    },
+    {
+      "place": "Abuja",
+      "why": "Meet the national health regulators, renew licences and do ward rounds at the Abuja hospital.",
+      "how": "domestic flight"
+    },
+    {
+      "place": "Accra, Ghana",
+      "why": "Earn the Ghana facility licence, hire the local team and check the Accra hospital each quarter.",
+      "how": "international flight"
+    },
+    {
+      "place": "Nairobi, Kenya",
+      "why": "Open the East Africa hospital, visit the nurse training school and audit the cold store.",
+      "how": "international flight"
+    },
+    {
+      "place": "London, United Kingdom",
+      "why": "Sign and renew the referral partnership and bring back training places for your doctors.",
+      "how": "international flight"
+    }
+  ],
+  "rivalsAndAllies": [
+    {
+      "name": "Aunty Nkechi Dosunmu",
+      "role": "family",
+      "line": "My dear, if you no sure, refer am. Na so we take keep our good name."
+    },
+    {
+      "name": "Matron Eunice Bassey",
+      "role": "mentor",
+      "line": "A clean ward and a kind word, that one na half of the healing."
+    },
+    {
+      "name": "Inspector Halima Sule",
+      "role": "regulator",
+      "line": "I have come to check your fridge, your records and your expiry dates."
+    },
+    {
+      "name": "Dr. Femi Kolawole",
+      "role": "rival",
+      "line": "My plaza has marble floors. What do you have, Amara? Only happy patients?"
+    }
+  ],
+  "events": [
+    {
+      "name": "Rainy Season Rush",
+      "text": "Rains bring a long fever queue. Test everyone first and keep kits stocked.",
+      "good": true
+    },
+    {
+      "name": "Power Cut",
+      "text": "Mains power is out. Get cold stock on backup before the fridge warms up.",
+      "good": false
+    },
+    {
+      "name": "Surprise Inspection",
+      "text": "Inspector Halima is at the door. Clean shelves and fresh dates earn a bonus.",
+      "good": true
+    },
+    {
+      "name": "Fake Medicine Alert",
+      "text": "A supplier's batch fails the scratch-code check. Bin it and report the batch.",
+      "good": false
+    },
+    {
+      "name": "Free Health Day",
+      "text": "You run free blood pressure checks in the market. Trust and footfall jump.",
+      "good": true
+    },
+    {
+      "name": "Nurse Got a Visa",
+      "text": "A senior nurse is moving abroad. Promote and train a junior to fill the gap.",
+      "good": false
+    },
+    {
+      "name": "Claims Paid Early",
+      "text": "A health plan clears last month's claims early. Cash lands in the account.",
+      "good": true
+    },
+    {
+      "name": "Night Emergency",
+      "text": "An ambulance arrives at 2am. Treat first, then refer onward if needed.",
+      "good": true
+    }
+  ],
+  "endgame": "Dawnfield is a trusted hospital group: a teaching hospital in Lagos, sites in Abuja, Accra and Nairobi, a London referral partner, 500 branches of pharmacies and clinics, and scholarships training the next nurses, pharmacists and doctors.",
+  "risksToHandleCarefully": "No medical advice, doses or real drug names. Prescription lines need a stamp. Patients only recover or are referred, never die. Emergencies are never turned away. Fake drugs and bad claims are only problems to report and fix.",
+  "research": [
+    {
+      "claim": "A Nigerian online pharmacy lists a branded adult malaria treatment pack at about ₦10,900, with typical retail of ₦7,500 to ₦11,000, and marks it as a prescription medicine.",
+      "url": "https://gomed.ng/product/coartem-adult-80-480"
+    },
+    {
+      "claim": "Malaria rapid tests cost about ₦500 to ₦2,000 and microscopy ₦1,000 to ₦3,500 in Nigeria, with private hospital consultations around ₦2,000 to ₦5,000.",
+      "url": "https://9japolytv.com/malaria-test-cost-in-nigeria-what-hospitals-charge/"
+    },
+    {
+      "claim": "The national health insurance authority raised capitation paid to providers by 93% and fee-for-service by 378% from April 2025.",
+      "url": "https://nairametrics.com/2025/02/04/nhia-increases-capitation-fees-by-93-fee-for-service-by-378-effective-april-2025/"
+    },
+    {
+      "claim": "A 2026 ranking puts average pay at roughly ₦250,000 to ₦390,000 a month for nurses, about ₦430,000 for pharmacists and about ₦860,000 for doctors in Nigeria.",
+      "url": "https://nairametrics.com/2026/04/04/top-15-highest-paying-healthcare-jobs-in-nigeria/"
+    },
+    {
+      "claim": "A patent medicine vendor licence needs an application form, references, tax clearance, proof of education, a premises inspection report with distance from the nearest pharmacy, an interview and a ₦5,000 licence fee.",
+      "url": "https://pcn.gov.ng/wp-content/uploads/2024/11/Procedure-of-Registration-for-Patent-and-Proprietary-Medicine-Vendor-Licence.pdf"
+    }
+  ]
+}

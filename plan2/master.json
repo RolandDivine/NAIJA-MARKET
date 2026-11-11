@@ -1,0 +1,345 @@
+{
+  "title": "From Table to Tower",
+  "premise": "You start with one wooden table in a busy Nigerian market and a ₦50,000 thrift payout. Shop by shop, truck by truck, you build a family group that feeds, banks, houses, teaches, heals, flies and powers the country. Every new company exists because an older one needed it. The top is not a bigger shop: it is a tower with your family name on it and a market that still knows you.",
+  "hero": {
+    "howPlayerAppears": "Player-made founder, any gender, about 22 at the start. Begins in slippers and an apron; clothes, car and house change with each act, and the hair goes grey by Act 6.",
+    "family": [
+      {
+        "name": "Mama Ireti Adeyemi",
+        "relation": "Mother",
+        "role": "Taught you the trade. Gives the evening-at-home advice and one small daily goal; her pride meter is the story score."
+      },
+      {
+        "name": "Tobenna",
+        "relation": "Younger brother",
+        "role": "Your first manager. Later runs the group in trust while you serve in local government, so nothing stops earning."
+      },
+      {
+        "name": "Zainab Lawal",
+        "relation": "Cousin, accountant",
+        "role": "Keeps the books. Warns three days before salaries and tax fall due and explains every new money system simply."
+      },
+      {
+        "name": "Alhaji Musa Garba",
+        "relation": "Godfather, mentor",
+        "role": "Old trader who runs the thrift circle that funds your first table. Opens each act with a challenge and a story."
+      },
+      {
+        "name": "Papa Okon Bassey",
+        "relation": "Grandfather",
+        "role": "Holds the family farmland in the village. Visiting him unlocks the farm supply link and the yearly homecoming event."
+      }
+    ]
+  },
+  "acts": [
+    {
+      "name": "One Table, One Dream",
+      "netWorth": "₦0 to ₦10 million",
+      "businessesOpen": [
+        "Cooked Food",
+        "Farm Produce",
+        "Suya",
+        "Snacks",
+        "Drinks",
+        "Provisions",
+        "Fish",
+        "Pepper",
+        "Fabrics",
+        "Phone Accessories"
+      ],
+      "story": "Alhaji Musa's thrift circle pays out ₦50,000 and Mama Ireti gives you her old table. You choose one trade, carry every load yourself, hire your first helper and grow the stall into a proper shop. By the end the whole row knows your name and Tobenna asks for a job.",
+      "newSystem": "The core loop: collect, process, sell, upgrade pads, five venue stages, first staff and the evening routine at home.",
+      "travel": "On foot and by keke inside one city: the market, the supplier yard and home."
+    },
+    {
+      "name": "Owner of the Row",
+      "netWorth": "₦10 million to ₦250 million",
+      "businessesOpen": [
+        "Shipping and Logistics",
+        "School Group"
+      ],
+      "story": "One shop becomes three and suppliers cannot keep up. A late truck spoils a week of stock, so you buy your own van. Good staff are scarce, so you open a small training centre behind the shop. Papa Okon invites you home to see the farmland. You stop being a trader and become an employer.",
+      "newSystem": "Second and third market shops, managers, monthly salaries and tax, and the first supply links between your own businesses.",
+      "travel": "By car to nearby cities and the family village to visit suppliers, the farm and your first branches."
+    },
+    {
+      "name": "City Money",
+      "netWorth": "₦250 million to ₦5 billion",
+      "businessesOpen": [
+        "Retail Bank",
+        "Real Estate Developer",
+        "Factory Group"
+      ],
+      "story": "Traders on your row still keep cash under the mattress, so you open a small licensed bank for them. Rent keeps rising, so you start building your own shops. Imported goods cost too much, so you make them here. Zainab draws all of it on one page and Alhaji Musa says: now it is a group.",
+      "newSystem": "The holding company screen: one page for every business, internal loans, transfers and a monthly owner dividend.",
+      "travel": "Domestic flights between Lagos, Abuja, Kano and Port Harcourt for licences, land and factory sites."
+    },
+    {
+      "name": "A Name in Nigeria",
+      "netWorth": "₦5 billion to ₦100 billion",
+      "businessesOpen": [
+        "Hotel Chain",
+        "Hospital Group",
+        "Tech Company",
+        "Film and Music Company",
+        "Local Government Career"
+      ],
+      "story": "You are always on the road, so you build hotels you would sleep in. A staff emergency shows the town needs a hospital. An app puts your bank in every pocket and a film makes the brand famous. Then neighbours ask you to serve at the council, and Tobenna takes the keys while you do.",
+      "newSystem": "Reputation: a national fame and trust score that lifts customers everywhere, plus the family trust for time spent in public office.",
+      "travel": "Weekly domestic flights across all regions, plus car tours of your ward and the towns you serve."
+    },
+    {
+      "name": "Across Africa",
+      "netWorth": "₦100 billion to ₦2 trillion",
+      "businessesOpen": [
+        "Trading Firm",
+        "Investment Bank",
+        "Airline"
+      ],
+      "story": "Your goods now cross borders and prices swing with every currency. A trading desk steadies them, an investment bank raises big money openly from the public, and when flight delays cost you a deal in Nairobi you start an airline. The girl or boy from the row now signs in five capitals.",
+      "newSystem": "Markets and currency: export prices move daily, the group can hedge, issue bonds and list shares on the exchange.",
+      "travel": "International flights to Accra, Abidjan, Nairobi, Johannesburg and Cairo; free once the airline flies there."
+    },
+    {
+      "name": "The Tower",
+      "netWorth": "₦2 trillion and above",
+      "businessesOpen": [
+        "Energy Company"
+      ],
+      "story": "Every company you own pays too much for power, so the last and biggest build is energy: gas, solar and a grid that keeps the lights on at home. The group opens offices in London, Dubai and Guangzhou and moves into its own tower. From the top floor you can still see the market row.",
+      "newSystem": "Legacy: train an heir, fund a foundation, and unlock the Next Generation prestige run.",
+      "travel": "Long-haul flights to London, Dubai, Guangzhou and Houston, by your own airline or private jet."
+    }
+  ],
+  "unlockTree": [
+    {
+      "business": "Cooked Food",
+      "tier": 1,
+      "requires": "Nothing. Any market trade can be your first shop; as a later shop it needs flagship level 20.",
+      "feeds": "Runs Hotel Chain kitchens and School Group lunches; buys from Farm Produce, Pepper and Fish."
+    },
+    {
+      "business": "Farm Produce",
+      "tier": 1,
+      "requires": "Nothing as first shop; as a later shop, flagship level 20 and one visit to Papa Okon's village.",
+      "feeds": "Sells raw goods to Cooked Food, Pepper, Snacks and the Factory Group below market price."
+    },
+    {
+      "business": "Suya",
+      "tier": 1,
+      "requires": "Nothing as first shop; as a later shop, flagship level 20.",
+      "feeds": "Night trade fills the quiet hours; supplies Hotel Chain grills and Film and Music premieres."
+    },
+    {
+      "business": "Snacks",
+      "tier": 1,
+      "requires": "Nothing as first shop; as a later shop, flagship level 20.",
+      "feeds": "Stocks School Group tuck shops and Airline trays; Factory Group packs it at scale."
+    },
+    {
+      "business": "Drinks",
+      "tier": 1,
+      "requires": "Nothing as first shop; as a later shop, flagship level 20.",
+      "feeds": "Supplies Hotel Chain bars, Airline cabins and Suya spots; Factory Group bottles it."
+    },
+    {
+      "business": "Provisions",
+      "tier": 1,
+      "requires": "Nothing as first shop; as a later shop, flagship level 20.",
+      "feeds": "Becomes the shelf for everything the Factory Group makes; supplies Hotel Chain stores."
+    },
+    {
+      "business": "Fish",
+      "tier": 1,
+      "requires": "Nothing as first shop; as a later shop, flagship level 20.",
+      "feeds": "Supplies Cooked Food and Hotel Chain; needs Shipping cold trucks and later Airline cargo."
+    },
+    {
+      "business": "Pepper",
+      "tier": 1,
+      "requires": "Nothing as first shop; as a later shop, flagship level 20.",
+      "feeds": "Supplies Cooked Food and Suya; Factory Group turns it into paste that the Trading Firm exports."
+    },
+    {
+      "business": "Fabrics",
+      "tier": 1,
+      "requires": "Nothing as first shop; as a later shop, flagship level 20.",
+      "feeds": "First export line for Shipping; makes staff uniforms and Film and Music costumes."
+    },
+    {
+      "business": "Phone Accessories",
+      "tier": 1,
+      "requires": "Nothing as first shop; as a later shop, flagship level 20.",
+      "feeds": "Shops become Retail Bank agent points and the first sales counters for Tech Company products."
+    },
+    {
+      "business": "Shipping and Logistics",
+      "tier": 2,
+      "requires": "Flagship level 30, a manager hired and the first export contract signed.",
+      "feeds": "Moves stock for every shop and factory, carries Fabrics and Pepper exports, cuts delivery delays."
+    },
+    {
+      "business": "School Group",
+      "tier": 2,
+      "requires": "25 staff on payroll across two shops and three salary months paid on time.",
+      "feeds": "Graduates join any business already trained; later adds nursing, hotel, pilot and coding courses."
+    },
+    {
+      "business": "Retail Bank",
+      "tier": 3,
+      "requires": "Net worth ₦250 million, six tax months filed on time and three market shops open.",
+      "feeds": "Lends to your farm, shops and factories at a low rate; runs payroll; holds the group's cash."
+    },
+    {
+      "business": "Real Estate Developer",
+      "tier": 3,
+      "requires": "10 branches open and one Retail Bank loan fully repaid.",
+      "feeds": "Builds branches, schools, hotels, hospitals and the tower at cost; ends rent on your shops."
+    },
+    {
+      "business": "Factory Group",
+      "tier": 3,
+      "requires": "Two market shops at venue stage 5 and a Shipping fleet of five trucks.",
+      "feeds": "Makes packaged goods for Provisions, Snacks and Drinks; gives Shipping and Trading goods to sell."
+    },
+    {
+      "business": "Hotel Chain",
+      "tier": 4,
+      "requires": "Real Estate Developer finishes one tower; branches open in three cities.",
+      "feeds": "Halves the owner's travel cost, hosts deal meetings, buys from every food shop."
+    },
+    {
+      "business": "Hospital Group",
+      "tier": 4,
+      "requires": "School Group opens its nursing college; group payroll passes 500 staff.",
+      "feeds": "Staff health cover cuts sick days in every business and lifts the community trust score."
+    },
+    {
+      "business": "Tech Company",
+      "tier": 4,
+      "requires": "Retail Bank reaches 50,000 customers and School Group opens a coding lab.",
+      "feeds": "One app adds online orders to shops, mobile banking, hotel booking and live group reports."
+    },
+    {
+      "business": "Film and Music Company",
+      "tier": 4,
+      "requires": "Adverts bought in three businesses and fame score at 'known in the city'.",
+      "feeds": "Raises fame for the whole group, cuts advert cost, fills Hotel Chain halls with premieres."
+    },
+    {
+      "business": "Local Government Career",
+      "tier": 4,
+      "requires": "12 clean tax months, a school and a hospital serving the town, and the family trust set up.",
+      "feeds": "Earns no cash for your firms. Roads, markets and lights you deliver lift footfall for every trader."
+    },
+    {
+      "business": "Trading Firm",
+      "tier": 5,
+      "requires": "Factory Group runs three plants and Shipping delivers to three African countries.",
+      "feeds": "Locks raw-goods prices for farms and factories; sells group exports in bulk across Africa."
+    },
+    {
+      "business": "Investment Bank",
+      "tier": 5,
+      "requires": "Retail Bank holds a national licence and group net worth reaches ₦100 billion.",
+      "feeds": "Raises bonds for the Airline and Energy Company; lists the group on the stock exchange."
+    },
+    {
+      "business": "Airline",
+      "tier": 5,
+      "requires": "Hotel Chain open in five cities, 20 flights logged and School Group flight academy open.",
+      "feeds": "Free owner flights, air cargo for Fish and Fabrics, guests for the Hotel Chain."
+    },
+    {
+      "business": "Energy Company",
+      "tier": 6,
+      "requires": "Investment Bank closes a ₦200 billion bond and Factory Group runs five plants.",
+      "feeds": "Cuts the power bill of every business; fuels Shipping trucks and Airline planes."
+    }
+  ],
+  "holdingCompany": {
+    "name": "Table and Tower Group",
+    "howItWorks": "Unlocks in Act 3 as a boardroom screen. Each business is one card showing cash, profit per hour, manager and a health light. Drag cash from a rich card to a hungry one as an internal loan at 5% interest. On the last day of each month the group pays salaries and tax first, then sends 20% of what is left to the owner's pocket as dividend. Red lights mean a visit is due."
+  },
+  "synergies": [
+    {
+      "between": "Farm Produce + Cooked Food",
+      "bonus": "Own-farm supply cuts raw goods cost in the kitchen by 20% and removes the supplier delay."
+    },
+    {
+      "between": "Retail Bank + Farm Produce",
+      "bonus": "Farm loans at 9% a year instead of 25% from outside lenders; a harvest loan doubles one season's planting."
+    },
+    {
+      "between": "Shipping and Logistics + Fabrics",
+      "bonus": "Own containers lift fabric export profit by 30% and trucks return full, saving 15% on shop restock."
+    },
+    {
+      "between": "School Group + every business",
+      "bonus": "Graduates start at skill level 3 instead of 1 and cost 25% less to hire."
+    },
+    {
+      "between": "Factory Group + Provisions",
+      "bonus": "Own-brand goods on the shelf earn 35% more margin than bought-in stock."
+    },
+    {
+      "between": "Real Estate Developer + Hotel Chain",
+      "bonus": "Building in-house cuts hotel construction cost by 25% and build time by 2 days."
+    },
+    {
+      "between": "Hospital Group + every business",
+      "bonus": "Staff health cover cuts sick days by 40%, so stations stay staffed."
+    },
+    {
+      "between": "Tech Company + Retail Bank",
+      "bonus": "The mobile app triples new customers per day and lets 50% of shop sales be paid by transfer."
+    },
+    {
+      "between": "Airline + Hotel Chain",
+      "bonus": "Flight-and-room bundles raise hotel occupancy by 20%; owner trips cost ₦0 on own routes."
+    },
+    {
+      "between": "Energy Company + Factory Group",
+      "bonus": "Own power cuts factory running cost by 30% and ends blackout stoppages."
+    }
+  ],
+  "travelLoop": "Each business has a health light that drifts from green to red over about 7 days without a visit. A trip takes 2 to 4 minutes: pick the city, ride or fly, walk the site, fix 3 small problems, greet the manager and sign one deal only the owner can sign. Never travel and red sites lose 5% output a day down to half, managers stall and new licences, land and partners stay locked.",
+  "prestige": "At the top you name an heir and endow a foundation. Next Generation starts the heir with one table in a new city (Kano, Accra, Nairobi) under new rules. You keep the tower, house, family album and Legacy Stars: each adds 10% to all earnings. Seasonal city leagues and events keep running.",
+  "weeklyRhythm": [
+    "Daily: collect overnight earnings, clear Mama Ireti's goal and run the flagship by hand for a few minutes.",
+    "Twice a week: take one trip to the reddest site, fix three problems and sign an owner-only deal.",
+    "Midweek: open the group screen and move spare cash to the business that is next to upgrade.",
+    "Friday: the market-day event doubles customers for one hour in a featured business.",
+    "Weekend: play the story chapter Alhaji Musa sets and claim the act milestone reward.",
+    "Month end (every 7 real days): pay salaries and tax, read Zainab's report, collect the dividend."
+  ],
+  "toneGuide": [
+    "The player is the hero; family and staff are guides. Celebrate effort before money.",
+    "Warm and funny, never mocking. Light Pidgin in dialogue only; menus stay in plain English.",
+    "Clean wins only: fraud, bribes and tax dodging are problems to fix, never shortcuts.",
+    "No tribe, religion or party jokes. Invented names only; real cities are fine.",
+    "Keep the market in sight: every act calls back to the first table and the people on the row."
+  ],
+  "research": [
+    {
+      "claim": "Idle games base prestige currency on lifetime or since-reset earnings, and one common cube-root formula means about 8 times the earnings are needed to double the prestige reward.",
+      "url": "https://gamedeveloper.com/design/the-math-of-idle-games-part-iii"
+    },
+    {
+      "claim": "A 2025 tycoon design review calls monotony the core problem of the genre, says 'no events, no game', and warns that new gameplay layers must be introduced gradually so newcomers are not overwhelmed.",
+      "url": "https://appquantum.com/news/october-2025/once-again-on-how-to-make-tycoons-in-2025-with-links-and-examples.html"
+    },
+    {
+      "claim": "A Lagos couple grew from 50 bags of cement taken on supplier credit into building materials, supermarkets and filling stations, opening the fuel arm because of the group's own fuel spending.",
+      "url": "https://www.billionaires.africa/2025/12/08/how-this-nigerian-couple-turned-50-bags-of-cement-into-a-multi-million-dollar-retail-logistics-and-oil-empire"
+    },
+    {
+      "claim": "In the same group, trucks that deliver cement return carrying supermarket stock, and cash from the pay-before-delivery arm funds expansion of the others, coordinated at group level.",
+      "url": "https://www.billionaires.africa/2025/12/08/how-this-nigerian-couple-turned-50-bags-of-cement-into-a-multi-million-dollar-retail-logistics-and-oil-empire"
+    },
+    {
+      "claim": "A Nnewi spare-parts trader moved from trading to local assembly and then vehicle manufacturing, building his own plastics and tyre companies to secure inputs instead of buying them at others' margins.",
+      "url": "https://www.billionaires.africa/2026/06/29/innocent-chukwuma-turned-a-nnewi-market-stall-into-nigerias-only-indigenous-carmaker/"
+    }
+  ]
+}

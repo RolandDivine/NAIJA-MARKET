@@ -1,0 +1,315 @@
+{
+  "key": "airline",
+  "name": "KiteRise Air & Travels",
+  "tagline": "From one ticket desk in Lagos to wings over five world cities.",
+  "ownerCharacter": {
+    "name": "Madam Ronke Danjuma",
+    "look": "38, slim and tall, navy trouser suit, orange silk scarf, gold wing pin on lapel, low heels, always pulling a small orange cabin bag with a kite sticker.",
+    "backstory": "A former check-in agent who lost her job when her airline folded. She kept her customers' phone numbers, borrowed one desk in a Lagos plaza and promised: one day the plane outside go carry my own name."
+  },
+  "storyline": [
+    {
+      "title": "One Desk, One Dream",
+      "stage": "A single desk and a plastic chair in a busy Lagos plaza, with a laptop and a printer.",
+      "story": "Ronke sells tickets and helps with visa forms for small commission. One wrong name on a ticket means a refund from her own pocket. She must be exact, honest that no visa is ever guaranteed, and fast.",
+      "unlock": "Ticket desk, visa file station and your first travel consultant."
+    },
+    {
+      "title": "The Agency With a Signboard",
+      "stage": "A proper travel shop with three desks, a waiting bench and a glowing signboard.",
+      "story": "Companies start booking staff trips through her. To issue tickets herself she needs the global ticketing licence and a bank guarantee. A rival agency is pricing below cost to take her clients.",
+      "unlock": "Corporate travel accounts and group tour packages."
+    },
+    {
+      "title": "One Small Plane",
+      "stage": "A rented corner of a private hangar with one 9-seat turboprop on charter.",
+      "story": "An oil company needs a team in Port Harcourt by 7am, every week. Ronke leases a small plane with its crew. If it sits idle, the lease still bites in dollars. If it flies full, she breathes.",
+      "unlock": "Charter flights, a hangar site and your first captain."
+    },
+    {
+      "title": "The Five Phases",
+      "stage": "An office full of manuals, a training room and one leased 50-seat turboprop waiting.",
+      "story": "To sell scheduled seats she needs her own air operator certificate. Five phases, thick manuals, proving flights with inspectors on board. No shortcut exists, and the plane's rent runs all the while.",
+      "unlock": "Air operator certificate and scheduled flights from Lagos to Abuja."
+    },
+    {
+      "title": "Four Cities",
+      "stage": "A domestic terminal wing with check-in desks, two gates and three aircraft stands.",
+      "story": "Lagos, Abuja, Port Harcourt, Kano. Morning fog, late fuel trucks and angry queues test her. One cancelled flight ruins a day of trust, so she learns to keep a spare plane and tell passengers the truth.",
+      "unlock": "Four-city network, first jet and the operations control room."
+    },
+    {
+      "title": "West Coast Wings",
+      "stage": "A regional carrier with eight aircraft and ticket offices along the West African coast.",
+      "story": "Accra, Abidjan, Dakar, Freetown. Every country has its own charges and its own paperwork. Ticket money gets stuck abroad in other currencies, and Ronke must fly out herself to open each new station.",
+      "unlock": "Regional routes, foreign stations and currency accounts."
+    },
+    {
+      "title": "The Wide Body",
+      "stage": "An international terminal pier with one leased wide-body jet and a business lounge.",
+      "story": "London and Dubai. Foreign inspectors audit her safety records before giving landing slots. One wide-body costs more per month than her whole first year. She signs anyway, hand steady, heart loud.",
+      "unlock": "Long-haul flights, business class cabin and airport lounge."
+    },
+    {
+      "title": "Five Cities, One Kite",
+      "stage": "A hub terminal in Lagos with a full fleet, a maintenance hangar and a crew academy.",
+      "story": "Johannesburg, Houston, Guangzhou join the map. The old plaza desk is now a museum corner in the lounge. The last test: stay safe, on time and fair on price while the whole world is watching.",
+      "unlock": "Global network, own maintenance hangar and KiteRise Crew Academy."
+    }
+  ],
+  "productLines": [
+    {
+      "name": "Lagos-Abuja Shuttle Seat",
+      "raw": "Checked bags from the check-in belt",
+      "station": "Stand 1: turboprop baggage hold",
+      "customer": "Civil servants, traders and business travellers",
+      "price": 135000,
+      "priceNote": "One-way economy on this route ran about N104,000 to N162,500 in May 2026."
+    },
+    {
+      "name": "Kano & PH Hop Seat",
+      "raw": "Bags plus snack boxes from the store",
+      "station": "Stand 2: regional jet cabin door",
+      "customer": "Oil workers, students and market traders",
+      "price": 160000,
+      "priceNote": "Longer domestic sectors sit at the top of the 2026 one-way fare range."
+    },
+    {
+      "name": "West Coast Flyer Seat",
+      "raw": "Catering trolleys from the kitchen",
+      "station": "Stand 3: narrow-body jet galley",
+      "customer": "Regional traders and company staff to Accra",
+      "price": 420000,
+      "priceNote": "Short regional flights cost a lot: several countries' taxes and charges."
+    },
+    {
+      "name": "London Economy Return",
+      "raw": "Jet fuel drums from the fuel depot",
+      "station": "Stand 4: wide-body fuelling point",
+      "customer": "Families, students and visiting relatives",
+      "price": 1650000,
+      "priceNote": "A local carrier opened this route at N1.2m return in 2024; fuel is up since."
+    },
+    {
+      "name": "Long-Haul Business Return",
+      "raw": "Premium meal trolleys and fuel",
+      "station": "Stand 5: wide-body front galley",
+      "customer": "Executives and importers to Dubai and Guangzhou",
+      "price": 4800000,
+      "priceNote": "Business class on Lagos to London launched at N4m return in 2024."
+    }
+  ],
+  "howItFitsTheEngine": "Passengers queue at check-in and drop bags. The player carries baggage from the belt, catering trolleys from the kitchen and fuel from the depot out to the aircraft stands. Ground crew load each plane; when bags, meals and fuel are all in, the flight becomes 'boarded'. The player takes the boarding call to the gate counter, where queued passengers pay and walk on.",
+  "staffRoles": [
+    {
+      "role": "Travel Consultant",
+      "does": "Sells tickets and prepares visa files at the desk; checks every name twice.",
+      "look": "Young woman, navy blouse, orange neck scarf, headset, tablet in hand, bright smile.",
+      "monthlySalary": 180000
+    },
+    {
+      "role": "Check-in Agent",
+      "does": "Weighs bags, prints boarding passes and keeps the queue moving.",
+      "look": "Man in navy waistcoat and orange tie, ID lanyard, standing behind a desk with a baggage scale.",
+      "monthlySalary": 200000
+    },
+    {
+      "role": "Baggage Handler",
+      "does": "Loads bags, trolleys and cargo into the aircraft hold at the stand.",
+      "look": "Stocky man, orange high-visibility vest, ear defenders round neck, gloves, knee pads.",
+      "monthlySalary": 130000
+    },
+    {
+      "role": "Cabin Crew",
+      "does": "Boards passengers, gives the safety briefing and serves meals on board.",
+      "look": "Slim woman, fitted navy dress, orange kite-print scarf, hair in neat bun, small wheeled bag.",
+      "monthlySalary": 450000
+    },
+    {
+      "role": "First Officer",
+      "does": "Flies with the captain; raises aircraft turnaround speed at the stand.",
+      "look": "Young man, white shirt, three gold stripes on shoulders, navy trousers, flight bag.",
+      "monthlySalary": 2500000
+    },
+    {
+      "role": "Captain",
+      "does": "Commands the flight; needed for each aircraft before a route can open.",
+      "look": "Woman in her 50s, white shirt with four gold stripes, navy cap, aviator glasses, calm face.",
+      "monthlySalary": 7000000
+    },
+    {
+      "role": "Aircraft Engineer",
+      "does": "Does safety checks and repairs; cuts time lost to grounded aircraft.",
+      "look": "Lean man, grey overalls with orange trim, torch on belt, clipboard, grease mark on sleeve.",
+      "monthlySalary": 1800000
+    }
+  ],
+  "machines": [
+    {
+      "name": "Baggage Belt Loader",
+      "does": "Moves checked bags from check-in to the stand without the player carrying them.",
+      "look": "Low orange vehicle with a sloping black conveyor belt, flashing amber light on top."
+    },
+    {
+      "name": "Catering High-Loader",
+      "does": "Lifts full catering trolleys from the kitchen straight to the aircraft door.",
+      "look": "White box truck that rises on a scissor lift, kite logo on the side, small front platform."
+    },
+    {
+      "name": "Fuel Hydrant System",
+      "does": "Pumps fuel to every stand through underground pipes; no more fuel carrying.",
+      "look": "Yellow hydrant cart with thick black hose and gauges, linked to a pit cover on the apron."
+    }
+  ],
+  "moneyMechanics": [
+    {
+      "rule": "Fuel price swings",
+      "howItWorks": "Jet fuel moves daily between N1,000 and N2,500 per litre. A Lagos to Abuja jet hop burns about 3,500 litres, so fuel costs N3.5m to N8.7m per flight. Buy ahead into your depot when it is cheap.",
+      "realBasis": "Jet fuel in Nigeria went from about N1,000 a litre in February 2026 to over N2,500 at peak; fuel is the biggest airline cost."
+    },
+    {
+      "rule": "Lease is paid in dollars",
+      "howItWorks": "Planes are leased, not bought. Turboprop about $90,000 a month, narrow-body jet about $180,000, wide-body about $700,000. Rent is due monthly whether the plane flies or not.",
+      "realBasis": "Most Nigerian carriers lease aircraft from foreign lessors at monthly dollar rates, so a weak naira raises costs."
+    },
+    {
+      "rule": "Fill the seats",
+      "howItWorks": "A 150-seat jet at N135,000 earns N20m when full. Below 60% of seats sold, the flight loses money. Adverts and on-time flights raise how full each flight is.",
+      "realBasis": "Airlines track load factor: the share of seats sold. Each route has a break-even level."
+    },
+    {
+      "rule": "Five-phase certificate",
+      "howItWorks": "No scheduled seats until all 5 phases pass: pre-application, formal application, document review, inspection with proving flights, certification. Each takes 2 game days. No skipping.",
+      "realBasis": "The civil aviation regulator certifies new air operators through a five-phase process before they may carry the public."
+    },
+    {
+      "rule": "Agent commission",
+      "howItWorks": "At the desk stage you do not own seats. You earn 5% commission plus a N10,000 service fee per ticket and N50,000 per visa file. A wrong name costs you the refund.",
+      "realBasis": "Travel agents earn commissions and service fees on tickets they sell; visa decisions belong to embassies alone."
+    },
+    {
+      "rule": "Safety checks ground planes",
+      "howItWorks": "Every 60 flights a plane must rest 1 game day for its safety check, costing N15m. The button to fly is locked until the engineer signs. A spare plane keeps the schedule alive.",
+      "realBasis": "Aircraft must pass scheduled maintenance checks; skipping them is illegal and unsafe."
+    }
+  ],
+  "travel": [
+    {
+      "place": "Accra, Ghana",
+      "why": "Open the first foreign station and sign the ground handling partner for regional flights.",
+      "how": "international flight"
+    },
+    {
+      "place": "Abuja, Nigeria",
+      "why": "Meet the civil aviation regulator's inspectors for each phase of the operator certificate.",
+      "how": "domestic flight"
+    },
+    {
+      "place": "Kano, Nigeria",
+      "why": "Inspect the northern station, check on-time records and thank the early morning crew.",
+      "how": "domestic flight"
+    },
+    {
+      "place": "London, United Kingdom",
+      "why": "Pass the foreign safety audit, secure landing slots and launch the first long-haul route.",
+      "how": "international flight"
+    },
+    {
+      "place": "Guangzhou, China",
+      "why": "Sign cargo deals with importers and open the farthest station on the KiteRise map.",
+      "how": "international flight"
+    }
+  ],
+  "rivalsAndAllies": [
+    {
+      "name": "Chief Dele of JetOga Air",
+      "role": "rival",
+      "line": "Small madam, sky no be plaza. Make I buy your desk before fuel finish you."
+    },
+    {
+      "name": "Capt. Mama Ebiere",
+      "role": "mentor",
+      "line": "My daughter, a late flight you can explain. An unsafe one, never."
+    },
+    {
+      "name": "Inspector Hauwa Bassey",
+      "role": "regulator",
+      "line": "Your manual says one thing, your hangar says another. Fix it, then call me."
+    },
+    {
+      "name": "Papa Danjuma",
+      "role": "family",
+      "line": "You dey travel pass the plane itself. Come chop Sunday rice at least!"
+    }
+  ],
+  "events": [
+    {
+      "name": "Harmattan Haze",
+      "text": "Dusty haze cuts visibility in Kano. Morning flights wait two hours for safety.",
+      "good": false
+    },
+    {
+      "name": "Fuel Price Drop",
+      "text": "A local refinery cuts jet fuel price today. Fill your depot while it is cheap!",
+      "good": true
+    },
+    {
+      "name": "Wedding Party Booking",
+      "text": "An owambe family books 40 seats to Abuja at once. Aso ebi full the whole cabin!",
+      "good": true
+    },
+    {
+      "name": "Bird Strike Check",
+      "text": "A bird hit the engine on landing. Engineer must inspect before the next flight.",
+      "good": false
+    },
+    {
+      "name": "Fuel Truck Delay",
+      "text": "The fuel truck is stuck in traffic. Carry fuel yourself or passengers will wait.",
+      "good": false
+    },
+    {
+      "name": "On-Time Award",
+      "text": "KiteRise is named most punctual airline this month. More passengers join the queue.",
+      "good": true
+    },
+    {
+      "name": "Naira Wobble",
+      "text": "The naira weakens today. This month's dollar lease payment costs you more.",
+      "good": false
+    },
+    {
+      "name": "Football Fans Charter",
+      "text": "Supporters hire a full plane for an away match. Loud songs, full payment up front!",
+      "good": true
+    }
+  ],
+  "endgame": "KiteRise flies from its own Lagos hub to London, Dubai, Johannesburg, Houston and Guangzhou with a spotless safety record, its own hangar and crew academy. Ronke's first plaza desk sits in the lounge with a sign: 'We started here.'",
+  "risksToHandleCarefully": "Never show crashes or injuries: safety problems are checks and delays only. No bribing inspectors or skipping checks. Visa help must never promise approval or enable fake papers. Prices are game naira, not travel or investment advice.",
+  "research": [
+    {
+      "claim": "One-way economy fares from Lagos to Abuja ranged from about N104,000 to N162,500 in May 2026.",
+      "url": "https://nairametrics.com/2026/05/13/how-much-youll-pay-to-fly-lagos-abuja-in-may/"
+    },
+    {
+      "claim": "Jet fuel in Nigeria rose from about N950 to N1,000 per litre in February 2026 to over N2,500 at peak, and the petroleum regulator set a Lagos benchmark up to N1,988.",
+      "url": "https://allafrica.com/stories/202604280141.html"
+    },
+    {
+      "claim": "A major local refinery cut its jet fuel price to N1,650 per litre in May 2026.",
+      "url": "https://nairametrics.com/2026/05/19/dangote-refinery-cuts-jet-a1-price-to-n1650-per-litre/"
+    },
+    {
+      "claim": "A Nigerian carrier launched Lagos to London in 2024 at N1.2 million return in economy and N4 million in business class.",
+      "url": "https://businessday.ng/aviation/article/air-peace-sells-return-economy-for-1-2m-business-for-4m-for-london-flight"
+    },
+    {
+      "claim": "An aviation chief executive said in July 2026 that new pilots in Nigeria mostly earn N1.5m to N3.5m a month and captains N6m to N8m, with some higher.",
+      "url": "https://nairametrics.com/2026/07/20/commercial-pilots-earn-n800000-to-n9-million-monthly-in-nigeria-ceo-say/"
+    },
+    {
+      "claim": "Nigeria's civil aviation regulator publishes a formal air operator certification process that begins with a pre-application phase.",
+      "url": "https://ncaa.gov.ng/media/io4l2gwz/ncaa-ac-ops001_certification-of-air-operator_amended_january-2026.pdf"
+    }
+  ]
+}

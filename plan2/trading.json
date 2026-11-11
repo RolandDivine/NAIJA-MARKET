@@ -1,0 +1,311 @@
+{
+ "key": "trading",
+ "name": "Blue Ticker Trading House",
+ "tagline": "From one currency counter to five trading floors. Patience pays.",
+ "ownerCharacter": {
+  "name": "Madam Sade Ibekwe",
+  "look": "Woman, 34, slim and upright. Navy trouser suit, sky-blue blouse, gold stud earrings, flats. Signature prop: a bright blue trader's jacket slung over one arm.",
+  "backstory": "Sade counted notes at her aunty's licensed bureau de change and ran errands for an old stockbroker. She kept a notebook of every price she saw. Her rule: small profit, every day, no gamble. Now she wants her own floor."
+ },
+ "storyline": [
+  {
+   "title": "The Counter and the Notebook",
+   "stage": "One rented counter inside Aunty's licensed bureau de change on Lagos Island",
+   "story": "Sade changes dollars and pounds for travellers at the day's posted rate and writes every price in her notebook. Each afternoon she carries tickets for old Baba Coker, the stockbroker upstairs. One wrong count and Aunty takes back the counter.",
+   "unlock": "Currency desk, rate board and the apprentice's ticket bag"
+  },
+  {
+   "title": "Apprentice No More",
+   "stage": "A two-desk office upstairs with a second-hand price screen",
+   "story": "Baba Coker retires and hands Sade his client book: 40 teachers, traders and pensioners. She passes her stockbroking exams and places their share orders through a sponsoring firm. Lose their trust and the book is gone.",
+   "unlock": "Share order desk and the first trainee dealer"
+  },
+  {
+   "title": "The Licence",
+   "stage": "A proper stockbroking office with a client hall and a small dealing room",
+   "story": "To trade in her own name Sade needs a broker's licence and N600 million of capital kept safe. Family, clients and one careful investor buy in. The securities regulator inspects every file before saying yes.",
+   "unlock": "Broker licence, compliance desk and treasury bill desk"
+  },
+  {
+   "title": "First Red Day",
+   "stage": "A dealing room with eight screens and a wall-sized price board",
+   "story": "The market falls for five straight days. Clients panic and one dealer wants to double up to win it back. Sade says no, cuts the loss at the limit and calls every client herself. The firm ends the week smaller but trusted.",
+   "unlock": "Risk limits panel and stop-loss rule for the firm's own book"
+  },
+  {
+   "title": "The Trading Floor",
+   "stage": "A full floor in a Marina tower: five desks, forty screens, a settlement counter",
+   "story": "With N2 billion in capital Blue Ticker becomes a broker-dealer. Shares, treasury bills, bonds, currencies and commodities now trade side by side for clients and for the firm. A pension fund sends its first big ticket.",
+   "unlock": "Bond desk, commodities desk and pension fund clients"
+  },
+  {
+   "title": "Abuja Calling",
+   "stage": "Lagos headquarters plus a client office in Abuja",
+   "story": "A rival offers clients sweet promises of guaranteed profit. Sade refuses to match the lie and shows real numbers instead. The regulator audits both firms. Clean books win her the big government-bond mandate.",
+   "unlock": "Abuja office, head of risk and bulk bond contracts"
+  },
+  {
+   "title": "Across the Continent",
+   "stage": "Trading floors in Lagos and Johannesburg linked by one live screen wall",
+   "story": "Blue Ticker opens in Johannesburg to trade gold, rand and big African shares. Two markets, two rule books, one risk limit. Sade must fly down often, because a desk nobody visits starts to cut corners.",
+   "unlock": "Johannesburg desk, company jet card and cross-border orders"
+  },
+  {
+   "title": "The Sun Never Sets",
+   "stage": "A global trading house: Lagos, Johannesburg, London, Dubai and New York",
+   "story": "As Lagos closes, New York is still trading. Orders pass from desk to desk around the clock. Sade rings the opening bell in Lagos, with her old notebook in her pocket and Aunty in the front row.",
+   "unlock": "Five-city trading book and the opening-bell ceremony"
+  }
+ ],
+ "productLines": [
+  {
+   "name": "Currency Exchange",
+   "raw": "Currency tickets from walk-in clients",
+   "station": "Currency desk with note counter",
+   "customer": "Travellers, students abroad, importers",
+   "price": 5000,
+   "priceNote": "About N10 margin per dollar on a typical $500 exchange"
+  },
+  {
+   "name": "Share Trades",
+   "raw": "Buy and sell share order tickets",
+   "station": "Equities dealing desk",
+   "customer": "Salary earners, market traders, pensioners",
+   "price": 6750,
+   "priceNote": "1.35% commission on a typical N500,000 share order"
+  },
+  {
+   "name": "Treasury Bills",
+   "raw": "Treasury bill bid tickets",
+   "station": "Money market desk",
+   "customer": "Cooperatives, schools, small companies",
+   "price": 12500,
+   "priceNote": "0.125% fee for placing a N10 million bill at auction"
+  },
+  {
+   "name": "Bonds",
+   "raw": "Bond order tickets from big funds",
+   "station": "Fixed income desk",
+   "customer": "Pension funds and insurance companies",
+   "price": 50000,
+   "priceNote": "0.1% fee on a N50 million government bond trade"
+  },
+  {
+   "name": "Commodity Contracts",
+   "raw": "Contract tickets for gold, cocoa, grains",
+   "station": "Commodities desk with warehouse receipts",
+   "customer": "Exporters, food processors, farmer cooperatives",
+   "price": 150000,
+   "priceNote": "0.5% fee on a N30 million cocoa or grain contract"
+  }
+ ],
+ "howItFitsTheEngine": "Clients queue at the client desk and drop order tickets in a tray. The player carries the tickets across the floor to the right trader desk, where a dealer works the order on screen and prints an executed trade slip. The player carries slips to the settlement counter, where clients collect their contract note and pay the firm's fee. A messenger van also brings bulk tickets from big funds.",
+ "staffRoles": [
+  {
+   "role": "Client Desk Officer",
+   "does": "Welcomes clients, checks their ID and writes clear order tickets",
+   "look": "Young woman, neat braids, sky-blue blouse, name tag, clipboard of ticket forms",
+   "monthlySalary": 180000
+  },
+  {
+   "role": "Trainee Dealer",
+   "does": "Works small share and currency orders under a senior's eye",
+   "look": "Fresh graduate, slim, white shirt, bright blue trader's jacket a size too big, headset",
+   "monthlySalary": 220000
+  },
+  {
+   "role": "Senior Dealer",
+   "does": "Executes large orders at the best price without moving the market",
+   "look": "Man in his 30s, rolled sleeves, loose tie, blue jacket on chair, two phones, calm face",
+   "monthlySalary": 650000
+  },
+  {
+   "role": "Settlement Clerk",
+   "does": "Matches every trade, issues contract notes and collects fees",
+   "look": "Older woman, glasses on a chain, ankara skirt with plain blouse, stamp and ledger",
+   "monthlySalary": 250000
+  },
+  {
+   "role": "Research Analyst",
+   "does": "Reads company results and news to give the day's market clues",
+   "look": "Stocky man, sweater vest, thick glasses, stack of annual reports, pencil behind ear",
+   "monthlySalary": 400000
+  },
+  {
+   "role": "Compliance Officer",
+   "does": "Checks client papers, blocks dirty money and keeps the licence safe",
+   "look": "Tall woman, grey skirt suit, short natural hair, red folder marked CHECKED, stern but kind",
+   "monthlySalary": 550000
+  },
+  {
+   "role": "Head of Risk",
+   "does": "Sets position limits and closes any trade that breaks them",
+   "look": "Man in his 50s, grey beard, navy kaftan, tablet showing green and red bars, whistle on lanyard",
+   "monthlySalary": 1500000
+  }
+ ],
+ "machines": [
+  {
+   "name": "Ticket Tube",
+   "does": "Shoots order tickets from the client desk to one trader desk without walking",
+   "look": "Clear plastic tube along the ceiling with small blue capsules whooshing through, brass ends"
+  },
+  {
+   "name": "Order Routing Screen",
+   "does": "Clients enter orders on a tablet and tickets appear at the right desk at once",
+   "look": "Row of standing touch-screen kiosks with blue frames and a big ceiling board of live orders"
+  },
+  {
+   "name": "Auto-Settlement Engine",
+   "does": "Matches and settles every executed trade at the counter with no clerk carrying",
+   "look": "Glass server cabinet with blue lights beside the counter, printer feeding contract notes into trays"
+  }
+ ],
+ "moneyMechanics": [
+  {
+   "rule": "Commission comes first",
+   "howItWorks": "Every client ticket pays a fixed fee whether prices rise or fall: 1.35% on shares, down to 0.5% for big loyal clients. This steady income pays salaries. It never depends on luck.",
+   "realBasis": "Traditional Nigerian brokers charge about 1.35% per side, negotiable; discount apps charge 0.5% to 1%."
+  },
+  {
+   "rule": "Capital ladder",
+   "howItWorks": "Licences need locked capital: N600m for broker, N1bn for dealer, N2bn for broker-dealer. Locked capital cannot be spent or traded, only kept in treasury bills. Own-book trading opens at dealer level.",
+   "realBasis": "The securities regulator's January 2026 circular set these minimums, with a June 2027 deadline."
+  },
+  {
+   "rule": "Risk limits on the firm book",
+   "howItWorks": "The firm may trade at most 10% of free cash, and no single position above 2%. Any position down 8% is closed by the Head of Risk. So the worst day costs under 1% of cash. No borrowing to trade.",
+   "realBasis": "Real dealing firms set position limits, stop-losses and capital adequacy rules watched by a risk officer."
+  },
+  {
+   "rule": "Read the board, not the dice",
+   "howItWorks": "Each morning the analyst posts 3 clues (inflation, oil, company results). Prices drift the way the clues point, within a 10% daily limit. Read 2 of 3 right and the trade earns 3% to 6%. No jackpots.",
+   "realBasis": "Prices follow news and fundamentals, and the exchange caps daily share price moves at 10% either way."
+  },
+  {
+   "rule": "Patience shelf",
+   "howItWorks": "Idle cash can sit in a 364-day treasury bill at 15.8% a year, paid as 1.3% each game month. Break it early and you lose 2%. A calm option on days when the clues are unclear.",
+   "realBasis": "In November 2026 the 364-day treasury bill stop rate was 15.80% and the 91-day rate was 15.40%."
+  },
+  {
+   "rule": "Two-day settlement",
+   "howItWorks": "Fees land 2 game days after the trade, once the settlement counter matches it. A ticket with wrong details fails: redo it and pay a N10,000 penalty. Clean tickets build a 5-star client rating.",
+   "realBasis": "Exchange trades settle two days after the trade date, and failed settlements attract penalties."
+  }
+ ],
+ "travel": [
+  {
+   "place": "Abuja",
+   "why": "Meet the securities regulator, renew licences and visit pension fund clients",
+   "how": "domestic flight"
+  },
+  {
+   "place": "Johannesburg",
+   "why": "Inspect the gold and rand desk and check its risk limits in person",
+   "how": "international flight"
+  },
+  {
+   "place": "London",
+   "why": "Visit the currency and eurobond desk and meet investors in African bonds",
+   "how": "international flight"
+  },
+  {
+   "place": "Dubai",
+   "why": "Inspect the gold and oil desk that covers the hours between Lagos and Asia",
+   "how": "international flight"
+  },
+  {
+   "place": "New York",
+   "why": "Open the last desk of the day and meet funds that buy Nigerian shares",
+   "how": "international flight"
+  }
+ ],
+ "rivalsAndAllies": [
+  {
+   "name": "Baba Coker",
+   "role": "mentor",
+   "line": "My daughter, the market will open again tomorrow. Will your capital?"
+  },
+  {
+   "name": "Chief Dapo Fastlane",
+   "role": "rival",
+   "line": "Why wait one year for 15% when I can promise them double by Friday?"
+  },
+  {
+   "name": "Mrs. Hauwa Danladi",
+   "role": "regulator",
+   "line": "Show me your client files. If they are clean, we will be friends."
+  },
+  {
+   "name": "Aunty Bisi",
+   "role": "family",
+   "line": "Count am twice, pay am once. Na so I train you."
+  }
+ ],
+ "events": [
+  {
+   "name": "Good Results Season",
+   "text": "Big companies report strong profits. Share order tickets double for today.",
+   "good": true
+  },
+  {
+   "name": "Red Day",
+   "text": "The market falls 4%. Client fees still come in, but the firm book loses a little.",
+   "good": false
+  },
+  {
+   "name": "Pension Fund Ticket",
+   "text": "A pension fund sends one giant bond order. Execute it cleanly for a bonus fee.",
+   "good": true
+  },
+  {
+   "name": "Wrong Ticket",
+   "text": "A trainee typed 10,000 units instead of 1,000. Fix it before settlement or pay.",
+   "good": false
+  },
+  {
+   "name": "Auction Day",
+   "text": "Treasury bill auction today. Bid tickets queue at the money market desk.",
+   "good": true
+  },
+  {
+   "name": "Surprise Inspection",
+   "text": "The regulator visits. Missing client papers mean a fine; clean files earn praise.",
+   "good": false
+  },
+  {
+   "name": "Naira Steady Week",
+   "text": "The exchange rate holds calm all week. Currency desk clients come back smiling.",
+   "good": true
+  },
+  {
+   "name": "Network Down",
+   "text": "The trading link drops for an hour. Tickets pile up; dealers work them by phone.",
+   "good": false
+  }
+ ],
+ "endgame": "Blue Ticker runs five linked floors in Lagos, Johannesburg, London, Dubai and New York, trading round the clock inside one risk limit. Sade rings the Lagos opening bell, trains 1,000 young dealers and never misses a settlement.",
+ "risksToHandleCarefully": "Must never feel like betting: no jackpots or spins, fees are the main income, hard position limits, stop-losses, no borrowing, and a loss recap that explains why. 18+ framing, no promised returns, no real-money trading, not advice.",
+ "research": [
+  {
+   "claim": "Traditional Nigerian stockbrokers charge about 1.35% commission per side (negotiable), and a full buy-and-sell round trip costs about 4.0% to 4.5% with statutory fees.",
+   "url": "https://nairacompare.ng/blogs/the-true-cost-of-trading-stocks-in-nigeria-what-50000-a-month-really-costs-you"
+  },
+  {
+   "claim": "In January 2026 the securities regulator raised minimum capital to N600 million for brokers, N1 billion for dealers and N2 billion for broker-dealers, with a June 30, 2027 deadline.",
+   "url": "https://nairametrics.com/2026/01/16/sec-raises-capital-requirements-for-brokers-fund-managers-digital-firms/"
+  },
+  {
+   "claim": "At the November 4, 2026 auction, treasury bill stop rates were 15.40% (91-day), 15.79% (182-day) and 15.80% (364-day).",
+   "url": "https://nairametrics.com/2026/11/05/cbn-mops-up-n3-46-trillion-across-omo-ntb-auctions-holds-t-bill-stop-rates-steady/"
+  },
+  {
+   "claim": "A bureau de change licence needs N2 billion capital for Tier 1 and N500 million for Tier 2 (one state only); only 82 operators got final licences in the first batch.",
+   "url": "https://techcabal.com/2025/12/08/cbn-82-bdcs-fully-licenced-2024-guidelines/"
+  },
+  {
+   "claim": "A wage survey puts most securities dealers and brokers in Nigeria at only about N25,645 to N75,495 net per month in 2026; game salaries are set higher, at Lagos firm level.",
+   "url": "https://mywage.ng/career/job-income/securities-and-finance-dealers-and-brokers"
+  }
+ ]
+}

@@ -1,0 +1,315 @@
+{
+  "key": "energy",
+  "name": "Kpakpando Energy",
+  "tagline": "From one small gen by the roadside to lighting up a continent.",
+  "ownerCharacter": {
+    "name": "Engr. Nkem Adaramola",
+    "look": "Woman, 34, tall and slim. Orange safety vest over navy polo, grey cargo trousers, black boots, white hard hat with a yellow star. Holds a yellow gas detector.",
+    "backstory": "An electrical engineering graduate who could not find a job, so she borrowed her aunty's small generator and began charging phones and refilling gas by the road. Her rule since day one: safe first, full measure always."
+  },
+  "storyline": [
+    {
+      "title": "One Gen, One Table",
+      "stage": "A roadside kiosk with an umbrella, one small generator and a caged gas refill scale.",
+      "story": "Light has been off for three days and the whole street needs phones charged and gas to cook. Nkem starts with one generator and one scale. If she loses the neighbours' trust on day one, there is no day two.",
+      "unlock": "Phone charging wall and the first gas refill scale"
+    },
+    {
+      "title": "The Proper Gas Shop",
+      "stage": "A small block shop with a fenced cylinder cage, fire extinguishers and a signboard.",
+      "story": "A safety inspector warns that roadside refilling under an umbrella must stop. Nkem builds a real cage with sensors and trains her first helper. The street watches to see if the 'small girl' is serious.",
+      "unlock": "Gas cage, safety officer and cylinder delivery bike"
+    },
+    {
+      "title": "Three Papers, One Dream",
+      "stage": "An empty plot on a busy road with survey pegs, a site board and a container office.",
+      "story": "To sell petrol she needs the regulator's site check, approval to construct, then a licence to operate. Every paper costs money and patience, and rival Chief Dayo says she will give up before the tanks go in.",
+      "unlock": "Filling station licence and underground tanks"
+    },
+    {
+      "title": "First Pump, Full Litre",
+      "stage": "A two-island filling station with four pumps, a canopy and a small mart.",
+      "story": "Opening day: the first tanker reverses in and drivers line up. Nkem's promise is one full litre for every litre paid. When the inspector's test can comes out exact, the queue starts to clap.",
+      "unlock": "Petrol and diesel pumps, tanker deliveries"
+    },
+    {
+      "title": "Sun on Every Roof",
+      "stage": "The station plus a solar installation bay, a van and stacks of panels.",
+      "story": "Tariffs are up and generators are loud. Households beg for something quieter. Nkem opens a solar bay and offers pay small-small. One bad installation could spoil the name, so every job gets tested.",
+      "unlock": "Solar installation bay and installer van"
+    },
+    {
+      "title": "Stations on Every Road",
+      "stage": "A chain of branded stations across Lagos, Port Harcourt and Abuja.",
+      "story": "One station is a shop; twenty is a company. Nkem hires managers and flies to inspect branches. A manager in Port Harcourt is skipping safety drills, and she must fix it before something goes wrong.",
+      "unlock": "Branch stations, managers and domestic flights"
+    },
+    {
+      "title": "Depot and Power Plant",
+      "stage": "A gas depot with storage spheres and a gas-fired power plant feeding the grid.",
+      "story": "Tired of waiting for other people's trucks, Nkem builds her own gas depot and a power plant. Now factories and whole estates depend on her. If the plant trips, a city goes dark and she refunds everybody.",
+      "unlock": "Gas depot, power plant and bulk power contracts"
+    },
+    {
+      "title": "The African Energy Group",
+      "stage": "A glass head office in Lagos with offices in Accra, Nairobi, Dubai and Rotterdam.",
+      "story": "Kpakpando now moves fuel, gas and sunlight across Africa and trades cargoes from Dubai and Rotterdam. Nkem's last test is to keep the roadside rule alive in every country: safe first, full measure always.",
+      "unlock": "Trading offices, international flights and the group HQ"
+    }
+  ],
+  "productLines": [
+    {
+      "name": "Phone Charging",
+      "raw": "Power banks and lamps from the truck",
+      "station": "Charging wall beside the generator",
+      "customer": "Neighbours, traders and okada riders",
+      "price": 200,
+      "priceNote": "Street charging points take about N100 to N300 per phone."
+    },
+    {
+      "name": "Cooking Gas Refill (1kg)",
+      "raw": "Sealed gas cylinders from the truck",
+      "station": "Gas cage with a weighing scale",
+      "customer": "Households and food sellers with cylinders",
+      "price": 1450,
+      "priceNote": "Retail gas was about N1,350 to N1,500 per kg in May 2026."
+    },
+    {
+      "name": "Petrol (1 litre)",
+      "raw": "Petrol from the tanker bay",
+      "station": "Petrol pumps under the canopy",
+      "customer": "Car, keke and bus drivers",
+      "price": 1350,
+      "priceNote": "Lagos pumps sold at about N1,200 to N1,350 a litre in May 2026."
+    },
+    {
+      "name": "Diesel (1 litre)",
+      "raw": "Diesel from the tanker bay",
+      "station": "Diesel pump on the truck island",
+      "customer": "Truck drivers and generator owners",
+      "price": 1700,
+      "priceNote": "Estimate: diesel usually sells a few hundred naira above petrol."
+    },
+    {
+      "name": "Solar Home Kit (3kW)",
+      "raw": "Panels and batteries from container",
+      "station": "Installation bay and test bench",
+      "customer": "Households and small shops tired of gen noise",
+      "price": 2400000,
+      "priceNote": "Installed 1kW to 3kW systems cost about N800,000 to N2.5 million."
+    }
+  ],
+  "howItFitsTheEngine": "Player carries sealed jerrycans from the tanker bay to top up the pumps, rolls gas cylinders by trolley from the container truck to the gas cage, and carries panel crates to the installation bay. Attendants, gas operators and technicians turn them into litres, refills and kits. Drivers pull up to pumps, households queue at the cage with cylinders and collect solar kits at the counter.",
+  "staffRoles": [
+    {
+      "role": "Pump Attendant",
+      "does": "Fills cars at the pump, shows the meter at zero and collects payment.",
+      "look": "Young man or woman in orange overalls and cap with a yellow star, card reader on a belt strap.",
+      "monthlySalary": 70000
+    },
+    {
+      "role": "Gas Plant Operator",
+      "does": "Weighs and refills cylinders in the cage and checks every valve for leaks.",
+      "look": "Stocky man in navy coverall, thick gloves and safety goggles, standing by a blue scale.",
+      "monthlySalary": 90000
+    },
+    {
+      "role": "Cashier",
+      "does": "Runs the mart counter and records every sale and transfer.",
+      "look": "Woman in a white shirt and orange waistcoat, headset on, behind a small glass till.",
+      "monthlySalary": 85000
+    },
+    {
+      "role": "Tanker Driver",
+      "does": "Brings fuel from the depot and offloads through the sealed hose.",
+      "look": "Broad man in a reflective jacket and flat cap, clipboard in hand, calm slow walk.",
+      "monthlySalary": 150000
+    },
+    {
+      "role": "Solar Technician",
+      "does": "Builds, tests and installs solar kits on customers' roofs.",
+      "look": "Lean woman in green coverall, tool belt and harness, with a multimeter round her neck.",
+      "monthlySalary": 180000
+    },
+    {
+      "role": "Safety Officer",
+      "does": "Runs fire drills, checks sensors and stops any unsafe work at once.",
+      "look": "Tall man in a red hard hat and red vest, whistle and extinguisher, serious kind face.",
+      "monthlySalary": 250000
+    },
+    {
+      "role": "Station Manager",
+      "does": "Orders stock, plans shifts and keeps the licence papers up to date.",
+      "look": "Woman in navy blazer over an orange polo, tablet in hand, white hard hat under one arm.",
+      "monthlySalary": 350000
+    }
+  ],
+  "machines": [
+    {
+      "name": "Cylinder Roller Track",
+      "does": "Rolls gas cylinders from the truck to the gas cage without the player carrying them.",
+      "look": "A low blue steel roller conveyor with yellow side rails and a small green go-light."
+    },
+    {
+      "name": "Underground Fuel Line",
+      "does": "Pipes fuel from the tanker bay straight to the tanks so pumps never run dry.",
+      "look": "A red fill-point box with a thick silver hose, and tank gauges glowing on a wall panel."
+    },
+    {
+      "name": "Solar Robo-Lift Fleet",
+      "does": "Electric lifts carry panel crates to the bay and load finished kits into vans.",
+      "look": "Three small orange electric forklifts with star logos and blinking amber roof lights."
+    }
+  ],
+  "moneyMechanics": [
+    {
+      "rule": "Small margin, big volume",
+      "howItWorks": "Each litre of petrol costs about N1,270 from the depot and sells at N1,350, so profit is only about N80 a litre. Money comes from serving many drivers fast, never from raising the price.",
+      "realBasis": "Filling stations earn a thin margin per litre and depend on daily volume and a quick forecourt."
+    },
+    {
+      "rule": "Pay before the tanker loads",
+      "howItWorks": "A 33,000-litre tanker costs about N42 million and must be paid for before it leaves the depot. Order too late and the pumps run dry; order too much and your cash is asleep in the tank.",
+      "realBasis": "Marketers pay depots in advance for each truck, so working capital decides how much they can sell."
+    },
+    {
+      "rule": "Three-paper licence ladder",
+      "howItWorks": "Pumps stay locked until 3 stages pass: site check, approval to construct, licence to operate. Each has a fee and a wait, and the licence is renewed every game year.",
+      "realBasis": "The petroleum regulator checks the site, approves construction, then issues a storage and sales licence."
+    },
+    {
+      "rule": "Full-litre trust meter",
+      "howItWorks": "An inspector tests pumps with a 10-litre can. Pass and Trust rises 10%, bringing more drivers. Pumps drift over time, so pay for servicing or that pump is sealed for a day.",
+      "realBasis": "Regulators test pump accuracy and seal pumps that give customers less than they paid for."
+    },
+    {
+      "rule": "Solar pay small-small",
+      "howItWorks": "A N2.4 million kit sells for a 30% deposit (N720,000) plus 12 monthly payments of N140,000. More sales, but cash arrives slowly, so plan your next container.",
+      "realBasis": "Solar firms offer instalment plans because a home system costs far more than most monthly incomes."
+    },
+    {
+      "rule": "Band A power promise",
+      "howItWorks": "The plant sells power at N225 per unit to Band A customers, but only for days with 20 hours of supply or more. Fall short and that day's customers are refunded.",
+      "realBasis": "Band A customers pay about N225 per kWh for 20+ hours a day and are compensated when supply falls short."
+    }
+  ],
+  "travel": [
+    {
+      "place": "Accra, Ghana",
+      "why": "Open the first station outside Nigeria and meet the Ghana energy regulator.",
+      "how": "international flight"
+    },
+    {
+      "place": "Port Harcourt, Nigeria",
+      "why": "Inspect the gas depot and run a surprise safety drill with the staff.",
+      "how": "domestic flight"
+    },
+    {
+      "place": "Abuja, Nigeria",
+      "why": "Renew licences with the petroleum regulator and sign the power plant agreement.",
+      "how": "domestic flight"
+    },
+    {
+      "place": "Nairobi, Kenya",
+      "why": "Launch the East Africa solar office and train the new installer team.",
+      "how": "international flight"
+    },
+    {
+      "place": "Dubai, UAE",
+      "why": "Agree fuel cargo deals at the trading desk, with the Rotterdam office on video.",
+      "how": "international flight"
+    }
+  ],
+  "rivalsAndAllies": [
+    {
+      "name": "Chief Dayo Bankole",
+      "role": "rival",
+      "line": "Small girl with small gen, you want to sell petrol? We go see."
+    },
+    {
+      "name": "Madam Ebiere Tamuno",
+      "role": "mentor",
+      "line": "In this business, my dear, one spark can finish ten years. Safety first."
+    },
+    {
+      "name": "Inspector Hauwa Bello",
+      "role": "regulator",
+      "line": "My can is ten litres. Let us see if your pump agrees."
+    },
+    {
+      "name": "Aunty Chidinma",
+      "role": "family",
+      "line": "Na my gen start this company o! Just remember me when you blow."
+    }
+  ],
+  "events": [
+    {
+      "name": "Grid Blackout",
+      "text": "Light is off in the whole area. Charging and solar customers double today.",
+      "good": true
+    },
+    {
+      "name": "Surprise Pump Test",
+      "text": "The inspector's can reads exactly 10 litres. Trust goes up and drivers cheer.",
+      "good": true
+    },
+    {
+      "name": "Wedding Convoy",
+      "text": "Twelve cars and one bus pull in together to fill up. Serve them fast!",
+      "good": true
+    },
+    {
+      "name": "Estate Solar Order",
+      "text": "A new estate orders 20 solar kits at once. The bay is busy all week.",
+      "good": true
+    },
+    {
+      "name": "Gas Sensor Beeps",
+      "text": "A sensor beeps in the cage. Close it for one minute while the officer checks.",
+      "good": false
+    },
+    {
+      "name": "Tanker Stuck in Traffic",
+      "text": "The tanker is held up on the expressway. Pumps may run dry before it arrives.",
+      "good": false
+    },
+    {
+      "name": "Rain Floods Forecourt",
+      "text": "Heavy rain slows the forecourt. Fewer drivers stop until the water drains.",
+      "good": false
+    },
+    {
+      "name": "Naira Slips",
+      "text": "The exchange rate moves and the next container of panels costs 10% more.",
+      "good": false
+    }
+  ],
+  "endgame": "Kpakpando Energy Group: 500 stations and solar hubs across Africa, a depot, a power plant keeping cities lit, and trading desks in Dubai and Rotterdam. Nkem opens a free safety and solar academy on the spot where her first kiosk stood.",
+  "risksToHandleCarefully": "Fuel and gas move only in sealed cans, trolleys and pipes; no smoking or open-air decanting. Prices are fixed, so hoarding, mixing or side-selling never pays; scarcity events reward serving the queue. Adult staff only; fires never shown.",
+  "research": [
+    {
+      "claim": "In May 2026 petrol sold at about N1,200 to N1,350 per litre in Lagos and up to N1,500 in some states, while cooking gas was about N1,350 to N1,500 per kg.",
+      "url": "https://nairametrics.com/2026/05/24/cooking-gas-petrol-how-energy-prices-moved-across-nigeria-in-may/"
+    },
+    {
+      "claim": "In 2026 an installed 1kW to 3kW home solar system costs about N800,000 to N2.5 million and a 3.5kW to 5kW system about N2.5 million to N8 million.",
+      "url": "https://nairametrics.com/2026/02/10/how-much-it-costs-to-install-solar-energy-system-in-2026/"
+    },
+    {
+      "claim": "Band A electricity customers pay about N225 per kWh for 20 or more hours of supply a day, against about N75 for Band B and N50 for Band C.",
+      "url": "https://solardecide.pages.dev/blog/band-a-electricity-tariff-nigeria"
+    },
+    {
+      "claim": "A filling station needs a site suitability inspection, an approval to construct and a storage and sales licence, with pumps at least 15 metres from the road and 400 metres from the next station.",
+      "url": "https://wikiprocedure.com/index.php/Nigeria_-_Apply_for_Approval_to_Construct_and_Operate_Petroleum_Filling_Station"
+    },
+    {
+      "claim": "Most petrol station attendants interviewed earn N20,000 to N30,000 a month, with larger stations paying N50,000 or more.",
+      "url": "https://www.legit.ng/business-economy/energy/1677271-petrol-station-attendants-reveal-how-earn-nigeria"
+    },
+    {
+      "claim": "Solar installers on payroll earn about N80,000 to N150,000 a month and experienced technicians N150,000 to N250,000.",
+      "url": "https://www.profolio.ng/solar-installer/salary-guide"
+    }
+  ]
+}

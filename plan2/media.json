@@ -1,0 +1,310 @@
+{
+ "key": "media",
+ "name": "Koko Reel Entertainment",
+ "tagline": "From wedding videos and bedroom beats to premieres around the world",
+ "ownerCharacter": {
+  "name": "Mr Dayo Lens Okoye",
+  "look": "Age 29, slim and tall, black turtleneck, mustard ankara bomber jacket, white sneakers, big headphones on neck, old camcorder with a gold strap always in hand",
+  "backstory": "Dayo films weddings on Saturdays and makes beats at night in his mother's boys' quarters in Surulere. One couple cried at his video, one singer danced to his beat, and he decided to build a studio where both dreams can live."
+ },
+ "storyline": [
+  {
+   "title": "Owambe Camera, Bedroom Beat",
+   "stage": "One camcorder, one laptop and a mattress propped against the wall as a vocal booth",
+   "story": "Dayo shoots weddings by day and records singers by night. NEPA takes light in the middle of a bride's edit and the delivery date is tomorrow. Deliver on time or lose the referrals that feed the whole street.",
+   "unlock": "Wedding video line and the first edit laptop"
+  },
+  {
+   "title": "The Shop With Egg Crates",
+   "stage": "A rented one-room studio with egg-crate walls, a small booth and a signboard",
+   "story": "Dayo rents a room, pads it with egg crates and names it Koko Reel. A shy singer, Zinny Bloom, records 'Soft Landing' there. If the mix sounds clean, every upcoming artist in the area will queue at his door.",
+   "unlock": "Song mixing line, a sound engineer and a small generator"
+  },
+  {
+   "title": "First Short Film",
+   "stage": "A two-room studio with an edit suite, a prop store and a borrowed minibus for shoots",
+   "story": "The crew shoots a short film, 'Danfo Love', on a real bus route. Rain soaks the set and an actor forgets his lines ten times. The film must be good enough for a festival slot, or the crew goes back to weddings only.",
+   "unlock": "Film set yard, camera operator and props runner"
+  },
+  {
+   "title": "Lights, Camera, Paperwork",
+   "stage": "A proper production house with a sound stage, colour suite and a contracts office",
+   "story": "The first feature, 'Third Mainland Sunrise', is finished, but no cinema will show it without classification. Dayo flies to Abuja, waits for the panel and learns that clean contracts and paid crew are the real special effects.",
+   "unlock": "Feature film line, classification desk and distributor contracts"
+  },
+  {
+   "title": "Label on the Rise",
+   "stage": "Koko Reel Records opens upstairs: three booths, a writing room and a rehearsal hall",
+   "story": "Zinny Bloom's song 'Jollof Heartbeat' goes viral and a bigger label, Thunderbox, offers her a shiny deal. Dayo must offer fair splits and a real tour plan, or watch his first star walk out with the hit.",
+   "unlock": "Record label, artist contracts and show ticket line"
+  },
+  {
+   "title": "Our Own Screen",
+   "stage": "The first Koko Reel cinema: four screens, a popcorn stand and a red carpet out front",
+   "story": "Tired of begging for showtimes, Dayo opens his own cinema in Ikeja. Opening weekend clashes with a giant foreign blockbuster. Fill the seats with a homegrown film, or the bank loan will start to pinch.",
+   "unlock": "Cinema ticket line, box office counter and cinema branches"
+  },
+  {
+   "title": "Press Play, Africa",
+   "stage": "A streaming platform, KokoPlay, with a server room and offices in Lagos and Accra",
+   "story": "KokoPlay launches with every Koko Reel film and song. A leaked copy of 'Harmattan Kings' spreads before release day. Dayo must fix security, serve fans a better legal option and sign Accra and Johannesburg partners.",
+   "unlock": "Streaming subscriptions, African branches and bulk licence deals"
+  },
+  {
+   "title": "World Premiere",
+   "stage": "A global group: studios, label, cinemas and platform, with offices on three continents",
+   "story": "'Harmattan Kings' premieres in Lagos, London, Toronto and Atlanta in one week, while Zinny Bloom tours Accra and Johannesburg. Dayo is in the air more than on the ground. One missed flight and a red carpet starts without him.",
+   "unlock": "World tour map, private jet and the Golden Reel Awards night"
+  }
+ ],
+ "productLines": [
+  {
+   "name": "Wedding Video Package",
+   "raw": "Memory cards of raw wedding footage",
+   "station": "Edit laptop desk",
+   "customer": "Couples, families and event planners",
+   "price": 350000,
+   "priceNote": "Design estimate for a mid-range Lagos wedding film with highlights reel"
+  },
+  {
+   "name": "Mixed and Mastered Song",
+   "raw": "Recorded vocal tracks from the booth",
+   "station": "Mixing desk",
+   "customer": "Upcoming artists and small labels",
+   "price": 150000,
+   "priceNote": "Mix plus master runs about N100,000 to N200,000 per song in Lagos"
+  },
+  {
+   "name": "Cinema Ticket",
+   "raw": "Film drives and popcorn stock",
+   "station": "Projection room",
+   "customer": "Friends, couples and families on a night out",
+   "price": 6800,
+   "priceNote": "Average Nigerian cinema ticket is projected at about N6,800 for 2026"
+  },
+  {
+   "name": "Live Show Ticket",
+   "raw": "Stage props, costumes and instruments",
+   "station": "Rehearsal stage",
+   "customer": "Music fans at concerts and tours",
+   "price": 25000,
+   "priceNote": "Design estimate for a regular ticket at a mid-size Lagos concert"
+  },
+  {
+   "name": "Feature Film Licence",
+   "raw": "Hard drives of raw film footage",
+   "station": "Colour and final-cut suite",
+   "customer": "Distributors, TV stations and streaming platforms",
+   "price": 30000000,
+   "priceNote": "Design estimate for one territory licence of a mid-budget feature"
+  }
+ ],
+ "howItFitsTheEngine": "The player carries raw goods (footage cards and drives from the set yard, recorded tracks from the vocal booth, props and costumes from the prop truck) to edit suites, mixing desks and the rehearsal stage. Staff turn them into finished films, songs and tickets. The player carries these to the box office counter, where fans buy tickets and distributors collect films and songs.",
+ "staffRoles": [
+  {
+   "role": "Video Editor",
+   "does": "Cuts raw footage into wedding videos and finished films at the edit suite",
+   "look": "Young woman, braids in a bun, oversized hoodie, blue-light glasses, mug of tea, sits at two monitors",
+   "monthlySalary": 250000
+  },
+  {
+   "role": "Sound Engineer",
+   "does": "Mixes and masters recorded tracks into release-ready songs",
+   "look": "Stocky man, bucket hat, studio headphones, black tee with a waveform print, hand always on a fader",
+   "monthlySalary": 200000
+  },
+  {
+   "role": "Camera Operator",
+   "does": "Shoots scenes on set and fills footage drives for the player to collect",
+   "look": "Lean man, cargo vest full of batteries, cap turned back, cinema camera on shoulder rig",
+   "monthlySalary": 220000
+  },
+  {
+   "role": "Lead Actor",
+   "does": "Performs scenes on set; a better actor means footage is worth more",
+   "look": "Charming woman in costume agbada or gown that changes per film, script pages in hand, dramatic poses",
+   "monthlySalary": 400000
+  },
+  {
+   "role": "Props Runner",
+   "does": "Unloads props and costumes from the truck and stacks them for pickup",
+   "look": "Energetic teen-faced adult, 20s, paint-stained overalls, tool belt, carries a fake palm tree",
+   "monthlySalary": 80000
+  },
+  {
+   "role": "Box Office Cashier",
+   "does": "Sells tickets and hands films and songs to distributors at the counter",
+   "look": "Cheerful woman, red waistcoat with gold reel badge, headset mic, ticket roll in hand",
+   "monthlySalary": 90000
+  },
+  {
+   "role": "Artist Manager",
+   "does": "Signs artists, books shows and keeps contracts and royalty splits tidy",
+   "look": "Sharp woman, 30s, teal trouser suit, tablet and two phones, lanyard with all-access pass",
+   "monthlySalary": 350000
+  }
+ ],
+ "machines": [
+  {
+   "name": "Footage Trolley",
+   "does": "Rolls drives and memory cards from the set and booth to the edit and mix stations",
+   "look": "Small yellow flight-case cart on rubber wheels, blinking drive bays, gold reel sticker on the side"
+  },
+  {
+   "name": "Auto Render Farm",
+   "does": "Edits and mixes on its own, so stations keep making products while staff rest",
+   "look": "Glass server cabinet with rows of green lights, cooling fans spinning, cables in neat rainbow bundles"
+  },
+  {
+   "name": "Koko Dispatch Drone Bay",
+   "does": "Flies finished films, songs and ticket rolls from every station to the counter",
+   "look": "Rooftop pad with three chunky white drones, each carrying a gold film can under a clamp"
+  }
+ ],
+ "moneyMechanics": [
+  {
+   "rule": "Streams pay in small drips",
+   "howItWorks": "Every released song or film earns passive income of N2,000 per 1,000 plays (about N2 per play). A hit with 500,000 plays a day drips N1,000,000 daily, then slowly cools unless you promote it.",
+   "realBasis": "Nigerian artists earned roughly N1.98 per stream on a major platform in 2025 (N60bn over 30.3bn streams)."
+  },
+  {
+   "rule": "Classify before you show",
+   "howItWorks": "A feature film cannot sell tickets until classified: N60,000 fee plus 30% for cinema release (N78,000), then a wait of 5 to 30 game hours. Pay N50,000 more for fast track.",
+   "realBasis": "The film board charges N60,000 for a 91-120 minute English film, plus 30% for public exhibition; N50,000 fast track."
+  },
+  {
+   "rule": "Box office is shared",
+   "howItWorks": "In other people's cinemas you keep 50% of each N6,800 ticket (N3,400). In your own Koko Reel cinema you keep 100%, but you pay the rent, diesel and staff. Game split, simplified.",
+   "realBasis": "Exhibitors and distributors share ticket revenue; real splits vary by deal and week. Average ticket about N6,800 in 2026."
+  },
+  {
+   "rule": "Pay the crew before the cash",
+   "howItWorks": "A shoot costs money every day before any ticket sells: for example N150,000 per day for the sound mixer alone. Shoot days times crew rates are locked in up front; unpaid crew stop the set.",
+   "realBasis": "Lagos cinema-production sound mixers charge about N80,000 to N200,000 per shoot day; crews are paid per day."
+  },
+  {
+   "rule": "Advance and fair split",
+   "howItWorks": "Signing an artist costs an advance (from N2,000,000). Stream income repays the advance first, then splits 50/50. Fair deals raise artist loyalty; stingy ones send them to rival labels.",
+   "realBasis": "Labels pay advances that are recouped from royalties before the artist shares in income; splits are negotiated."
+  }
+ ],
+ "travel": [
+  {
+   "place": "Ibadan",
+   "why": "Scout old-town locations and shoot village scenes where rent and crowd control cost less",
+   "how": "car"
+  },
+  {
+   "place": "Accra",
+   "why": "Open the first foreign cinema, sign Ghanaian artists and launch the West Africa tour",
+   "how": "international flight"
+  },
+  {
+   "place": "Abuja",
+   "why": "Attend the film board classification screening and collect the certificate for each new film",
+   "how": "domestic flight"
+  },
+  {
+   "place": "Johannesburg",
+   "why": "Co-produce with a South African studio and inspect the tour arena before show night",
+   "how": "international flight"
+  },
+  {
+   "place": "London",
+   "why": "Host the diaspora premiere, meet distributors and line up Toronto and Atlanta screenings",
+   "how": "international flight"
+  }
+ ],
+ "rivalsAndAllies": [
+  {
+   "name": "Chief Bola Thunderbox",
+   "role": "rival",
+   "line": "Small boy, your star go shine brighter under my label. Name your price."
+  },
+  {
+   "name": "Aunty Kemi Clapperboard",
+   "role": "mentor",
+   "line": "Pay your crew first, my dear. A happy set makes a sweet film."
+  },
+  {
+   "name": "Mrs Halima Certificate",
+   "role": "regulator",
+   "line": "No classification, no cinema. Submit complete and we go move fast."
+  },
+  {
+   "name": "Mama Okoye",
+   "role": "family",
+   "line": "I gave you my boys' quarters, so my seat at the premiere must be in front."
+  }
+ ],
+ "events": [
+  {
+   "name": "Song Goes Viral",
+   "text": "A dance challenge picks up your new song. Stream income doubles today.",
+   "good": true
+  },
+  {
+   "name": "Generator Cough",
+   "text": "Light is gone and the gen is coughing. Edit suites run at half speed until you fuel up.",
+   "good": false
+  },
+  {
+   "name": "Festival Selection",
+   "text": "Your film is picked for a big festival. Distributors pay 25% more today.",
+   "good": true
+  },
+  {
+   "name": "Rain on Set",
+   "text": "Heavy rain floods the set yard. No new footage for a while, but crew still chop.",
+   "good": false
+  },
+  {
+   "name": "Sold-Out Weekend",
+   "text": "Salary week plus a public holiday. Cinema queues are twice as long.",
+   "good": true
+  },
+  {
+   "name": "Leaked Copy",
+   "text": "A pirate copy is online. Report it and tighten drive security to save ticket sales.",
+   "good": false
+  },
+  {
+   "name": "Brand Wants Your Star",
+   "text": "A clean brand deal lands for your artist. Sign the contract and share the fee fairly.",
+   "good": true
+  },
+  {
+   "name": "Corrupted Drive",
+   "text": "One footage drive refuses to open. Reshoot the scene or restore from backup.",
+   "good": false
+  }
+ ],
+ "endgame": "Koko Reel Group owns studios, a record label, cinemas across Nigeria and Africa, and KokoPlay streaming. Films premiere the same week in Lagos, Accra, Johannesburg, London, Toronto and Atlanta, and Dayo hosts the Golden Reel Awards.",
+ "risksToHandleCarefully": "All artists, actors and crew are adults; no child performers or romance-for-roles plots. Piracy and unpaid crew appear only as problems to fix. Hits must not feel like gambling: no paid loot boxes. Film stories stay free of politics, tribe and religion.",
+ "research": [
+  {
+   "claim": "Nigeria's average cinema ticket price was N5,959 in 2025 and is projected at about N6,800 in 2026, with box office of N15.64bn in 2025 and about 390 screens expected.",
+   "url": "https://nairametrics.com/2026/02/03/nigerian-box-office-eyes-n20-billion-revenue-in-2026-report/"
+  },
+  {
+   "claim": "Nigerian artists earned over N60 billion from 30.3 billion streams on one major platform in 2025, about N1.98 per stream.",
+   "url": "https://techcabal.com/2026/03/16/spotify-payouts-show-nigerian-artists-earned-about-₦2-per-stream-in-2025/"
+  },
+  {
+   "claim": "The film board's classification fee for a 91-120 minute Nigerian English-language film is N60,000, plus 30% for public exhibition, with a N50,000 fast-track option.",
+   "url": "https://www.nfvcb.gov.ng/?p=124"
+  },
+  {
+   "claim": "Film classification follows six steps (submission desk, preview, verification, classification and approval, registration, market copy) and may take 5 to 30 days.",
+   "url": "https://www.nfvcb.gov.ng/?p=152"
+  },
+  {
+   "claim": "Video editors in Nigeria earn about N60,000-150,000 monthly as juniors, N150,000-300,000 mid-level and N300,000-500,000 as seniors.",
+   "url": "https://www.profolio.ng/video-editor/salary-guide"
+  },
+  {
+   "claim": "Sound engineers earn about N100,000-250,000 monthly; mix plus master costs N100,000-200,000 per song and a cinema-production sound mixer N80,000-200,000 per shoot day.",
+   "url": "https://www.profolio.ng/sound-engineer/salary-guide"
+  }
+ ]
+}
