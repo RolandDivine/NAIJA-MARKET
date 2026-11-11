@@ -1,21 +1,23 @@
 /* ===== empire: managers, machines, export, branches, salaries, tax, events, chatter ===== */
-const EC=PLAN.econ.empire,RG=PLAN.road.regions,ROLE=PLAN.econ.salaries,TAX=PLAN.econ.tax,PAYSH=PLAN.econ.payrollShare;
+const EC=PLAN.econ.empire,RG=PLAN.road.regions,ROLE=PLAN.econ.salaries,TAX=PLAN.econ.tax,PAYSH=.08; // salaries as a share of revenue (was 15%)
+const HCAP=[1,1.5,2.2,3.2,4.5,6],HSPD=[1,1.1,1.25,1.4,1.55,1.7],haulCost=t=>nice(B.lines.reduce((a,l)=>a+l.price,0)/5*12*Math.pow(GROW,[8,18,28,38,48][t])*1.5);
 const QF={nkechi:12600,tunde:5700,musa:6300,basira:11200,zainab:5000,chidi:5800,sikira:7400,sani:7000,bola:6400,chinedu:5100},BAY={x:800,y:1228},MONTH=30;
 const PBZ=()=>PLAN.biz[SAVE.cur],pick=a=>a[Math.floor(Math.random()*a.length)];
-function migrate(s){s.emp=Object.assign({mgr:0,belt:0,auto:0,pack:0,con:0,reg:0,br:0},s.emp||{});s.mo=Object.assign({rev:0,exp:0,br:0},s.mo||{});
+function migrate(s){s.emp=Object.assign({mgr:0,belt:0,auto:0,pack:0,con:0,reg:0,br:0,haul:0},s.emp||{});s.mo=Object.assign({rev:0,exp:0,br:0},s.mo||{});
   s.stat=Object.assign({tax:0,wages:0},s.stat||{});for(const k of['money','till','clock','dayEarn','daySold','sold'])if(!Number.isFinite(s[k]))s[k]=0;if(!(s.day>=1))s.day=1;s.pads=s.pads||{};s.resv=s.resv||0;s.dayExp=s.dayExp||0;return s;}
 const Fu=()=>G.F1;
-const empCount=()=>{const e=S.emp;return e.mgr+e.belt+e.auto+e.pack+e.con+e.reg+e.br;};
+const empCount=()=>{const e=S.emp;return e.mgr+e.belt+e.auto+e.pack+e.con+e.reg+e.br+(e.haul||0);};
 const regStart=r=>{let a=0;for(let i=0;i<r;i++)a+=EC.regions[i].size;return a;};
 function regionOf(k){let a=0;for(let r=0;r<EC.regions.length;r++){a+=EC.regions[r].size;if(k<a)return r;}return EC.regions.length-1;}
-const brCost=k=>nice(Fu()*1.2*(EC.branch.c0+EC.branch.c1*Math.pow(k,EC.branch.p)));
+const brCost=k=>nice(Fu()*.75*(EC.branch.c0+EC.branch.c1*Math.pow(k,EC.branch.p)));
 function brDay(){let s=0;for(let r=0;r<EC.regions.length;r++){const n=Math.max(0,Math.min(EC.regions[r].size,S.emp.br-regStart(r)));s+=n*EC.regions[r].mult*(boosted(r)?1.2:1);}return Math.round(s*EC.branch.b*Fu());}
 function cityOf(k){const r=regionOf(k),c=RG[r].cities,j=k-regStart(r);return c[j%c.length]+(j>=c.length?' '+(Math.floor(j/c.length)+1):'');}
 const expDay=()=>EC.contracts.slice(0,S.emp.con).reduce((a,c)=>a+c.perDay,0)*Fu()*(S.emp.pack?1.15:1)/EC.inefficiency;
 const rank=()=>{const t=[0,1,10,50,150,500];let i=0;for(let k=0;k<6;k++)if(S.emp.br>=t[k])i=k;return PBZ().rankTitles[i];};
 const evx=k=>!!(S.ev&&S.ev.fx===k);
 
-function empItems(){const e=S.emp,P=PBZ(),o=[];if(stage()<4)return o;
+function empItems(){const e=S.emp,P=PBZ(),o=[];if(e.haul<5){const T=PLAN.mech[SAVE.cur][e.haul+1];o.push({id:'haul',sec:3,ico:['🛒','🛺','🛻','🚜','🚛'][e.haul],name:T.name,blurb:'Carries '+HCAP[e.haul+1]+'× the load, '+Math.round((HSPD[e.haul+1]-1)*100)+'% faster. '+T.how,cost:haulCost(e.haul)});}
+  if(stage()<4)return o;
   if(!e.mgr)o.push({id:'mgr',sec:0,ico:'🧑‍💼',name:'Hire '+P.manager.name+', '+P.manager.title,blurb:'Runs the floor so you can think big. All staff work 20% faster.',cost:nice(EC.managerCost*Fu())});
   for(const m of['belt','auto','pack'])if(!e[m])o.push({id:m,sec:0,ico:{belt:'⚙️',auto:'🚜',pack:'📦'}[m],name:P.machines[m].name,blurb:P.machines[m].blurb,cost:nice(EC.machineCost[m]*Fu())});
   if(e.con<6){const c=P.export.contracts[e.con];o.push({id:'con',sec:1,ico:'🚛',name:(e.con?'Sign ':'Build '+P.export.bay+' and sign ')+c.buyer,blurb:c.where+'. '+c.blurb,cost:nice(EC.contracts[e.con].cost*Fu())});}
@@ -27,6 +29,7 @@ function empBuy(id){const it=empItems().find(i=>i.id===id);if(!it||S.money<it.co
   if(id==='br'){const m=P.milestones.find(m=>m.at===e.br);if(m){big=true;msg=m.title;toast(m.blurb,7);}else{msg=cityOf(e.br-1)+' is open! '+e.br+' of 500';if(e.br%(e.br<100?5:10)===0){big=true;msg=e.br+' '+P.branchNoun+'s and counting!';}}}
   if(id==='con'){G.exp.t=Math.min(G.exp.t,3);msg='Signed: '+P.export.contracts[e.con-1].buyer;}
   if(id==='reg')msg=RG[e.reg-1].name+' is open for business';
+  if(id==='haul')msg='Your '+handName().toLowerCase()+'s now use: '+PLAN.mech[SAVE.cur][e.haul].name;
   if(id==='mgr')msg=P.manager.name+' has joined as '+P.manager.title;
   syncStaff();fanfare(big);confetti(big?120:40);banner('LEVEL '+level(),msg);updateHud();save();return true;}
 
@@ -38,8 +41,8 @@ const TEAM=[1,3,10,40,150],BRSTAFF=120;
 function payrollList(){const tm=TEAM[stage()],g=Math.max(1,payGrade()/tm),c={},rows=[];for(const w of G.workers)c[w.kind]=(c[w.kind]||0)+1;
   const nm={hand:handName(),porter:'Porter',server:B.food?'Server':'Sales girl',cook:B.food?'Cook':'Packer',cashier:'Cashier',loader:'Export loader'};
   for(const k in nm)if(c[k])rows.push({name:nm[k]+(tm>1?'s':c[k]>1?'s':''),n:c[k]*tm,each:nice(ROLE[k]*g)});
-  if(c.manager)rows.push({name:PBZ().manager.name+', '+PBZ().manager.title,n:1,each:nice(ROLE.manager*g*10)});
-  if(S.emp.reg)rows.push({name:'Regional manager'+(S.emp.reg>1?'s':''),n:S.emp.reg,each:nice(ROLE.regional*g*10)});
+  if(c.manager)rows.push({name:PBZ().manager.name+', '+PBZ().manager.title,n:1,each:nice(ROLE.manager*g*4)});
+  if(S.emp.reg)rows.push({name:'Regional manager'+(S.emp.reg>1?'s':''),n:S.emp.reg,each:nice(ROLE.regional*g*4)});
   if(S.emp.br)rows.push({name:'Branch staff ('+BRSTAFF+' per '+PBZ().branchNoun+')',n:S.emp.br*BRSTAFF,each:Math.round(PAYSH*brDay()*MONTH/(S.emp.br*BRSTAFF)),br:1});
   return rows;}
 const dayOfMonth=()=>((S.day-1)%MONTH)+1;
@@ -83,8 +86,8 @@ function hqRender(){const e=S.emp,P=PBZ(),items=empItems(),due=monthDue(false),r
   h+='<header><h1>'+rank()+'<small>'+B.name+' · Day '+S.day+' · Level '+level()+'</small></h1><button class="ghost" id="hqx" type="button">Back to shop</button></header>';
   h+='<div class="stats"><div class="stat">Cash<b id="hqcash">₦'+fmt(S.money)+'</b></div><div class="stat">Branches<b>'+e.br+' / 500</b></div><div class="stat">People employed<b>'+due.staff.toLocaleString()+'</b></div><div class="stat">Branch income a day<b>₦'+fmt(brDay())+'</b></div></div>';
   if(stage()<4)h+='<div class="lock">🔒 Your empire starts when you build the '+B.venue[4]+'. After that: a manager, machines, export contracts and up to 500 '+P.branchNoun+'s across Nigeria, Africa and the world.</div>';
-  const sec=['Flagship: manager and machines','Wholesale and export','Branches'];
-  for(let s=0;s<3;s++){const its=items.filter(i=>i.sec===s);if(!its.length)continue;h+='<h2>'+sec[s]+'</h2>';
+  const sec=['Flagship: manager and machines','Wholesale and export','Branches','From rope to machines'];
+  for(const s of[3,0,1,2]){const its=items.filter(i=>i.sec===s);if(!its.length)continue;h+='<h2>'+sec[s]+'</h2>';
     for(const it of its)h+='<button class="it'+(S.money>=it.cost?'':' no')+'" type="button" data-buy="'+it.id+'" data-cost="'+it.cost+'" style="--p:'+Math.max(0,Math.min(100,100*S.money/it.cost)).toFixed(0)+'%"><i>'+it.ico+'</i><div><strong>'+it.name+'</strong><span>'+it.blurb+'</span></div><em>₦'+short(it.cost)+'</em></button>';
     if(s===1&&e.con)h+='<p class="note">Signed so far: '+P.export.contracts.slice(0,e.con).map(c=>c.buyer+' ('+c.where+')').join(', ')+'. Export trucks bring in about ₦'+short(Math.round(expDay()))+' a day when fully loaded.</p>';
     if(s===2){h+='<div class="regs">';for(let r=0;r<RG.length;r++){const n=Math.max(0,Math.min(RG[r].size,e.br-regStart(r)));h+='<div class="reg'+(n>=RG[r].size?' done':r>=e.reg&&r>regionOf(e.br)?' lock':'')+'">'+RG[r].flag+' '+RG[r].name+' · '+n+'/'+RG[r].size+'<u><s style="width:'+(100*n/RG[r].size)+'%"></s></u></div>';}h+='</div>';}}

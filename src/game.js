@@ -56,7 +56,7 @@ const PICON={hand:'🧑‍🌾',rope:'🪢',tray:'🧺',porter:'📦',truck:'�
 
 /* ===== world build ===== */
 function build(){
-  B=BIZ[SAVE.cur];S=migrate(SAVE.biz[SAVE.cur]);dirty();
+  B=BIZ[SAVE.cur];S=migrate(SAVE.biz[SAVE.cur]);dirty();B.owner.img='o_'+SAVE.cur;
   G={t:0,flyers:[],parts:[],floats:[],conf:[],custs:[],workers:[],cars:[],crops:[],procIn:[0,0,0,0,0],procT:[0,0,0,0,0],out:[0,0,0,0,0],counter:[0,0,0,0,0],depot:[0,0,0,0,0],
      player:{x:450,y:400,stack:[],trail:null,face:1,step:0},input:{active:false},keys:{},cam:{x:450,y:400},acc:{pick:0,drop:0,cash:0,payFly:0,spawn:0,v:0,hud:0,save:0,fl:0,chat:3},
      truck:{state:'wait',t:6,y:-140},exp:{state:'wait',t:10,x:WW+160,ord:null},mach:{x:120,y:160,v:150,acc:0},beltT:[0,0,0,0,0],depT:[0,0,0,0,0],bub:[],closing:false,closeT:0,night:null,inside:0,toastT:0,warnT:0,onPad:null,speed:1};
@@ -124,7 +124,7 @@ function harvest(poly,isPlayer){let n=0;
 
 /* ===== workers ===== */
 function moveTo(o,tx,ty,sp,dt){const d=dist(o.x,o.y,tx,ty);if(d<4)return true;const s=Math.min(d,sp*dt);o.x+=(tx-o.x)/d*s;o.y+=(ty-o.y)/d*s;o.face=tx<o.x?-1:1;o.step+=dt*10;return false;}
-function updWorker(w,dt){const sp=staffSpd(),cap=staffCap(),f=G.field;
+function updWorker(w,dt){const hm=w.kind==='hand'||w.kind==='porter'?S.emp.haul||0:0,sp=staffSpd()*HSPD[hm],cap=Math.round(staffCap()*HCAP[hm]),f=G.field;
   if(w.kind==='cook'||w.kind==='cashier'){w.step+=dt*(w.kind==='cook'&&G.procIn[w.li]>0?9:0);return;}
   if(w.kind==='manager'){if(w.state==='idle'){w.wait-=dt;if(w.wait<=0){w.tx=rnd(120,860);w.ty=pick([640,660,800,470]);w.state='walk';}}else if(moveTo(w,w.tx,w.ty,sp*.6,dt)){w.state='idle';w.wait=rnd(2,5);}return;}
   if(w.kind==='loader'){const o=G.exp.state==='load'?G.exp.ord:null;
@@ -167,7 +167,7 @@ function bump(h,c,w){return Math.exp(-Math.pow((h-c)/w,2));}
 function todMult(){const h=hour();let m=.75+.7*bump(h,13,1.2)+.85*bump(h,18.2,1.1);const hl=lvl('house');if(S.clock<[0,30,50,80][hl])m*=[1,1.5,1.75,2][hl];return m;}
 function updCustomers(dt){const st=stage(),rate=1*VD[st]*ADM[lvl('ads')]*todMult()*(evx('demand_up')?1.5:evx('demand_down')?.65:1),ol=openLines();
   if(!G.closing&&G.custs.length<VCAP[st]){G.acc.spawn+=rate*dt;while(G.acc.spawn>=1){G.acc.spawn--;const li=ol[Math.floor(Math.random()*ol.length)],pal=CPAL[Math.floor(Math.random()*CPAL.length)];
-      G.custs.push({x:rnd(80,720),y:1292,li,st:'in',tx:LX(li)+rnd(-30,30),ty:774+rnd(0,22),pat:rnd(9,13),vip:Math.random()<(evx('vip_day')?.2:.05),q:1+Math.floor(Math.random()*QTY[st]),o:{cloth:pal[0],trim:pal[1],hat:pal[2]},step:rnd(0,6),face:1,seat:-1,t:0});}}
+      G.custs.push({x:rnd(80,720),y:1292,li,st:'in',tx:LX(li)+rnd(-30,30),ty:774+rnd(0,22),pat:rnd(9,13),vip:Math.random()<(evx('vip_day')?.2:.05),q:1+Math.floor(Math.random()*QTY[st]),o:{img:'c_'+Math.floor(Math.random()*6),cloth:pal[0],trim:pal[1],hat:pal[2]},step:rnd(0,6),face:1,seat:-1,t:0});}}
   else G.acc.spawn=Math.min(G.acc.spawn,1);
   for(const c of G.custs){
     if(c.st==='in'){if(moveTo(c,c.tx,c.ty,150,dt))c.st='wait';}
