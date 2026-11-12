@@ -136,8 +136,8 @@ async function profileOpen(id){const r=await nmApi('GET','/players/'+id);if(!r.o
   if(mine)h+='<p class="note">This is you.</p>';
   else if(p.cs)h+='<a class="cslink" href="/u/'+p.cs+'" target="_blank" rel="noopener">💬 Message '+esc(p.name)+' on Community Square</a><p class="note">Opens their Community Square profile. Chat there follows Community Square\'s own rules.</p>';
   else h+='<div class="lock">'+esc(p.name)+' has not linked Community Square, so you cannot message them yet.</div>';
-  h+='<p class="note">Doing business with other players, depositing in their banks and hiring them as managers arrive with the new businesses.</p>';
-  $('hqin').innerHTML=h;$('hqx').onclick=lbOpen;$('hqp').scrollTop=0;}
+  if(!mine)h+='<div id="p2pp"></div>';
+  $('hqin').innerHTML=h;$('hqx').onclick=lbOpen;$('hqp').scrollTop=0;if(!mine)dealsProfile(id,p.name);}
 $('lb').addEventListener('click',lbOpen);$('lb2').addEventListener('click',lbOpen);$('lb').hidden=true;
 
 /* ----- share to the Community Square feed: screenshot plus a caption they can edit ----- */
@@ -165,7 +165,9 @@ $('logout').addEventListener('click',async()=>{if(NM.pid)await nmPush();await nm
   A.innerHTML='<div class="in tour"><div class="ico">🧺</div><h1>Naija Market</h1><p class="sub">Opening your market...</p></div>';A.hidden=false;
   const r=await nmApi('GET','/me');
   if(!r.ok||!r.j||!('player' in r.j)){A.hidden=true;$('localnote').hidden=false;return;}   // not on Community Square: play locally on this device
-  NM.cfg=r.j;if(r.j.player)return signedIn(r.j);showFront();})();
+  NM.cfg=r.j;const nt=r.j.maintenance?'Naija Market is being updated. You can play, but saving online is paused for a few minutes.':r.j.notice;
+  if(nt){const d=document.createElement('div');d.textContent=nt;d.style.cssText='position:fixed;left:12px;right:12px;top:12px;z-index:99;background:#1b2a4a;color:#fff;border-radius:14px;padding:12px 14px;font:800 15px Nunito,system-ui;box-shadow:0 6px 20px rgba(0,0,0,.35)';d.onclick=()=>d.remove();document.body.appendChild(d);setTimeout(()=>d.remove(),9000);}
+  if(r.j.player)return signedIn(r.j);showFront();})();
 
 /* ----- diamonds into game money (Community Square members only, one way, never cashed out) ----- */
 const DIA={per:1e6,naira:10,min:10,max:10000,have:null};

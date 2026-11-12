@@ -43,7 +43,7 @@ function payrollList(){const tm=TEAM[stage()],g=Math.max(1,payGrade()/tm),c={},r
   const nm={hand:handName(),porter:'Porter',server:B.seller?(t=>t[0].toUpperCase()+t.slice(1))(B.seller):B.food?'Server':'Sales girl',cook:B.cook?(t=>t[0].toUpperCase()+t.slice(1))(B.cook):B.food?'Cook':'Packer',cashier:'Cashier',loader:'Export loader'};
   for(const k in nm)if(c[k])rows.push({name:nm[k]+(tm>1?'s':c[k]>1?'s':''),n:c[k]*tm,each:nice(ROLE[k]*g)});
   if(typeof shipCrew==='function')rows.push(...shipCrew(),...schCrew());
-  if(c.manager)rows.push({name:PBZ().manager.name+', '+PBZ().manager.title,n:1,each:nice(ROLE.manager*g*4)});
+  if(c.manager)rows.push({name:(typeof p2pMgr==='function'&&p2pMgr()||PBZ().manager.name)+', '+PBZ().manager.title,n:1,each:nice(ROLE.manager*g*4)});
   if(S.emp.reg)rows.push({name:'Regional manager'+(S.emp.reg>1?'s':''),n:S.emp.reg,each:nice(ROLE.regional*g*4)});
   if(S.emp.br)rows.push({name:'Branch staff ('+BRSTAFF+' per '+PBZ().branchNoun+')',n:S.emp.br*BRSTAFF,each:Math.round(PAYSH*brDay()*MONTH/(S.emp.br*BRSTAFF)),br:1});
   return rows;}
@@ -95,12 +95,12 @@ function hqRender(){const e=S.emp,P=PBZ(),items=empItems(),due=monthDue(false),r
     for(const it of its)h+='<button class="it'+(S.money>=it.cost?'':' no')+'" type="button" data-buy="'+it.id+'" data-cost="'+it.cost+'" style="--p:'+Math.max(0,Math.min(100,100*S.money/it.cost)).toFixed(0)+'%"><i>'+it.ico+'</i><div><strong>'+it.name+'</strong><span>'+it.blurb+'</span></div><em>₦'+short(it.cost)+'</em></button>';
     if(s===1&&e.con)h+='<p class="note">Signed so far: '+P.export.contracts.slice(0,e.con).map(c=>c.buyer+' ('+c.where+')').join(', ')+'. Export trucks bring in about ₦'+short(Math.round(expDay()))+' a day when fully loaded.</p>';
     if(s===2){h+='<div class="regs">';for(let r=0;r<RG.length;r++){const n=Math.max(0,Math.min(RG[r].size,e.br-regStart(r)));h+='<div class="reg'+(n>=RG[r].size?' done':r>=e.reg&&r>regionOf(e.br)?' lock':'')+'">'+RG[r].flag+' '+RG[r].name+' · '+n+'/'+RG[r].size+'<u><s style="width:'+(100*n/RG[r].size)+'%"></s></u></div>';}h+='</div>';}}
-  h+=travelHtml();
+  h+=travelHtml()+'<div id="p2p"></div>';
   if(stage()>=4&&e.br>=500&&!items.length)h+='<div class="lock">🏆 500 '+P.branchNoun+'s on four continents. You are the '+P.rankTitles[5]+'!</div>';
   h+='<h2>Salaries (paid every 30 days)</h2><table>';for(const r of rows)h+='<tr><td>'+r.n.toLocaleString()+' × '+r.name+'</td><td>₦'+short(r.each)+' a month</td></tr>';h+='</table>';
   h+='<h2>This month so far</h2><table><tr><td>Shop sales</td><td>₦'+fmt(S.mo.rev)+'</td></tr><tr><td>Export</td><td>₦'+fmt(S.mo.exp)+'</td></tr><tr><td>Branches</td><td>₦'+fmt(S.mo.br)+'</td></tr><tr><td>Salaries due so far</td><td>-₦'+fmt(due.wages)+'</td></tr><tr><td>'+TAX.label+' ('+Math.round(TAX.gameRate*100)+'% of profit)</td><td>'+(stage()<2?'₦0 (small business relief)':due.tax?'-₦'+fmt(due.tax):'₦0')+'</td></tr><tr><td>Already set aside</td><td>₦'+fmt(S.resv)+'</td></tr></table>';
   h+='<p class="note">Payday is in '+(MONTH-dayOfMonth()+1)+' day'+(MONTH-dayOfMonth()?'s':'')+'. Each night your accountant sets money aside so salaries and tax are ready. Total paid so far: salaries ₦'+fmt(S.stat.wages)+', tax ₦'+fmt(S.stat.tax)+'.</p>';
-  $('hqin').innerHTML=h;$('hqx').addEventListener('click',hqClose);if($('hqshare'))$('hqshare').addEventListener('click',()=>{hqClose();shareStart();});if($('hqdia'))$('hqdia').addEventListener('click',diaOpen);if(typeof shipBind==='function')shipBind();finBind();document.querySelectorAll('#hqin [data-go]').forEach(b=>b.addEventListener('click',()=>tripStart(+b.dataset.go)));
+  $('hqin').innerHTML=h;$('hqx').addEventListener('click',hqClose);if($('hqshare'))$('hqshare').addEventListener('click',()=>{hqClose();shareStart();});if($('hqdia'))$('hqdia').addEventListener('click',diaOpen);if(typeof shipBind==='function')shipBind();finBind();if(typeof dealsHq==='function')dealsHq();document.querySelectorAll('#hqin [data-go]').forEach(b=>b.addEventListener('click',()=>tripStart(+b.dataset.go)));
   document.querySelectorAll('#hqin [data-buy]').forEach(b=>b.addEventListener('click',()=>{if(empBuy(b.dataset.buy))hqRender();else{const em=b.querySelector('em'),need=Math.max(0,+b.dataset.cost-S.money);em.textContent='Need ₦'+short(Math.ceil(need))+' more';b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');clearTimeout(b._t);b._t=setTimeout(()=>{em.textContent='₦'+short(+b.dataset.cost);},1600);beep(160,.15,'sawtooth',.04);}}));}
 // The shop keeps trading while HQ is open; this keeps the cash and the buy buttons current.
 let hqAcc=0;function hqTick(dt){hqAcc+=dt;if(hqAcc<.4)return;hqAcc=0;if(G.night)return hqClose();if(G.trip)return;const c=$('hqcash');if(c)setT(c,'₦'+fmt(S.money));
