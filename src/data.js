@@ -80,7 +80,23 @@ chinedu:{name:'Chinedu Phone Accessories',tag:'Phones and accessories',tone:'#7a
    L('Earpieces','Earpiece','#e23c3c',3500,'one','field',['carton','#c9b08a','#e23c3c'],['gadget','ear','#22252b','#e23c3c'],'table'),
    L('Fast chargers','Charger','#3fbf5a',7500,'20W kit','field',['carton','#c9b08a','#3fbf5a'],['gadget','charger','#f4f1ea','#3fbf5a'],'table'),
    L('Power banks','Power bank','#6b7684',27000,'20,000mAh','field',['carton','#c9b08a','#6b7684'],['gadget','bank','#333a44','#5ad1ff'],'table'),
-   L('Smartphones','Phone','#7a5af0',105000,'budget phone','field',['carton','#c9b08a','#7a5af0'],['gadget','phone','#1b1f27','#7ad1ff'],'table')]}
+   L('Smartphones','Phone','#7a5af0',105000,'budget phone','field',['carton','#c9b08a','#7a5af0'],['gadget','phone','#1b1f27','#7ad1ff'],'table')]},
+/* New businesses (version 5). Prices from plan3/shipping.json "Route pricing": bike = N1,500 + N500 x zone (average zone 3),
+   waybill = N5,000 + N4 x km, 40ft trip = N1,200,000 + N1,900 x km (Lagos to Kano, 1,000 km), clearing fee N250,000,
+   ocean freight $5,067 per 40ft at N1,460 to the dollar. w = share of customers, qx = most units one customer buys. */
+ship:{name:'Wakaway Global Logistics',tag:'Courier, haulage and shipping',tone:'#f26a1a',field:'port',isNew:true,owner:{cloth:'#f26a1a',trim:'#1b2a4a',hat:'cap'},
+  hand:'Loader',cook:'sorter',seller:'dispatcher',
+  outfit:{hand:{cloth:'#f28a1e',trim:'#fff36b',hat:'hard'},cook:{cloth:'#1b2a4a',trim:'#f26a1a',hat:'none',apron:1},server:{cloth:'#f26a1a',trim:'#f26a1a',hat:'helmet'},porter:{cloth:'#4a6a8a',trim:'#22252b',hat:'hard'},cashier:{cloth:'#f4f1ea',trim:'#1b2a4a',hat:'none'}},
+  venue:['Umbrella stand, Yaba','Rider Squad shop front','Warehouse, Lagos-Ibadan road','Borders and Hubs head office','Tin Can terminal and MV Waybill'],
+  // Research stage startup costs: Rider Squad N6.5m, Waybill N45m, Big Wheels N180m, Warehouse N600m, Clearing licence N400m,
+  // Borders and Hubs N2.5bn, MV Waybill N25bn. The charter booking desk (line 4) has no researched figure, so the engine prices it.
+  costs:{venue:[6500000,600000000,2500000000,25000000000],line:[45000000,180000000,400000000]},
+  lines:[
+   Object.assign(L('Bike parcel delivery','Parcel','#f26a1a',3000,'Lagos parcel','field',['carton','#c9a15a','#f26a1a'],['pack','#f4e2b0','#f26a1a'],'table'),{w:10,qx:4}),
+   Object.assign(L('Interstate waybill','Waybill','#2a62c9',9000,'carton to Kano','field',['sack','#e9dcc0','#2a62c9'],['carton','#c9a15a','#2a62c9'],'scale'),{w:5,qx:3}),
+   Object.assign(L('Trailer haulage trip','Haulage','#c62828',3100000,'40ft, Lagos to Kano','field',['box40','#c62828','#8e1c1c'],['box40','#c62828','#f2c230'],'bay'),{w:.6,qx:1}),
+   Object.assign(L('Container clearing','Clearing','#1f8a4c',250000,'container fee','field',['box40','#1f8a4c','#145c32'],['doc','#f4f1ea','#1f8a4c'],'desk'),{w:1,qx:2}),
+   Object.assign(L('Ocean freight booking','Freight','#1b2a4a',7397820,'40ft, China to Apapa','field',['box40','#2a62c9','#1b2a4a'],['doc','#dfe7ec','#1b2a4a'],'desk'),{w:.25,qx:1})]}
 };
 const CAR=['Danfo bus','Keke','Tokunbo car','SUV'], HOUSE=['Rented room','Mini flat','Bungalow','Duplex mansion'];
 const ADS=['','Radio jingle','Billboard','TV advert'];

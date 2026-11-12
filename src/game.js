@@ -34,9 +34,9 @@ const revenue=(i,vip)=>Math.round(B.lines[i].price*SM[lvl('st'+i)]*VM[stage()]*(
 function nice(n){const p=Math.pow(10,Math.max(0,Math.floor(Math.log10(n))-1));return Math.round(n/p)*p;}
 function buildProg(){const D=B.lines.some(l=>l.src==='depot');
   const seq=['tray','cook0','hand','server','rope','venue','line1','cook1','cashier',D&&'porter','st0','car','tray','line2','cook2','server','ads','st1','venue','house','hand','rope',D&&'truck','line3','cook3','st2','train',D?'porter':'hand','car','venue','ads','tray','line4','cook4','st0','server','house','st3','st1','rope',D?'porter':'server',D&&'truck','ads','st4','train','st2','car','tray','st3','house','st4','venue'].filter(Boolean);
-  const cnt={};let open=1;const ref=()=>B.lines.slice(0,open).reduce((a,l)=>a+l.price,0)/open;
+  const cnt={};let open=1;const ref=()=>{let a=0,w=0;for(const l of B.lines.slice(0,open)){a+=l.price*(l.w||1);w+=l.w||1;}return a/w;};
   PROG=seq.map((id,i)=>{cnt[id]=(cnt[id]||0)+1;const base=id.replace(/\d/,'');const w=base==='venue'?(cnt[id]===4?4:cnt[id]===3?1.8:2.4):base==='line'?1.7:base==='car'?1.5:base==='house'?2:1;
-    const cost=nice(ref()*12*Math.pow(GROW,i)*w);if(base==='line')open++;return{id,base,arg:+(id.match(/\d/)||[0])[0],i,n:cnt[id],cost};});
+    let cost=nice(ref()*12*Math.pow(GROW,i)*w);const fix=B.costs&&B.costs[base]&&B.costs[base][base==='line'?+(id.match(/\d/)||[1])[0]-1:cnt[id]-1];if(fix)cost=fix;if(base==='line')open++;return{id,base,arg:+(id.match(/\d/)||[0])[0],i,n:cnt[id],cost};});
   G.maxOf=cnt;}
 function nextStep(id){const n=lvl(id)+1;return PROG.find(s=>s.id===id&&s.n===n)||null;}
 function visibleSteps(){if(_vsF===_fr)return _vs;const bought=flag(),ids=new Set(),out=[];for(const s of PROG){if(ids.has(s.id))continue;if(s.n===lvl(s.id)+1){ids.add(s.id);if(s.i<=bought+3)out.push(s);}}_vsF=_fr;return _vs=out;}
@@ -47,10 +47,10 @@ function padPos(s){const i=s.arg;switch(s.base){
   case'server':return[952,478];case'cashier':return[952,548];case'train':return[952,618];
   case'venue':return[500,1228];case'ads':return[600,1228];case'car':return[215,1228];case'house':return[305,1228];}}
 function padLabel(s){const l=B.lines[s.arg];switch(s.base){
-  case'line':return'New: '+l.n;case'cook':return'Hire '+(B.food?'cook':'packer')+' for '+l.short;case'st':return l.short+': sell x'+SM[s.n]+' per batch';
-  case'hand':return'Hire '+(B.field==='water'?'fisherman':B.field==='yard'?'offloader':B.field==='pasture'?'herdsman':'farmhand');
+  case'line':return'New: '+l.n;case'cook':return'Hire '+(B.cook||(B.food?'cook':'packer'))+' for '+l.short;case'st':return l.short+': sell x'+SM[s.n]+' per batch';
+  case'hand':return'Hire '+(B.hand?B.hand.toLowerCase():B.field==='water'?'fisherman':B.field==='yard'?'offloader':B.field==='pasture'?'herdsman':'farmhand');
   case'rope':return'Longer rope';case'tray':return'Bigger head tray';case'porter':return'Hire porter';case'truck':return'Bigger delivery van';
-  case'server':return'Hire '+(B.food?'server':'sales girl');case'cashier':return'Hire cashier';case'train':return'Staff training';
+  case'server':return'Hire '+(B.seller||(B.food?'server':'sales girl'));case'cashier':return'Hire cashier';case'train':return'Staff training';
   case'venue':return'Renovate: '+B.venue[s.n];case'ads':return ADS[s.n];case'car':return'Buy '+CAR[s.n];case'house':return'Move to '+HOUSE[s.n];}}
 const PICON={hand:'🧑‍🌾',rope:'🪢',tray:'🧺',porter:'📦',truck:'🚚',server:'🏃',cashier:'💰',train:'🎓',venue:'🏗️',ads:'📻',car:'🚗',house:'🏡',cook:'👩‍🍳'};
 
@@ -60,14 +60,14 @@ function build(){
   G={t:0,flyers:[],parts:[],floats:[],conf:[],custs:[],workers:[],cars:[],crops:[],procIn:[0,0,0,0,0],procT:[0,0,0,0,0],out:[0,0,0,0,0],counter:[0,0,0,0,0],depot:[0,0,0,0,0],
      player:{x:450,y:400,stack:[],trail:null,face:1,step:0},input:{active:false},keys:{},cam:{x:450,y:400},acc:{pick:0,drop:0,cash:0,payFly:0,spawn:0,v:0,hud:0,save:0,fl:0,chat:3},
      truck:{state:'wait',t:6,y:-140},exp:{state:'wait',t:10,x:WW+160,ord:null},mach:{x:120,y:160,v:150,acc:0},beltT:[0,0,0,0,0],depT:[0,0,0,0,0],bub:[],closing:false,closeT:0,night:null,inside:0,toastT:0,warnT:0,onPad:null,speed:1};
-  G.F1=B.lines.reduce((a,l)=>a+l.price,0)/5*16*QF[SAVE.cur];buildProg();
+  G.F1=refP()*16*QF[SAVE.cur];buildProg();
   G.F=B.lines.map((l,i)=>i).filter(i=>B.lines[i].src==='field');G.D=B.lines.map((l,i)=>i).filter(i=>B.lines[i].src==='depot');
   const f=G.field={x:40,y:30,w:G.D.length?650:920,h:270};G.postA={x:f.x+70,y:325};G.postB={x:f.x+f.w-70,y:325};
   const sw=f.w/G.F.length;G.strips=G.F.map((li,k)=>({li,x:f.x+k*sw,w:sw}));
   G.stacks=G.D.map((li,j)=>({li,x:735+j*70,y:338}));
   const moving=B.field==='pasture'||B.field==='water';
   for(const s of G.strips){if(moving){const n=Math.round(s.w*f.h/1350);for(let i=0;i<n;i++)G.crops.push(newAnimal(s));}
-    else for(let y=f.y+22;y<f.y+f.h-10;y+=30)for(let x=s.x+18;x<s.x+s.w-8;x+=30)G.crops.push({li:s.li,x:x+rnd(-4,4),y:y+rnd(-4,4),ready:true,t:0});}
+    else for(let y=f.y+22;y<f.y+f.h-10;y+=30)for(let x=s.x+18;x<s.x+s.w-8;x+=30)if(!(B.field==='port'&&s.li>=2&&y<f.y+72))G.crops.push({li:s.li,x:x+rnd(-4,4),y:y+rnd(-4,4),ready:true,t:0});}
   makeSeats();syncStaff();updateHud(true);
 }
 function newAnimal(s){const f=G.field;return{li:s.li,s,x:rnd(s.x+16,s.x+s.w-16),y:rnd(f.y+16,f.y+f.h-16),vx:rnd(-16,16),vy:rnd(-16,16),ready:true,t:0,mv:true,ph:rnd(0,6)};}
@@ -119,7 +119,7 @@ function trailLen(tr){let L=0;for(let i=1;i<tr.pts.length;i++)L+=dist(tr.pts[i-1
 function harvest(poly,isPlayer){let n=0;
   for(const c of G.crops){if(c.ready&&lineOpen(c.li)&&pip(c.x,c.y,poly)){c.ready=false;c.t=rnd(2.6,4.6)*(evx('supply_slow')?1.6:1);n++;G.procIn[c.li]++;fly('r'+c.li,c.x,c.y,6,LX(c.li),500,24,rnd(.45,.8),n*.005,90);}}
   if(isPlayer){if(n>0){floatTxt(G.player.x,G.player.y-70,'+'+n+(n>=40?'  CORRECT!':''),'#fff',n>=40?20:15);beep(660,.12,'square',.05,1.5);if(n>=40)puff(G.player.x,G.player.y-30,14,'#ffe9a8');}
-    else toast('Nothing inside the circle. Go round the '+(B.field==='yard'?'cartons':B.field==='water'?'fish':B.field==='pasture'?'animals':'crops')+'!',2);}
+    else toast('Nothing inside the circle. Go round the '+(B.field==='port'?'parcels and boxes':B.field==='yard'?'cartons':B.field==='water'?'fish':B.field==='pasture'?'animals':'crops')+'!',2);}
   return n;}
 
 /* ===== workers ===== */
@@ -157,17 +157,19 @@ function updWorker(w,dt){const hm=w.kind==='hand'||w.kind==='porter'?S.emp.haul|
   }}
 
 /* ===== sales ===== */
-function sale(i,c,q=1){const amt=revenue(i,c&&c.vip)*q;S.till+=amt;S.dayEarn+=amt;S.mo.rev+=amt;S.daySold+=q;S.sold+=q;
+function sale(i,c,q=1){let amt=revenue(i,c&&c.vip)*q;if(B.isNew&&typeof newSale==='function')amt=newSale(i,c,q,amt);S.till+=amt;S.dayEarn+=amt;S.mo.rev+=amt;S.daySold+=q;S.sold+=q;
   const x=c?c.x:rnd(800,945),y=c?c.y:1180;
   if(c){fly('p'+i,LX(i),738,26,c.x,c.y,30,.2,0,24);fly('cash',c.x,c.y,34,915,734,10,.4,.1,50);}
   if(c&&c.vip){floatTxt(x,y-60,'BIG SPENDER +₦'+short(amt),'#ffd659',17);puff(x,y-30,10,'#ffe9a8');beep(988,.2,'square',.05,1.5);}
   else if(G.t-G.acc.fl>.22){G.acc.fl=G.t;floatTxt(x,y-52,'+₦'+short(amt));}
   if(c)tick(820);}
+// Lines with a weight (w) get that share of customers; a business can also close a line for now (no free truck).
+function pickLine(ol){let t=0;const ws=ol.map(i=>{const v=(B.lines[i].w||1)*(B.isNew&&typeof lineW==='function'?lineW(i):1);t+=v;return v;});if(t<=0)return ol[0];let r=Math.random()*t;for(let k=0;k<ol.length;k++){r-=ws[k];if(r<=0)return ol[k];}return ol[ol.length-1];}
 function bump(h,c,w){return Math.exp(-Math.pow((h-c)/w,2));}
 function todMult(){const h=hour();let m=.75+.7*bump(h,13,1.2)+.85*bump(h,18.2,1.1);const hl=lvl('house');if(S.clock<[0,30,50,80][hl])m*=[1,1.5,1.75,2][hl];return m;}
-function updCustomers(dt){const st=stage(),rate=1*VD[st]*ADM[lvl('ads')]*todMult()*(evx('demand_up')?1.5:evx('demand_down')?.65:1),ol=openLines();
-  if(!G.closing&&G.custs.length<VCAP[st]){G.acc.spawn+=rate*dt;while(G.acc.spawn>=1){G.acc.spawn--;const li=ol[Math.floor(Math.random()*ol.length)],pal=CPAL[Math.floor(Math.random()*CPAL.length)];
-      G.custs.push({x:rnd(80,720),y:1292,li,st:'in',tx:LX(li)+rnd(-30,30),ty:774+rnd(0,22),pat:rnd(9,13),vip:Math.random()<(evx('vip_day')?.2:.05),q:1+Math.floor(Math.random()*QTY[st]),o:{cloth:pal[0],trim:pal[1],hat:pal[2]},step:rnd(0,6),face:1,seat:-1,t:0});}}
+function updCustomers(dt){const st=stage(),rate=1*VD[st]*ADM[lvl('ads')]*todMult()*(B.isNew&&typeof newDemand==='function'?newDemand():1)*(evx('demand_up')?1.5:evx('demand_down')?.65:1),ol=openLines();
+  if(!G.closing&&G.custs.length<VCAP[st]){G.acc.spawn+=rate*dt;while(G.acc.spawn>=1){G.acc.spawn--;const li=pickLine(ol),pal=CPAL[Math.floor(Math.random()*CPAL.length)];
+      G.custs.push({x:rnd(80,720),y:1292,li,st:'in',tx:LX(li)+rnd(-30,30),ty:774+rnd(0,22),pat:rnd(9,13),vip:Math.random()<(evx('vip_day')?.2:.05),q:Math.min(B.lines[li].qx||99,1+Math.floor(Math.random()*QTY[st])),o:{cloth:pal[0],trim:pal[1],hat:pal[2]},step:rnd(0,6),face:1,seat:-1,t:0});}}
   else G.acc.spawn=Math.min(G.acc.spawn,1);
   for(const c of G.custs){
     if(c.st==='in'){if(moveTo(c,c.tx,c.ty,150,dt))c.st='wait';}
@@ -255,7 +257,8 @@ function update(dt){
   // pads
   let onPad=null;for(const s of visibleSteps()){const[x,y]=padPos(s);if(dist(P.x,P.y,x,y)<30){onPad=s;break;}}
   G.onPad=onPad;
-  if(onPad&&S.money>0){const Lp=(S.pads[onPad.id]=S.pads[onPad.id]||{l:0,paid:0});const pay=Math.min(Math.max(1,Math.ceil(onPad.cost*dt*.9)),S.money,onPad.cost-Lp.paid);S.money-=pay;Lp.paid+=pay;
+  const gate=onPad&&typeof stepGate==='function'?stepGate(onPad):null;if(gate){if(!(G.gateT>0)){toast(gate,3);G.gateT=3.2;}}
+  else if(onPad&&S.money>0){const Lp=(S.pads[onPad.id]=S.pads[onPad.id]||{l:0,paid:0});const pay=Math.min(Math.max(1,Math.ceil(onPad.cost*dt*.9)),S.money,onPad.cost-Lp.paid);S.money-=pay;S.spent=(S.spent||0)+pay;Lp.paid+=pay;
     acc.payFly+=dt;if(acc.payFly>.06){acc.payFly=0;const[x,y]=padPos(onPad);fly('cash',P.x,P.y,40,x,y,4,.25,0,40);tick(700);}
     if(Lp.paid>=onPad.cost)buyPad(onPad);}
   // street traffic
@@ -268,6 +271,7 @@ function update(dt){
   for(const p of G.parts){p.t+=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.vy+=60*dt;}G.parts=G.parts.filter(p=>p.t<p.life);
   for(const p of G.floats){p.t+=dt;p.y-=26*dt;}G.floats=G.floats.filter(p=>p.t<1.1);
   for(const p of G.conf){p.t+=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;p.rot+=dt*6;}G.conf=G.conf.filter(p=>p.y<H+20&&p.t<4);
+  if(G.gateT>0)G.gateT-=dt;
   if(G.toastT>0){G.toastT-=dt;if(G.toastT<=0)$('toast').style.opacity=0;}
   acc.hud+=dt;if(acc.hud>.2){acc.hud=0;updateHud();}
   acc.save+=dt;if(acc.save>4){acc.save=0;save();}

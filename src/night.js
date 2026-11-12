@@ -2,10 +2,11 @@
 const NORD=['drive','dinner','bath','sleep','stmt','morning'],DISH=['plate','#e8541e',null,['#b92c14','#ffcf4a'],'#6b3a1f'],CUP=['bottle','#8fd3f7','#1e6fb5'];
 function startNight(){const NL=PLAN.road.night;$('hqp').hidden=true;G.trip=null;S.money+=S.till;S.till=0;const br=brDay();S.money+=br;S.mo.br+=br;S.lastEarn=S.dayEarn;SAVE.life=(SAVE.life||0)+S.dayEarn+(S.dayExp||0)+br;
   const due=monthDue(false),set=Math.max(0,Math.min(S.money,due.wages+due.tax-S.resv));S.money-=set;S.resv+=set;let stmt=null;
-  if(S.day%MONTH===0){const d=monthDue(true),total=d.wages+d.tax,pool=S.resv;S.resv=0;S.money+=pool-total;S.stat.wages+=d.wages;S.stat.tax+=d.tax;
-    stmt={m:S.day/MONTH,rev:d.rev,wages:d.wages,tax:d.tax,staff:d.staff,net:d.rev-total,short:Math.max(0,total-pool)};S.mo={rev:0,exp:0,br:0};}
+  const xr=typeof shipNight==='function'?shipNight()||[]:[];
+  if(S.day%MONTH===0){const sm=typeof shipMonth==='function'?shipMonth():null;const d=monthDue(true),total=d.wages+d.tax,pool=S.resv;S.resv=0;S.money+=pool-total;S.stat.wages+=d.wages;S.stat.tax+=d.tax;
+    stmt={m:S.day/MONTH,rev:d.rev,wages:d.wages,tax:d.tax,staff:d.staff,net:d.rev-total,short:Math.max(0,total-pool)};if(sm){stmt.net-=sm.cost;stmt.or=sm.or;stmt.ops=sm.cost;}stmt.extra=finMonth(stmt);S.mo={rev:0,exp:0,br:0};}
   const tr=PLAN.road.night.traffic.slice().sort(()=>Math.random()-.5).slice(0,4);
-  G.night={st:'drive',t:0,T:0,jam:rnd(10,14),off:0,v:0,stmt,sum:{day:S.day,earn:S.dayEarn,sold:S.daySold,exp:S.dayExp,br,set,left:MONTH-dayOfMonth()},
+  G.night={st:'drive',t:0,T:0,jam:rnd(10,14),off:0,v:0,stmt,sum:{day:S.day,earn:S.dayEarn,sold:S.daySold,exp:S.dayExp,br,set,left:MONTH-dayOfMonth(),extra:xr},
     L:{tr,radio:pick(NL.radio),dinner:pick(NL.dinner),bath:pick(NL.bath),sleep:pick(Math.random()<.5?NL.sleep:PBZ().chatter.night),morning:pick(NL.morning)}};
   G.input.active=false;G.custs=[];G.seatTaken.fill(null);G.bub=[];$('toast').style.opacity=0;document.body.classList.add('night');save();}
 function nightNext(){const N=G.night;let i=NORD.indexOf(N.st)+1;if(NORD[i]==='stmt'&&!N.stmt)i++;if(i>=NORD.length)return endNight();N.st=NORD[i];N.t=0;
@@ -58,9 +59,9 @@ function drawNight(){const N=G.night,t=N.t,g=ctx,hl=lvl('house'),cl=lvl('car'),o
     g.font='900 22px Nunito,system-ui';g.textAlign='left';for(let i=0;i<3;i++){const k=(N.T*.4+i/3)%1;g.globalAlpha=1-k;g.fillStyle='#fff';g.fillText('z',-110+k*50,60-k*70);}g.globalAlpha=1;
     const pw=372,px=-186,py=-304,M=N.stmt,U=N.sum,rows=[];
     if(N.st==='sleep'){rows.push(['Shop sales ('+U.sold.toLocaleString()+' orders)','₦'+fmt(U.earn),'#b9ffcf']);if(S.emp.con)rows.push(['Export trucks','₦'+fmt(U.exp),'#b9ffcf']);if(S.emp.br)rows.push([S.emp.br+' branches sent','₦'+fmt(U.br),'#b9ffcf']);
-      rows.push(['Set aside for salaries and tax','-₦'+fmt(U.set),'#ffb3a3']);rows.push(['Payday',U.left?'in '+U.left+' day'+(U.left>1?'s':''):'tonight','#ffe9a8']);if(S.money<0)rows.push(['Account balance','-₦'+fmt(-S.money),'#ff8a7a']);}
-    else{rows.push(['Total revenue','₦'+fmt(M.rev),'#b9ffcf']);rows.push(['Salaries, '+M.staff.toLocaleString()+' people','-₦'+fmt(M.wages),'#ffb3a3']);rows.push([TAX.label,M.tax?'-₦'+fmt(M.tax):'₦0 (relief)','#ffb3a3']);rows.push(['Profit after salaries and tax',(M.net<0?'-₦':'₦')+fmt(Math.abs(M.net)),'#ffd659']);
-      rows.push([M.short?'Payday account was short by':'Paid in full from payday account',M.short?'₦'+fmt(M.short):'✓',M.short?'#ff8a7a':'#7dff9a']);}
+      if(U.extra)rows.push(...U.extra);rows.push(['Set aside for salaries and tax','-₦'+fmt(U.set),'#ffb3a3']);rows.push(['Payday',U.left?'in '+U.left+' day'+(U.left>1?'s':''):'tonight','#ffe9a8']);if(S.money<0)rows.push(['Account balance','-₦'+fmt(-S.money),'#ff8a7a']);}
+    else{rows.push(['Total revenue','₦'+fmt(M.rev),'#b9ffcf']);rows.push(['Salaries, '+M.staff.toLocaleString()+' people','-₦'+fmt(M.wages),'#ffb3a3']);rows.push([TAX.label,M.tax?'-₦'+fmt(M.tax):'₦0 (relief)','#ffb3a3']);if(M.ops)rows.push(['Fuel, fleet, port and admin (paid daily)','-₦'+fmt(M.ops),'#ffb3a3']);rows.push(['Profit after salaries and tax',(M.net<0?'-₦':'₦')+fmt(Math.abs(M.net)),'#ffd659']);
+      if(M.extra)rows.push(...M.extra);rows.push([M.short?'Payday account was short by':'Paid in full from payday account',M.short?'₦'+fmt(M.short):'✓',M.short?'#ff8a7a':'#7dff9a']);}
     const ph=74+rows.length*28+34;R(g,px,py,pw,ph,18,'rgba(43,22,8,.93)');g.textAlign='center';g.fillStyle='#ffc23d';g.font='27px "Lilita One",system-ui';g.fillText(N.st==='sleep'?'Day '+U.day+' closed':'Month '+M.m+' payday',0,py+40);
     g.font='800 14px Nunito,system-ui';rows.forEach((r,i)=>{const y=py+76+i*28;g.textAlign='left';g.fillStyle='#fff6e4';g.fillText(r[0],px+18,y);g.textAlign='right';g.fillStyle=r[2];g.fillText(r[1],px+pw-18,y);g.fillStyle='rgba(255,255,255,.12)';g.fillRect(px+16,y+8,pw-32,1);});
     g.textAlign='center';g.fillStyle='#fff6e4';g.globalAlpha=.6+.4*Math.sin(N.T*4);g.font='800 13px Nunito,system-ui';g.fillText(N.st==='sleep'?'Tap to sleep till morning':'Tap to continue',0,py+ph-14);g.globalAlpha=1;

@@ -1,0 +1,223 @@
+{
+ "key": "ship",
+ "branchNoun": "hub",
+ "rankTitles": [
+  "Okada Courier",
+  "Rider Squad Boss",
+  "Waybill Oga",
+  "Haulage Chief",
+  "Logistics Group Chairman",
+  "Shipping Line Owner"
+ ],
+ "export": {
+  "bay": "Bulk Contracts Bay",
+  "pack": "palletised loads",
+  "contracts": [
+   {
+    "buyer": "Yaba Online Sellers Hub",
+    "where": "Yaba, Lagos",
+    "blurb": "Two hundred Instagram shops hand you every parcel they sell."
+   },
+   {
+    "buyer": "Eko GreenCart Supermarkets",
+    "where": "Lekki, Lagos",
+    "blurb": "Your warehouse feeds their shelves every Monday, scanned and counted."
+   },
+   {
+    "buyer": "Northern Grains Co-op",
+    "where": "Kano",
+    "blurb": "Maize and sesame come south on your trailers, so no truck returns empty."
+   },
+   {
+    "buyer": "Delta Cement Works",
+    "where": "Ewekoro, Ogun",
+    "blurb": "A factory moves bagged cement to Abuja on a weekly contract."
+   },
+   {
+    "buyer": "Cotonou Transit Importers",
+    "where": "Cotonou, Benin Republic",
+    "blurb": "Cars and textiles cross the Seme border through your bonded depot."
+   },
+   {
+    "buyer": "Rotterdam Cocoa Buyers",
+    "where": "Rotterdam, Netherlands",
+    "blurb": "Cocoa and sesame leave Apapa in your booked containers."
+   }
+  ]
+ },
+ "machines": {
+  "belt": {
+   "name": "Parcel Conveyor Belt",
+   "blurb": "Carries parcels from the drop-off yard to the sorting table by itself."
+  },
+  "auto": {
+   "name": "Yard Forklift Team",
+   "blurb": "Automatic forklifts move containers from the paperwork desk to the loading bays."
+  },
+  "pack": {
+   "name": "Quay Gantry Crane",
+   "blurb": "Lifts containers off the ship and stacks them in the yard with no carrying."
+  }
+ },
+ "manager": {
+  "name": "Mrs Amaka",
+  "title": "Fleet Manager"
+ },
+ "milestones": [
+  {
+   "at": 1,
+   "title": "First Hub Opens",
+   "blurb": "A second Wakaway hub. Parcels now cross Lagos without passing Yaba."
+  },
+  {
+   "at": 5,
+   "title": "Lagos Covered",
+   "blurb": "Five hubs. Any seller in Lagos is ten minutes from a Wakaway counter."
+  },
+  {
+   "at": 10,
+   "title": "Every Big City",
+   "blurb": "Abuja, Kano, Port Harcourt and Onitsha hubs. Waybills arrive next day."
+  },
+  {
+   "at": 25,
+   "title": "West Africa Corridor",
+   "blurb": "Cotonou, Lome and Accra hubs. The coast road is your road."
+  },
+  {
+   "at": 50,
+   "title": "National Shippers' Council Seat",
+   "blurb": "Ifeanyi now speaks for Nigerian cargo owners."
+  },
+  {
+   "at": 100,
+   "title": "Four Continents",
+   "blurb": "Durban, Dubai, Rotterdam and Guangzhou desks book your containers."
+  },
+  {
+   "at": 250,
+   "title": "Rider Training School",
+   "blurb": "Wakaway trains riders: helmets on, safe first, fast second."
+  },
+  {
+   "at": 500,
+   "title": "MV Waybill, Pride of Tin Can",
+   "blurb": "Wakaway Lines owns ships with Ifeanyi's nickname on the hull."
+  }
+ ],
+ "chatter": {
+  "staff": [
+   "Oga, parcel don land for Lekki!",
+   "Helmet on before you ride, abeg.",
+   "This carton weigh 4 kilo, write am.",
+   "Waybill for Kano ready.",
+   "Safe first, fast second!",
+   "Truck don service, tyres full.",
+   "Box TCLU 409 still get two free days.",
+   "Customs form complete, class checked.",
+   "Diesel don go up again o.",
+   "Return load dey Kano: sesame!",
+   "Scan am before e enter rack.",
+   "Forklift, bring that forty-foot.",
+   "Seller say make we deliver before 5.",
+   "Nobody dey lose parcel for here."
+  ],
+  "customer": [
+   "Abeg deliver this to Ikeja today.",
+   "How much to send this to Abuja?",
+   "My container land Tuesday. You fit clear am?",
+   "I get 40ft for Kano, when truck dey?",
+   "Wrap am well, na glass.",
+   "Book me one container from Guangzhou.",
+   "Una deliver my parcel early, thank you!",
+   "I dey track am for phone.",
+   "Duty money dey here, receipt abeg.",
+   "Make the driver no rush, safe journey."
+  ],
+  "manager": [
+   "Fleet check done: every truck is serviced.",
+   "Oga, two boxes are at day four. Clear them first.",
+   "Kano has a return load. Send the next trailer.",
+   "Riders, helmets on. Safe first, fast second.",
+   "Diesel moved this week. Check the surcharge.",
+   "Duty pot balanced to the last naira."
+  ],
+  "night": [
+   "From one okada to this. God is good.",
+   "Tomorrow I must service those trucks.",
+   "That Third Mainland traffic, I almost slept.",
+   "Maybe one more hub in Abuja?",
+   "Two boxes still have free days. Good.",
+   "Uncle Chidi's okada started all of this."
+  ]
+ },
+ "events": [
+  {
+   "name": "Detty December Rush",
+   "text": "Everybody is sending gifts. Parcel orders double for today.",
+   "effect": "demand_up"
+  },
+  {
+   "name": "Third Mainland Go-Slow",
+   "text": "Heavy traffic on the bridge. Bike deliveries take twice as long today.",
+   "effect": "supply_slow"
+  },
+  {
+   "name": "Diesel Price Jump",
+   "text": "Diesel is up again. Every haulage trip costs 10% more today.",
+   "effect": "diesel_up"
+  },
+  {
+   "name": "Return Load Found",
+   "text": "A Kano trader has grains for Lagos. Your trucks earn on the way back today.",
+   "effect": "backhaul"
+  },
+  {
+   "name": "Rainy Day Parcels",
+   "text": "Heavy rain. Customers are waiting it out, so fewer parcels today.",
+   "effect": "demand_down"
+  },
+  {
+   "name": "Five-Star Review",
+   "text": "A big online seller praises Wakaway. New customers arrive all day.",
+   "effect": "vip_day"
+  },
+  {
+   "name": "Port System Down",
+   "text": "The customs portal is offline. The paperwork desk clears fewer boxes today.",
+   "effect": "port_down"
+  },
+  {
+   "name": "Naira Gains Today",
+   "text": "The exchange rate moved your way. Ocean freight earns 5% more today.",
+   "effect": "fx_up"
+  }
+ ],
+ "mech": [
+  {
+   "name": "Shoulder and head carry",
+   "how": "Lifts parcels from the drop-off yard on head and shoulder and walks them to the sorting table"
+  },
+  {
+   "name": "Hand trolley",
+   "how": "Two-wheel trolley tips back under a stack of cartons and rolls to the scale"
+  },
+  {
+   "name": "Cargo tricycle",
+   "how": "Keke cargo loads sacks and cartons at the yard and drops them at the counter"
+  },
+  {
+   "name": "Delivery van",
+   "how": "Van backs into the yard, side door slides, cartons go in and come out at the dispatch counter"
+  },
+  {
+   "name": "Diesel forklift",
+   "how": "Forks slide under a pallet or a 20ft box, lift and carry it to the loading bay"
+  },
+  {
+   "name": "Reach stacker",
+   "how": "Big arm grabs a 40ft container by its corners and sets it on the trailer"
+  }
+ ],
+ "storyNote": "Story stages follow plan2/shipping.json. The clearing-licence stage no longer contains any shortcut offer: bribery does not exist in this game."
+}
