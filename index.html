@@ -438,9 +438,12 @@ function updWorker(w,dt){const hm=w.kind==='hand'||w.kind==='porter'?S.emp.haul|
     if(w.state==='idle'){if(o&&left()>0&&stock(o.li)>0){w.li=o.li;w.state='load';w.hold=0;}else moveTo(w,720+w.n*36,1215,sp,dt);}
     else if(w.state==='load'){if(moveTo(w,LX(w.li)+30,604,sp,dt)){w.wait-=dt;w.hold=(w.hold||0)+dt;
         if(w.wait<=0&&w.stack.length<pal&&(!o||w.stack.length<o.need-o.got)){if(G.out[w.li]>0){G.out[w.li]--;w.stack.push('p'+w.li);}else if(G.counter[w.li]>0){G.counter[w.li]--;w.stack.push('p'+w.li);}w.wait=.01;}
-        const need=o?o.need-o.got:0,full=w.stack.length>=pal||(o&&w.stack.length>=need),dry=stock(w.li)===0;
-        if(full||(dry&&w.hold>3)||!o||G.exp.t<6)w.state=w.stack.length?'drop':'idle';}}
-    else{if(moveTo(w,BAY.x+w.n*14,BAY.y,sp*1.2,dt)){w.wait-=dt;while(w.stack.length&&w.wait<=0){w.stack.pop();if(o&&o.li===w.li&&o.got<o.need)o.got++;else G.counter[w.li]++;w.wait+=.004;}if(!w.stack.length)w.state='idle';}}
+        // Pack the whole remaining order in one trip: leave only when the pallet covers what the truck still needs
+        // (after what other loaders are already carrying), the pallet is full, or the truck is about to go (12 s left).
+        const others=G.workers.reduce((a,x)=>a+(x!==w&&x.kind==='loader'&&x.state==='drop'&&x.li===w.li?x.stack.length:0),0),
+          need=o?o.need-o.got-others:0,full=w.stack.length>=pal||(o&&w.stack.length>=need);
+        if(full||!o||G.exp.t<12)w.state=w.stack.length?'drop':'idle';}}
+    else{if(moveTo(w,BAY.x+w.n*14,BAY.y,sp*1.2,dt)){w.wait-=dt;while(w.stack.length){w.stack.pop();if(o&&o.li===w.li&&o.got<o.need)o.got++;else G.counter[w.li]++;}if(!w.stack.length)w.state='idle';}}
     return;}
   if(w.kind==='hand'){
     if(w.state==='idle'){w.wait-=dt;if(w.wait<=0){const ss=G.strips.filter(s=>lineOpen(s.li)&&G.procIn[s.li]<140);if(!ss.length){w.wait=1;return;}const s=ss[Math.floor(Math.random()*ss.length)];
@@ -672,7 +675,8 @@ function updChatter(dt){for(const b of G.bub)b.t-=dt;G.bub=G.bub.filter(b=>b.t>0
 
 /* ----- export bay ----- */
 function updExport(dt){const e=S.emp,X=G.exp;if(!e.con)return;
-  if(X.state==='wait'){X.t-=dt;if(X.t<=0&&!G.closing){const li=pick(openLines()),need=40+15*e.con;X.ord={li,need,got:0,pay:Math.round(expDay()*50/dayLen()),buyer:PBZ().export.contracts[Math.floor(Math.random()*e.con)]};X.state='in';X.x=WW+160;X.t0=G.t;}}
+  if(X.state==='wait'){X.t-=dt;if(X.t<=0&&!G.closing){// The truck asks for the line with the most goods ready, and only as much as can be packed in its 60 seconds.
+    const ls=openLines(),li=ls.reduce((m,i)=>G.out[i]+G.counter[i]>G.out[m]+G.counter[m]?i:m,ls[0]),full=40+15*e.con,need=Math.min(full,Math.max(12,G.out[li]+G.counter[li]+20));X.ord={li,need,got:0,pay:Math.round(expDay()*50/dayLen()*need/full),buyer:PBZ().export.contracts[Math.floor(Math.random()*e.con)]};X.state='in';X.x=WW+160;X.t0=G.t;}}
   else if(X.state==='in'){X.x-=300*dt;if(X.x<=880){X.x=880;X.state='load';X.t=60;horn();toast('🚛 '+X.ord.buyer.buyer+' wants '+X.ord.need+' '+B.lines[X.ord.li].short+'. Load the truck!',4);}}
   else if(X.state==='load'){X.t-=dt;const o=X.ord;if(o.got>=o.need||X.t<=0||G.closing){const pay=Math.round(o.pay*Math.min(1,o.got/o.need));if(pay>0){S.money+=pay;S.mo.exp+=pay;S.dayExp+=pay;floatTxt(X.x-40,1210,'EXPORT +₦'+short(pay),'#ffd659',18);puff(BAY.x,BAY.y-20,12,'#ffe9a8');beep(784,.22,'square',.06,1.5);}
       X.state='out';}}
@@ -1660,7 +1664,9 @@ $('logout').addEventListener('click',async()=>{if(NM.pid)await nmPush();await nm
   A.innerHTML='<div class="in tour"><div class="ico">🧺</div><h1>Naija Market</h1><p class="sub">Opening your market...</p></div>';A.hidden=false;
   const r=await nmApi('GET','/me');
   if(!r.ok||!r.j||!('player' in r.j)){A.hidden=true;$('localnote').hidden=false;return;}   // not on Community Square: play locally on this device
-  NM.cfg=r.j;if(r.j.player)return signedIn(r.j);showFront();})();
+  NM.cfg=r.j;const nt=r.j.maintenance?'Naija Market is being updated. You can play, but saving online is paused for a few minutes.':r.j.notice;
+  if(nt){const d=document.createElement('div');d.textContent=nt;d.style.cssText='position:fixed;left:12px;right:12px;top:12px;z-index:99;background:#1b2a4a;color:#fff;border-radius:14px;padding:12px 14px;font:800 15px Nunito,system-ui;box-shadow:0 6px 20px rgba(0,0,0,.35)';d.onclick=()=>d.remove();document.body.appendChild(d);setTimeout(()=>d.remove(),9000);}
+  if(r.j.player)return signedIn(r.j);showFront();})();
 
 /* ----- diamonds into game money (Community Square members only, one way, never cashed out) ----- */
 const DIA={per:1e6,naira:10,min:10,max:10000,have:null};

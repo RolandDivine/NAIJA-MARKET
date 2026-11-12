@@ -135,9 +135,12 @@ function updWorker(w,dt){const hm=w.kind==='hand'||w.kind==='porter'?S.emp.haul|
     if(w.state==='idle'){if(o&&left()>0&&stock(o.li)>0){w.li=o.li;w.state='load';w.hold=0;}else moveTo(w,720+w.n*36,1215,sp,dt);}
     else if(w.state==='load'){if(moveTo(w,LX(w.li)+30,604,sp,dt)){w.wait-=dt;w.hold=(w.hold||0)+dt;
         if(w.wait<=0&&w.stack.length<pal&&(!o||w.stack.length<o.need-o.got)){if(G.out[w.li]>0){G.out[w.li]--;w.stack.push('p'+w.li);}else if(G.counter[w.li]>0){G.counter[w.li]--;w.stack.push('p'+w.li);}w.wait=.01;}
-        const need=o?o.need-o.got:0,full=w.stack.length>=pal||(o&&w.stack.length>=need),dry=stock(w.li)===0;
-        if(full||(dry&&w.hold>3)||!o||G.exp.t<6)w.state=w.stack.length?'drop':'idle';}}
-    else{if(moveTo(w,BAY.x+w.n*14,BAY.y,sp*1.2,dt)){w.wait-=dt;while(w.stack.length&&w.wait<=0){w.stack.pop();if(o&&o.li===w.li&&o.got<o.need)o.got++;else G.counter[w.li]++;w.wait+=.004;}if(!w.stack.length)w.state='idle';}}
+        // Pack the whole remaining order in one trip: leave only when the pallet covers what the truck still needs
+        // (after what other loaders are already carrying), the pallet is full, or the truck is about to go (12 s left).
+        const others=G.workers.reduce((a,x)=>a+(x!==w&&x.kind==='loader'&&x.state==='drop'&&x.li===w.li?x.stack.length:0),0),
+          need=o?o.need-o.got-others:0,full=w.stack.length>=pal||(o&&w.stack.length>=need);
+        if(full||!o||G.exp.t<12)w.state=w.stack.length?'drop':'idle';}}
+    else{if(moveTo(w,BAY.x+w.n*14,BAY.y,sp*1.2,dt)){w.wait-=dt;while(w.stack.length){w.stack.pop();if(o&&o.li===w.li&&o.got<o.need)o.got++;else G.counter[w.li]++;}if(!w.stack.length)w.state='idle';}}
     return;}
   if(w.kind==='hand'){
     if(w.state==='idle'){w.wait-=dt;if(w.wait<=0){const ss=G.strips.filter(s=>lineOpen(s.li)&&G.procIn[s.li]<140);if(!ss.length){w.wait=1;return;}const s=ss[Math.floor(Math.random()*ss.length)];

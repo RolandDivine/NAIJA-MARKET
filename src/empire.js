@@ -70,7 +70,8 @@ function updChatter(dt){for(const b of G.bub)b.t-=dt;G.bub=G.bub.filter(b=>b.t>0
 
 /* ----- export bay ----- */
 function updExport(dt){const e=S.emp,X=G.exp;if(!e.con)return;
-  if(X.state==='wait'){X.t-=dt;if(X.t<=0&&!G.closing){const li=pick(openLines()),need=40+15*e.con;X.ord={li,need,got:0,pay:Math.round(expDay()*50/dayLen()),buyer:PBZ().export.contracts[Math.floor(Math.random()*e.con)]};X.state='in';X.x=WW+160;X.t0=G.t;}}
+  if(X.state==='wait'){X.t-=dt;if(X.t<=0&&!G.closing){// The truck asks for the line with the most goods ready, and only as much as can be packed in its 60 seconds.
+    const ls=openLines(),li=ls.reduce((m,i)=>G.out[i]+G.counter[i]>G.out[m]+G.counter[m]?i:m,ls[0]),full=40+15*e.con,need=Math.min(full,Math.max(12,G.out[li]+G.counter[li]+20));X.ord={li,need,got:0,pay:Math.round(expDay()*50/dayLen()*need/full),buyer:PBZ().export.contracts[Math.floor(Math.random()*e.con)]};X.state='in';X.x=WW+160;X.t0=G.t;}}
   else if(X.state==='in'){X.x-=300*dt;if(X.x<=880){X.x=880;X.state='load';X.t=60;horn();toast('🚛 '+X.ord.buyer.buyer+' wants '+X.ord.need+' '+B.lines[X.ord.li].short+'. Load the truck!',4);}}
   else if(X.state==='load'){X.t-=dt;const o=X.ord;if(o.got>=o.need||X.t<=0||G.closing){const pay=Math.round(o.pay*Math.min(1,o.got/o.need));if(pay>0){S.money+=pay;S.mo.exp+=pay;S.dayExp+=pay;floatTxt(X.x-40,1210,'EXPORT +₦'+short(pay),'#ffd659',18);puff(BAY.x,BAY.y-20,12,'#ffe9a8');beep(784,.22,'square',.06,1.5);}
       X.state='out';}}
