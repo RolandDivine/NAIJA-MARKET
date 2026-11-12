@@ -81,6 +81,32 @@ button:focus-visible{outline:3px solid var(--gold)}
 #acct .tour .ico{font-size:84px;line-height:1}
 #acct .tour .big{width:100%;margin-top:8px}
 #acct .dots{display:flex;gap:8px}#acct .dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,246,228,.35)}#acct .dots i.on{background:var(--gold)}
+#acct .hero{position:relative;height:210px;margin:6px 0 2px}
+#acct .hero img{position:absolute;bottom:0;height:190px;filter:drop-shadow(0 6px 6px rgba(43,22,8,.35))}
+#acct .feat{display:grid;gap:8px;margin:2px 0}
+#acct .feat div{background:var(--panel);border-radius:14px;padding:10px 12px;font-weight:800;font-size:13.5px;display:flex;gap:10px;align-items:center}
+#acct .feat b{font-size:22px}
+#acct .ctry{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#acct .ctry button{font:900 15px var(--body);border:0;border-radius:16px;padding:14px 10px;background:var(--cream);color:var(--ink);box-shadow:0 4px 0 var(--ink);cursor:pointer;text-align:left}
+#acct .ctry button span{display:block;font-size:12px;font-weight:800;opacity:.7;margin-top:2px}
+#acct .ctry button[disabled]{opacity:.55;cursor:default}
+#acct .ctry .flag{font-size:26px;display:block}
+#acct textarea{font:700 15px var(--body);padding:12px;border-radius:12px;border:0;background:var(--cream);color:var(--ink);width:100%;box-sizing:border-box;min-height:110px;resize:vertical}
+#acct .shot{width:100%;border-radius:14px;box-shadow:0 4px 0 var(--ink)}
+.soonh{font-family:var(--display);font-weight:400;font-size:24px;margin:8px 0 0;color:var(--cream)}
+.cards.soon .card{opacity:.8;cursor:default}
+.cards.soon .card .ico{font-size:40px;text-align:center}
+.cards.soon .card em{background:#6b5a4a}
+.lbt{display:flex;gap:6px;flex-wrap:wrap}
+.lbt button{font:800 13px var(--body);border:0;border-radius:999px;padding:8px 12px;background:rgba(255,255,255,.12);color:var(--cream);cursor:pointer}
+.lbt button.on{background:var(--gold);color:var(--ink)}
+.lbr{display:grid;grid-template-columns:36px 1fr auto;gap:10px;align-items:center;width:100%;text-align:left;background:rgba(255,255,255,.08);border:0;border-radius:14px;padding:9px 12px;color:var(--cream);font-family:var(--body);cursor:pointer}
+.lbr.me{outline:2px solid var(--gold)}
+.lbr i{font-style:normal;font-family:var(--display);font-size:20px;text-align:center;color:var(--gold)}
+.lbr strong{display:block;font-weight:900;font-size:15px}
+.lbr span{display:block;font-size:12px;font-weight:700;opacity:.8}
+.lbr b{font-family:var(--display);font-weight:400;font-size:17px;color:#b9ffcf;white-space:nowrap}
+.cslink{display:block;text-align:center;text-decoration:none;font:900 15px var(--body);border-radius:999px;padding:13px 16px;color:#fff;background:#1b2a4a;box-shadow:0 4px 0 #050d16}
 #acct .skip{background:none;border:0;color:var(--cream);font:800 13px var(--body);opacity:.8;cursor:pointer;padding:10px}
 #goal{pointer-events:auto;cursor:pointer}
 #ev{font-weight:800;font-size:11.5px;max-width:min(60vw,300px);color:#ffe9a8}
@@ -126,7 +152,7 @@ button:focus-visible{outline:3px solid var(--gold)}
   </div>
   <div class="col r">
     <div class="pill"><div id="money"><b>₦</b>0</div></div>
-    <div class="btns"><button id="hq" type="button">🏢 HQ</button><button id="mute" type="button">🔊</button><button id="menu" type="button">Menu</button></div>
+    <div class="btns"><button id="lb" type="button" aria-label="Leaderboard">🏆</button><button id="hq" type="button">🏢 HQ</button><button id="mute" type="button">🔊</button><button id="menu" type="button">Menu</button></div>
   </div>
 </div>
 <div id="banner"></div>
@@ -136,8 +162,10 @@ button:focus-visible{outline:3px solid var(--gold)}
 <div id="pick">
   <p id="localnote" class="how" hidden>Playing on this device only. Open the game on Community Square to save it to your account.</p>
   <h1>Naija Market</h1>
-  <p>Pick a business and grow it from a roadside spot into an empire. Each business keeps its own progress.</p>
+  <p id="picktxt">Choose your career path. Grow it from a roadside spot into an empire. Each business keeps its own progress.</p>
   <div class="cards" id="cards"></div>
-  <div class="row"><span class="ghost who" id="who"></span><button class="ghost" id="logout" type="button" hidden>Log out</button><button class="ghost" id="back" type="button" hidden>Back to my shop</button><button class="ghost warn" id="reset" type="button" hidden>Restart this business</button></div>
+  <h2 class="soonh" id="soonh" hidden>Coming soon</h2>
+  <div class="cards soon" id="soon"></div>
+  <div class="row"><span class="ghost who" id="who"></span><button class="ghost" id="lb2" type="button" hidden>🏆 Leaderboard</button><button class="ghost" id="logout" type="button" hidden>Log out</button><button class="ghost" id="back" type="button" hidden>Back to my shop</button><button class="ghost warn" id="reset" type="button" hidden>Restart this business</button></div>
   <p class="how">Drag anywhere to walk. Walk into the farm, make a circle with your rope, and come back out to collect everything inside. Carry goods on your head, sell, and stand on the price pads to upgrade. At 8 PM, go home, eat, bath and sleep. Salaries and tax are paid every 30 days. Open HQ to grow your empire.</p>
 </div>

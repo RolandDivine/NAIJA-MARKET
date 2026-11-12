@@ -1,0 +1,267 @@
+{
+ "key": "trading",
+ "sector": "Stockbroking, dealing and foreign exchange (securities brokerage and market making)",
+ "howTheBusinessMakesMoney": "Brokers earn a fee on every client order, win or lose: a commission per trade, a small spread on currency and bonds, interest on idle client cash and the firm's own capital held in treasury bills, and fees for placing bills and bonds. Market makers earn a tiny spread on huge volume while keeping their own positions small and hedged. Trading the firm's own money is a minor, tightly limited line. Regulators require locked capital, clean client files and fast settlement.",
+ "caseStudies": [
+  {
+   "company": "Interactive Brokers",
+   "country": "US",
+   "scale": "2025: net revenue above $6bn, commissions $2.1bn, net interest $3.6bn, 77% pretax margin, about 4m trades a day in Q4",
+   "lesson": "Automation keeps cost low and the risk system closes positions that break limits with no human override. Copy: a Head of Risk who auto-closes at the limit, and income from fees plus interest, not bets.",
+   "source": "https://www.fool.com/earnings/call-transcripts/2026/01/20/interactive-brokers-ibkr-earnings-transcript/"
+  },
+  {
+   "company": "Citadel Securities",
+   "country": "US",
+   "scale": "2025: about $12.2bn trading revenue and about $6.5bn EBITDA, a record year for the market maker",
+   "lesson": "Market makers earn a fraction of a cent on millions of orders and hold positions for seconds. Copy: earn the spread on client flow, keep inventory small, never bet the firm on one direction.",
+   "source": "https://www.bloomberg.com/news/articles/2026-03-24/citadel-securities-nets-record-12-billion-trading-haul-in-2025"
+  },
+  {
+   "company": "CardinalStone Securities",
+   "country": "Nigeria",
+   "scale": "2025: top NGX broker by value, N2.18trn traded, 18.3% of the N11.94trn market total",
+   "lesson": "Scale comes from big institutional tickets (pension funds, asset managers). Copy: a messenger van of bulk fund orders that pays a lower rate but huge volume once the firm is trusted.",
+   "source": "https://nairametrics.com/2026/01/05/best-performing-stockbrokers-in-nigeria-2025/"
+  },
+  {
+   "company": "Stanbic IBTC Stockbrokers",
+   "country": "Nigeria",
+   "scale": "2025: third on NGX by value, N735.5bn traded, 6.16% of market value",
+   "lesson": "A bank-group broker wins on trust, compliance and access to pension and bank clients. Copy: clean files and a strong compliance desk unlock the biggest clients, not promises of return.",
+   "source": "https://nairametrics.com/2026/01/05/best-performing-stockbrokers-in-nigeria-2025/"
+  }
+ ],
+ "unitEconomics": [
+  {
+   "metric": "Share commission per side",
+   "usTypical": "$0 online (retail); about $0.005/share pro tier",
+   "nigeriaTypical": "Up to 1.35% of order value, negotiable",
+   "basis": "sourced",
+   "source": "https://nairacompare.ng/blogs/the-true-cost-of-trading-stocks-in-nigeria-what-50000-a-month-really-costs-you"
+  },
+  {
+   "metric": "Implied broker take on value traded",
+   "usTypical": "Fraction of a cent per share via order flow",
+   "nigeriaTypical": "About 1.35%: top 10 earned N99.7bn on N7.39trn (2025)",
+   "basis": "sourced",
+   "source": "https://thewhistler.ng/stockbrokers-earned-n100bn-commission-as-ngx-trading-hits-record-pace/"
+  },
+  {
+   "metric": "Interest share of broker revenue",
+   "usTypical": "Schwab 49%, IBKR about 60% (2025)",
+   "nigeriaTypical": "About 20-30% from T-bills and client cash",
+   "basis": "sourced",
+   "source": "https://www.businesswire.com/news/home/20260121223561/en/Schwab-Reports-Record-4Q-and-Full-Year-2025-Results"
+  },
+  {
+   "metric": "Pretax margin",
+   "usTypical": "Schwab 47.9%, IBKR 77% (2025)",
+   "nigeriaTypical": "About 15-30% for mid-size brokers",
+   "basis": "estimated",
+   "source": "https://www.businesswire.com/news/home/20260121223561/en/Schwab-Reports-Record-4Q-and-Full-Year-2025-Results"
+  },
+  {
+   "metric": "Short-term government bill yield",
+   "usTypical": "About 3.5-3.7% for 3-month bills",
+   "nigeriaTypical": "15.40% 91-day, 15.80% 364-day (Nov 2026)",
+   "basis": "sourced",
+   "source": "https://nairametrics.com/2026/11/05/cbn-mops-up-n3-46-trillion-across-omo-ntb-auctions-holds-t-bill-stop-rates-steady/"
+  },
+  {
+   "metric": "Currency desk margin over buy rate",
+   "usTypical": "No cap; retail kiosks often 3-10%",
+   "nigeriaTypical": "Max 1% over purchase rate (CBN, Feb 2025)",
+   "basis": "sourced",
+   "source": "https://www.premiumtimesng.com/business/business-news/772360-cbn-sets-weekly-fx-cap-for-bdcs-enforces-strict-compliance.html"
+  },
+  {
+   "metric": "Market concentration (top 10 brokers)",
+   "usTypical": "Not measured the same way; few large wholesalers",
+   "nigeriaTypical": "61.8% of NGX value traded in 2025",
+   "basis": "sourced",
+   "source": "https://nairametrics.com/2026/01/05/best-performing-stockbrokers-in-nigeria-2025/"
+  }
+ ],
+ "costStructure": [
+  {"item": "Staff pay and bonuses", "percentOfRevenue": 38, "note": "Dealers, settlement, research, compliance and risk; largest cost everywhere (estimated)"},
+  {"item": "Technology and market data", "percentOfRevenue": 12, "note": "Trading terminals, price feeds, order routing, cyber security (estimated)"},
+  {"item": "Exchange, clearing, regulator fees", "percentOfRevenue": 8, "note": "Exchange and depository fees, annual licence and levy (estimated)"},
+  {"item": "Office and premises", "percentOfRevenue": 10, "note": "Trading floor rent, power backup, client hall (estimated)"},
+  {"item": "Compliance, audit, insurance", "percentOfRevenue": 6, "note": "KYC checks, external audit, fidelity bond (estimated)"},
+  {"item": "Other admin and marketing", "percentOfRevenue": 6, "note": "Travel, client events, stationery (estimated)"},
+  {"item": "Profit before tax", "percentOfRevenue": 20, "note": "Mid-size Nigerian broker in a good year; US leaders run 48-77% (estimated)"}
+ ],
+ "regulation": [
+  {
+   "rule": "Minimum capital to hold a licence",
+   "unitedStates": "SEC Rule 15c3-1 net capital: $250,000 for firms holding client assets, $100,000 for dealers; FINRA membership required",
+   "nigeria": "SEC Nigeria Jan 2026: N600m broker, N1bn dealer, N2bn broker-dealer, deadline June 30, 2027",
+   "source": "https://nairametrics.com/2026/01/16/sec-raises-capital-requirements-for-brokers-fund-managers-digital-firms/"
+  },
+  {
+   "rule": "Early warning on thin capital",
+   "unitedStates": "SEC Rule 17a-11: notify the regulator when net capital falls below 120% of the minimum",
+   "nigeria": "SEC Nigeria requires capital kept at the minimum at all times and periodic returns; shortfall means sanction",
+   "source": "https://wiki.private.law/en/us-broker-dealer.md"
+  },
+  {
+   "rule": "Margin (borrowing to buy shares)",
+   "unitedStates": "Federal Reserve Reg T: borrow up to 50% to buy; FINRA Rule 4210: at least 25% equity maintenance",
+   "nigeria": "SEC Nigeria and CBN margin rules: separate margin accounts, 120% maintenance, bank exposure capped",
+   "source": "https://www.finra.org/investors/alerts/investing-borrowed-funds-no-margin-error"
+  },
+  {
+   "rule": "Settlement cycle",
+   "unitedStates": "SEC moved US equities to T+1 in May 2024; DTCC settles",
+   "nigeria": "SEC Nigeria: T+2 from Nov 28, 2025, then T+1 from June 1, 2026 via CSCS",
+   "source": "https://home.sec.gov.ng/for-investors/keep-track-of-circulars/transition-to-t1-settlement-cycle-in-the-nigerian-capital-market/"
+  },
+  {
+   "rule": "Daily price limit",
+   "unitedStates": "SEC-approved Limit Up-Limit Down bands pause trading in a stock moving too fast; no fixed daily cap",
+   "nigeria": "NGX caps each share's daily move at plus or minus 10%; new volume thresholds for price change from 2026",
+   "source": "https://nairametrics.com/2026/05/30/the-price-band-problem-why-ngxs-±10-cap-needs-a-proper-farewell/"
+  },
+  {
+   "rule": "Order routing and best execution",
+   "unitedStates": "SEC Rules 606/607 disclose payment for order flow; FINRA Rule 5310 requires best execution",
+   "nigeria": "NGX dealing member rules: best price for clients, no front running; payment for order flow not used",
+   "source": "https://www.everycrsreport.com/reports/IF12594.html"
+  },
+  {
+   "rule": "Foreign exchange dealing",
+   "unitedStates": "CFTC and NFA regulate retail forex dealers; FinCEN registration for money services businesses",
+   "nigeria": "CBN: BDC Tier 1 N2bn, Tier 2 N500m capital; sell at most 1% over purchase rate; $25,000 weekly cap",
+   "source": "https://techcabal.com/2025/12/08/cbn-82-bdcs-fully-licenced-2024-guidelines/"
+  }
+ ],
+ "gameRules": [
+  {
+   "name": "Fees come first",
+   "rule": "fee = ticketValue x rate, paid whatever the price does. Shares 1.35% (0.75% at 5-star loyalty), T-bills 0.125%, bonds 0.10%, commodities 0.5%. Currency: sell at buyRate x 1.01 max.",
+   "playerFeels": "Steady, earned income from serving clients well",
+   "simplifiedFrom": "Nigerian broker commission up to 1.35%; CBN 1% BDC margin cap; fee-led US brokers"
+  },
+  {
+   "name": "Own-book cap",
+   "rule": "Own trading unlocks at stage 4. Total own positions <= 10% of freeCash; any one position <= 2% of freeCash. freeCash excludes locked capital. Orders above the cap are refused with a reason.",
+   "playerFeels": "Trading is a small side dish, never the meal",
+   "simplifiedFrom": "Dealer position limits and value-at-risk limits set by a risk officer"
+  },
+  {
+   "name": "Forced stop-loss",
+   "rule": "Any own position at -8% from entry closes automatically at the next tick. Worst day = 10% x 8% = 0.8% of freeCash. No override, no adding to a losing position.",
+   "playerFeels": "Losses are small, capped and over fast",
+   "simplifiedFrom": "Automatic liquidation at broker risk systems (IBKR) and desk stop-loss limits"
+  },
+  {
+   "name": "No borrowing to trade",
+   "rule": "Own-book buy allowed only if cost <= settled freeCash. No margin loans for the firm or clients in game. Credit line, if any, may pay salaries only, never positions.",
+   "playerFeels": "You cannot dig a hole deeper than your own pocket",
+   "simplifiedFrom": "Reg T, FINRA 4210 and Nigerian margin rules, made stricter for the game"
+  },
+  {
+   "name": "Clue-driven prices",
+   "rule": "Each day 3 clues each worth -3% to +3%. Move = sum of clues + noise in -1% to +1%, capped at -10% / +10%. Reading 2 of 3 right gives about +3% to +6%. No jackpot payouts.",
+   "playerFeels": "Reading the news matters more than luck",
+   "simplifiedFrom": "NGX plus or minus 10% daily price band; prices follow results, oil and inflation"
+  },
+  {
+   "name": "Locked capital vault",
+   "rule": "Licence capital is locked: N600m (stage 3), N1bn (4), N2bn (5+). It earns 15.4%/yr = 1.28% per game month. If it falls below 120% of required, own book freezes and warning shows.",
+   "playerFeels": "Safety money that still works quietly",
+   "simplifiedFrom": "SEC Nigeria 2026 capital tiers, SEC 17a-11 120% early warning, 91-day bill at 15.40%"
+  },
+  {
+   "name": "T+1 settlement",
+   "rule": "Fees credit 1 game day after the trade once the slip reaches the settlement counter. A ticket with wrong details fails: redo it and pay N10,000. 98% clean tickets for 30 days = 5-star rating.",
+   "playerFeels": "Accuracy pays; sloppy work costs money and stars",
+   "simplifiedFrom": "Nigeria T+1 from June 2026 via CSCS; US T+1 since May 2024; failed-trade penalties"
+  },
+  {
+   "name": "Every loss explained",
+   "rule": "Each closed loss opens a recap card: entry, exit, loss in naira and % of freeCash, which clue was misread, and today's fee income beside it. Card must be read before the next own trade.",
+   "playerFeels": "I know exactly why I lost and how small it was",
+   "simplifiedFrom": "Desk post-trade reviews and daily risk reports"
+  }
+ ],
+ "stages": [
+  {"stage": "The Counter and the Notebook", "licenceOrGate": "Rent a counter in a family member's licensed bureau de change; pass ID check", "startupCostNaira": 3000000, "monthlyRevenueNaira": 3900000, "monthlyCostNaira": 2600000, "staff": 1, "customersPerDay": 30},
+  {"stage": "Apprentice No More", "licenceOrGate": "Pass stockbroker exams; sign with a sponsoring licensed broker; 40-client book", "startupCostNaira": 15000000, "monthlyRevenueNaira": 7000000, "monthlyCostNaira": 4800000, "staff": 3, "customersPerDay": 25},
+  {"stage": "The Licence", "licenceOrGate": "Broker licence: N600m capital locked, compliance officer hired, files inspected", "startupCostNaira": 680000000, "monthlyRevenueNaira": 21000000, "monthlyCostNaira": 14000000, "staff": 8, "customersPerDay": 60},
+  {"stage": "First Red Day", "licenceOrGate": "Dealer licence: capital raised to N1bn; risk limits panel switched on", "startupCostNaira": 520000000, "monthlyRevenueNaira": 45000000, "monthlyCostNaira": 30000000, "staff": 14, "customersPerDay": 120},
+  {"stage": "The Trading Floor", "licenceOrGate": "Broker-dealer licence: capital N2bn; 5-star rating; head of settlement", "startupCostNaira": 1600000000, "monthlyRevenueNaira": 180000000, "monthlyCostNaira": 120000000, "staff": 40, "customersPerDay": 300},
+  {"stage": "Abuja Calling", "licenceOrGate": "Pass regulator audit with zero missing client files; hire Head of Risk", "startupCostNaira": 350000000, "monthlyRevenueNaira": 320000000, "monthlyCostNaira": 210000000, "staff": 65, "customersPerDay": 450},
+  {"stage": "Across the Continent", "licenceOrGate": "Foreign licence and separate local capital for Johannesburg desk; one group risk limit", "startupCostNaira": 2500000000, "monthlyRevenueNaira": 900000000, "monthlyCostNaira": 600000000, "staff": 120, "customersPerDay": 800},
+  {"stage": "The Sun Never Sets", "licenceOrGate": "Licences in London, Dubai, New York; 24 months with no risk breach", "startupCostNaira": 12000000000, "monthlyRevenueNaira": 3500000000, "monthlyCostNaira": 2300000000, "staff": 300, "customersPerDay": 2000}
+ ],
+ "uniqueMechanics": [
+  {
+   "name": "Ticket to settlement relay",
+   "whatThePlayerDoes": "Carries order tickets from the client desk to the right dealing desk, then trade slips to the settlement counter before the T+1 cut-off. Wrong desk or wrong details means a failed trade.",
+   "screenNeeded": "Floor view with ticket tray, five desk stations, settlement counter and a T+1 countdown on each slip"
+  },
+  {
+   "name": "Morning clue board",
+   "whatThePlayerDoes": "Reads 3 analyst clues each morning, then may place a few small own-book trades inside the 10% and 2% caps, or park cash in treasury bills instead.",
+   "screenNeeded": "Clue board with 3 cards, own-book panel showing cap bars, stop-loss lines and a T-bill option"
+  },
+  {
+   "name": "Capital vault and licence",
+   "whatThePlayerDoes": "Locks licence capital in the vault, watches it earn bill interest, and keeps it above 120% of the requirement to climb the licence ladder.",
+   "screenNeeded": "Vault screen with locked capital, required level, 120% warning line and next licence target"
+  }
+ ],
+ "failureStates": [
+  {
+   "what": "Capital below licence minimum",
+   "trigger": "Locked capital under 100% of the required amount for 5 game days",
+   "consequence": "Licence suspended: own book closed, only client orders via a sponsor at half fees",
+   "recovery": "Top up capital from profits or an investor; regulator review takes 7 game days"
+  },
+  {
+   "what": "Client trust collapse",
+   "trigger": "More than 5% of tickets fail settlement in a game week",
+   "consequence": "Star rating drops 2 levels; client arrivals fall 40% for 14 days",
+   "recovery": "Hire a settlement clerk or buy the Auto-Settlement Engine; 10 clean days restore 1 star"
+  },
+  {
+   "what": "Compliance fine",
+   "trigger": "Inspection finds missing client ID papers on over 2% of files",
+   "consequence": "Fine of 2% of monthly revenue and new clients paused for 3 days",
+   "recovery": "Compliance officer re-checks all files; next clean inspection lifts the pause"
+  },
+  {
+   "what": "Risk desk breach",
+   "trigger": "A dealer event tries to double a losing position past the 2% cap",
+   "consequence": "Head of Risk blocks it; if no Head of Risk yet, a 1% of freeCash loss and a recap card",
+   "recovery": "Hire or train a Head of Risk; breach events stop for 30 days"
+  }
+ ],
+ "balanceNotes": "Target payback on spend (locked capital excluded since it is kept and earns interest): stages 1-2 about 2-6 months, stage 3 about 12 months, 4 about 10, 5 about 9, 6 about 3, 7 about 8, 8 about 10. Players will feel stuck saving N600m for the broker licence; ease it with an investor event and T-bill income. Tune first: share order arrival rate and the commission rate, then own-book clue payoff so it stays under 15% of total profit.",
+ "openQuestions": [
+  "Nigeria moved to T+1 in June 2026: switch the storyline's two-day settlement to one day, or keep T+2 as a simpler early-game rule?",
+  "Should currency desk margin use the strict 1% CBN cap (small income) or a generic 1.5% for gameplay feel?",
+  "Is own-book trading allowed to show any loss larger than 1% of freeCash in a day, or is 0.8% the hard ceiling?",
+  "Should foreign desks (Johannesburg, London, Dubai, New York) use real-world named regulators in game text or generic ones?"
+ ],
+ "sources": [
+  {"claim": "Schwab 2025 net revenues were $23.9bn with $11.75bn net interest revenue, $3.92bn trading revenue and a 47.9% pretax margin.", "url": "https://www.businesswire.com/news/home/20260121223561/en/Schwab-Reports-Record-4Q-and-Full-Year-2025-Results"},
+  {"claim": "Interactive Brokers 2025 net revenue topped $6bn with $2.1bn commissions, $3.6bn net interest income and a 77% pretax margin.", "url": "https://www.fool.com/earnings/call-transcripts/2026/01/20/interactive-brokers-ibkr-earnings-transcript/"},
+  {"claim": "Citadel Securities reported about $12.2bn trading revenue and about $6.5bn EBITDA for 2025.", "url": "https://www.bloomberg.com/news/articles/2026-03-24/citadel-securities-nets-record-12-billion-trading-haul-in-2025"},
+  {"claim": "Payment for order flow is a fraction of a cent per trade; Rules 606 and 607 require disclosure and FINRA Rule 5310 requires best execution.", "url": "https://www.everycrsreport.com/reports/IF12594.html"},
+  {"claim": "SEC Rule 15c3-1 sets $250,000 minimum net capital for carrying brokers and $100,000 for dealers, with a 120% early warning under Rule 17a-11.", "url": "https://wiki.private.law/en/us-broker-dealer.md"},
+  {"claim": "FINRA explains margin rules: Reg T lets investors borrow up to 50% and maintenance equity must be at least 25%.", "url": "https://www.finra.org/investors/alerts/investing-borrowed-funds-no-margin-error"},
+  {"claim": "NGX total value traded in 2025 was N11.94trn; CardinalStone led with N2.18trn and Stanbic IBTC Stockbrokers traded N735.5bn.", "url": "https://nairametrics.com/2026/01/05/best-performing-stockbrokers-in-nigeria-2025/"},
+  {"claim": "The top 10 NGX brokers earned N99.71bn commission on N7.39trn traded in 2025, an implied rate of about 1.35%.", "url": "https://thewhistler.ng/stockbrokers-earned-n100bn-commission-as-ngx-trading-hits-record-pace/"},
+  {"claim": "SEC Nigeria set minimum capital of N600m for brokers, N1bn for dealers and N2bn for broker-dealers, deadline June 30, 2027.", "url": "https://nairametrics.com/2026/01/16/sec-raises-capital-requirements-for-brokers-fund-managers-digital-firms/"},
+  {"claim": "Nigeria moved equities to T+2 on Nov 28, 2025 and to T+1 from June 1, 2026.", "url": "https://home.sec.gov.ng/for-investors/keep-track-of-circulars/transition-to-t1-settlement-cycle-in-the-nigerian-capital-market/"},
+  {"claim": "NGX operates a plus or minus 10% daily price band on equities.", "url": "https://nairametrics.com/2026/05/30/the-price-band-problem-why-ngxs-±10-cap-needs-a-proper-farewell/"},
+  {"claim": "Nigerian treasury bill stop rates on Nov 4, 2026 were 15.40% (91-day) and 15.80% (364-day).", "url": "https://nairametrics.com/2026/11/05/cbn-mops-up-n3-46-trillion-across-omo-ntb-auctions-holds-t-bill-stop-rates-steady/"},
+  {"claim": "CBN let BDCs buy up to $25,000 a week from one dealer bank and sell at no more than 1% above purchase rate (Feb 2025).", "url": "https://www.premiumtimesng.com/business/business-news/772360-cbn-sets-weekly-fx-cap-for-bdcs-enforces-strict-compliance.html"},
+  {"claim": "CBN BDC licences need N2bn capital for Tier 1 and N500m for Tier 2; 82 operators got final licences in the first batch.", "url": "https://techcabal.com/2025/12/08/cbn-82-bdcs-fully-licenced-2024-guidelines/"},
+  {"claim": "Traditional Nigerian brokers charge about 1.35% commission per side, negotiable.", "url": "https://nairacompare.ng/blogs/the-true-cost-of-trading-stocks-in-nigeria-what-50000-a-month-really-costs-you"},
+  {"claim": "US 3-month bills sold at a high rate of about 3.60% at a recent auction (used as an estimate for late 2026).", "url": "https://www.newsquawk.com/headlines/us-sells-3-month-bills-at-high-rate-3600-bc-271x-sells-6-month-at-high-rate-3500-bc-308x"}
+ ]
+}

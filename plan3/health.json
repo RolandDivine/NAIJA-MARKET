@@ -1,0 +1,115 @@
+{
+ "key": "health",
+ "sector": "Pharmacy retail, clinics and private hospitals",
+ "howTheBusinessMakesMoney": "A pharmacy buys medicines from licensed wholesalers and sells them at a 20 to 30% gross margin, so profit depends on turning stock fast and binning little to expiry. Clinics add consultation and lab fees. Hospitals earn per bed night, per procedure and per test, mostly from staff-heavy services. Payment comes as cash at the counter or as insurance claims paid weeks or months later, so cash flow, bed occupancy and staff cost decide who survives.",
+ "caseStudies": [
+  {
+   "company": "CVS Health",
+   "country": "US",
+   "scale": "2025: $402.1bn total revenue; pharmacy and consumer wellness segment $139.4bn; 1.8bn prescriptions filled (30-day equivalent).",
+   "lesson": "Pharmacy is a high-volume, thin-margin game: about 4% adjusted operating margin on the pharmacy segment. Copy volume per store, fast stock turns and front-shop extras that lift margin.",
+   "source": "https://www.beckershospitalreview.com/finance/cvs-health-2025-profit-falls-short-of-1-8b/"
+  },
+  {
+   "company": "HCA Healthcare",
+   "country": "US",
+   "scale": "2025: $75.6bn revenue, $6.8bn net income, about 2,500 ambulatory sites; outpatient was 38.4% of patient revenue.",
+   "lesson": "A hospital group wins by filling beds and theatres across many sites and by feeding them from cheaper outpatient and urgent-care points. Copy the hub-and-spoke network that sends patients to the big hospital.",
+   "source": "https://www.beckersasc.com/asc-transactions-and-valuation-issues/hcas-2025-revenue-surpassed-75b-10-things-to-know"
+  },
+  {
+   "company": "HealthPlus",
+   "country": "Nigeria",
+   "scale": "Founded 1999 in Lagos; took $18m from Alta Semper Capital in 2018 to grow its chain, mainly in Lagos and Abuja.",
+   "lesson": "A Nigerian chain grows by trust: genuine stock from verified suppliers, pharmacists at every counter, then more branches and online orders. Copy the slow climb from one shop to a city-wide chain.",
+   "source": "https://nairametrics.com/2018/04/16/healthplus-secures-18-million-investment-funding-from-alta-semper-capital"
+  },
+  {
+   "company": "Evercare Hospital Lekki",
+   "country": "Nigeria",
+   "scale": "165 beds (2026 ranking); opened 2021 in Lekki as part of a group that also runs hospitals in Kenya and Pakistan.",
+   "lesson": "Big private hospitals in Lagos have 50 to 250 beds and lean on specialists, scans and corporate health plans. Copy the cross-border group with shared standards in each country.",
+   "source": "https://nairametrics.com/2026/10/18/meet-7-owners-of-largest-private-hospitals-in-lagos/"
+  }
+ ],
+ "unitEconomics": [
+  {"metric": "Pharmacy gross margin", "usTypical": "About 22% (independents, NCPA Digest 2017)", "nigeriaTypical": "20 to 30% on retail medicines", "basis": "US sourced, Nigeria estimated", "source": "https://www.pbahealth.com/elements/metrics-to-measure-pharmacy-success/"},
+  {"metric": "Pharmacy stock turns per year", "usTypical": "Above 10 (under 37 days of stock)", "nigeriaTypical": "6 to 8 (bulk buys against price rises)", "basis": "US sourced, Nigeria estimated", "source": "https://www.pbahealth.com/elements/metrics-to-measure-pharmacy-success/"},
+  {"metric": "Expiry and damage write-off, % of sales", "usTypical": "About 1 to 2%", "nigeriaTypical": "About 2 to 5%", "basis": "estimated", "source": ""},
+  {"metric": "Hospital bed occupancy", "usTypical": "About 75% (post-2020 average)", "nigeriaTypical": "About 50 to 70% in private hospitals", "basis": "US sourced, Nigeria estimated", "source": "https://www.sciencedaily.com/releases/2025/02/250219111410.htm"},
+  {"metric": "Staff cost share of hospital spend", "usTypical": "About 60% of expenses (2025)", "nigeriaTypical": "About 30 to 40% of revenue", "basis": "US sourced, Nigeria estimated", "source": "https://www.aha.org/costsofcaring"},
+  {"metric": "Out-of-pocket share of health spend", "usTypical": "11% (2024)", "nigeriaTypical": "58.3% (2024)", "basis": "sourced", "source": "https://gazettengr.com/out-of-pocket-health-spending-in-nigeria-fell-to-58-3-in-2024-report/"},
+  {"metric": "Insurance claim payment delay", "usTypical": "About 30 to 50 days, more after denials", "nigeriaTypical": "About 60 to 120 days, some never paid", "basis": "estimated", "source": "https://www.thecable.ng/?p=653396"},
+  {"metric": "Doctor consultation price", "usTypical": "About $100 to $200 cash visit", "nigeriaTypical": "About ₦2,000 to ₦5,000 private clinic", "basis": "US estimated, Nigeria sourced", "source": "https://9japolytv.com/malaria-test-cost-in-nigeria-what-hospitals-charge/"}
+ ],
+ "costStructure": [
+  {"item": "Medicines and consumables", "percentOfRevenue": 32, "note": "Pharmacy cost of goods plus drips, linen, oxygen and lab reagents; includes expiry write-offs."},
+  {"item": "Staff pay", "percentOfRevenue": 35, "note": "Nurses, doctors, pharmacists, lab and admin; the biggest line once wards open."},
+  {"item": "Power, diesel and building", "percentOfRevenue": 12, "note": "Rent, generator diesel, solar, water and cleaning; cold chain needs power all day."},
+  {"item": "Equipment and upkeep", "percentOfRevenue": 7, "note": "Lab, scan and theatre equipment repayment and servicing."},
+  {"item": "Admin, claims and licences", "percentOfRevenue": 5, "note": "Records, claims staff, licence fees, insurance and bad debts."},
+  {"item": "Operating profit", "percentOfRevenue": 9, "note": "Typical estimated private-hospital margin; pharmacy-only sites run nearer 4 to 6%."}
+ ],
+ "regulation": [
+  {"rule": "Pharmacy premises licence", "unitedStates": "Each state board of pharmacy licenses the pharmacy and pharmacist-in-charge, inspects premises and records.", "nigeria": "Pharmacy Council of Nigeria (PCN) registers premises yearly; patent medicine vendors get a separate licence for simple remedies only.", "source": "https://pcn.gov.ng/wp-content/uploads/2024/11/Procedure-of-Registration-for-Patent-and-Proprietary-Medicine-Vendor-Licence.pdf"},
+  {"rule": "Only approved medicines", "unitedStates": "FDA approves drugs; DEA registers sellers of controlled drugs; pharmacies must buy from licensed wholesalers.", "nigeria": "NAFDAC registers every medicine; batches carry verification codes; fake or expired stock must be quarantined and reported.", "source": "https://www.nafdac.gov.ng/"},
+  {"rule": "Doctors must be licensed", "unitedStates": "State medical boards license physicians; hospitals credential every doctor before they see patients.", "nigeria": "Medical and Dental Council of Nigeria (MDCN) registers doctors and renews practising licences each year.", "source": "https://www.mdcn.gov.ng/"},
+  {"rule": "Hospital registration and inspection", "unitedStates": "State health department licenses hospitals; CMS Conditions of Participation and surveys apply to Medicare-paid hospitals.", "nigeria": "State agencies register and inspect private facilities, e.g. Lagos HEFAMAA, with yearly renewal.", "source": "https://www.hefamaaportal.com.ng/wp-content/uploads/2022/03/QUICKGUIDE-New-Facilities.pdf"},
+  {"rule": "Emergency care cannot be refused", "unitedStates": "EMTALA (enforced by CMS): any ER must screen and stabilise every patient regardless of ability to pay, then transfer properly.", "nigeria": "National Health Act 2014 bars refusing emergency treatment; Gunshot Act 2017 requires treatment without police clearance.", "source": "https://www.arise.tv/fg-orders-healthcare-facilities-to-treat-gunshot-victims-without-police-clearance"},
+  {"rule": "Health insurance and claims", "unitedStates": "CMS runs Medicare and Medicaid; private insurers pay claims after review and can deny or delay them.", "nigeria": "NHIA Act 2022 makes cover mandatory; HMOs pay providers capitation and fee-for-service, raised from April 2025.", "source": "https://nairametrics.com/2025/02/04/nhia-increases-capitation-fees-by-93-fee-for-service-by-378-effective-april-2025/"}
+ ],
+ "gameRules": [
+  {"name": "Expiry dates, oldest out first", "rule": "Each carton gets expiryDay = buyDay + 10. Sales take the lowest expiryDay first. At day end, cartons with expiryDay <= today move to the return bin and lose 100% of cost. Sell price = cost x 1.33 (25% gross margin).", "playerFeels": "Over-ordering hurts; tidy, small orders pay.", "simplifiedFrom": "First-expiry-first-out stock rotation; 20 to 30% pharmacy gross margin; 2 to 5% write-offs."},
+  {"name": "Cold chain timer", "rule": "Cold cartons start a 60 s timer at unload; at 0 they spoil (lose full cost). Power cut chance 15% per game day: fridge stays cold 120 s, then all fridge stock spoils unless solar backup (₦4,500,000) is owned.", "playerFeels": "A small rush every delivery and power cut.", "simplifiedFrom": "Vaccines, insulin and lab reagents need unbroken cold storage; Nigerian grid outages."},
+  {"name": "No stamp, no sale", "rule": "Prescription line opens only while a Pharmacist or Doctor is on shift; each script needs a stamp (8 s check). Fever patient: test ₦1,500; positive 60% in rainy season, 35% dry, then treatment sale ₦5,000; negative gets referral.", "playerFeels": "Qualified staff are the key that opens the till.", "simplifiedFrom": "Prescription-only medicine rules and test-before-treat malaria practice."},
+  {"name": "Health plan claims paid late", "rule": "Plan patients pay ₦0. Claim = list price x 0.85, paid after 30 + random(0 to 60) days. 10% of claims bounce if records score < 90; a Claims Officer cuts bounces to 3% and delay by 15 days. Cash patients pay at once.", "playerFeels": "Busy wards but an empty bank account until claims land.", "simplifiedFrom": "HMO tariffs below list price, provider debts and payment delays reported in Nigeria."},
+  {"name": "Bed occupancy", "rule": "Ward income per day = occupied beds x ₦75,000. Each Nurse covers 6 beds; beds above nurses x 6 stay closed. Occupancy above 90% for 3 days: trust -1 per day and new admissions wait. Target band 65 to 85%.", "playerFeels": "Full is good, too full burns out the team.", "simplifiedFrom": "US average about 75% occupancy; staffing limits beds; 85% seen as shortage level."},
+  {"name": "Emergency first, Care Fund", "rule": "Emergencies always admitted at once, never refused. 2% of daily income goes to Care Fund; 30% of emergencies cannot pay and are billed to it; if empty, cost comes from cash. Beyond capability: stabilise and refer, +5 trust.", "playerFeels": "Doing right costs a bit and earns loyal patients.", "simplifiedFrom": "EMTALA and Nigeria's National Health Act duty to give emergency care regardless of payment."},
+  {"name": "Inspections", "rule": "Yearly renewal plus 10% surprise-visit chance per game month. Checklist 5 x 20 points: no expired stock, cold log full, scripts match sales, staff ratio met, clean. 80+ renews; 60-79 fix in 3 days; under 60 the failed line shuts till fixed.", "playerFeels": "A clean, honest shop is never scared of the door.", "simplifiedFrom": "PCN premises inspection, state hospital registration (e.g. HEFAMAA), CMS surveys."}
+ ],
+ "stages": [
+  {"stage": "Aunty's Chemist", "licenceOrGate": "Patent medicine vendor licence (₦5,000 fee) and premises inspection", "startupCostNaira": 2500000, "monthlyRevenueNaira": 1800000, "monthlyCostNaira": 1500000, "staff": 1, "customersPerDay": 40},
+  {"stage": "The Green Cross", "licenceOrGate": "Qualified pharmacist plus pharmacy premises registration, inspection score 80+", "startupCostNaira": 15000000, "monthlyRevenueNaira": 9600000, "monthlyCostNaira": 8000000, "staff": 4, "customersPerDay": 80},
+  {"stage": "Doctor in the House", "licenceOrGate": "State clinic registration, licensed doctor and lab scientist on staff", "startupCostNaira": 60000000, "monthlyRevenueNaira": 25000000, "monthlyCostNaira": 20000000, "staff": 10, "customersPerDay": 120},
+  {"stage": "Lights On All Night", "licenceOrGate": "20-bed hospital registration, 24-hour emergency cover, ambulance, 1 nurse per 6 beds", "startupCostNaira": 250000000, "monthlyRevenueNaira": 75000000, "monthlyCostNaira": 60000000, "staff": 35, "customersPerDay": 180},
+  {"stage": "The Specialist Wing", "licenceOrGate": "Specialist hospital registration, health plan accreditation, 12 months claims records score 90+", "startupCostNaira": 900000000, "monthlyRevenueNaira": 260000000, "monthlyCostNaira": 215000000, "staff": 120, "customersPerDay": 400},
+  {"stage": "Abuja Calling", "licenceOrGate": "Second state registration, central warehouse with cold store, trust 70+", "startupCostNaira": 3000000000, "monthlyRevenueNaira": 600000000, "monthlyCostNaira": 500000000, "staff": 280, "customersPerDay": 900},
+  {"stage": "Across the Borders", "licenceOrGate": "Facility licences in Ghana and Kenya, group medical director, two clean inspection years", "startupCostNaira": 9000000000, "monthlyRevenueNaira": 2000000000, "monthlyCostNaira": 1650000000, "staff": 900, "customersPerDay": 2800},
+  {"stage": "The Teaching Hospital", "licenceOrGate": "Teaching hospital accreditation, training programme approval, signed London referral partner", "startupCostNaira": 30000000000, "monthlyRevenueNaira": 6500000000, "monthlyCostNaira": 5400000000, "staff": 3000, "customersPerDay": 8000}
+ ],
+ "uniqueMechanics": [
+  {"name": "Expiry shelf", "whatThePlayerDoes": "Orders stock against a demand forecast, shelves cartons by expiry date, moves cold cartons into the fridge before the timer runs out and bins expired stock.", "screenNeeded": "Shelf view with coloured date tags, fridge timer bar, order form with forecast and return bin."},
+  {"name": "Claims desk", "whatThePlayerDoes": "Checks plan patients' records are complete, submits claims, chases late payers and decides how much of the ward to give to plan patients versus cash.", "screenNeeded": "Claims list with age in days, bounced claims to fix, cash versus plan pie and expected cash calendar."},
+  {"name": "Bed board", "whatThePlayerDoes": "Admits patients to free beds, matches nurses to wards, discharges recovered patients and refers cases beyond the hospital's skill.", "screenNeeded": "Ward grid of beds (free, occupied, cleaning), nurse ratio meter, occupancy gauge and referral button."}
+ ],
+ "failureStates": [
+  {"what": "Cash crunch from late claims", "trigger": "Unpaid claims above 60% of monthly revenue and cash below 1 month of payroll", "consequence": "Cannot pay staff on time; morale and trust fall 2 points per day", "recovery": "Fix bounced claims, hire a Claims Officer, lift cash patient share or take a working-capital loan"},
+  {"what": "Licence suspended", "trigger": "Inspection score below 60 out of 100", "consequence": "Failed line (prescriptions, lab or wards) closes; emergency bay stays open", "recovery": "Fix each failed checklist item, pay re-inspection fee, line reopens next day after score 80+"},
+  {"what": "Expiry write-off spiral", "trigger": "Expired stock above 5% of monthly sales", "consequence": "Margin wiped out and inspector warning issued", "recovery": "Cut order sizes, sell oldest first, buy smaller batches more often"},
+  {"what": "Nurse shortage", "trigger": "Fewer than 1 nurse per 10 occupied beds for 3 days", "consequence": "Beds close and trust drops 3 points per day", "recovery": "Raise pay, fund nurse training, promote juniors; beds reopen as ratio returns to 1 per 6"}
+ ],
+ "balanceNotes": "Payback in game months: chemist 8, pharmacy 9, clinic 12, 20-bed 17, specialist 20, two hospitals 30, four countries 26, teaching 27. Players will feel stuck at stages 4 and 5, where staff costs jump and plan claims tie up cash. Tune first: claim delay range, ward rate and nurse ratio, then expiry days (10) and power-cut chance (15%). Keep gross margin near 25% so the pharmacy stays the steady cash engine.",
+ "openQuestions": [
+  "Should plan patients be optional per site, or forced from stage 5 so the late-claims squeeze is always felt?",
+  "Is 10 game days of shelf life too harsh for slow lines, or should each product line have its own expiry length?",
+  "Do referrals out to partner hospitals earn anything (trust only) or a small fee, to keep it ethical but rewarding?",
+  "Should Ghana and Kenya use naira costs or a local currency with exchange rate swings?"
+ ],
+ "sources": [
+  {"claim": "CVS Health had $402.1bn revenue in 2025, with $139.4bn from pharmacy and consumer wellness and 1.8bn prescriptions filled.", "url": "https://www.beckershospitalreview.com/finance/cvs-health-2025-profit-falls-short-of-1-8b/"},
+  {"claim": "HCA Healthcare had $75.6bn revenue and $6.8bn net income in 2025, with about 2,500 ambulatory sites.", "url": "https://www.beckersasc.com/asc-transactions-and-valuation-issues/hcas-2025-revenue-surpassed-75b-10-things-to-know"},
+  {"claim": "Average independent US pharmacy gross margin was 21.8% in 2017, payroll about 13% of sales, and inventory should turn more than 10 times a year.", "url": "https://www.pbahealth.com/elements/metrics-to-measure-pharmacy-success/"},
+  {"claim": "US hospital occupancy averaged about 75% after the pandemic, versus 64% before, and could reach 85% by 2032.", "url": "https://www.sciencedaily.com/releases/2025/02/250219111410.htm"},
+  {"claim": "Labor is about 60% of US hospital expenses in 2025; hospitals spent about $43bn collecting payments owed by insurers.", "url": "https://www.aha.org/costsofcaring"},
+  {"claim": "Out-of-pocket spending was 11% of US national health expenditure in 2024.", "url": "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/nhe-fact-sheet"},
+  {"claim": "Out-of-pocket spending was 58.3% of Nigeria's total health expenditure in 2024; social health insurance was 5% of financing.", "url": "https://gazettengr.com/out-of-pocket-health-spending-in-nigeria-fell-to-58-3-in-2024-report/"},
+  {"claim": "Nigerian private practitioners said HMOs owed over ₦15bn in provider claims, delayed payment and paid tariffs below cost.", "url": "https://www.thecable.ng/?p=653396"},
+  {"claim": "NHIA raised provider capitation by 93% and fee-for-service by 378% from April 2025.", "url": "https://nairametrics.com/2025/02/04/nhia-increases-capitation-fees-by-93-fee-for-service-by-378-effective-april-2025/"},
+  {"claim": "Evercare Lekki has 165 beds, Reddington group about 232 and Lagoon Hospitals about 150 across four sites.", "url": "https://nairametrics.com/2026/10/18/meet-7-owners-of-largest-private-hospitals-in-lagos/"},
+  {"claim": "HealthPlus raised $18m from Alta Semper Capital in 2018 to expand its pharmacy chain.", "url": "https://nairametrics.com/2018/04/16/healthplus-secures-18-million-investment-funding-from-alta-semper-capital"},
+  {"claim": "Nigeria's health ministry directed all hospitals to treat gunshot victims without police clearance under the Gunshot Act 2017.", "url": "https://www.arise.tv/fg-orders-healthcare-facilities-to-treat-gunshot-victims-without-police-clearance"},
+  {"claim": "A patent medicine vendor licence from PCN requires premises inspection, an interview and a ₦5,000 fee.", "url": "https://pcn.gov.ng/wp-content/uploads/2024/11/Procedure-of-Registration-for-Patent-and-Proprietary-Medicine-Vendor-Licence.pdf"},
+  {"claim": "Malaria rapid tests cost about ₦500 to ₦2,000 and private consultations about ₦2,000 to ₦5,000 in Nigeria.", "url": "https://9japolytv.com/malaria-test-cost-in-nigeria-what-hospitals-charge/"},
+  {"claim": "EMTALA requires US hospitals with emergency departments to screen and stabilise all patients before any transfer.", "url": "https://www.ncbi.nlm.nih.gov/books/NBK539798/"}
+ ]
+}

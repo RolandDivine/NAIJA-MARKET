@@ -1,0 +1,416 @@
+{
+ "key": "media",
+ "sector": "Film production and distribution, cinemas, recorded music and streaming",
+ "howTheBusinessMakesMoney": "A studio spends money first (crew days, cast, post-production) to make a film or song it owns. It then sells the same title many times in a set order: cinema tickets shared with the exhibitor, then streaming and TV licences, then years of royalties. Labels pay artists an advance, recoup it from royalties, then share income. Cinemas keep about half of each ticket and most of the popcorn money. A few hits pay for many misses.",
+ "caseStudies": [
+  {
+   "company": "Netflix",
+   "country": "US",
+   "scale": "2025 revenue $45.2bn, operating margin 29.5%, 325m+ paid memberships, about $16.4bn content amortisation",
+   "lesson": "Content is a cost spread over years (amortised), paid for by steady subscriptions. Copy this: a streaming tier where library size and quality drive subscriber growth, not single-title luck.",
+   "source": "https://s22.q4cdn.com/959853165/files/doc_financials/2025/q4/FINAL-Q4-25-Shareholder-Letter.pdf"
+  },
+  {
+   "company": "AMC Theatres",
+   "country": "US",
+   "scale": "2025 revenue $4.85bn, 219.4m attendance, 9,640 screens; film rent 48.1% of admissions, F&B $7.62 per patron",
+   "lesson": "A cinema hands about half the ticket to the distributor but keeps food and drink, which costs under 20% to serve. Copy this: popcorn is the cinema's real margin; tickets just bring people in.",
+   "source": "https://www.boardroomalpha.com/sec/amc-8-k-2026-02-23-0001411579-26-000018/amc-20260223xex99d1.htm"
+  },
+  {
+   "company": "FilmOne Entertainment",
+   "country": "Nigeria",
+   "scale": "Top West African distributor of 2025, led by 'Behind The Scenes' at N1.77bn; region box office N15.6bn",
+   "lesson": "Distributors win by booking local hits into many screens on a sliding weekly split (50/50 then 45/55 then 40/60). Copy this: strong opening weeks earn the producer the biggest share.",
+   "source": "https://nairametrics.com/2026/01/06/west-africa-box-office-grosses-n15-6-billion-in-2025/"
+  },
+  {
+   "company": "Mavin Records",
+   "country": "Nigeria",
+   "scale": "Founded 2012; Universal Music Group took a majority stake in 2024, analysts valued it up to $150m",
+   "lesson": "A label grows by developing a roster and owning masters; its value comes from catalogue royalties for years. Copy this: artist development and fair deals build a catalogue the player can sell or keep.",
+   "source": "https://www.semafor.com/article/02/26/2024/mavin-music-label-is-acquired-by-universal-music"
+  }
+ ],
+ "unitEconomics": [
+  {
+   "metric": "Distributor share of ticket (film rent)",
+   "usTypical": "About 48% of admissions (AMC, 2025)",
+   "nigeriaTypical": "50% wk1, 45% wk2, 40% wk3+ of net after ~10% tax",
+   "basis": "sourced",
+   "source": "https://www.tvcnews.tv/inside-nigerian-cinemas-how-ticket-sales-are-shared-profits-made"
+  },
+  {
+   "metric": "Producer's share of total box office gross",
+   "usTypical": "About 40-50% via distributor, before fees (estimated)",
+   "nigeriaTypical": "Roughly 30-40% of gross",
+   "basis": "sourced",
+   "source": "https://www.tvcnews.tv/inside-nigerian-cinemas-how-ticket-sales-are-shared-profits-made"
+  },
+  {
+   "metric": "Average cinema ticket",
+   "usTypical": "$12.09 (AMC, 2025)",
+   "nigeriaTypical": "N5,596 (West Africa, 2025); about N6,800 projected 2026",
+   "basis": "sourced",
+   "source": "https://nairametrics.com/2026/01/06/west-africa-box-office-grosses-n15-6-billion-in-2025/"
+  },
+  {
+   "metric": "Food and drink per patron vs ticket",
+   "usTypical": "$7.62, about 63% of ticket; cost 19.6% of F&B sales",
+   "nigeriaTypical": "About 35-45% of ticket (estimated, not published)",
+   "basis": "estimated",
+   "source": "https://www.boardroomalpha.com/sec/amc-8-k-2026-02-23-0001411579-26-000018/amc-20260223xex99d1.htm"
+  },
+  {
+   "metric": "Streaming payout per stream to rights holders",
+   "usTypical": "About $0.003-0.005 per stream (estimated, varies)",
+   "nigeriaTypical": "About N1.98 per stream (2025, one major platform)",
+   "basis": "sourced",
+   "source": "https://techcabal.com/2026/03/16/spotify-payouts-show-nigerian-artists-earned-about-₦2-per-stream-in-2025/"
+  },
+  {
+   "metric": "Label profit margin (adjusted EBITDA)",
+   "usTypical": "About 22.5% (UMG 2025: EUR2.81bn on EUR12.5bn)",
+   "nigeriaTypical": "Not published; assume 15-20% (estimated)",
+   "basis": "sourced",
+   "source": "https://www.musicweek.com/labels/read/universal-music-group-revenue-up-9-in-2025/093690"
+  },
+  {
+   "metric": "Hit rate: local films passing N100m gross",
+   "usTypical": "Not found as one figure; few releases recoup in cinema",
+   "nigeriaTypical": "14 of 81 Nollywood releases (about 17%) in 2025",
+   "basis": "sourced",
+   "source": "https://nairametrics.com/2026/01/06/west-africa-box-office-grosses-n15-6-billion-in-2025/"
+  },
+  {
+   "metric": "Streaming licence fee for a finished feature",
+   "usTypical": "Not published per title",
+   "nigeriaTypical": "Not published; game uses N10m-60m per territory (estimated)",
+   "basis": "estimated",
+   "source": ""
+  }
+ ],
+ "costStructure": [
+  {
+   "item": "Content: shoots, cast, post, advances",
+   "percentOfRevenue": 42,
+   "note": "Netflix amortisation is about 36% of revenue; game rounds up for a smaller studio"
+  },
+  {
+   "item": "Shares paid out (film rent, royalties)",
+   "percentOfRevenue": 20,
+   "note": "Distributor share at own cinemas plus artist and songwriter royalties"
+  },
+  {
+   "item": "Staff salaries",
+   "percentOfRevenue": 12,
+   "note": "Editors, engineers, cashiers, managers on monthly pay"
+  },
+  {
+   "item": "Marketing and premieres",
+   "percentOfRevenue": 10,
+   "note": "Trailers, posters, influencer pushes, red carpets (estimated)"
+  },
+  {
+   "item": "Premises, power and diesel",
+   "percentOfRevenue": 8,
+   "note": "Studio and cinema rent; generator fuel is heavy in Nigeria (estimated)"
+  },
+  {
+   "item": "Fees, tax and licences",
+   "percentOfRevenue": 3,
+   "note": "Classification, exhibitor licences, collecting-society licences"
+  },
+  {
+   "item": "Profit",
+   "percentOfRevenue": 5,
+   "note": "Thin overall; a hit year can triple it, a flop year can wipe it"
+  }
+ ],
+ "regulation": [
+  {
+   "rule": "Film classification before release",
+   "unitedStates": "Voluntary MPA ratings (G, PG, PG-13, R, NC-17); major cinemas expect a rating before booking a film",
+   "nigeria": "NFVCB must classify every film before showing or sale (G, PG, 12, 12A, 15, 18, RE); decision within 20 working days",
+   "source": "https://www.movielabs.com/md/ratings/v2.2/html/NG_NFVCB_Ratings.html"
+  },
+  {
+   "rule": "Classification fees",
+   "unitedStates": "MPA charges a rating fee scaled to film budget (amount not checked here)",
+   "nigeria": "NFVCB: about N60,000 for a 91-120 min English film, plus 30% for public exhibition; N50,000 fast track",
+   "source": "https://www.nfvcb.gov.ng/?p=124"
+  },
+  {
+   "rule": "Cinema and distributor licences",
+   "unitedStates": "No federal exhibitor licence; local business, fire and food-safety permits apply",
+   "nigeria": "NFVCB licences from N1,000,000 for distributors and exhibitors, N150,000 per premises; renewed yearly",
+   "source": "https://www.nfvcb.gov.ng/?p=124"
+  },
+  {
+   "rule": "Copyright ownership and registration",
+   "unitedStates": "US Copyright Office registers works; copyright needed to sue and to license films and masters",
+   "nigeria": "Nigerian Copyright Commission (NCC) under the Copyright Act 2022; voluntary notification of works",
+   "source": "https://www.copyright.gov/music-modernization/educational-materials/musicians-income.pdf"
+  },
+  {
+   "rule": "Collecting societies for music royalties",
+   "unitedStates": "ASCAP and BMI collect performance royalties; The MLC collects streaming mechanicals; SoundExchange pays artists 45%",
+   "nigeria": "NCC approves one CMO per class: MCSN for music works and recordings; COSON's approval was suspended",
+   "source": "https://www.mondaq.com/nigeria/copyright/1609106/an-overview-of-collective-management-organisations-in-nigeria"
+  },
+  {
+   "rule": "Operating as a collecting society",
+   "unitedStates": "PROs are private bodies under consent decrees overseen by the Department of Justice",
+   "nigeria": "Acting as a CMO without NCC approval is an offence (s.88 Copyright Act 2022): firm fine at least N5,000,000",
+   "source": "https://www.mondaq.com/nigeria/copyright/1609106/an-overview-of-collective-management-organisations-in-nigeria"
+  },
+  {
+   "rule": "Ticket taxes",
+   "unitedStates": "State and local sales or amusement taxes vary by city",
+   "nigeria": "About 10% of ticket gross goes to federal VAT and state entertainment tax before the split",
+   "source": "https://www.tvcnews.tv/inside-nigerian-cinemas-how-ticket-sales-are-shared-profits-made"
+  }
+ ],
+ "gameRules": [
+  {
+   "name": "Greenlight budget",
+   "rule": "Budget = shootDays x crewDayRate + castFee + postWeeks x N1.5m. Crew day rate: basic N0.6m, pro N1.5m, elite N3m. Short film 5 days, feature 20, big feature 40. Budget is locked and paid daily as the shoot runs.",
+   "playerFeels": "Every choice on the board has a price; nothing is free.",
+   "simplifiedFrom": "Nigerian crews paid per shoot day (sound mixer N80k-200k/day); budgets spent before any ticket sells"
+  },
+  {
+   "name": "Quality score",
+   "rule": "Q (0-100) = 0.30 script + 0.25 cast + 0.20 crew + 0.15 post + 0.10 schedule. Each part 0-100 from staff level and upgrades. Each day cut below plan: schedule -8. No random roll; Q is shown before release.",
+   "playerFeels": "Hits come from my choices, and I can see why a film is good.",
+   "simplifiedFrom": "Film quality depends on script, cast, crew and post time; rushed shoots hurt"
+  },
+  {
+   "name": "Box office run",
+   "rule": "Week-1 admissions = screens x 35 x (Q/50)^2 x trend (0.7-1.3, shown in advance). Each later week = previous x (0.45 + 0.004 x Q). Gross = admissions x N6,800. Run ends when a week drops below 5% of week 1.",
+   "playerFeels": "Good films hold their audience for weeks; weak ones vanish.",
+   "simplifiedFrom": "N15.6bn region gross 2025; 14 of 81 local films passed N100m; strong word of mouth slows weekly decline"
+  },
+  {
+   "name": "Ticket split",
+   "rule": "Take 10% tax off gross. Of the rest, producer side gets 50% in week 1, 45% week 2, 40% week 3+. Distributor keeps 12% of that share. In player-owned screens the cinema half also stays with the player.",
+   "playerFeels": "Opening weekend matters most, and owning screens pays.",
+   "simplifiedFrom": "TVC: ~10% VAT and entertainment tax; sliding 50/45/40 split; 10-15% distribution fee"
+  },
+  {
+   "name": "Release windows",
+   "rule": "Window order: cinema (min 6 weeks) then streaming licence then TV. Licence fee = N5m + 0.15 x cinema gross, x (Q/70), max N60m per territory. Releasing on streaming before 6 weeks cuts cinema screens by 50%.",
+   "playerFeels": "Planning the order of releases earns more than rushing it out.",
+   "simplifiedFrom": "Theatrical then SVOD then TV windows; platforms now buy finished films rather than commission"
+  },
+  {
+   "name": "Royalties over time",
+   "rule": "Song plays/day = peak x 0.98^days + 0.02 x peak floor. Peak = 2,000 x (Q/50)^3 x promo (1 to 2). Each play pays N2. Label repays artist advance first, then splits 50/50. Old songs keep the floor forever.",
+   "playerFeels": "My back catalogue keeps paying me while I sleep.",
+   "simplifiedFrom": "About N1.98 per stream in Nigeria (2025); advances recouped from royalties; catalogue earns for years"
+  },
+  {
+   "name": "Classification gate",
+   "rule": "No ticket or licence sale until classified. Fee N78,000 (N60,000 + 30%), wait 20 game hours; fast track +N50,000 for 5 hours. Rating set by content sliders: 18 cuts week-1 audience by 25%, PG/12A by 0%.",
+   "playerFeels": "Paperwork is part of release day, and the rating changes my audience.",
+   "simplifiedFrom": "NFVCB fee schedule and 20-working-day decision; ratings G to 18 limit who may attend"
+  },
+  {
+   "name": "Concession stand",
+   "rule": "In player cinemas each admission also buys N2,700 of snacks (40% of ticket), cost 20% of that. Upgraded stand: N3,400 per head. Snacks are never shared with distributors.",
+   "playerFeels": "Popcorn turns a half-full screen into a profit.",
+   "simplifiedFrom": "AMC 2025: F&B $7.62 per patron, cost 19.6%; Nigerian ratio estimated lower"
+  }
+ ],
+ "stages": [
+  {
+   "stage": "Owambe Camera, Bedroom Beat",
+   "licenceOrGate": "None: own a camcorder and an edit laptop",
+   "startupCostNaira": 1500000,
+   "monthlyRevenueNaira": 1700000,
+   "monthlyCostNaira": 900000,
+   "staff": 1,
+   "customersPerDay": 1
+  },
+  {
+   "stage": "The Shop With Egg Crates",
+   "licenceOrGate": "Business name registration and a rented room; 10 delivered wedding videos",
+   "startupCostNaira": 6000000,
+   "monthlyRevenueNaira": 4500000,
+   "monthlyCostNaira": 3000000,
+   "staff": 3,
+   "customersPerDay": 2
+  },
+  {
+   "stage": "First Short Film",
+   "licenceOrGate": "N15m saved and a short film with Q of 55 or more for a festival slot",
+   "startupCostNaira": 15000000,
+   "monthlyRevenueNaira": 9000000,
+   "monthlyCostNaira": 6500000,
+   "staff": 6,
+   "customersPerDay": 3
+  },
+  {
+   "stage": "Lights, Camera, Paperwork",
+   "licenceOrGate": "Company registered, film classified by the film board, signed distributor contract",
+   "startupCostNaira": 80000000,
+   "monthlyRevenueNaira": 30000000,
+   "monthlyCostNaira": 21000000,
+   "staff": 15,
+   "customersPerDay": 5
+  },
+  {
+   "stage": "Label on the Rise",
+   "licenceOrGate": "Copyright notified for masters, collecting-society membership, first signed artist",
+   "startupCostNaira": 150000000,
+   "monthlyRevenueNaira": 60000000,
+   "monthlyCostNaira": 43000000,
+   "staff": 25,
+   "customersPerDay": 400
+  },
+  {
+   "stage": "Our Own Screen",
+   "licenceOrGate": "Exhibitor and premises licences from the film board, fire and food-safety checks",
+   "startupCostNaira": 600000000,
+   "monthlyRevenueNaira": 150000000,
+   "monthlyCostNaira": 112000000,
+   "staff": 60,
+   "customersPerDay": 300
+  },
+  {
+   "stage": "Press Play, Africa",
+   "licenceOrGate": "Online exhibition licence, anti-piracy security level 3, two foreign partner deals",
+   "startupCostNaira": 2500000000,
+   "monthlyRevenueNaira": 450000000,
+   "monthlyCostNaira": 365000000,
+   "staff": 150,
+   "customersPerDay": 2000
+  },
+  {
+   "stage": "World Premiere",
+   "licenceOrGate": "Ratings secured in each premiere country and one film with Q 85 or more",
+   "startupCostNaira": 10000000000,
+   "monthlyRevenueNaira": 2000000000,
+   "monthlyCostNaira": 1520000000,
+   "staff": 500,
+   "customersPerDay": 10000
+  }
+ ],
+ "uniqueMechanics": [
+  {
+   "name": "Greenlight Board",
+   "whatThePlayerDoes": "Picks script, cast tier, crew tier, shoot days and post weeks; sees the locked budget and the forecast Q before saying yes.",
+   "screenNeeded": "Project card with sliders, live budget total, Q gauge and a calendar of shoot days"
+  },
+  {
+   "name": "Release Window Planner",
+   "whatThePlayerDoes": "Books cinema weeks, chooses when to sell streaming and TV licences per territory, and avoids clashing with a big foreign release.",
+   "screenNeeded": "Timeline with cinema, streaming and TV lanes, rival releases marked, projected income per lane"
+  },
+  {
+   "name": "Royalty Ledger",
+   "whatThePlayerDoes": "Watches each song and film earn over time, sees advances being repaid and pays artists their share on time.",
+   "screenNeeded": "Catalogue list with daily plays, earnings curve, advance-recouped bar and artist share owed"
+  }
+ ],
+ "failureStates": [
+  {
+   "what": "Budget runs dry mid-shoot",
+   "trigger": "Cash below 3 days of crew pay while shooting",
+   "consequence": "Unpaid crew stop the set; schedule score -8 per lost day",
+   "recovery": "Pay crew from savings or a loan, or cut shoot days and accept a lower Q"
+  },
+  {
+   "what": "Flop at the box office",
+   "trigger": "Producer share under 50% of budget after the cinema run",
+   "consequence": "Bank confidence falls; next greenlight capped at 60% of the last budget",
+   "recovery": "Sell streaming licences, make a cheaper film with higher Q to rebuild trust"
+  },
+  {
+   "what": "Release blocked: no classification",
+   "trigger": "Film booked into cinemas with no certificate 24 game hours before opening",
+   "consequence": "Opening cancelled; screens go to a rival title; marketing spent is lost",
+   "recovery": "Submit to the film board, pay fast track (N50,000) and rebook"
+  },
+  {
+   "what": "Star artist leaves",
+   "trigger": "Artist loyalty below 30 (late royalty payment or split under 40%)",
+   "consequence": "Artist signs with the rival label; new songs stop, old masters keep earning",
+   "recovery": "Pay all owed royalties, offer fairer split, develop a new artist"
+  },
+  {
+   "what": "Leaked copy",
+   "trigger": "Drive security level below title's Q/30 at release",
+   "consequence": "Cinema admissions -30% and licence fees -20% for that title",
+   "recovery": "Report takedowns, upgrade security, release legal streaming sooner"
+  }
+ ],
+ "balanceNotes": "Payback targets: stages 1-2 about 2 months, stage 3 about 6, stage 4 about 9 (one feature), stage 5 about 9, stage 6 about 16, stages 7-8 about 20. Players will feel stuck at stage 4 when a first feature flops and at stage 6 when the cinema needs many films to fill screens. Tune first: the weekly hold formula (0.45 + 0.004 x Q), then streaming licence cap, then advance size. Keep weddings and mixing as a safe cash floor.",
+ "openQuestions": [
+  "Should the player be able to choose rating content sliders, or should the rating follow genre automatically?",
+  "Do we show the genre trend multiplier openly, or only after market research is unlocked?",
+  "Can the player sell catalogue (old films and masters) for a lump sum, like a label sale?",
+  "How many rival films should share screens each week before the player owns cinemas?"
+ ],
+ "sources": [
+  {
+   "claim": "Netflix reported 2025 revenue of $45.2bn, an operating margin of 29.5% and about $16.4bn of content amortisation.",
+   "url": "https://s22.q4cdn.com/959853165/files/doc_financials/2025/q4/FINAL-Q4-25-Shareholder-Letter.pdf"
+  },
+  {
+   "claim": "Netflix ended 2025 with more than 325 million paid memberships and plans about $20bn content spending in 2026.",
+   "url": "https://au.variety.com/2026/tv/global/netflix-q4-2025-financial-earnings-subscribers-32133/"
+  },
+  {
+   "claim": "AMC 2025: $4.85bn revenue, 219.4m attendance, $12.09 average ticket, $7.62 F&B per patron, film costs $1,275.2m on $2,652.8m admissions.",
+   "url": "https://www.boardroomalpha.com/sec/amc-8-k-2026-02-23-0001411579-26-000018/amc-20260223xex99d1.htm"
+  },
+  {
+   "claim": "West Africa box office was N15.6bn in 2025 with 2.79m admissions, N5,596 average ticket, 81 Nollywood releases and 14 local titles above N100m; FilmOne was top distributor.",
+   "url": "https://nairametrics.com/2026/01/06/west-africa-box-office-grosses-n15-6-billion-in-2025/"
+  },
+  {
+   "claim": "Nigerian cinemas deduct about 10% tax, then split net 50/50 in week one, 45/55 in week two and 40/60 after; producers get about 30-40% of gross.",
+   "url": "https://www.tvcnews.tv/inside-nigerian-cinemas-how-ticket-sales-are-shared-profits-made"
+  },
+  {
+   "claim": "Universal Music Group bought a majority stake in Mavin in 2024; analysts estimated a valuation up to $150m.",
+   "url": "https://www.semafor.com/article/02/26/2024/mavin-music-label-is-acquired-by-universal-music"
+  },
+  {
+   "claim": "UMG 2025 revenue was EUR12.5bn with adjusted EBITDA of EUR2.81bn.",
+   "url": "https://www.musicweek.com/labels/read/universal-music-group-revenue-up-9-in-2025/093690"
+  },
+  {
+   "claim": "Spotify paid $11bn to rights holders in 2025, and more than 13,800 artists generated at least $100,000 from it.",
+   "url": "https://www.hypebot.com/spotify-loud-clear-report-2026-11b-paid-as-global-musical-middle-class-expands"
+  },
+  {
+   "claim": "Nigerian artists earned about N1.98 per stream on a major platform in 2025 (over N60bn from 30.3bn streams).",
+   "url": "https://techcabal.com/2026/03/16/spotify-payouts-show-nigerian-artists-earned-about-₦2-per-stream-in-2025/"
+  },
+  {
+   "claim": "NFVCB rating categories are G, PG, 12, 12A, 15, 18 and RE (restricted exhibition in licensed premises).",
+   "url": "https://www.movielabs.com/md/ratings/v2.2/html/NG_NFVCB_Ratings.html"
+  },
+  {
+   "claim": "NFVCB licences start at N1,000,000 for distributors and exhibitors and decisions on valid applications come within 20 working days.",
+   "url": "https://www.nfvcb.gov.ng/?p=124"
+  },
+  {
+   "claim": "MCSN is the only NCC-approved CMO for music works and sound recordings; operating as a CMO without approval is an offence under s.88 of the Copyright Act 2022.",
+   "url": "https://www.mondaq.com/nigeria/copyright/1609106/an-overview-of-collective-management-organisations-in-nigeria"
+  },
+  {
+   "claim": "In the US, PROs such as ASCAP and BMI pay performance royalties, The MLC pays digital mechanicals and SoundExchange splits 50% owners, 45% featured artists.",
+   "url": "https://www.copyright.gov/music-modernization/educational-materials/musicians-income.pdf"
+  },
+  {
+   "claim": "Netflix and Prime Video cut commissioning of Nigerian originals, shifting towards licensing finished films.",
+   "url": "https://newsmakerslive.org/netflix-prime-video-funding-cuts-spark-major-debate-in-nollywood/"
+  },
+  {
+   "claim": "The Motion Picture Association runs the US film ratings (G, PG, PG-13, R, NC-17).",
+   "url": "https://www.motionpictures.org/general_topics/film-ratings"
+  }
+ ]
+}

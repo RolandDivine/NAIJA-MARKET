@@ -299,4 +299,4 @@ function frame(t){requestAnimationFrame(frame);const real=Math.min(.25,Math.max(
   if(G&&!hq&&G.speed===1&&!document.hidden){pfT+=real;if(++pfN>=150){const avg=pfT/pfN;pfT=pfN=0;if(avg>.03&&QUAL>.5){QUAL=Math.max(.5,QUAL-.25);resize();}}}}
 if(SAVE.cur&&SAVE.biz[SAVE.cur]){build();}
 showMenu();requestAnimationFrame(frame);
-window.__nmAcct=()=>NM;window.__trk=()=>TRK;window.__nmPerf=()=>({QUAL,DPR,SCALE});window.__nm={draw,tripStart,tripNext,get G(){return G},get S(){return S},get B(){return B},update,target,visibleSteps,padPos,harvest,lvl,level,enter,get PROG(){return PROG},empItems,empBuy,nightNext,startNight,brDay,expDay,monthDue,payrollList,hqOpen,hqClose,Fu,flag,buyPad,save};
+window.__nmAcct=()=>NM;window.__trk=()=>TRK;window.__nmPerf=()=>({QUAL,DPR,SCALE});window.__nm={get SAVE(){return SAVE},draw,tripStart,tripNext,get G(){return G},get S(){return S},get B(){return B},update,target,visibleSteps,padPos,harvest,lvl,level,enter,get PROG(){return PROG},empItems,empBuy,nightNext,startNight,brDay,expDay,monthDue,payrollList,hqOpen,hqClose,Fu,flag,buyPad,save};

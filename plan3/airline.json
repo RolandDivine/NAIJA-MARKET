@@ -1,0 +1,280 @@
+{
+  "key": "airline",
+  "sector": "Travel agency and scheduled passenger airline (domestic, regional and long-haul)",
+  "howTheBusinessMakesMoney": "An airline sells seats on flights. Each flight has a fixed trip cost (fuel, aircraft lease, crew, maintenance, airport and navigation charges) that is almost the same whether the plane is full or half empty. Profit comes only from the seats sold above the break-even load factor, so airlines fly each aircraft many hours a day, price seats by demand and sell premium cabins. A travel agency owns no seats: it earns service fees and small commissions on tickets it issues.",
+  "caseStudies": [
+    {
+      "company": "Southwest Airlines",
+      "country": "US",
+      "scale": "803 Boeing 737s, $28.1bn revenue and 77.4% load factor in 2025; about 4.8 flights per aircraft per day",
+      "lesson": "One aircraft type, quick turns and many flights per plane per day keep the cost per seat low. Copy: a single-type fleet gets cheaper training and spares, and every extra rotation per day spreads the lease.",
+      "source": "https://investors.southwest.com/sec-filings/all-sec-filings/content/0000092380-26-000002/er-12312025xerdoc.htm"
+    },
+    {
+      "company": "Delta Air Lines",
+      "country": "US",
+      "scale": "$63.4bn revenue, 9.2% operating margin and 84% load factor in 2025; premium tickets $22.1bn",
+      "lesson": "Premium cabins and loyalty earn more than cheap seats: premium tickets were about 35% of revenue. Copy: a business cabin and a frequent flyer scheme raise revenue per seat, not just the number of seats sold.",
+      "source": "https://ir.delta.com/news/news-details/2026/Delta-Air-Lines-Announces-December-Quarter-and-Full-Year-2025-Financial-Results/default.aspx"
+    },
+    {
+      "company": "Air Peace",
+      "country": "Nigeria",
+      "scale": "Largest Nigerian fleet: 37 aircraft in May 2025; opened Lagos-London in 2024 at N1.2m economy return",
+      "lesson": "Grew step by step from domestic to regional to long-haul on leased aircraft. Copy: each new tier needs more planes, foreign stations and dollar cash, while fares are earned mostly in naira.",
+      "source": "https://intelpoint.co/insights/air-peace-leads-nigerias-airline-fleet-with-37-aircraft-more-than-double-any-other-operator/"
+    },
+    {
+      "company": "Arik Air (cautionary)",
+      "country": "Nigeria",
+      "scale": "Once Nigeria's largest airline; owed N227.6bn to the state debt agency at end-2024, 9 serviceable aircraft at takeover",
+      "lesson": "Fast growth on borrowed money, with planes grounded but still costing money, ended in receivership. Copy: debt limits, idle aircraft that still pay lease, and a hard stop when loans pass a safe level.",
+      "source": "https://nairametrics.com/2025/01/18/amcon-vows-to-recover-n227-billion-debt-from-arik-air-amid-liquidation-plans/"
+    }
+  ],
+  "unitEconomics": [
+    {
+      "metric": "Passenger load factor (seats sold / seats flown)",
+      "usTypical": "77.4% Southwest, 84% Delta (2025)",
+      "nigeriaTypical": "about 65-75% domestic (no public figures, est.)",
+      "basis": "estimated",
+      "source": "https://investors.southwest.com/sec-filings/all-sec-filings/content/0000092380-26-000002/er-12312025xerdoc.htm"
+    },
+    {
+      "metric": "Break-even load factor",
+      "usTypical": "about 76% for both Southwest and Delta (derived, 2025)",
+      "nigeriaTypical": "about 70-78% (est.); Africa net margin only 1.1%",
+      "basis": "estimated",
+      "source": "https://www.iata.org/en/pressroom/2025-releases/2025-12-09-01/"
+    },
+    {
+      "metric": "Revenue per seat mile (RASM)",
+      "usTypical": "15.59c Southwest, 21.26c Delta (2025)",
+      "nigeriaTypical": "about 12 US cents per seat-km, Lagos-Abuja (est.)",
+      "basis": "estimated",
+      "source": "https://investors.southwest.com/sec-filings/all-sec-filings/content/0000092380-26-000002/er-12312025xerdoc.htm"
+    },
+    {
+      "metric": "Cost per seat mile (CASM)",
+      "usTypical": "15.35c Southwest, 19.31c Delta (2025)",
+      "nigeriaTypical": "about 11-13 US cents per seat-km; over 50% in dollars",
+      "basis": "estimated",
+      "source": "https://businessday.ng/aviation/article/explainer-how-naira-depreciation-is-slashing-airlines-profits/"
+    },
+    {
+      "metric": "Fuel share of operating cost",
+      "usTypical": "19% Southwest, 17% Delta; world 26.8% (2025)",
+      "nigeriaTypical": "about 45% (operators, 2022)",
+      "basis": "sourced",
+      "source": "https://businessday.ng/aviation/article/explainer-how-naira-depreciation-is-slashing-airlines-profits/"
+    },
+    {
+      "metric": "Monthly dry lease, one aircraft",
+      "usTypical": "737-800 $230-250k; 737 MAX 8 about $400k",
+      "nigeriaTypical": "same dollar rates; about 1% of aircraft value a month",
+      "basis": "sourced",
+      "source": "https://boltflight.com/aircraft-dry-lease-rates-an-in-depth-2025-analysis-of-commercial-aviation-leasing-costs/"
+    },
+    {
+      "metric": "Aircraft utilisation and turnaround",
+      "usTypical": "about 4.8 flights/day, 780-mile stage (2025)",
+      "nigeriaTypical": "6-9 block hours/day, 45-60 min turns (est.)",
+      "basis": "estimated",
+      "source": "https://investors.southwest.com/sec-filings/all-sec-filings/content/0000092380-26-000002/er-12312025xerdoc.htm"
+    },
+    {
+      "metric": "Travel agent airline commission",
+      "usTypical": "mostly 0%; agents charge service fees (est.)",
+      "nigeriaTypical": "fell from about 10% to 0%; agents live on fees",
+      "basis": "sourced",
+      "source": "https://businessday.ng/exclusives/article/airlines-force-travel-agencies-to-refocus-ticketing-business-over-zero-commission-policy/"
+    }
+  ],
+  "costStructure": [
+    {"item": "Jet fuel", "percentOfRevenue": 36, "note": "Biggest cost; Nigerian operators cite about 45% of costs, world average 26.8% (2025)"},
+    {"item": "Staff and crew", "percentOfRevenue": 13, "note": "Captains N6m-N8m a month; cabin, ground and engineers add up"},
+    {"item": "Maintenance and checks", "percentOfRevenue": 12, "note": "Paid largely in dollars; heavy checks abroad cost $0.8m-1m every 18 months"},
+    {"item": "Aircraft lease", "percentOfRevenue": 11, "note": "Dollar rent due monthly whether the plane flies or not"},
+    {"item": "Airport, navigation and levies", "percentOfRevenue": 11, "note": "5% ticket sales charge, landing by weight, passenger and en-route charges"},
+    {"item": "Sales, catering, insurance, other", "percentOfRevenue": 12, "note": "Booking systems, agent fees, meals, insurance, overheads"},
+    {"item": "Operating margin", "percentOfRevenue": 5, "note": "Thin: world net margin 3.9%, Africa 1.1% in 2025"}
+  ],
+  "regulation": [
+    {
+      "rule": "Operator certificate before carrying the public",
+      "unitedStates": "FAA Part 121 certificate in five phases with gates and proving tests, plus DOT economic authority (fitness and citizenship) before selling seats.",
+      "nigeria": "NCAA air operator certificate in five phases: pre-application, formal application, document evaluation (3+ months), demonstration flights on every route, issue.",
+      "source": "https://ncaa.gov.ng/media/io4l2gwz/ncaa-ac-ops001_certification-of-air-operator_amended_january-2026.pdf"
+    },
+    {
+      "rule": "Scheduled maintenance and airworthiness",
+      "unitedStates": "FAA requires an approved continuous airworthiness maintenance programme; an aircraft with an overdue check may not fly.",
+      "nigeria": "NCAA approves each maintenance programme and audits records; heavy checks often go abroad at $0.8m-1m every 18 months.",
+      "source": "https://faa.gov/licenses_certificates/airline_certification/air_carrier/intro_to_certification"
+    },
+    {
+      "rule": "Delays, cancellations and refunds",
+      "unitedStates": "DOT: automatic refund if the flight is cancelled or moved 3h+ (domestic) or 6h+ (international); paid in 7 business days on cards.",
+      "nigeria": "NCAA Part 19: refreshments at 2h delay, refund or rebooking at 3h domestic; cancellation pays 25% domestic, 30% international; refunds within 14 days.",
+      "source": "https://www.transportation.gov/briefing-room/what-airline-passengers-need-know-about-dots-automatic-refund-rule"
+    },
+    {
+      "rule": "Airport, navigation and regulator charges",
+      "unitedStates": "FAA-administered federal ticket taxes and airport passenger facility charges are added to each fare and passed to government.",
+      "nigeria": "NCAA 5% ticket sales charge; FAAN passenger service charge N2,000 domestic or $50 international, landing by aircraft weight; NAMA en-route fees (2023).",
+      "source": "https://nairametrics.com/2023/07/28/airport-taxes-breakdown-of-taxes-charges-and-levies-charged-by-government-agencies-aon/"
+    },
+    {
+      "rule": "International route rights",
+      "unitedStates": "DOT grants foreign route authority under bilateral or open-skies agreements; foreign regulators check safety before giving permits.",
+      "nigeria": "Aviation ministry designates carriers under bilateral air service agreements (91+ signed, 28 active in 2019); foreign states audit safety first.",
+      "source": "https://aviationmetric.com/nigerias-basa-rises-to-91-cape-verde-starts-operations-to-lagos/"
+    },
+    {
+      "rule": "Foreign exchange for leases and parts",
+      "unitedStates": "Leases, fuel and fares are all in dollars, so there is no currency gap; DOT checks financial fitness at entry.",
+      "nigeria": "Leases, parts and over half of costs are in dollars while fares are in naira; airline funds blocked in Nigeria peaked at $850m in 2023 (CBN).",
+      "source": "https://techcabal.com/2024/06/02/nigeria-clears-98-of-850-million-backlog-owed-to-international-airline/"
+    },
+    {
+      "rule": "Ticket agents",
+      "unitedStates": "Ticket agents follow DOT refund and full-fare advertising rules; accreditation lets them issue airline tickets and settle sales.",
+      "nigeria": "IATA accreditation and BSP settlement, usually backed by a bank guarantee, let agencies issue tickets; airlines pay almost no commission.",
+      "source": "https://www.iata.org/en/services/finance/bsp/"
+    }
+  ],
+  "gameRules": [
+    {
+      "name": "Route choice",
+      "rule": "Each route has distance D km, demand seats/day and base fare. Block hours = D/650 + 0.4. Domestic 500-1,000 km, demand 300-900; regional 150-400; long-haul 200-350. One-off station cost: N20m domestic, N150m regional, N1bn long-haul.",
+      "playerFeels": "Picking a map, not just a price: short busy routes vs long rich ones.",
+      "simplifiedFrom": "Network planning by stage length and demand; a big US low-cost carrier averages a 780-mile stage."
+    },
+    {
+      "name": "Seat price vs load factor",
+      "rule": "LF = min(0.95, baseLF x (baseFare/price)^1.5 x reputation), baseLF 0.72 domestic, 0.75 regional, 0.80 long-haul; reputation 0.8-1.2. Fare slider 60%-160% of base. Revenue = seats x LF x price.",
+      "playerFeels": "Raise fares and seats empty out; cut too far and full planes still lose money.",
+      "simplifiedFrom": "Yield management and price elasticity; large US carriers ran 77%-84% load factors in 2025."
+    },
+    {
+      "name": "Break-even light",
+      "rule": "tripCost = fuel + lease/(flights per month) + crew + charges + maintenance reserve. BELF = tripCost / (seats x price x 0.95). Green if LF >= BELF + 5 pts, amber within 5, red below. Tune so BELF sits at 68%-78%.",
+      "playerFeels": "Every flight has a clear target line to beat.",
+      "simplifiedFrom": "Break-even load factor; both US case airlines broke even near 76% in 2025."
+    },
+    {
+      "name": "Fuel priced in dollars",
+      "rule": "Burn: turboprop 800 L/h, narrow-body 3,000 L/h, wide-body 9,000 L/h. Price $0.65-1.70/L, random walk +-4%/day, times FX (start N1,500/$, +-2%/week). Depot buys lock today's price, max 30 days of burn.",
+      "playerFeels": "Watching the fuel board and buying ahead feels like smart trading.",
+      "simplifiedFrom": "Nigerian jet fuel N1,000-2,500/L in 2026; fuel about 45% of local airline costs."
+    },
+    {
+      "name": "Dollar lease",
+      "rule": "Monthly lease in USD x FX on day 1: 9-seat wet lease $60k, 50-seat turboprop $90k, 150-seat narrow-body $240k, 300-seat wide-body $700k. Due flying or grounded. Deposit = 3 months. 2 missed payments: aircraft repossessed.",
+      "playerFeels": "An idle plane hurts; a weak naira makes the same plane dearer.",
+      "simplifiedFrom": "2024 market rates: mid-life narrow-body $230k-250k, new wide-body up to $1.05m a month."
+    },
+    {
+      "name": "Maintenance checks ground aircraft",
+      "rule": "Every 60 flights: light check, aircraft grounded 1 game day, $40k. Every 600 flights: heavy check, grounded 10 game days, $900k. Fly button locked until engineer signs. No skip or delay option exists; safety is never for sale.",
+      "playerFeels": "Planning checks ahead and keeping a spare plane feels responsible, not punishing.",
+      "simplifiedFrom": "Mandatory check programmes; heavy checks abroad at $0.8m-1m every 18 months."
+    },
+    {
+      "name": "Delays and cancellations",
+      "rule": "Delay chance 10% per flight, +15% bad weather, +20% if no spare aircraft, -3% per ground machine. 2h+: snacks N3,000/pax. 3h+ domestic: 30% of pax take refunds. Cancel: pay 25% (30% intl) of fare, reputation -0.03.",
+      "playerFeels": "Delays sting, but honest handling and a spare plane protect trust.",
+      "simplifiedFrom": "Nigerian passenger rights (2h care, 3h refund, 25%/30% pay-out); US 3h/6h automatic refund rule."
+    },
+    {
+      "name": "Agency desk income",
+      "rule": "Stages 1-2 own no seats. Per ticket: 1% airline commission + N10,000 service fee. Visa file N50,000, paid whatever the embassy decides. Each ticket not double-checked has 2% chance of a wrong name: N25,000 change fee.",
+      "playerFeels": "Small, steady fees reward care and speed at the desk.",
+      "simplifiedFrom": "Nigerian airline commissions fell from about 10% to 0%; agencies now earn service fees."
+    }
+  ],
+  "stages": [
+    {"stage": "One Desk, One Dream", "licenceOrGate": "Business name registration and a rented desk", "startupCostNaira": 1500000, "monthlyRevenueNaira": 3500000, "monthlyCostNaira": 1300000, "staff": 2, "customersPerDay": 10},
+    {"stage": "The Agency With a Signboard", "licenceOrGate": "Ticketing accreditation with a N15m bank guarantee; 500 tickets sold at stage 1", "startupCostNaira": 25000000, "monthlyRevenueNaira": 18000000, "monthlyCostNaira": 11000000, "staff": 8, "customersPerDay": 40},
+    {"stage": "One Small Plane", "licenceOrGate": "Charter contract signed and a wet lease with a certified charter operator", "startupCostNaira": 200000000, "monthlyRevenueNaira": 260000000, "monthlyCostNaira": 200000000, "staff": 14, "customersPerDay": 12},
+    {"stage": "The Five Phases", "licenceOrGate": "All five operator certificate phases passed, incl. proving flights; one captain per aircraft", "startupCostNaira": 1000000000, "monthlyRevenueNaira": 900000000, "monthlyCostNaira": 800000000, "staff": 45, "customersPerDay": 220},
+    {"stage": "Four Cities", "licenceOrGate": "3 aircraft incl. a spare, ops control room, on-time rate 75% for 30 days", "startupCostNaira": 1800000000, "monthlyRevenueNaira": 3500000000, "monthlyCostNaira": 3200000000, "staff": 160, "customersPerDay": 860},
+    {"stage": "West Coast Wings", "licenceOrGate": "Carrier designation under air agreements, foreign stations, $1.5m dollar reserve", "startupCostNaira": 5000000000, "monthlyRevenueNaira": 15000000000, "monthlyCostNaira": 14000000000, "staff": 600, "customersPerDay": 3300},
+    {"stage": "The Wide Body", "licenceOrGate": "Foreign safety audit passed, landing slots, 3-month wide-body lease deposit", "startupCostNaira": 6000000000, "monthlyRevenueNaira": 28000000000, "monthlyCostNaira": 26000000000, "staff": 900, "customersPerDay": 3800},
+    {"stage": "Five Cities, One Kite", "licenceOrGate": "Approved maintenance organisation for own hangar; clean audits for 12 months", "startupCostNaira": 40000000000, "monthlyRevenueNaira": 75000000000, "monthlyCostNaira": 70000000000, "staff": 2500, "customersPerDay": 9200}
+  ],
+  "uniqueMechanics": [
+    {
+      "name": "Route and rotation board",
+      "whatThePlayerDoes": "Drags aircraft onto routes, sets flights per day, sees block hours and check-due bars, and keeps one spare aircraft to cover groundings and delays.",
+      "screenNeeded": "Map of cities with route lines, aircraft cards with flights-left-to-check bars, daily timeline"
+    },
+    {
+      "name": "Fare and load slider",
+      "whatThePlayerDoes": "Moves a fare slider per route and cabin; the predicted load factor and the break-even line update live, turning each flight green, amber or red.",
+      "screenNeeded": "Per-route panel: fare slider, predicted LF gauge with break-even marker, trip cost breakdown"
+    },
+    {
+      "name": "Fuel and dollar desk",
+      "whatThePlayerDoes": "Watches jet fuel and the naira-dollar rate, buys fuel into the depot ahead, and keeps a dollar account big enough for next month's leases and checks.",
+      "screenNeeded": "Fuel price chart, FX ticker, depot level, dollar account vs upcoming lease and check bills"
+    }
+  ],
+  "failureStates": [
+    {
+      "what": "Aircraft repossessed",
+      "trigger": "2 monthly lease payments missed on any aircraft",
+      "consequence": "Lessor takes the plane; its routes stop and booked passengers must be refunded in full",
+      "recovery": "Short wet lease at 1.5x cost while cash rebuilds; then sign a new dry lease with 3-month deposit"
+    },
+    {
+      "what": "Dollar crunch",
+      "trigger": "Dollar account below 1 month of leases and checks after a naira drop of 15% or more",
+      "consequence": "New routes and fuel depot buys locked; heavy checks cannot be booked",
+      "recovery": "Cut weakest route, convert naira at the day's rate, sell regional tickets that earn foreign currency"
+    },
+    {
+      "what": "Regulator sanction for unpaid refunds",
+      "trigger": "More than 50 refunds left unpaid past 14 days",
+      "consequence": "N50m fine and ticket sales frozen for 3 game days",
+      "recovery": "Pay all refunds, publish delay policy; sales reopen after inspector review"
+    },
+    {
+      "what": "Debt spiral",
+      "trigger": "Loans exceed 6x monthly operating profit for 3 months",
+      "consequence": "Banks stop lending; one more missed payment puts the airline under receivership and freezes the game save",
+      "recovery": "Return 1-2 aircraft, sell the charter business or bring in an equity partner, then cut loans below 4x"
+    },
+    {
+      "what": "Trust collapse",
+      "trigger": "On-time rate below 60% for 30 game days",
+      "consequence": "Reputation falls to 0.8, cutting demand on every route by about 20%",
+      "recovery": "Add a spare aircraft and ground machines; 30 days above 80% on time restores reputation"
+    }
+  ],
+  "balanceNotes": "Payback: desk 1 month, agency 4, charter 3-4, first certified plane about 10 (the stuck point, lease runs during certification), four cities 6, West Coast 5, wide body 3, global hub 8. Margins are only 5-11%, so small fare or fuel swings flip profit. Tune first: baseLF and the price elasticity exponent, then the FX drift, then check intervals. Keep BELF at 68-78% so good players stay green, and give a spare aircraft a clear on-time payoff.",
+  "openQuestions": [
+    "Should fuel stay naira-priced as in Nigeria today, with only leases and checks in dollars, or should all three move with the dollar rate?",
+    "Is the Stage 4 certification wait real time (days) or game days, and may charter flights keep earning while it runs?",
+    "Should receivership end the run, or allow a restart from the agency desk with reputation kept?",
+    "Do we show the 5% ticket sales charge and airport charges on the fare screen, or fold them silently into trip cost?"
+  ],
+  "sources": [
+    {"claim": "Southwest reported 2025 revenue of $28.06bn, load factor 77.4%, RASM 15.59c, CASM 15.35c, fuel $2.41 per gallon and 803 aircraft.", "url": "https://investors.southwest.com/sec-filings/all-sec-filings/content/0000092380-26-000002/er-12312025xerdoc.htm"},
+    {"claim": "Delta reported 2025 revenue of $63.4bn, 9.2% operating margin, 84% load factor, fuel $2.30 per gallon and premium ticket revenue of $22.1bn.", "url": "https://ir.delta.com/news/news-details/2026/Delta-Air-Lines-Announces-December-Quarter-and-Full-Year-2025-Financial-Results/default.aspx"},
+    {"claim": "IATA put 2025 airline net margin at 3.9% (Africa 1.1%) and fuel at 26.8% of operating costs.", "url": "https://www.iata.org/en/pressroom/2025-releases/2025-12-09-01/"},
+    {"claim": "In May 2025 Air Peace had 37 aircraft, Arik Air 14, Max Air 10 and Ibom Air 9.", "url": "https://intelpoint.co/insights/air-peace-leads-nigerias-airline-fleet-with-37-aircraft-more-than-double-any-other-operator/"},
+    {"claim": "Ibom Air projected N150bn revenue for 2025, up from N96bn in 2024, with nine aircraft.", "url": "https://businessday.ng/aviation/article/ibom-air-eyes-n150bn-revenue-in-2025-expands-operations-to-african-cities/"},
+    {"claim": "Arik Air owed AMCON N227.63bn at 31 December 2024 and had nine serviceable aircraft when AMCON took control.", "url": "https://nairametrics.com/2025/01/18/amcon-vows-to-recover-n227-billion-debt-from-arik-air-amid-liquidation-plans/"},
+    {"claim": "Nigeria Airways began in 1958, peaked near 30 aircraft in the early 1980s and ceased operations in 2003 with debts over $528m.", "url": "https://en.wikipedia.org/wiki/Nigeria_Airways"},
+    {"claim": "Nigerian operators said over 50% of costs are in dollars, fuel is about 45% of cost, and maintenance abroad costs $0.8m-1m every 18 months (2022).", "url": "https://businessday.ng/aviation/article/explainer-how-naira-depreciation-is-slashing-airlines-profits/"},
+    {"claim": "IBA September 2024 lease rates: 737-800 $230k-250k a month, A320neo and 737 MAX 8 about $400k, 787-9 about $1.05m.", "url": "https://boltflight.com/aircraft-dry-lease-rates-an-in-depth-2025-analysis-of-commercial-aviation-leasing-costs/"},
+    {"claim": "Nigerian charges include a 5% NCAA ticket sales charge and FAAN passenger service charge of N2,000 domestic or $50 international (2023).", "url": "https://nairametrics.com/2023/07/28/airport-taxes-breakdown-of-taxes-charges-and-levies-charged-by-government-agencies-aon/"},
+    {"claim": "NCAA certifies new air operators through a formal multi-phase process starting with pre-application.", "url": "https://ncaa.gov.ng/media/io4l2gwz/ncaa-ac-ops001_certification-of-air-operator_amended_january-2026.pdf"},
+    {"claim": "NCAA document evaluation takes at least three months and includes demonstration flights over all intended routes without passengers.", "url": "https://nairametrics.com/2021/03/09/why-new-airlines-find-it-difficult-to-get-certified-fly-in-nigeria-ncaa/?amp=1"},
+    {"claim": "FAA Part 121 certification has five phases with gates, including a performance assessment with proving tests.", "url": "https://faa.gov/licenses_certificates/airline_certification/air_carrier/intro_to_certification"},
+    {"claim": "DOT requires automatic refunds for cancellations or changes of 3h+ domestic and 6h+ international, within 7 business days on cards.", "url": "https://www.transportation.gov/briefing-room/what-airline-passengers-need-know-about-dots-automatic-refund-rule"},
+    {"claim": "Airline funds blocked in Nigeria peaked at $850m in June 2023 and 98% had been cleared by mid-2024.", "url": "https://techcabal.com/2024/06/02/nigeria-clears-98-of-850-million-backlog-owed-to-international-airline/"},
+    {"claim": "Airline commissions to Nigerian travel agents fell from about 10% to 1% and then to zero.", "url": "https://businessday.ng/exclusives/article/airlines-force-travel-agencies-to-refocus-ticketing-business-over-zero-commission-policy/"}
+  ]
+}

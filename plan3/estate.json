@@ -1,0 +1,274 @@
+{
+ "key": "estate",
+ "sector": "Real estate: letting agency, building materials, homebuilding, land development and rental property",
+ "howTheBusinessMakesMoney": "An agent earns a commission when a tenant or buyer pays. A builder or developer buys land with clean title, gets approvals, then builds in stages and sells homes or plots, often taking a deposit and stage payments from buyers to fund construction. Profit is the sale price minus land, building, approvals, finance and selling costs. Finished units can also be kept and let, giving yearly rent instead of one sale.",
+ "caseStudies": [
+  {
+   "company": "D.R. Horton",
+   "country": "US",
+   "scale": "Largest US homebuilder by volume: 84,863 homes closed in fiscal 2025 on $31.5bn homebuilding revenue; 18% cancellation rate",
+   "lesson": "Volume over glamour: standard designs, many lots, fast build cycles. It also sells rental communities in bulk. Copy: repeatable house types, steady sales pace and an 18% chance a buyer walks away.",
+   "source": "https://www.businesswire.com/news/home/20251028952212/en/D.R.-Horton-Inc.-Americas-Builder-Reports-Fourth-Quarter-and-Fiscal-2025-Earnings-and-Increases-Quarterly-Dividend-to-%240.45-Per-Share"
+  },
+  {
+   "company": "Lennar",
+   "country": "US",
+   "scale": "23,034 homes delivered in Q4 fiscal 2025 at a $386,000 average price; gross margin fell to 17% as incentives rose",
+   "lesson": "Keeping sales pace in a soft market costs margin: price cuts and incentives cut gross margin about 5 points in a year. Copy: a pace-versus-price slider where faster sales cost margin.",
+   "source": "https://www.zacks.com/stock/news/2805817/lennar-q4-earnings-miss-estimates-revenues-beat-stock-down"
+  },
+  {
+   "company": "UPDC Plc",
+   "country": "Nigeria",
+   "scale": "Listed Lagos developer: 2025 revenue N12.69bn, gross profit N3.44bn (about 27% gross margin), profit after tax N2.01bn",
+   "lesson": "Nigerian developers live on cash management: finance income beat operating profit in 2025. Copy: cash held from buyer payments matters as much as the build margin.",
+   "source": "https://arbiterz.com/?p=60432"
+  },
+  {
+   "company": "Mixta Africa",
+   "country": "Nigeria",
+   "scale": "Lagos estate plots with C of O: a 350 sqm plot was N36.75m outright in July 2026, or N41.3m on a 12-month plan",
+   "lesson": "Sells titled, serviced plots on instalments: 20% down, then 20% every 3 months, allocation at 70% paid. Copy: plan buyers pay more in total and get the plot only after most is paid.",
+   "source": "https://mixtafrica.com/wp-content/uploads/2023/09/Factsheet-Elms-Garden-Estate-July-2026.pdf"
+  }
+ ],
+ "unitEconomics": [
+  {
+   "metric": "Agent commission",
+   "usTypical": "Buyer agent about 2.4% of sale price (Q1 2025)",
+   "nigeriaTypical": "5% of a year's rent proposed cap; total fees 10% max",
+   "basis": "sourced",
+   "source": "https://www.redfin.com/news/real-estate-commissions-may-2025/"
+  },
+  {
+   "metric": "Construction cost per square metre",
+   "usTypical": "Build is 64.4% of a new home's sale price (2024)",
+   "nigeriaTypical": "About N210,000 to N290,000/sqm (bungalow, no land)",
+   "basis": "sourced",
+   "source": "https://eyeonhousing.org/2025/01/cost-of-constructing-a-home-in-2024/"
+  },
+  {
+   "metric": "Land share of sale price",
+   "usTypical": "Finished lot 13.7% of sale price (2024)",
+   "nigeriaTypical": "Est. 20% to 40% in Lagos; VI land about N3m/sqm",
+   "basis": "sourced",
+   "source": "https://nairametrics.com/2026/09/06/the-30-building-tax-thats-driving-up-the-cost-of-housing-in-lagos/"
+  },
+  {
+   "metric": "Developer margin",
+   "usTypical": "Gross 17% to 22%; builder net profit 11% of price",
+   "nigeriaTypical": "Gross about 27% (UPDC 2025); net varies widely",
+   "basis": "sourced",
+   "source": "https://arbiterz.com/?p=60432"
+  },
+  {
+   "metric": "Off-plan or instalment payments",
+   "usTypical": "Small earnest deposit, balance at closing via mortgage",
+   "nigeriaTypical": "20% down, then 20% each quarter; deposits rarely escrowed",
+   "basis": "sourced",
+   "source": "https://mixtafrica.com/wp-content/uploads/2023/09/Factsheet-Elms-Garden-Estate-July-2026.pdf"
+  },
+  {
+   "metric": "Gross rental yield",
+   "usTypical": "Est. 5% to 6% on apartments",
+   "nigeriaTypical": "3.1% (Ikoyi) to 5.9% (Chevron, Lekki)",
+   "basis": "sourced",
+   "source": "https://businessday.ng/real-estate/article/rental-yields-challenge-assumptions-on-investment-returns-as-ikoyi-trails-lekki-corridor/"
+  },
+  {
+   "metric": "Cost of finance",
+   "usTypical": "Finance 1.5% of sale price for builders (2024)",
+   "nigeriaTypical": "Prime lending 27% to 30% a year; MPR 23% (Sep 2026)",
+   "basis": "sourced",
+   "source": "https://www.nigeriahousingmarket.com/news/man-warns-23-percent-mpr-limited-impact-lending-rates-30-percent"
+  },
+  {
+   "metric": "Cement price (50kg bag)",
+   "usTypical": "Not researched; US prices far steadier",
+   "nigeriaTypical": "N12,000 to N15,000 (2026), up from N7,500 in 2025",
+   "basis": "sourced",
+   "source": "https://www.legit.ng/business-economy/industry/1730491-cement-prices-rise-n13000bag-experts-unveils-step-crash-prices/"
+  }
+ ],
+ "costStructure": [
+  {"item": "Construction (materials and labour)", "percentOfRevenue": 58, "note": "Cement, steel, blocks, roofing, labour. NAHB US figure is 64.4%; estimate for Nigeria."},
+  {"item": "Land and title", "percentOfRevenue": 16, "note": "Plot, survey, Governor's consent, registration. Estimated; US lot share is 13.7%."},
+  {"item": "Approvals and stage certificates", "percentOfRevenue": 5, "note": "Planning permit, authorisation to build, stage fees. Estimated from Lagos reports."},
+  {"item": "Finance cost", "percentOfRevenue": 6, "note": "Interest on loans at 27% to 30% a year. Estimated; US is 1.5%."},
+  {"item": "Sales and marketing", "percentOfRevenue": 4, "note": "Sales office, commission, adverts. US commission 2.8% plus marketing 0.8%."},
+  {"item": "Overhead", "percentOfRevenue": 4, "note": "Office, engineers, title staff. US overhead 5.7%; estimated."},
+  {"item": "Developer profit", "percentOfRevenue": 7, "note": "Net margin after all costs. US builders 11%; estimated lower in Nigeria due to finance."}
+ ],
+ "regulation": [
+  {
+   "rule": "Land title and transfer",
+   "unitedStates": "Deeds recorded with the county recorder; buyers use title search and title insurance before closing.",
+   "nigeria": "Land Use Act 1978 vests land in the state; C of O evidences the right; every sale needs Governor's consent via Lagos Lands Bureau.",
+   "source": "https://www.mondaq.com/nigeria/real-estate/1737162/land-acquisition-in-lagos-state-step-by-step-guide-and-key-legal-considerations"
+  },
+  {
+   "rule": "Zoning and planning permit",
+   "unitedStates": "City or county zoning sets use and density; rezonings and variances go to local planning boards.",
+   "nigeria": "LASPPPA planning permit needed before work, with C of O, survey, drawings and tax clearance; online platform since April 2026.",
+   "source": "https://www.mondaq.com/nigeria/real-estate/1737158/all-the-permits-you-need-as-a-real-estate-developer-in-lagos-state"
+  },
+  {
+   "rule": "Building permit and stage inspections",
+   "unitedStates": "Local building department issues permit, inspects foundation, framing and final, then a certificate of occupancy.",
+   "nigeria": "LASBCA letter of authorisation to commence, stage certification during build, then Certificate of Completion and Fitness for Habitation.",
+   "source": "https://www.mondaq.com/nigeria/real-estate/1694676/before-you-build-in-lagos-what-you-really-need-to-know-about-building-approval"
+  },
+  {
+   "rule": "Agent licensing",
+   "unitedStates": "State licence needed from each state's commission, e.g. Texas Real Estate Commission: pre-licence courses plus an exam.",
+   "nigeria": "Lagos LASRERA licence for agents and developers, renewed yearly; CAC registration and SCUML (EFCC) filing also required.",
+   "source": "https://www.mondaq.com/nigeria/real-estate/1737158/all-the-permits-you-need-as-a-real-estate-developer-in-lagos-state"
+  },
+  {
+   "rule": "Advance rent and agent fees",
+   "unitedStates": "State landlord-tenant laws: rent paid monthly; many states cap security deposits.",
+   "nigeria": "Lagos Tenancy Law 2011: sitting tenant max 1 year ahead (yearly) or 6 months (monthly); N100,000 fine. 2026 bill: 5% agent cap.",
+   "source": "https://www.thecable.ng/legal-questions-pay-landlord-2-years-rent-sitting-tenant"
+  },
+  {
+   "rule": "Buyer deposits on off-plan sales",
+   "unitedStates": "Contract and state law govern deposits; mortgage lender pays balance at closing after final inspection.",
+   "nigeria": "No general escrow rule; buyers carry completion risk, so contracts must set stages, deadlines and refunds. LASRERA oversees.",
+   "source": "https://webiis08.mondaq.com/nigeria/real-estate/1643168/off-plan-property-purchases-in-lagos-key-considerations"
+  }
+ ],
+ "gameRules": [
+  {
+   "name": "Clean title gate",
+   "rule": "A plot can be built or sold only when titleOK=true. Title pack costs 10% of land price (survey 2%, consent and registration 8%) and takes 2 game days. Only titled land is offered for sale to the player.",
+   "playerFeels": "Papers cost money and time, but every sale after that is safe.",
+   "simplifiedFrom": "Land Use Act C of O and Governor's consent; Lagos charting at Surveyor-General."
+  },
+  {
+   "name": "Stage build, stage pay",
+   "rule": "Build cost = N210,000 x sqm x materialIndex. Stages and cost shares: foundation 15%, walls 30%, roof 25%, finish 30%. Buyer pays 20% deposit, then 20% after each stage passes inspection.",
+   "playerFeels": "Cash comes in steps; I must fund each stage before the buyer pays.",
+   "simplifiedFrom": "Milestone payments on Lagos off-plan sales; Mixta 20% instalments; US construction cost shares."
+  },
+  {
+   "name": "Material price swing",
+   "rule": "Weekly cement = 13,000 x (1 + rand(-0.08, 0.12)), clamped N11,000 to N16,000. Steel = N1,000,000/t x (1 + rand(-0.1, 0.1)). materialIndex = 0.6 + 0.25 x cement/13,000 + 0.15 x steel/1,000,000. Store holds 4 weeks.",
+   "playerFeels": "Buying cement cheap and storing it feels smart; a spike hurts.",
+   "simplifiedFrom": "Nigerian cement moving N7,500 to N13,000+ in 18 months; steel about N1m a tonne."
+  },
+  {
+   "name": "Stage inspection",
+   "rule": "Each stage needs an inspection taking 1 game day. Pass if quality >= 70 (standard mix 85, plus 10 with site engineer). Fail: site stops, redo 50% of stage cost, 3-day delay, trust -10.",
+   "playerFeels": "Testing every pour is cheaper than a stopped site.",
+   "simplifiedFrom": "LASBCA stage certification and material tests; US foundation, framing and final inspections."
+  },
+  {
+   "name": "Sales pace",
+   "rule": "Units sold per month = round(unsold x 0.08 x trust/100 x (1 - 2 x priceGap)), where priceGap = price/market - 1, min 0. Title shown +0.02, roads built +0.02. Off-plan buyer cancels with 18% chance if build is 90+ days late.",
+   "playerFeels": "Cut the price to sell faster, or hold price and wait.",
+   "simplifiedFrom": "Lennar trading margin for pace with incentives; D.R. Horton 18% cancellation rate."
+  },
+  {
+   "name": "Rent or sell",
+   "rule": "Any finished unit: sell for value V, or let for 5% of V a year (shops 8%), collected 1 year ahead, never more. Upkeep 5% of rent. Each lease year 10% chance of 2 empty months. Tenant pays agent 5% of rent.",
+   "playerFeels": "Selling gives cash now; renting gives slow money every year.",
+   "simplifiedFrom": "Lagos yields 3% to 6%; Tenancy Law one-year advance limit; 2026 bill 5% agent cap."
+  },
+  {
+   "name": "Construction loan",
+   "rule": "Borrow up to 50% of a project's build cost at 2.3% a month (28% a year), charged monthly on the balance. Repaid from sale proceeds first. Every month of delay adds interest.",
+   "playerFeels": "Loans speed me up, but delays now eat the profit.",
+   "simplifiedFrom": "Nigerian prime lending at 27% to 30% versus US builder finance at 1.5% of price."
+  },
+  {
+   "name": "Letting commission and caution",
+   "rule": "Letting earns 5% of annual rent. Total fees capped at 10% of rent. Caution deposit = 10% of rent, held in a locked box and refunded at exit when no damage; refund adds trust +5.",
+   "playerFeels": "Fair fees bring more tenants back.",
+   "simplifiedFrom": "Lagos 10% fee limit and proposed 5% agent commission cap."
+  }
+ ],
+ "stages": [
+  {"stage": "Keys and Trekking", "licenceOrGate": "Agent licence registration fee paid; 10 tenants placed to unlock the next chapter", "startupCostNaira": 300000, "monthlyRevenueNaira": 600000, "monthlyCostNaira": 350000, "staff": 1, "customersPerDay": 3},
+  {"stage": "Sand, Cement, Sweat", "licenceOrGate": "Business name registered; yard rented; N3m cash", "startupCostNaira": 3000000, "monthlyRevenueNaira": 5400000, "monthlyCostNaira": 4500000, "staff": 4, "customersPerDay": 12},
+  {"stage": "Tipper on Credit", "licenceOrGate": "Block quality score 80+ for 30 days; tipper deposit paid", "startupCostNaira": 25000000, "monthlyRevenueNaira": 18000000, "monthlyCostNaira": 15000000, "staff": 9, "customersPerDay": 30},
+  {"stage": "First Bungalow", "licenceOrGate": "Titled plot, planning permit and authorisation to build", "startupCostNaira": 60000000, "monthlyRevenueNaira": 28000000, "monthlyCostNaira": 23000000, "staff": 15, "customersPerDay": 35},
+  {"stage": "Gate and Street Lights", "licenceOrGate": "Developer licence; approved layout with title for all 20 plots; roads built", "startupCostNaira": 400000000, "monthlyRevenueNaira": 58000000, "monthlyCostNaira": 40000000, "staff": 25, "customersPerDay": 45},
+  {"stage": "The Plaza", "licenceOrGate": "Commercial planning permit; Certificate of Completion and Fitness before letting", "startupCostNaira": 900000000, "monthlyRevenueNaira": 80000000, "monthlyCostNaira": 55000000, "staff": 40, "customersPerDay": 60},
+  {"stage": "Going Up", "licenceOrGate": "High-rise permit, soil test and engineer on site; every pour tested", "startupCostNaira": 4000000000, "monthlyRevenueNaira": 400000000, "monthlyCostNaira": 300000000, "staff": 120, "customersPerDay": 30},
+  {"stage": "Skyline", "licenceOrGate": "Local permits and licences in each new city; 3 towers completed", "startupCostNaira": 30000000000, "monthlyRevenueNaira": 3000000000, "monthlyCostNaira": 2200000000, "staff": 600, "customersPerDay": 150}
+ ],
+ "uniqueMechanics": [
+  {
+   "name": "Stage and pay ledger",
+   "whatThePlayerDoes": "Funds each build stage, calls the inspector, then collects the buyer's next payment. Tracks cash in versus cash needed for the next stage across all sites.",
+   "screenNeeded": "Site card with 5 stage bars, payment due per stage, inspection button and cash gap warning"
+  },
+  {
+   "name": "Clean title file",
+   "whatThePlayerDoes": "Pays survey and consent, waits 2 days, then shows the title file to buyers. Titled plots sell faster and settle land claim events at once.",
+   "screenNeeded": "Title desk with document checklist, timer and a stamp animation when complete"
+  },
+  {
+   "name": "Sell or let switch",
+   "whatThePlayerDoes": "Chooses for each finished unit: sell now for cash, or let for yearly rent. Watches vacancy and upkeep versus loan interest.",
+   "screenNeeded": "Unit list with sale value, yearly rent, payback years and a toggle per unit"
+  }
+ ],
+ "failureStates": [
+  {
+   "what": "Cash gap mid-build",
+   "trigger": "Cash below next stage cost for 14 game days while no buyer payment is due",
+   "consequence": "Site stalls; loan interest keeps running; trust -1 a day",
+   "recovery": "Sell or let finished stock, take a construction loan up to 50%, or pre-sell units"
+  },
+  {
+   "what": "Failed stage inspection",
+   "trigger": "Stage quality below 70",
+   "consequence": "Site stopped 3 days, redo 50% of stage cost, buyer payment held",
+   "recovery": "Hire site engineer (+10 quality), use standard mix, re-inspect"
+  },
+  {
+   "what": "Off-plan buyers cancel",
+   "trigger": "Project 90+ days past promised finish date",
+   "consequence": "18% of waiting buyers cancel and are refunded in full",
+   "recovery": "Finish stages to restore pace; resell units to new buyers"
+  },
+  {
+   "what": "Cement squeeze",
+   "trigger": "Cement above N15,000 for 4 weeks with an empty store",
+   "consequence": "Block and build margins turn negative; materialIndex above 1.1",
+   "recovery": "Pause new starts, raise block price up to 10%, restock when price falls"
+  },
+  {
+   "what": "Empty plaza",
+   "trigger": "Plaza vacancy above 30% at a rent date",
+   "consequence": "Rent income below upkeep and loan interest",
+   "recovery": "Advertise, cut rent up to 15%, or add a draw tenant such as a bakery"
+  }
+ ],
+ "balanceNotes": "Paybacks: kiosk 1 month, block yard 3 to 4 months, tipper 8 months, first bungalow about 12 months, estate about 22 months, plaza about 36 months, tower about 40 months, skyline about 38 months. Players will feel stuck at First Bungalow (cash gap before stage payments) and at Going Up (huge startup, slow off-plan sales). Tune first: deposit size (20%), loan rate (2.3% a month), sales pace base (8%), then cement swing range.",
+ "openQuestions": [
+  "Should weak block mixes be offered at all, or should quality only be raised by engineers and materials?",
+  "Rent or sale price inflation per game year: off, or around 10% to match Lagos rent growth?",
+  "Should the 2026 Lagos tenancy bill (5% agent cap) be shown as law or as a proposal in-game?",
+  "Do overseas branches (Accra, Dubai, London) get their own approval and title rules or reuse the Lagos ones?"
+ ],
+ "sources": [
+  {"claim": "D.R. Horton closed 84,863 homes in fiscal 2025 with $31.5bn homebuilding revenue and an 18% cancellation rate.", "url": "https://www.businesswire.com/news/home/20251028952212/en/D.R.-Horton-Inc.-Americas-Builder-Reports-Fourth-Quarter-and-Fiscal-2025-Earnings-and-Increases-Quarterly-Dividend-to-%240.45-Per-Share"},
+  {"claim": "Lennar delivered 23,034 homes in Q4 fiscal 2025 at a $386,000 average price with a 17% gross margin, down 510 basis points.", "url": "https://www.zacks.com/stock/news/2805817/lennar-q4-earnings-miss-estimates-revenues-beat-stock-down"},
+  {"claim": "UPDC 2025 revenue was N12.69bn, gross profit N3.44bn and profit after tax N2.01bn, with net finance income of N1.94bn.", "url": "https://arbiterz.com/?p=60432"},
+  {"claim": "Mixta's Elms Garden 350 sqm plot cost N36.75m outright, with plans of 20% down and 20% every 3 months, allocation at 70%.", "url": "https://mixtafrica.com/wp-content/uploads/2023/09/Factsheet-Elms-Garden-Estate-July-2026.pdf"},
+  {"claim": "NAHB 2024: construction is 64.4% of a new home's price, finished lot 13.7%, financing 1.5%, commission 2.8%, overhead 5.7%, profit 11%.", "url": "https://eyeonhousing.org/2025/01/cost-of-constructing-a-home-in-2024/"},
+  {"claim": "Average US buyer's agent commission was 2.40% in Q1 2025.", "url": "https://www.redfin.com/news/real-estate-commissions-may-2025/"},
+  {"claim": "Lagos rental yields range from 3.09% in Ikoyi to 5.85% on the Chevron axis, per Stears data.", "url": "https://businessday.ng/real-estate/article/rental-yields-challenge-assumptions-on-investment-returns-as-ikoyi-trails-lekki-corridor/"},
+  {"claim": "The CBN cut the MPR to 23% in September 2026 while prime lending stayed around 27% to 30%.", "url": "https://www.nigeriahousingmarket.com/news/man-warns-23-percent-mpr-limited-impact-lending-rates-30-percent"},
+  {"claim": "Lagos regulatory charges are estimated near 30% of project running costs; stage certification fees are 35% of the planning permit fee.", "url": "https://nairametrics.com/2026/09/06/the-30-building-tax-thats-driving-up-the-cost-of-housing-in-lagos/"},
+  {"claim": "Lagos Tenancy Law 2011 bars demanding more than one year's rent ahead from yearly sitting tenants, with a N100,000 fine.", "url": "https://www.thecable.ng/legal-questions-pay-landlord-2-years-rent-sitting-tenant"},
+  {"claim": "Under the Land Use Act land is vested in the state; a C of O evidences title and sales need Governor's consent.", "url": "https://www.mondaq.com/nigeria/real-estate/1737162/land-acquisition-in-lagos-state-step-by-step-guide-and-key-legal-considerations"},
+  {"claim": "Lagos building needs a LASPPPA permit, a LASBCA letter of authorisation to build, inspections and a Certificate of Completion and Fitness.", "url": "https://www.mondaq.com/nigeria/real-estate/1694676/before-you-build-in-lagos-what-you-really-need-to-know-about-building-approval"},
+  {"claim": "Lagos developers need CAC, tax clearance, SCUML and a yearly LASRERA licence.", "url": "https://www.mondaq.com/nigeria/real-estate/1737158/all-the-permits-you-need-as-a-real-estate-developer-in-lagos-state"},
+  {"claim": "Off-plan buyer deposits in Nigeria are not usually held in escrow, so buyers carry completion risk.", "url": "https://webiis08.mondaq.com/nigeria/real-estate/1643168/off-plan-property-purchases-in-lagos-key-considerations"},
+  {"claim": "A 50kg cement bag was about N13,000 in September 2026, up from about N7,500 in March 2025.", "url": "https://www.legit.ng/business-economy/industry/1730491-cement-prices-rise-n13000bag-experts-unveils-step-crash-prices/"},
+  {"claim": "A 120 sqm two-bedroom bungalow costs about N25m to N35m to build in 2026, excluding land, with steel around N1m a tonne.", "url": "https://www.withinnigeria.com/2026/09/01/rough-estimate-of-building-a-2-bedroom-house-in-nigeria-in-2026-cement-labour-roofing-and-finishing-explained/"}
+ ]
+}

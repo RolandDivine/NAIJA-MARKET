@@ -1,0 +1,246 @@
+{
+ "key": "school",
+ "sector": "Private education: lessons, nursery, primary, secondary, boarding and university",
+ "howTheBusinessMakesMoney": "Parents or sponsors pay tuition per term (three a year in Nigeria) or per semester at university, plus add-ons for boarding, meals, transport and exam registration. Exam fees pass straight to the exam body. The biggest cost is teacher pay, paid every month including holidays, then buildings, power and food. Profit comes from keeping classrooms full up to the safe class size, keeping good teachers, and earning results that build reputation and waiting lists.",
+ "caseStudies": [
+  {
+   "company": "Stride, Inc. (formerly K12 Inc.)",
+   "country": "US",
+   "scale": "FY2025 revenue guidance $2.37-2.385bn; 240,200 average enrolments in Q3 FY2025, revenue $2,415 per enrolment that quarter.",
+   "lesson": "Revenue is fee per enrolment times enrolments, and teaching is about 60% of revenue. Copy: income scales with seats filled, while teacher cost scales with classes run.",
+   "source": "https://investors.stridelearning.com/news/news-details/2025/Strong-Demand-Delivers-Another-Record-Quarter-for-Stride/default.aspx"
+  },
+  {
+   "company": "Grand Canyon Education",
+   "country": "US",
+   "scale": "2025 service revenue $1,106.1m; 136,239 partner enrolments at 31 Dec 2025; GAAP operating margin 24.0%.",
+   "lesson": "A university grows by adding enrolments to programmes that are already accredited, and margins are steady once the accreditation is in place. Copy: the university licence comes first, then enrolment scales.",
+   "source": "https://investors.gce.com/news-releases/news-release-details/grand-canyon-education-inc-reports-fourth-quarter-2025-results"
+  },
+  {
+   "company": "Covenant University",
+   "country": "Nigeria",
+   "scale": "2026/27 fees for Nigerian students run from N1.71m to N4.64m a session (Medicine is the highest), with accommodation included.",
+   "lesson": "Fee bands vary by faculty because lab-heavy courses cost more to run. Scholarships sit beside full fees. Copy: university price tiers by course, and a scholarship fund.",
+   "source": "https://www.legit.ng/education/1738771-covenant-university-releases-newly-approved-school-fees-20262027-academic-session/"
+  },
+  {
+   "company": "Greensprings School",
+   "country": "Nigeria",
+   "scale": "Lagos day and boarding group; a third-party guide lists primary tuition at N8m-15m a year (2025-26, unverified estimate).",
+   "lesson": "A premium Lagos group runs several campuses with a scholarship programme, and its results support premium fees. Copy: reputation unlocks higher fee tiers and new campuses.",
+   "source": "https://www.tutopiya.com/blog/international-school-fees/greensprings-school-lagos-fees/"
+  }
+ ],
+ "unitEconomics": [
+  {
+   "metric": "Fee per pupil per year",
+   "usTypical": "About $9,700 per Stride enrolment (Q3 FY25 x4)",
+   "nigeriaTypical": "N45k-N2.4m primary; N1.7m-N4.6m private university",
+   "basis": "sourced",
+   "source": "https://schoolregistry.ng/school-fees-nigeria-2026"
+  },
+  {
+   "metric": "Pupil-teacher ratio",
+   "usTypical": "9.8 pupils per FTE teacher, private schools 2023-24",
+   "nigeriaTypical": "Lagos: nursery max 25 a class, primary 35 with 2 adults",
+   "basis": "sourced",
+   "source": "https://ies.ed.gov/nces/2026/05/characteristics-private-schools-united-states-results-2023-24-private-school-universe-survey"
+  },
+  {
+   "metric": "Teaching cost as share of revenue",
+   "usTypical": "About 60% (Stride instructional costs, 9 months FY25)",
+   "nigeriaTypical": "35-45% teacher pay in mid-fee schools",
+   "basis": "estimated",
+   "source": "https://investors.stridelearning.com/news/news-details/2025/Strong-Demand-Delivers-Another-Record-Quarter-for-Stride/default.aspx"
+  },
+  {
+   "metric": "Operating margin",
+   "usTypical": "17% (Stride FY25 guidance) to 24% (GCE 2025)",
+   "nigeriaTypical": "10-20% in a well-run full school",
+   "basis": "estimated",
+   "source": "https://investors.gce.com/news-releases/news-release-details/grand-canyon-education-inc-reports-fourth-quarter-2025-results"
+  },
+  {
+   "metric": "Classroom seat occupancy to break even",
+   "usTypical": "70-80% of licensed capacity (Bright Horizons: 115k seats)",
+   "nigeriaTypical": "75-85% of seats at class-size limit",
+   "basis": "estimated",
+   "source": "https://www.businesswire.com/news/home/20260212007443/en"
+  },
+  {
+   "metric": "Capital cost per classroom",
+   "usTypical": "$300k-$600k per classroom; no reliable source found",
+   "nigeriaTypical": "N8m-N15m per furnished classroom (2026)",
+   "basis": "estimated",
+   "source": ""
+  },
+  {
+   "metric": "Capital cost per boarding bed",
+   "usTypical": "$80k-$150k per residence-hall bed; not sourced",
+   "nigeriaTypical": "N0.8m-N1.5m per hostel bed, shared rooms",
+   "basis": "estimated",
+   "source": ""
+  },
+  {
+   "metric": "Exam registration per candidate",
+   "usTypical": "State tests free; SAT-type tests paid by families",
+   "nigeriaTypical": "N27,000 (WAEC) or N22,250 (NECO), passed through",
+   "basis": "sourced",
+   "source": "https://www.premiumtimesng.com/news/top-news/894950-nigerian-govt-suspends-plan-to-review-waec-neco-costs.html"
+  }
+ ],
+ "costStructure": [
+  {"item": "Teaching staff salaries", "percentOfRevenue": 40, "note": "Paid 12 months a year, including holidays. The largest lever on results."},
+  {"item": "Non-teaching staff", "percentOfRevenue": 12, "note": "Bursar, cleaners, security, drivers, cooks, matrons, nurse."},
+  {"item": "Buildings: rent, upkeep, depreciation", "percentOfRevenue": 15, "note": "Classrooms, labs, hostels; capital is repaid over many years."},
+  {"item": "Books, lab kits, food", "percentOfRevenue": 12, "note": "Food dominates once boarding opens."},
+  {"item": "Power, diesel, transport", "percentOfRevenue": 8, "note": "Generator diesel and school bus fuel; prices swing."},
+  {"item": "Admin, scholarships, bad debt", "percentOfRevenue": 5, "note": "Includes 5% free scholarship seats and fees never collected."},
+  {"item": "Operating surplus", "percentOfRevenue": 8, "note": "Reinvested in new classrooms and campuses."}
+ ],
+ "regulation": [
+  {
+   "rule": "Licence to open a school",
+   "unitedStates": "State education departments set private school rules; most require registration or approval. Child-care centres need a state child-care licence.",
+   "nigeria": "State ministry approval: in Lagos, the Office of Education Quality Assurance runs a form, evaluator visit, grading, invoice and approval letter.",
+   "source": "https://soluap.com/?p=41274"
+  },
+  {
+   "rule": "Class size and facilities",
+   "unitedStates": "State fire, building and child-care codes set capacity and adult ratios; private K-12 class size is mostly left to the school.",
+   "nigeria": "Lagos guidelines: nursery max 25 at 1:8 adult ratio, primary up to 35 with 2 adults, at least 6 WC toilets, set plot sizes.",
+   "source": "https://schoolings.org/government-guidelines-requirements-for-establishing-a-private-school-in-lagos-and-other-state/"
+  },
+  {
+   "rule": "School accreditation",
+   "unitedStates": "Voluntary K-12 accreditors such as Cognia review schools on standards and site visits; parents and colleges look for it.",
+   "nigeria": "State ministry grading plus WAEC and NECO approval as an exam centre before candidates can sit exams on site.",
+   "source": "https://www.cognia.org/accreditation"
+  },
+  {
+   "rule": "Teacher qualifications",
+   "unitedStates": "Public and most charter teachers need state certification; private school rules vary by state.",
+   "nigeria": "Teachers must hold recognised qualifications (TRCN registration); Lagos asks heads for a B.Ed or NCE and 10 years' experience.",
+   "source": "https://schoolings.org/government-guidelines-requirements-for-establishing-a-private-school-in-lagos-and-other-state/"
+  },
+  {
+   "rule": "School-leaving exams",
+   "unitedStates": "State assessments for public and charter schools; private schools choose tests such as the SAT, run by College Board.",
+   "nigeria": "WAEC (N27,000) and NECO (N22,250) set fees for 2026; a rise to N50,000 was suspended in July 2026.",
+   "source": "https://www.premiumtimesng.com/news/top-news/894950-nigerian-govt-suspends-plan-to-review-waec-neco-costs.html"
+  },
+  {
+   "rule": "University licence",
+   "unitedStates": "State authorisation plus a federally recognised accreditor (GCU: Higher Learning Commission) before federal student aid can flow.",
+   "nigeria": "National Universities Commission: N5m form and N25m processing fee (2025), site visits, then a provisional licence; 168 private of 309 universities.",
+   "source": "https://nairametrics.com/2025/03/09/education-stakeholders-urge-nuc-to-review-hike-in-nigerian-private-university-application-fees/"
+  }
+ ],
+ "gameRules": [
+  {
+   "name": "Enrolment at term start",
+   "rule": "Each term: seats = classrooms x cap. applicants = waitlist + round(freeSeats x reputation/100 x 1.2). Fill seats; extra go to waitlist (max 50% of seats). 1 in 20 seats is a free scholarship seat.",
+   "playerFeels": "Good results fill rooms and build a waiting list.",
+   "simplifiedFrom": "Stride and GCE revenue = enrolments x fee; Nigerian schools fill by word of mouth and waiting lists."
+  },
+  {
+   "name": "Class size limits",
+   "rule": "Cap per class: nursery 25, primary 30, secondary 35, lecture hall 60. A class over cap cannot enrol. Each class needs 1 qualified teacher; nursery also needs 1 assistant per 25.",
+   "playerFeels": "I must build rooms and hire, not just cram desks.",
+   "simplifiedFrom": "Lagos nursery max 25 and primary up to 35 with 2 adults; US private ratio 9.8."
+  },
+  {
+   "name": "Teacher hiring and quality",
+   "rule": "Hire: class teacher N90k/mo, science teacher N160k/mo. Quality 1-5 rises 1 level per 2 terms of paid training (N50k). Salary 1 month late: quality -1; 2 months late: 30% of teachers resign.",
+   "playerFeels": "Paying and training teachers is how results go up.",
+   "simplifiedFrom": "Teacher pay is the largest cost (about 40-60%); qualified teacher rules from state ministries."
+  },
+  {
+   "name": "Term fee collection",
+   "rule": "3 terms a year. At resumption 60% of fees arrive, 35% by mid-term, 5% never (3% with a bursar). Unpaid fees only cut cash: the pupil keeps learning and gets a polite reminder. Instalment plan: +5% enrolment.",
+   "playerFeels": "Cash comes in bursts and I must chase it kindly.",
+   "simplifiedFrom": "Nigerian schools bill per term and accept part payment at resumption."
+  },
+  {
+   "name": "Holiday payroll reserve",
+   "rule": "Salaries are paid every month, fees only in term months. Warn when cash < 1 month payroll. Auto-save slider: put 0-50% of each fee burst into a payroll pot; 33% covers the 4 holiday months.",
+   "playerFeels": "I save in term time so no teacher is owed in August.",
+   "simplifiedFrom": "Term-based fees vs 12-month payroll in Nigerian private schools."
+  },
+  {
+   "name": "Exam results drive reputation",
+   "rule": "passRate% = 35 + 10 x avg teacher quality + 10 if lab built, max 98. Reputation += (passRate - 60) / 4 each exam season. Exam fee N27,000 or N22,250 per candidate passes 100% to the exam body.",
+   "playerFeels": "Results day decides next year's enrolment.",
+   "simplifiedFrom": "WAEC/NECO results are the main advert for Nigerian schools; exam fees are pass-through."
+  },
+  {
+   "name": "Inspections",
+   "rule": "Each term 25% chance of a visit (100% before each new stage). Score = avg of toilets, fence, qualified teachers %, classes within cap, first aid. >=70 pass, +3 rep; 50-69 fix within 30 days; <50 enrolment frozen 1 term.",
+   "playerFeels": "Clean toilets and safe rooms matter as much as lessons.",
+   "simplifiedFrom": "Lagos evaluator visits and grading; Cognia site reviews in the US."
+  },
+  {
+   "name": "Boarding care",
+   "rule": "Boarding needs 1 matron per 60 boarders, 1 nurse per 150 and 3 meals a day (N2,000 food cost per boarder per day). Any missed meal day: rep -2. No nurse: boarding intake closed.",
+   "playerFeels": "Boarders are in my care day and night.",
+   "simplifiedFrom": "Boarding fee add-ons of N450k-900k a term at mid-range schools pay for food and care staff."
+  }
+ ],
+ "stages": [
+  {"stage": "Lesson Under the Almond Tree", "licenceOrGate": "None: home lessons for up to 20 pupils", "startupCostNaira": 150000, "monthlyRevenueNaira": 75000, "monthlyCostNaira": 35000, "staff": 1, "customersPerDay": 20},
+  {"stage": "Two Rooms and a Signboard", "licenceOrGate": "Name registered, ministry form, site inspection score 70+, approval letter", "startupCostNaira": 3000000, "monthlyRevenueNaira": 750000, "monthlyCostNaira": 450000, "staff": 4, "customersPerDay": 50},
+  {"stage": "The School Bus Is Yellow", "licenceOrGate": "Reputation 30+, payroll pot of 1 month, 6 classrooms within class caps", "startupCostNaira": 25000000, "monthlyRevenueNaira": 3450000, "monthlyCostNaira": 2100000, "staff": 14, "customersPerDay": 230},
+  {"stage": "Test Tubes and Lab Coats", "licenceOrGate": "Secondary approval, science lab built, exam centre approval from both exam bodies", "startupCostNaira": 150000000, "monthlyRevenueNaira": 21000000, "monthlyCostNaira": 14000000, "staff": 50, "customersPerDay": 530},
+  {"stage": "Lights Out at Nine", "licenceOrGate": "Boarding inspection passed, matron and nurse hired, reputation 50+", "startupCostNaira": 320000000, "monthlyRevenueNaira": 48000000, "monthlyCostNaira": 33400000, "staff": 85, "customersPerDay": 530},
+  {"stage": "Three States, One Uniform", "licenceOrGate": "Approval from each new state ministry, a principal per campus, pass rate 70%+", "startupCostNaira": 900000000, "monthlyRevenueNaira": 160000000, "monthlyCostNaira": 118000000, "staff": 420, "customersPerDay": 2100},
+  {"stage": "The University Licence", "licenceOrGate": "N5m form, N25m processing fee, 5 site visits passed, provisional licence", "startupCostNaira": 10000000000, "monthlyRevenueNaira": 660000000, "monthlyCostNaira": 480000000, "staff": 740, "customersPerDay": 5100},
+  {"stage": "Chancellor Aunty Ifeoma", "licenceOrGate": "Full university licence, programme accreditation, approval in each new country", "startupCostNaira": 30000000000, "monthlyRevenueNaira": 2400000000, "monthlyCostNaira": 1850000000, "staff": 3000, "customersPerDay": 20000}
+ ],
+ "uniqueMechanics": [
+  {
+   "name": "Term calendar cash",
+   "whatThePlayerDoes": "Watches three fee bursts and twelve paydays on a year calendar, sets how much of each burst goes to the payroll pot, and offers instalment plans.",
+   "screenNeeded": "Year calendar with term bands, payroll pot slider, bursar's fee ledger with paid, part-paid and reminder status."
+  },
+  {
+   "name": "Classes and timetable",
+   "whatThePlayerDoes": "Opens classes, assigns one teacher to each, watches class-size bars against the cap, and sends teachers to training to raise quality.",
+   "screenNeeded": "Class board: each class card shows pupils/cap, teacher, quality stars; hire and train buttons."
+  },
+  {
+   "name": "Results day and inspections",
+   "whatThePlayerDoes": "Prepares classrooms, toilets and first aid for visits, then sees exam results turn into reputation and next term's applicants.",
+   "screenNeeded": "Inspection checklist with score, results-day pop-up with pass rate and reputation change."
+  }
+ ],
+ "failureStates": [
+  {"what": "Teachers unpaid", "trigger": "Salaries 2 months late", "consequence": "30% of teachers resign; their classes pause and pass rate falls", "recovery": "Clear arrears from the payroll pot or a short bank loan, then rehire"},
+  {"what": "Failed inspection", "trigger": "Inspection score below 50", "consequence": "No new pupils for 1 term; current pupils keep learning", "recovery": "Fix listed items and book a re-inspection after 30 days"},
+  {"what": "Results slump", "trigger": "Pass rate below 40% for 2 exam seasons", "consequence": "Reputation -15 and applicants halved", "recovery": "Hire subject teachers, fund training, equip the lab"},
+  {"what": "Boarding care lapse", "trigger": "3 missed meal days in a term or no nurse for 150 boarders", "consequence": "Boarding intake closed and reputation -10", "recovery": "Hire care staff, restock the dining hall, pass a boarding re-inspection"}
+ ],
+ "balanceNotes": "Payback months by stage: 1) 4, 2) 10, 3) 19, 4) 21, 5) 22, 6) 21, 7) 56, 8) 55. Players will feel stuck at stage 3 (the bus and six rooms) and hard at stage 7, where the university licence is meant to be a long quest. Tune first: fee per pupil and class caps, then the payroll pot share. If the holiday months feel unfair, show the coming payroll on the calendar earlier rather than cutting salaries.",
+ "openQuestions": [
+  "Is the scholarship share fixed at 1 seat in 20, or can the player raise it for extra reputation?",
+  "How many game days is one school term, and does the university licence quest run in real time or game time?",
+  "May the player raise fees each term, and how much enrolment should a rise cost?",
+  "Do international campuses earn in local currency with exchange rates, or in naira for simplicity?"
+ ],
+ "sources": [
+  {"claim": "Stride guided FY2025 revenue of $2.370-2.385bn, had 240.2K average enrolments and $2,415 revenue per enrolment in Q3 FY2025, with instructional costs about 60% of revenue.", "url": "https://investors.stridelearning.com/news/news-details/2025/Strong-Demand-Delivers-Another-Record-Quarter-for-Stride/default.aspx"},
+  {"claim": "Grand Canyon Education reported 2025 service revenue of $1,106.1m, 136,239 partner enrolments and a 24.0% operating margin.", "url": "https://investors.gce.com/news-releases/news-release-details/grand-canyon-education-inc-reports-fourth-quarter-2025-results"},
+  {"claim": "Bright Horizons had 2025 revenue of $2.93bn and 1,010 centres with capacity for about 115,000 children.", "url": "https://www.businesswire.com/news/home/20260212007443/en"},
+  {"claim": "US private schools in 2023-24 had 5.10m students, 517,780 FTE teachers and a pupil-teacher ratio of 9.8.", "url": "https://ies.ed.gov/nces/2026/05/characteristics-private-schools-united-states-results-2023-24-private-school-universe-survey"},
+  {"claim": "Covenant University 2026/27 fees for Nigerian students range from N1,713,891 to N4,639,405 per session.", "url": "https://www.legit.ng/education/1738771-covenant-university-releases-newly-approved-school-fees-20262027-academic-session/"},
+  {"claim": "A third-party fee guide lists Greensprings School primary tuition at N8m-15m a year for 2025-26.", "url": "https://www.tutopiya.com/blog/international-school-fees/greensprings-school-lagos-fees/"},
+  {"claim": "Nigerian private nursery and primary fees run about N15,000-80,000 a term at low-cost schools and up to N800,000+ at high-end ones in 2026.", "url": "https://schoolregistry.ng/school-fees-nigeria-2026"},
+  {"claim": "Lagos guidelines set nursery classes at max 25 pupils, primary up to 35 with two adults, and at least six WC toilets.", "url": "https://schoolings.org/government-guidelines-requirements-for-establishing-a-private-school-in-lagos-and-other-state/"},
+  {"claim": "Lagos registers private schools through a form, evaluator visit, grading, invoice and a letter of registration.", "url": "https://soluap.com/?p=41274"},
+  {"claim": "WAEC registration is N27,000 and NECO N22,250 for 2026; a rise to N50,000 was suspended in July 2026.", "url": "https://www.premiumtimesng.com/news/top-news/894950-nigerian-govt-suspends-plan-to-review-waec-neco-costs.html"},
+  {"claim": "In 2025 the NUC raised the private university form to N5m and the processing fee to N25m.", "url": "https://nairametrics.com/2025/03/09/education-stakeholders-urge-nuc-to-review-hike-in-nigerian-private-university-application-fees/"},
+  {"claim": "After 33 approvals in 2025 Nigeria has 309 universities, 168 of them private.", "url": "https://atqnews.com/africa-national-universities-commission-nuc-approval-of-33-new-universities-in-2025-pushes-nigerias-total-university-count-to-309/"},
+  {"claim": "Cognia accredits schools through standards reviews and site visits.", "url": "https://www.cognia.org/accreditation"},
+  {"claim": "Mid-range Nigerian secondary teachers earn about N70,000-150,000 a month.", "url": "https://www.profolio.ng/secondary-school-teacher/salary-guide"}
+ ]
+}

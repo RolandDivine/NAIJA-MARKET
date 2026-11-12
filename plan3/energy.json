@@ -1,0 +1,410 @@
+{
+  "key": "energy",
+  "sector": "Fuel and gas retail, home solar and power generation",
+  "howTheBusinessMakesMoney": "A filling station buys fuel by the tanker load, paid in advance, and sells it at the pump for a thin margin of tens of naira per litre, so profit comes from volume and fast service, plus the shop. A gas shop buys LPG in bulk per kg and refills cylinders at a wider spread. Solar firms sell home kits for cash or in monthly instalments and earn on the hardware and finance. A power plant sells units (kWh) under a regulated tariff and only earns on the units it actually collects payment for.",
+  "caseStudies": [
+    {
+      "company": "Murphy USA",
+      "country": "US",
+      "scale": "About 4.8 billion retail gallons in 2025, total fuel contribution 30.7 cents per gallon, net income $470.6 million.",
+      "lesson": "Low-price, high-volume stations: margin per litre is tiny and swings week to week, so the game should pay for throughput and fast forecourts, with the shop as steady extra profit.",
+      "source": "https://www.convenience.org/Media/Daily/2026/February/5/3-Murphy-USA-Opened-29-New-Locations_Finance"
+    },
+    {
+      "company": "Sunrun",
+      "country": "US",
+      "scale": "997,280 subscribers at end 2025; Q4 2025 subscriber value $50,165 vs creation cost $41,067 per subscriber.",
+      "lesson": "Home solar sold on monthly payments: value is booked over many years, so cash is tight up front. Copy the gap between the cost to install and the payments collected later.",
+      "source": "https://investors.sunrun.com/news-events/press-releases/detail/364"
+    },
+    {
+      "company": "TotalEnergies Marketing Nigeria",
+      "country": "Nigeria",
+      "scale": "2025 revenue N767.6 billion, down 26%; gross margin about 10.7%; first pre-tax loss in six years, N12.5 billion.",
+      "lesson": "Even a big branded marketer loses money when volumes fall and finance costs rise. The game should make debt and slow-moving stock expensive, and volume the main lever.",
+      "source": "https://nairametrics.com/2026/01/30/totalenergies-reports-pre-tax-loss-of-n12-5-billion-in-2025/"
+    },
+    {
+      "company": "Ikeja Electric",
+      "country": "Nigeria",
+      "scale": "Collected 92.2% of its bills in Q2 2026, against an average of 81.06% for all 11 distribution companies.",
+      "lesson": "In power, billing is not cash. Metering and honest bills raise collection. The game should separate units sold from naira collected and reward prepaid meters.",
+      "source": "https://techeconomy.ng/discos-collect-6036bn-in-q2-as-fgs-power-subsidy-hits-3213bn"
+    }
+  ],
+  "unitEconomics": [
+    {
+      "metric": "Retail petrol margin per litre",
+      "usTypical": "About 31 US cents/gal, roughly 8 cents/litre (2025)",
+      "nigeriaTypical": "About N30 to N80/litre above landing cost",
+      "basis": "sourced (US); estimated (Nigeria) from MEMAN landing cost and depot quotes",
+      "source": "https://www.legit.ng/business-economy/energy/1735484-petrol-depot-prices-rise-n1370-fg-announces-30-day-nnpc-relief/"
+    },
+    {
+      "metric": "Station throughput",
+      "usTypical": "About 230,000 gal/month for a big-box station",
+      "nigeriaTypical": "About 5,000 to 15,000 litres/day for an urban station",
+      "basis": "estimated (US derived from 4.8bn gal over about 1,750 stores)",
+      "source": ""
+    },
+    {
+      "metric": "LPG gross spread per kg",
+      "usTypical": "Propane retail margin about $1.50 to $2/gal",
+      "nigeriaTypical": "N250 to N500/kg (depot N950-1,050, retail N1,250-1,650)",
+      "basis": "sourced (Nigeria); estimated (US)",
+      "source": "https://www.legit.ng/business-economy/energy/1728306-cooking-gas-price-rise-depots-dangote-offers-lowest-rate/"
+    },
+    {
+      "metric": "Tanker load cash needed up front",
+      "usTypical": "8,500 gal load about $20,000, usually on supplier credit",
+      "nigeriaTypical": "33,000 litres x N1,350 = about N44.6 million, prepaid",
+      "basis": "estimated from depot prices of Oct 2026",
+      "source": "https://www.legit.ng/business-economy/energy/1735484-petrol-depot-prices-rise-n1370-fg-announces-30-day-nnpc-relief/"
+    },
+    {
+      "metric": "Home solar installed cost per watt",
+      "usTypical": "About $2.60/W before incentives (2026)",
+      "nigeriaTypical": "About N800 to N1,000/W for 1 to 3 kW systems",
+      "basis": "sourced (US); estimated (Nigeria) from N0.8m to N2.5m per 1 to 3 kW",
+      "source": "https://www.energysage.com/local-data/solar-panel-cost"
+    },
+    {
+      "metric": "Gas power plant capacity factor",
+      "usTypical": "About 57% fleet average for combined cycle (2022)",
+      "nigeriaTypical": "About 30% to 45%, limited by gas supply and grid",
+      "basis": "sourced (US); estimated (Nigeria)",
+      "source": "https://www.power-eng.com/gas/combined-cycle/capacity-factors-of-combined-cycle-power-plants-rising-as-efficiency-improves-eia-finds/"
+    },
+    {
+      "metric": "Power tariff, top band",
+      "usTypical": "About 17 US cents/kWh residential average",
+      "nigeriaTypical": "Band A about N225/kWh for 20+ hours of supply a day",
+      "basis": "sourced (Nigeria); estimated (US)",
+      "source": "https://nairametrics.com/2024/11/22/nerc-to-discos-supply-20hrs-electricity-to-band-a-customers-or-downgrade-them/"
+    },
+    {
+      "metric": "Bill collection rate",
+      "usTypical": "About 98% to 99% for utilities",
+      "nigeriaTypical": "81% average, 92% best (Q2 2026); losses 36%",
+      "basis": "sourced (Nigeria); estimated (US)",
+      "source": "https://techeconomy.ng/discos-collect-6036bn-in-q2-as-fgs-power-subsidy-hits-3213bn"
+    }
+  ],
+  "costStructure": [
+    {
+      "item": "Fuel and gas bought from depot",
+      "percentOfRevenue": 91,
+      "note": "Most of the pump price is the product itself; TotalEnergies NG cost of sales was about 89% in 2025."
+    },
+    {
+      "item": "Haulage and offloading",
+      "percentOfRevenue": 2,
+      "note": "Tanker trip from depot to station, estimated N20 to N30 per litre."
+    },
+    {
+      "item": "Staff wages",
+      "percentOfRevenue": 1.5,
+      "note": "Attendants, gas operator, cashier, safety officer and manager. Estimated."
+    },
+    {
+      "item": "Generator, power and maintenance",
+      "percentOfRevenue": 1.5,
+      "note": "Pumps run on generator diesel when grid is off; pump servicing and calibration. Estimated."
+    },
+    {
+      "item": "Licences, insurance and safety",
+      "percentOfRevenue": 1,
+      "note": "Annual licence renewals, extinguishers, leak sensors, drills, insurance. Estimated."
+    },
+    {
+      "item": "Rent, finance and depreciation",
+      "percentOfRevenue": 1.5,
+      "note": "Land lease, loan interest on stock, pumps and tanks wear out. Estimated."
+    },
+    {
+      "item": "Operating profit",
+      "percentOfRevenue": 1.5,
+      "note": "Thin: a busy, well-run station keeps about 1% to 2% of sales. Estimated."
+    }
+  ],
+  "regulation": [
+    {
+      "rule": "Licence to build and run a station",
+      "unitedStates": "Local zoning and building permits plus state fire marshal approval under fire codes (NFPA 30A) before dispensing fuel.",
+      "nigeria": "NMDPRA site suitability inspection, approval to construct, then licence to operate, with set distances from road and other stations.",
+      "source": "https://wikiprocedure.com/index.php/Nigeria_-_Apply_for_Approval_to_Construct_and_Operate_Petroleum_Filling_Station"
+    },
+    {
+      "rule": "Underground tank leak checks",
+      "unitedStates": "EPA rules (40 CFR 280) require leak-proof tanks and release detection at least every 30 days, enforced with state tank programs.",
+      "nigeria": "NMDPRA sets storage and tank standards under its 2025 downstream regulations; inspections at licensing and renewal.",
+      "source": "https://www.epa.gov/ust/release-detection-underground-storage-tanks"
+    },
+    {
+      "rule": "Honest pump measure",
+      "unitedStates": "State weights and measures offices test and seal pumps against NIST Handbook 44 tolerances.",
+      "nigeria": "NMDPRA ordered all outlets to calibrate dispensers (Sept 2026); under-dispensing can lead to licence revocation.",
+      "source": "https://nannews.ng/nmdpra-threatens-licence-revocation-for-fuel-stations-under-dispensing-products/"
+    },
+    {
+      "rule": "LPG outlets and cylinder safety",
+      "unitedStates": "State fire marshals and LP-gas boards enforce NFPA 58; DOT rules require cylinder requalification at set intervals.",
+      "nigeria": "NMDPRA licenses and seals unlicensed LPG retailers; SON-led programme sends cylinders to authorised requalification centres (2026).",
+      "source": "https://techeconomy.ng/nigeria-launches-national-cylinder-recirculation-programme-in-abuja-through-son"
+    },
+    {
+      "rule": "Fuel pricing",
+      "unitedStates": "Market prices; many states have price-gouging laws during emergencies, enforced by state attorneys general.",
+      "nigeria": "Petrol price deregulated since 2023; depots and stations set prices, NMDPRA monitors supply and quality.",
+      "source": "https://www.mondaq.com/nigeria/oil-gas-electricity/1767604/nigerias-2025-petroleum-regulations-commercial-impact-for-operators"
+    },
+    {
+      "rule": "Power tariffs and supply hours",
+      "unitedStates": "FERC regulates wholesale power and interstate lines; state public utility commissions set retail tariffs.",
+      "nigeria": "NERC sets tariff bands; Band A must get 20+ hours a day or be downgraded. Electricity Act 2023 lets states form own regulators.",
+      "source": "https://nairametrics.com/2024/11/22/nerc-to-discos-supply-20hrs-electricity-to-band-a-customers-or-downgrade-them/"
+    }
+  ],
+  "gameRules": [
+    {
+      "name": "Prepaid tanker load",
+      "rule": "Order 1 load = 33,000 L; pay 33,000 x depotPrice (N1,350 = N44.55m) at order. Arrives next game day; 15% chance +1 day delay. Tank holds max 3 loads. Stock above 3 days of sales earns nothing extra.",
+      "playerFeels": "Order early or the pumps dry; order too much and cash sleeps in the tank.",
+      "simplifiedFrom": "Nigerian marketers pay depots before loading; working capital caps how much they sell."
+    },
+    {
+      "name": "Pump throughput and margin",
+      "rule": "Each pump serves up to 20 cars/hour x 25 L with an attendant, 6 cars/hour without. Profit per litre = pumpPrice - landedCost. Price band is landedCost + N20 to + N80; each N10 above area price cuts arrivals 5%.",
+      "playerFeels": "Speed and queues matter more than price; greed empties the forecourt.",
+      "simplifiedFrom": "Retail fuel margins are cents or tens of naira per litre; volume and service drive profit."
+    },
+    {
+      "name": "Full-litre meter test",
+      "rule": "Each pump drifts 0.1% short per game week. Inspector tests every 14 days with a 10 L can; pass if within 50 mL. Pass: Trust +10. Fail: pump sealed 1 day, fine N500,000, Trust -15. Servicing costs N50,000 and resets drift.",
+      "playerFeels": "Servicing is cheap insurance; an honest pump pulls the queue.",
+      "simplifiedFrom": "Weights and measures tests and NMDPRA calibration orders with licence revocation for under-dispensing."
+    },
+    {
+      "name": "Cylinder safety check",
+      "rule": "Every cylinder needs a leak check (2 s tap) before refill. 5% of cylinders arrive expired or dented: reject and send to requalification (N5,000, back in 2 days). Skipping a check: 1 in 50 chance of leak alarm, cage shut 1 day, Trust -30.",
+      "playerFeels": "Checks take seconds; skipping them can close the shop.",
+      "simplifiedFrom": "NFPA 58 and Nigeria's cylinder requalification programme; retailers must refuse unsafe cylinders."
+    },
+    {
+      "name": "Solar pay small-small",
+      "rule": "Kit price N2.4m, cost N1.8m. Deposit 30% (N720,000) then 12 x N140,000. Each month: 90% pay, 7% pay late next month, 3% default and kit locks, recovered at 50% value. Credit check (N10,000) halves default rate.",
+      "playerFeels": "More sales, slower cash; a careful loan book pays off.",
+      "simplifiedFrom": "Pay-as-you-go solar with remote lockout, deposits and monthly instalments (Lumos, Sunrun)."
+    },
+    {
+      "name": "Power supply hours",
+      "rule": "Plant hours/day = 24 x availability (0.75 to 0.98, +0.05 per maintenance level). Band A pays N225/kWh only on days with 20+ hours; shorter days are refunded. Cash = billed x collectionRate (80%, +3% per 10% prepaid meters, max 95%).",
+      "playerFeels": "Keeping the plant running beats selling more contracts.",
+      "simplifiedFrom": "NERC Band A 20-hour rule; DisCo collection 81% average, 92% best (Q2 2026)."
+    },
+    {
+      "name": "Three-paper licence ladder",
+      "rule": "Pumps locked until: site check (N2m, 3 days), approval to construct (N5m, 7 days), licence to operate (N3m, 3 days, needs Safety >= 70). Licence renews each game year for N3m; lapsed licence locks pumps.",
+      "playerFeels": "Patience and paperwork before the big money.",
+      "simplifiedFrom": "NMDPRA site suitability, approval to construct and operating licence steps."
+    },
+    {
+      "name": "Serve the queue in scarcity",
+      "rule": "Scarcity event: arrivals x2 for 3 days, depot price +5%. Pump price stays in normal band. Selling all day: Trust +5/day. Closing with stock in tank: Trust -20 and inspector visit. Held stock never gains value.",
+      "playerFeels": "Shortages reward the station that keeps selling fairly.",
+      "simplifiedFrom": "Regulators act against hoarding and diversion during supply shortages."
+    }
+  ],
+  "stages": [
+    {
+      "stage": "One Gen, One Table",
+      "licenceOrGate": "None; starting cash covers generator, scale and caged cylinder",
+      "startupCostNaira": 600000,
+      "monthlyRevenueNaira": 1980000,
+      "monthlyCostNaira": 1550000,
+      "staff": 1,
+      "customersPerDay": 50
+    },
+    {
+      "stage": "The Proper Gas Shop",
+      "licenceOrGate": "Gas retail licence, fenced cage, 2 extinguishers, leak sensor, Safety >= 60",
+      "startupCostNaira": 4500000,
+      "monthlyRevenueNaira": 11200000,
+      "monthlyCostNaira": 8900000,
+      "staff": 3,
+      "customersPerDay": 70
+    },
+    {
+      "stage": "Three Papers, One Dream",
+      "licenceOrGate": "Site check then approval to construct passed; N120m for land lease and tanks",
+      "startupCostNaira": 120000000,
+      "monthlyRevenueNaira": 11200000,
+      "monthlyCostNaira": 9600000,
+      "staff": 4,
+      "customersPerDay": 70
+    },
+    {
+      "stage": "First Pump, Full Litre",
+      "licenceOrGate": "Licence to operate, first pump test passed, cash for one tanker load",
+      "startupCostNaira": 180000000,
+      "monthlyRevenueNaira": 423000000,
+      "monthlyCostNaira": 408000000,
+      "staff": 14,
+      "customersPerDay": 450
+    },
+    {
+      "stage": "Sun on Every Roof",
+      "licenceOrGate": "Trust >= 70 and two certified solar technicians hired",
+      "startupCostNaira": 60000000,
+      "monthlyRevenueNaira": 447000000,
+      "monthlyCostNaira": 427000000,
+      "staff": 18,
+      "customersPerDay": 460
+    },
+    {
+      "stage": "Stations on Every Road",
+      "licenceOrGate": "Each new station passes its own licence ladder; Safety >= 75 at all branches",
+      "startupCostNaira": 3000000000,
+      "monthlyRevenueNaira": 8640000000,
+      "monthlyCostNaira": 8340000000,
+      "staff": 320,
+      "customersPerDay": 9000
+    },
+    {
+      "stage": "Depot and Power Plant",
+      "licenceOrGate": "Depot licence, power generation licence, gas supply contract, 20 stations",
+      "startupCostNaira": 60000000000,
+      "monthlyRevenueNaira": 13600000000,
+      "monthlyCostNaira": 11900000000,
+      "staff": 600,
+      "customersPerDay": 15000
+    },
+    {
+      "stage": "The African Energy Group",
+      "licenceOrGate": "Licences in each new country, 2 years with no failed safety audit",
+      "startupCostNaira": 120000000000,
+      "monthlyRevenueNaira": 260000000000,
+      "monthlyCostNaira": 250000000000,
+      "staff": 9000,
+      "customersPerDay": 225000
+    }
+  ],
+  "uniqueMechanics": [
+    {
+      "name": "Tanker order planner",
+      "whatThePlayerDoes": "Reads tank gauges and the sales forecast, then chooses when to prepay the next 33,000 L load, balancing dry pumps against cash locked in stock.",
+      "screenNeeded": "Tank gauge panel with days-of-stock bar, depot price, cash after order and arrival time"
+    },
+    {
+      "name": "Pump test and servicing",
+      "whatThePlayerDoes": "Watches each pump's drift, pays for servicing, and plays the inspector's 10-litre can test when it comes. Pumps can never be set to pour short.",
+      "screenNeeded": "Pump row with drift meter, service button and a can-fill animation showing exact litres"
+    },
+    {
+      "name": "Pay small-small ledger",
+      "whatThePlayerDoes": "Approves solar buyers after a credit check, tracks monthly payments, chases late payers politely and unlocks kits when paid.",
+      "screenNeeded": "Loan book list with paid, late and locked status, cash expected this month and default rate"
+    }
+  ],
+  "failureStates": [
+    {
+      "what": "Pumps run dry",
+      "trigger": "Tank stock under 0.5 day of sales with no load ordered",
+      "consequence": "Drivers leave; Trust -10 per dry day",
+      "recovery": "Prepay a tanker load; arrives next day, Trust recovers +5 a day of full supply"
+    },
+    {
+      "what": "Licence suspended",
+      "trigger": "Two failed pump tests in 30 days or Safety score under 50",
+      "consequence": "All pumps sealed for 7 days",
+      "recovery": "Service all pumps, run a safety drill, pay N3m re-inspection"
+    },
+    {
+      "what": "Gas leak alarm",
+      "trigger": "Unchecked cylinder refilled (1 in 50 chance) or leak sensor not replaced for 90 days",
+      "consequence": "Cage closed 1 day, Trust -30, safety officer report",
+      "recovery": "Replace sensor (N150,000), retrain operator, pass next safety check"
+    },
+    {
+      "what": "Solar cash crunch",
+      "trigger": "Solar defaults above 10% or cash below the cost of the next container",
+      "consequence": "Solar bay pauses new kits",
+      "recovery": "Turn on credit checks, collect late payments, sell kits for cash only for a month"
+    },
+    {
+      "what": "Plant trip and refunds",
+      "trigger": "Supply under 20 hours on 3 days in a week",
+      "consequence": "Band A days refunded; bulk contract buyers may leave (20% chance each)",
+      "recovery": "Raise maintenance level, secure gas supply, rebuild 20-hour streak for 14 days"
+    }
+  ],
+  "balanceNotes": "Payback: kiosk about 1.5 months, gas shop 2, station 12 (land, tanks and first load), solar bay 3, each branch about 10, depot and plant about 35, group stage long-term. Players will feel stuck at stage 3 (N120m with only gas income) and stage 7 (N60bn); offer a bank loan or partner equity there. Tune first: petrol margin (N20 to N80), tanker delay odds and solar default rate. Keep the margin cap so hoarding never pays.",
+  "openQuestions": [
+    "Should petrol margin follow live-like weekly swings (as in real deregulated pricing) or stay fixed so new players can plan?",
+    "Should the depot and power plant be financed with a loan or partner equity, and who controls the plant if a partner owns part?",
+    "Solar kits: allow an optional interest charge on instalments, or keep pay small-small interest-free for simplicity?",
+    "After the Electricity Act 2023, should state power regulators be a separate licence step or stay merged into one national regulator?"
+  ],
+  "sources": [
+    {
+      "claim": "Murphy USA sold about 4.8 billion retail gallons in 2025 with total fuel contribution of 30.7 cents per gallon and net income of $470.6 million.",
+      "url": "https://www.convenience.org/Media/Daily/2026/February/5/3-Murphy-USA-Opened-29-New-Locations_Finance"
+    },
+    {
+      "claim": "Sunrun had 997,280 subscribers at end 2025; Q4 2025 subscriber value was $50,165 and creation cost $41,067.",
+      "url": "https://investors.sunrun.com/news-events/press-releases/detail/364"
+    },
+    {
+      "claim": "TotalEnergies Marketing Nigeria reported 2025 revenue of N767.63 billion, down 26%, and a N12.5 billion pre-tax loss.",
+      "url": "https://nairametrics.com/2026/01/30/totalenergies-reports-pre-tax-loss-of-n12-5-billion-in-2025/"
+    },
+    {
+      "claim": "In Q2 2026 DisCos collected 81.06% of bills on average with ATC&C losses of 36.23%; Ikeja Electric collected 92.20%.",
+      "url": "https://techeconomy.ng/discos-collect-6036bn-in-q2-as-fgs-power-subsidy-hits-3213bn"
+    },
+    {
+      "claim": "In early October 2026 petrol depot prices were about N1,340 to N1,370 per litre and the MEMAN landing cost was N1,316.93.",
+      "url": "https://www.legit.ng/business-economy/energy/1735484-petrol-depot-prices-rise-n1370-fg-announces-30-day-nnpc-relief/"
+    },
+    {
+      "claim": "At end August 2026 LPG depot prices were N950 to N1,050 per kg and Abuja retail prices N1,250 to N1,650 per kg.",
+      "url": "https://www.legit.ng/business-economy/energy/1728306-cooking-gas-price-rise-depots-dangote-offers-lowest-rate/"
+    },
+    {
+      "claim": "US home solar averaged about $2.60 per watt before incentives in 2026.",
+      "url": "https://www.energysage.com/local-data/solar-panel-cost"
+    },
+    {
+      "claim": "Installed 1kW to 3kW home solar in Nigeria costs about N800,000 to N2.5 million in 2026.",
+      "url": "https://nairametrics.com/2026/02/10/how-much-it-costs-to-install-solar-energy-system-in-2026/"
+    },
+    {
+      "claim": "EIA reported the US combined-cycle gas fleet capacity factor rose from 40% in 2008 to 57% in 2022.",
+      "url": "https://www.power-eng.com/gas/combined-cycle/capacity-factors-of-combined-cycle-power-plants-rising-as-efficiency-improves-eia-finds/"
+    },
+    {
+      "claim": "NERC raised the Band A tariff to N225/kWh and requires 20 hours of daily supply or a downgrade of the customer.",
+      "url": "https://nairametrics.com/2024/11/22/nerc-to-discos-supply-20hrs-electricity-to-band-a-customers-or-downgrade-them/"
+    },
+    {
+      "claim": "NMDPRA ordered all fuel outlets to calibrate dispensers in September 2026 and warned under-dispensing can lead to licence revocation.",
+      "url": "https://nannews.ng/nmdpra-threatens-licence-revocation-for-fuel-stations-under-dispensing-products/"
+    },
+    {
+      "claim": "A SON-led programme with NMDPRA, launched in 2026, sends LPG cylinders to authorised requalification facilities and tracks them in a national registry.",
+      "url": "https://techeconomy.ng/nigeria-launches-national-cylinder-recirculation-programme-in-abuja-through-son"
+    },
+    {
+      "claim": "A Nigerian filling station needs a site suitability inspection, approval to construct and a licence to operate.",
+      "url": "https://wikiprocedure.com/index.php/Nigeria_-_Apply_for_Approval_to_Construct_and_Operate_Petroleum_Filling_Station"
+    },
+    {
+      "claim": "EPA rules require release detection for underground storage tanks, with monthly monitoring methods.",
+      "url": "https://www.epa.gov/ust/release-detection-underground-storage-tanks"
+    },
+    {
+      "claim": "Lumos sells pay-as-you-go solar kits in Nigeria through MTN, with a commitment fee and small instalments paid by airtime.",
+      "url": "https://www.howwemadeitinafrica.com/closer-look-lumos-pay-go-solar-business-nigeria/58698/"
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+ "key": "bank",
+ "sector": "Retail and commercial banking, from POS agent to national bank",
+ "howTheBusinessMakesMoney": "A bank borrows cheaply from depositors and lends or invests at higher rates. The gap, net interest margin, is most of its income; fees on transfers, cards and cash add the rest. The regulator locks part of every deposit as a reserve, demands a capital cushion against bad loans, and insures small savers. A POS agent earns only fees for moving cash on behalf of a licensed bank and may not keep deposits. Profit = spread + fees - staff, branches and bad loans.",
+ "caseStudies": [
+  {
+   "company": "JPMorgan Chase",
+   "country": "US",
+   "scale": "Largest US bank: $185bn revenue, $57bn net income and $4.4tn assets in 2025; CET1 capital ratio 14.5%.",
+   "lesson": "Scale wins on cost of funds: a huge base of cheap everyday deposits funds loans, and a capital ratio well above the minimum lets it keep lending when others freeze. Reward a thick capital cushion.",
+   "source": "https://www.theasianbanker.com/updates-and-articles/jpmorgan-chase-posts-57b-profit-in-2025-plans-105b-spend-as-rate-tailwinds-fade"
+  },
+  {
+   "company": "Bank of America",
+   "country": "US",
+   "scale": "2025: $112bn revenue, of which $62bn net interest income; net income $30.5bn.",
+   "lesson": "About 45% of revenue is fees (cards, payments, advice), so income holds up when rates fall. The game should let fee products grow into a second engine beside the spread.",
+   "source": "https://pbn.com/bank-of-america-ends-2025-with-30-5b-profit-driven-by-trading-interest-gains/"
+  },
+  {
+   "company": "Zenith Bank",
+   "country": "Nigeria",
+   "scale": "2025: N1.26tn profit before tax, N24tn deposits, N11tn gross loans, NPL ratio 3.8%, capital adequacy 25%.",
+   "lesson": "Lends under half its deposits and keeps liquidity at 71%: with 45% locked at the central bank and T-bills paying well, a Nigerian bank wins by being careful, not by lending everything.",
+   "source": "https://techeconomy.ng/zenith-bank-declares-n1-26trn-pbt-100-increase-in-dividend/"
+  },
+  {
+   "company": "Moniepoint",
+   "country": "Nigeria",
+   "scale": "2025: over 14bn transactions worth about N412tn, 6m+ active businesses, over N1tn lent to small firms.",
+   "lesson": "Started as POS and agent rails, earned tiny fees on huge volume, then used that data to lend and hold deposits under a microfinance licence. Copy the kiosk-to-licence ladder.",
+   "source": "https://techcabal.com/?p=179521"
+  }
+ ],
+ "unitEconomics": [
+  {
+   "metric": "Net interest margin (yearly)",
+   "usTypical": "2.9% big banks to 4.0% small banks (Q2 2026)",
+   "nigeriaTypical": "About 7% to 10%; lending near 30%, T-bills near 16%",
+   "basis": "sourced (US); estimated (Nigeria)",
+   "source": "https://www.bankingdive.com/press-release/20260828-bank-profits-jump-12-in-q2-but-credit-is-slipping-at-nearly-half-of-us-b-1/"
+  },
+  {
+   "metric": "Cost of funds (yearly, all deposits)",
+   "usTypical": "About 1.5% to 2.5%",
+   "nigeriaTypical": "About 3% to 6%; current accounts near 0%, savings near 8%",
+   "basis": "estimated",
+   "source": ""
+  },
+  {
+   "metric": "Cost-to-income ratio",
+   "usTypical": "About 55% to 65%",
+   "nigeriaTypical": "28% (GTCO) to 45% (Zenith) in 2025",
+   "basis": "sourced (Nigeria); estimated (US)",
+   "source": "https://www.gtcoplc.com/what-we-think/press-releases/gtco-plc-releases-2025-full-year-audited-results-declares-another-record-dividend-of-12-76k-re-affirming-unrivalled-capacity-to-creating-value"
+  },
+  {
+   "metric": "Non-performing loan ratio",
+   "usTypical": "Median bank noncurrent rate 0.46% (Q2 2026)",
+   "nigeriaTypical": "3.8% (Zenith) to 5.0% stage 3 (GTCO group), 2025",
+   "basis": "sourced",
+   "source": "https://techeconomy.ng/zenith-bank-declares-n1-26trn-pbt-100-increase-in-dividend/"
+  },
+  {
+   "metric": "Loan-to-deposit ratio",
+   "usTypical": "About 70% to 80%",
+   "nigeriaTypical": "24% (GTCO net) to 46% (Zenith gross), 2025",
+   "basis": "sourced (Nigeria, computed from reported loans and deposits); estimated (US)",
+   "source": "https://www.gtcoplc.com/what-we-think/press-releases/gtco-plc-releases-2025-full-year-audited-results-declares-another-record-dividend-of-12-76k-re-affirming-unrivalled-capacity-to-creating-value"
+  },
+  {
+   "metric": "Capital adequacy ratio",
+   "usTypical": "CET1 14.5% at JPMorgan, end 2025",
+   "nigeriaTypical": "25% (Zenith) to 43.8% (GTCO), 2025",
+   "basis": "sourced",
+   "source": "https://www.theasianbanker.com/updates-and-articles/jpmorgan-chase-posts-57b-profit-in-2025-plans-105b-spend-as-rate-tailwinds-fade"
+  },
+  {
+   "metric": "Cash reserve requirement",
+   "usTypical": "0% since 26 March 2020",
+   "nigeriaTypical": "45% for commercial banks, held in Sept 2026",
+   "basis": "sourced",
+   "source": "https://www.forvismazars.com/ng/en/insights/local-publications/local-insights/cbn-s-350-basis-point-rate-reset"
+  },
+  {
+   "metric": "Fee income share of revenue",
+   "usTypical": "About 45% (Bank of America 2025)",
+   "nigeriaTypical": "About 15% to 25%",
+   "basis": "sourced (US, computed); estimated (Nigeria)",
+   "source": "https://pbn.com/bank-of-america-ends-2025-with-30-5b-profit-driven-by-trading-interest-gains/"
+  }
+ ],
+ "costStructure": [
+  {"item": "Interest paid to depositors", "percentOfRevenue": 30, "note": "Mostly savings and term deposits; current accounts pay almost nothing. Estimated, Nigerian bank."},
+  {"item": "Staff salaries and benefits", "percentOfRevenue": 13, "note": "Tellers, credit officers, compliance, managers. Estimated."},
+  {"item": "Branches, IT, cash logistics", "percentOfRevenue": 17, "note": "Rent, power, data centre, bullion vans, card scheme fees. Estimated."},
+  {"item": "Bad loan provisions", "percentOfRevenue": 8, "note": "Charge set aside for loans that may not come home. Estimated."},
+  {"item": "Deposit insurance and levies", "percentOfRevenue": 4, "note": "Deposit insurance premium and other statutory charges. Estimated."},
+  {"item": "Tax", "percentOfRevenue": 7, "note": "Company income tax on profit. Estimated."},
+  {"item": "Profit after tax", "percentOfRevenue": 21, "note": "What is left for dividends and to grow capital. Estimated."}
+ ],
+ "regulation": [
+  {
+   "rule": "Licence and minimum capital",
+   "unitedStates": "Charter from the OCC (national) or a state, with Federal Reserve oversight and FDIC insurance approval; capital is set case by case, not one fixed figure.",
+   "nigeria": "CBN: N500bn international, N200bn national, N50bn regional (recapitalisation ended 31 Mar 2026). MFBs: N50m unit up to N5bn national.",
+   "source": "https://african.business/2026/04/finance-services/nigeria-concludes-4-65-trillion-bank-recapitalisation-programme"
+  },
+  {
+   "rule": "Cash reserve requirement",
+   "unitedStates": "Federal Reserve reserve requirement is 0% for all depository institutions since 26 March 2020.",
+   "nigeria": "CBN CRR: 45% of deposits for commercial banks, 16% merchant banks, 75% non-TSA public deposits; kept in Sept 2026 as MPR cut to 23%.",
+   "source": "https://www.forvismazars.com/ng/en/insights/local-publications/local-insights/cbn-s-350-basis-point-rate-reset"
+  },
+  {
+   "rule": "Deposit insurance",
+   "unitedStates": "FDIC insures up to $250,000 per depositor per bank per ownership category and resolves failed banks.",
+   "nigeria": "NDIC (2024): N5m per depositor at commercial banks, N2m at microfinance, mortgage and payment service banks; covers about 99% of depositors.",
+   "source": "https://nairametrics.com/2024/05/02/ndic-raises-deposit-insurance-coverage-for-bank-customers-in-nigeria-to-n5-million/"
+  },
+  {
+   "rule": "Capital adequacy (Basel)",
+   "unitedStates": "Fed, OCC and FDIC apply Basel III: CET1 minimum 4.5% plus buffers; 'well capitalised' needs total capital of 10% or more.",
+   "nigeria": "CBN capital adequacy minimum 10% for national banks, 15% for international (from prior knowledge, not re-verified this round).",
+   "source": "https://www.theasianbanker.com/updates-and-articles/jpmorgan-chase-posts-57b-profit-in-2025-plans-105b-spend-as-rate-tailwinds-fade"
+  },
+  {
+   "rule": "Agent banking limits",
+   "unitedStates": "No agent banking regime; non-bank cash and transfer networks need state money transmitter licences and FinCEN registration.",
+   "nigeria": "CBN: N1.2m per agent per day, N100,000 cash-out per customer per day, geo-fenced devices; exclusivity and location rules from 1 Apr 2026.",
+   "source": "https://www.icirnigeria.org/cbn-caps-pos-agents-daily-transactions-at-%e2%82%a61-2m-insists-on-geo-tagging-of-operators/"
+  },
+  {
+   "rule": "Policy rate and treasury bills",
+   "unitedStates": "Federal Reserve sets the fed funds target; Treasury sells T-bills that banks hold as zero-risk liquid assets.",
+   "nigeria": "CBN MPR 23% (Sept 2026); DMO/CBN sell T-bills, 364-day stop rate 15.85% in Oct 2026; banks hold them for liquidity.",
+   "source": "https://nairametrics.com/2026/10/07/dmo-raises-n968-47-billion-as-364-day-stop-rate-falls-to-15-85-despite-strong-demand/"
+  }
+ ],
+ "gameRules": [
+  {
+   "name": "Deposit Waterfall",
+   "rule": "Each N100 deposited: reserve R locked at 0% (R=0 at kiosk, 10 at MFB, 45 at bank stages), till T>=5 kept in vault, rest free. Player splits free funds between loans L and T-bills B with slider; L+B=100-R-T.",
+   "playerFeels": "Almost half my money is locked away; every naira left must work hard.",
+   "simplifiedFrom": "CBN 45% CRR for commercial banks plus liquidity buffer; MFB reserve is a game value."
+  },
+  {
+   "name": "The Spread",
+   "rule": "Monthly: income = L x 2.5% (bank) or 3% (MFB) + B x 1.33% + fees; interest cost = savings deposits x 0.67%; current accounts (60% of deposits) cost 0%. Net = income - interest - salaries - provisions.",
+   "playerFeels": "Cheap current accounts are gold; expensive savers squeeze my margin.",
+   "simplifiedFrom": "Lending near 30% a year, 364-day T-bill 15.85%, savings near 8%, NIM 7-10%."
+  },
+  {
+   "name": "Loans Must Come Home",
+   "rule": "Loan term 6 months. Repay chance shown on loan card: 80% unchecked, 97% with Credit Officer check. Default: principal lost, 30% recovered politely after 3 months. NPL% = defaulted / total loans.",
+   "playerFeels": "Fast loans are tempting but the credit check pays for itself.",
+   "simplifiedFrom": "NPL ratios 3.8%-5% at large Nigerian banks; recovery rates estimated."
+  },
+  {
+   "name": "Examiner Limits",
+   "rule": "If NPL > 5%: no new loans until <= 5%. Capital ratio = equity / (loans x 100% + B x 0%). Below 10% (15% international): no new loans or branches; below 5% for 30 days: licence suspended.",
+   "playerFeels": "I must keep a cushion of my own money, not just customers' money.",
+   "simplifiedFrom": "Basel risk weights, CBN 10%/15% CAR, 5% NPL prudential line."
+  },
+  {
+   "name": "Trust and the Run",
+   "rule": "Trust 0-100, starts 70. Daily withdrawals = deposits x 1%; if trust < 50 add (50 - trust) x 0.2% of deposits. Unpaid customer: trust -10. Fully paid day during run: +5. Run ends at trust 60.",
+   "playerFeels": "One empty till starts a queue; paying every customer calmly ends it.",
+   "simplifiedFrom": "Deposit runs driven by confidence; liquidity buffers stop them."
+  },
+  {
+   "name": "Liquidity Ladder",
+   "rule": "Withdrawals paid in order: till, then sell T-bills same day at 1% loss, then central bank loan at 23.5% a year against T-bills, then sell loans to another bank at 30% loss (3 days). Reserve stays locked.",
+   "playerFeels": "T-bills are my fire extinguisher; loans cannot be turned into cash quickly.",
+   "simplifiedFrom": "CBN standing lending facility at MPR + 0.5% (+50/-300 corridor); illiquid loan books."
+  },
+  {
+   "name": "Insured Sticker",
+   "rule": "From MFB stage the insurance sticker shows: savers with game balance <= N2m (MFB) or <= N5m (bank) run at half speed. Premium = 0.35% of deposits a year, paid monthly.",
+   "playerFeels": "Insurance costs a little but keeps small savers calm.",
+   "simplifiedFrom": "NDIC cover N2m MFB, N5m DMB; premium rate is an estimate."
+  },
+  {
+   "name": "Agent Float and Fees",
+   "rule": "Kiosk: cash-out fee N100 per N5,000 (2%); network keeps 0.5% capped at N100 per transaction. Float pre-funded; kiosk closes when moved total hits N1.2m/day or any customer hits N100,000/day.",
+   "playerFeels": "Busy days are capped; I plan float runs, not just sales.",
+   "simplifiedFrom": "CBN agent caps; street agent fees; network charge estimated."
+  }
+ ],
+ "stages": [
+  {"stage": "Umbrella and One POS", "licenceOrGate": "Agent sign-up with a licensed bank or network; BVN and NIN; N300,000 float", "startupCostNaira": 400000, "monthlyRevenueNaira": 240000, "monthlyCostNaira": 90000, "staff": 1, "customersPerDay": 60},
+  {"stage": "The Agent Shop", "licenceOrGate": "N2m saved; geo-tagged kiosk registered with the network; 30 days with no float shortfall", "startupCostNaira": 2500000, "monthlyRevenueNaira": 900000, "monthlyCostNaira": 500000, "staff": 2, "customersPerDay": 150},
+  {"stage": "Licence on the Wall", "licenceOrGate": "Unit microfinance licence: N50m paid-up capital, fit-and-proper directors, KYC system", "startupCostNaira": 60000000, "monthlyRevenueNaira": 3700000, "monthlyCostNaira": 2400000, "staff": 6, "customersPerDay": 120},
+  {"stage": "Bank for the Whole State", "licenceOrGate": "State microfinance licence: N1bn capital, NPL under 5% for 6 months, clean inspection", "startupCostNaira": 1200000000, "monthlyRevenueNaira": 81000000, "monthlyCostNaira": 58000000, "staff": 40, "customersPerDay": 900},
+  {"stage": "Going Regional", "licenceOrGate": "Regional commercial licence: N50bn capital, capital ratio 10%+, 45% reserve now applies", "startupCostNaira": 55000000000, "monthlyRevenueNaira": 3700000000, "monthlyCostNaira": 2400000000, "staff": 600, "customersPerDay": 8000},
+  {"stage": "National and Listed", "licenceOrGate": "National licence: N200bn capital, stock listing approval, NPL under 5%", "startupCostNaira": 220000000000, "monthlyRevenueNaira": 20000000000, "monthlyCostNaira": 13200000000, "staff": 3000, "customersPerDay": 60000},
+  {"stage": "Branches Abroad", "licenceOrGate": "International licence: N500bn capital, capital ratio 15%+, approval from each host regulator", "startupCostNaira": 550000000000, "monthlyRevenueNaira": 70000000000, "monthlyCostNaira": 46000000000, "staff": 9000, "customersPerDay": 200000},
+  {"stage": "The People's Bank", "licenceOrGate": "12 months with NPL under 5%, capital ratio 15%+, no bank run lost, N12tn deposits", "startupCostNaira": 50000000000, "monthlyRevenueNaira": 165000000000, "monthlyCostNaira": 110000000000, "staff": 20000, "customersPerDay": 500000}
+ ],
+ "uniqueMechanics": [
+  {
+   "name": "Balance Sheet Board",
+   "whatThePlayerDoes": "Each month drags sliders to split free funds between loans, T-bills and till cash, watching margin, liquidity and capital ratio change live before confirming.",
+   "screenNeeded": "Stacked bar of deposits (reserve, till, T-bills, loans) with three gauges: margin, liquidity, capital ratio."
+  },
+  {
+   "name": "Loan Desk",
+   "whatThePlayerDoes": "Reviews borrower cards showing amount, rate and open repay chance; sends the Credit Officer to check or approves fast; follows late loans with polite reminders.",
+   "screenNeeded": "Card queue with repay odds bar, approve/check/decline buttons, and loan book list with NPL% meter."
+  },
+  {
+   "name": "Run on the Bank",
+   "whatThePlayerDoes": "When trust falls, a queue forms at the door; player pays from till, sells T-bills or borrows from the central bank to pay everyone until trust recovers.",
+   "screenNeeded": "Banking hall with live queue, trust meter, till counter and liquidity ladder buttons with their cost shown."
+  }
+ ],
+ "failureStates": [
+  {
+   "what": "Float runs out at the kiosk",
+   "trigger": "Cash on hand falls below N10,000 before 2pm",
+   "consequence": "Cash-out closed; queue walks away, daily revenue drops about 50%",
+   "recovery": "Run to the float box (costs 1 hour) or hire a runner; raise morning float"
+  },
+  {
+   "what": "Lending freeze from bad loans",
+   "trigger": "NPL ratio above 5% of total loans",
+   "consequence": "No new loans; examiner visit; interest income shrinks as loans repay",
+   "recovery": "Recover or write off defaults; approve only checked loans until NPL is 5% or less"
+  },
+  {
+   "what": "Capital too thin",
+   "trigger": "Capital ratio below 10% (15% at international stage)",
+   "consequence": "No new loans, branches or stage upgrade",
+   "recovery": "Retain profit (no dividend), raise equity, shift funds from loans to T-bills"
+  },
+  {
+   "what": "Bank run",
+   "trigger": "Trust below 50, or any day with an unpaid withdrawal",
+   "consequence": "Withdrawals rise up to 11% of deposits a day; forced T-bill and loan sales lose money",
+   "recovery": "Pay everyone via liquidity ladder; 2 fully paid days lift trust by 10; run ends at trust 60"
+  },
+  {
+   "what": "Licence suspended",
+   "trigger": "Capital ratio below 5% for 30 days or a run that cannot be paid",
+   "consequence": "Insurer pays small savers; bank closes; player drops back one stage",
+   "recovery": "Rebuild from prior stage with kept agent network and 25% of remaining equity"
+  }
+ ],
+ "balanceNotes": "Payback: kiosk 3 months, agent shop 6, unit MFB 46, state MFB 52, regional 42, national 32, international 23, people's bank 1. The MFB-to-regional jump (N1.2bn to N55bn) is where players stall; give investor rounds or allow capital from retained profit plus listing. The 45% reserve halves the bank-stage margin, so tune the loan rate and current-account share first, then default rates. Keep runs rare (1 in 12 months) unless the player neglects till cash.",
+ "openQuestions": [
+  "Should the 45% reserve hit hard at regional stage, or phase in from 20% so the jump from microfinance feels fair?",
+  "Can players raise outside equity (investor rounds, listing) or only use retained profit to meet each capital pad?",
+  "Should the policy rate move with real CBN decisions via events, or stay fixed at 23% for predictable balance?",
+  "Does licence suspension drop the player one stage, or end the business and keep only cash?"
+ ],
+ "sources": [
+  {"claim": "In September 2026 the CBN cut the MPR from 26.5% to 23%, narrowed the corridor to +50/-300 bps, and kept CRR at 45% for commercial banks, 16% merchant banks and 75% non-TSA public deposits.", "url": "https://www.forvismazars.com/ng/en/insights/local-publications/local-insights/cbn-s-350-basis-point-rate-reset"},
+  {"claim": "The 364-day Nigerian treasury bill stop rate fell to 15.85% at an October 2026 auction.", "url": "https://nairametrics.com/2026/10/07/dmo-raises-n968-47-billion-as-364-day-stop-rate-falls-to-15-85-despite-strong-demand/"},
+  {"claim": "Bank recapitalisation ended 31 March 2026 with N500bn international, N200bn national and N50bn regional minimums.", "url": "https://african.business/2026/04/finance-services/nigeria-concludes-4-65-trillion-bank-recapitalisation-programme"},
+  {"claim": "Microfinance bank minimum capital ranges from N50m (unit tier II) to N5bn (national).", "url": "https://nairametrics.com/2026/01/26/cbn-upgrades-opay-moniepoint-other-major-fintechs-mfbs-to-national-status"},
+  {"claim": "NDIC raised cover to N5m per depositor at commercial banks and N2m at microfinance banks in May 2024.", "url": "https://nairametrics.com/2024/05/02/ndic-raises-deposit-insurance-coverage-for-bank-customers-in-nigeria-to-n5-million/"},
+  {"claim": "CBN agent rules cap agents at N1.2m a day and customers at N100,000 a day, with geo-fenced devices.", "url": "https://www.icirnigeria.org/cbn-caps-pos-agents-daily-transactions-at-%e2%82%a61-2m-insists-on-geo-tagging-of-operators/"},
+  {"claim": "Zenith Bank 2025: PBT N1.26tn, deposits N24tn, gross loans N11tn, NPL 3.8%, cost-to-income 45.2%, CAR 25%, liquidity 71%.", "url": "https://techeconomy.ng/zenith-bank-declares-n1-26trn-pbt-100-increase-in-dividend/"},
+  {"claim": "GTCO 2025: PBT N1.23tn, deposits N12.87tn, net loans N3.13tn, cost-to-income 27.9%, CAR 43.8%, stage 3 loans 5.0% group.", "url": "https://www.gtcoplc.com/what-we-think/press-releases/gtco-plc-releases-2025-full-year-audited-results-declares-another-record-dividend-of-12-76k-re-affirming-unrivalled-capacity-to-creating-value"},
+  {"claim": "Moniepoint processed over 14bn transactions worth about N412tn in 2025, serving 6m+ businesses and lending over N1tn.", "url": "https://techcabal.com/?p=179521"},
+  {"claim": "JPMorgan Chase earned $57bn in 2025 with $4.4tn assets and a 14.5% CET1 ratio.", "url": "https://www.theasianbanker.com/updates-and-articles/jpmorgan-chase-posts-57b-profit-in-2025-plans-105b-spend-as-rate-tailwinds-fade"},
+  {"claim": "JPMorgan reported $185bn revenue for 2025.", "url": "https://www.fool.com/earnings/call-transcripts/2026/01/15/j-p-morgan-chase-jpm-q4-2025-earnings-call-transcript/"},
+  {"claim": "Bank of America 2025: revenue $112bn, net interest income $62bn, net income $30.5bn.", "url": "https://pbn.com/bank-of-america-ends-2025-with-30-5b-profit-driven-by-trading-interest-gains/"},
+  {"claim": "US reserve requirement ratios have been 0% since 26 March 2020.", "url": "https://www.federalreserve.gov/monetarypolicy/reservereq.htm"},
+  {"claim": "Q2 2026: US bank ROA 1.37%; NIM about 3.99% for $100m-$1bn banks and 2.94% above $250bn; median noncurrent rate 0.46%.", "url": "https://www.bankingdive.com/press-release/20260828-bank-profits-jump-12-in-q2-but-credit-is-slipping-at-nearly-half-of-us-b-1/"},
+  {"claim": "US community banks numbered 3,818 with NIM around 3.81% in 2026.", "url": "https://www.icba.org/w/community-bank-net-income-increases-8.2-in-q2"}
+ ]
+}

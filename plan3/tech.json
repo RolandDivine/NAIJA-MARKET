@@ -1,0 +1,272 @@
+{
+  "key": "tech",
+  "sector": "Software and payments technology (app studio, SaaS subscriptions, payment processing, hosting)",
+  "howTheBusinessMakesMoney": "Two engines. Software: businesses pay a monthly subscription for apps (shop pages, invoicing, payroll); most of each naira is gross profit once the code is written. Payments: the company moves a seller's customer money from buyer to seller and keeps a small fee per payment (the take rate). It never owns that money, it only holds it until settlement. Hosting servers for others adds rent. Growth is funded by investors who buy a slice of ownership.",
+  "caseStudies": [
+    {
+      "company": "Stripe",
+      "country": "US",
+      "scale": "$1.9 trillion total payment volume in 2025, up 34%, for over 5 million businesses; tender offer valued it at $159bn.",
+      "lesson": "Win builders first with easy code, then earn a thin fee on huge volume. Payments plus add-on software (billing, tax) keeps customers. Being profitable lets it fund growth without new rounds.",
+      "source": "https://stripe.com/newsroom/news/stripe-2025-update"
+    },
+    {
+      "company": "Block (Square)",
+      "country": "US",
+      "scale": "Square handled $250.5bn gross payment volume in 2025; Square gross profit was $3.94bn, about 1.6% of volume.",
+      "lesson": "Small sellers come for a cheap card reader and stay for software, payroll and loans. Gross profit per naira of volume is small, so the game must reward many sellers, not one big one.",
+      "source": "https://s29.q4cdn.com/628966176/files/doc_financials/2025/q4/Q4-2025-Shareholder-Letter_Block.pdf"
+    },
+    {
+      "company": "Paystack",
+      "country": "Nigeria",
+      "scale": "Bought by Stripe for over $200m in 2020; public local fee is 1.5% + N100, capped at N2,000 per payment.",
+      "lesson": "A simple, published, capped fee builds trust with small sellers. Start with online checkout, settle sellers fast and on schedule, and let one happy merchant bring the next.",
+      "source": "https://www.finextra.com/newsarticle/36762/stripe-buys-nigerias-paystack"
+    },
+    {
+      "company": "Moniepoint",
+      "country": "Nigeria",
+      "scale": "Processed about N412 trillion across over 14 billion transactions in 2025 for 6m+ active businesses.",
+      "lesson": "Reliability where the grid and networks fail is the product. Agents, terminals and uptime win small shops; extra services (credit, accounts) come only after holding the right licence.",
+      "source": "https://nairametrics.com/2026/01/30/moniepoint-mfb-processes-n412trn-transactions-in-2025-disburses-n1trn-loans"
+    }
+  ],
+  "unitEconomics": [
+    {
+      "metric": "Headline payment fee (local card)",
+      "usTypical": "2.9% + 30 cents per card payment (list price)",
+      "nigeriaTypical": "1.5% + N100, N100 waived under N2,500, cap N2,000",
+      "basis": "sourced",
+      "source": "https://paystack.com/pricing"
+    },
+    {
+      "metric": "Net take rate after bank and card costs",
+      "usTypical": "About 1.6% of volume (Square gross profit / GPV 2025)",
+      "nigeriaTypical": "About 0.6% to 0.9% of volume",
+      "basis": "estimated",
+      "source": "https://s29.q4cdn.com/628966176/files/doc_financials/2025/q4/Q4-2025-Shareholder-Letter_Block.pdf"
+    },
+    {
+      "metric": "Software subscription gross margin",
+      "usTypical": "75% to 80%",
+      "nigeriaTypical": "60% to 70% (dollar cloud bills, diesel)",
+      "basis": "estimated",
+      "source": ""
+    },
+    {
+      "metric": "LTV to CAC ratio",
+      "usTypical": "3:1 is healthy; under 2:1 loses money at scale",
+      "nigeriaTypical": "3:1 target; field sales keeps CAC low",
+      "basis": "sourced",
+      "source": "https://www.saashero.net/uncategorized/b2b-saas-ltv-cac-ratio/"
+    },
+    {
+      "metric": "Monthly churn, small business customers",
+      "usTypical": "2.5% to 3.5% a month",
+      "nigeriaTypical": "4% to 6% a month",
+      "basis": "estimated",
+      "source": "https://www.saashero.net/uncategorized/b2b-saas-ltv-cac-ratio/"
+    },
+    {
+      "metric": "Engineer cost per month",
+      "usTypical": "$12,000 to $18,000 fully loaded",
+      "nigeriaTypical": "N300,000 junior, N2,000,000 senior (median)",
+      "basis": "sourced",
+      "source": "https://mctaba.com/learn/nigeria/software-developer-salaries-nigeria"
+    },
+    {
+      "metric": "Seed round size and dilution",
+      "usTypical": "$3m to $5m for about 20%",
+      "nigeriaTypical": "$1m to $3m for about 15% to 20%",
+      "basis": "sourced",
+      "source": "https://hub.causo.ai/guides/raising-seed-nigeria-lagos-2026"
+    },
+    {
+      "metric": "Runway target after a raise",
+      "usTypical": "18 to 24 months",
+      "nigeriaTypical": "18 to 24 months",
+      "basis": "estimated",
+      "source": ""
+    }
+  ],
+  "costStructure": [
+    {"item": "Bank, card scheme and switch fees", "percentOfRevenue": 35, "note": "Paid on each payment before the company keeps its share; largest cost for a processor."},
+    {"item": "Engineers and staff salaries", "percentOfRevenue": 30, "note": "Developer pay is the biggest controllable cost; seniors cost about 7 juniors."},
+    {"item": "Sales, marketing and onboarding", "percentOfRevenue": 12, "note": "Sales reps, demo days and merchant sign-up; this is customer acquisition cost."},
+    {"item": "Cloud, servers, diesel and cooling", "percentOfRevenue": 10, "note": "Cloud billed in dollars; own racks need diesel and backup sites. Estimated."},
+    {"item": "General and admin", "percentOfRevenue": 8, "note": "Office rent, legal, finance and travel. Estimated."},
+    {"item": "Compliance, licences and audits", "percentOfRevenue": 5, "note": "Licence fees, PCI and data protection audits, AML team. Estimated."}
+  ],
+  "regulation": [
+    {
+      "rule": "Licence to move other people's money",
+      "unitedStates": "FinCEN money services business registration (renew every 2 years) plus state money transmitter licences in 49 states and DC; agent-of-payee rules vary.",
+      "nigeria": "CBN licence by category with minimum capital: PSSP N100m, Payment Solution Services N250m, Switching N2bn, Mobile Money N2bn; sandbox has none.",
+      "source": "https://www.sanctionscanner.com/blog/us-money-transmitter-licensing-who-needs-it-and-what-the-mtma-changes-1443"
+    },
+    {
+      "rule": "Customer funds kept separate",
+      "unitedStates": "State regulators require bonds, net worth and permissible investments equal to money held for customers.",
+      "nigeria": "CBN requires customer funds in designated settlement accounts with partner banks, never used for company spending.",
+      "source": "https://www.legal500.com/intelligence/nigeria/technology/summary-of-the-revised-licence-categorisation-for-operators-in-the-nigerian-payments"
+    },
+    {
+      "rule": "Card data security (PCI DSS)",
+      "unitedStates": "PCI DSS v4.0.1 from the PCI Security Standards Council, enforced by card brands and acquirers; large processors need a yearly on-site assessment.",
+      "nigeria": "Same PCI DSS standard, required by card schemes and CBN for processors and switches handling card data.",
+      "source": "https://www.brightdefense.com/news/pci-dss-v4-0-1-sets-new-baseline-for-cardholder-data-security/"
+    },
+    {
+      "rule": "Personal data protection",
+      "unitedStates": "No single federal law; FTC enforcement plus state laws such as California's CCPA; breach notice laws in every state.",
+      "nigeria": "NDPC under the NDP Act 2023 and GAID 2025: major-importance firms register, file yearly audit returns (N100k to N1m fee), late +50%, fines to 2% revenue.",
+      "source": "https://privacymatters.dlapiper.com/2025/06/nigeria-ndpc-issues-gaid-key-compliance-insights/"
+    },
+    {
+      "rule": "Anti-money laundering and KYC",
+      "unitedStates": "Bank Secrecy Act via FinCEN: written AML programme, customer checks, suspicious activity reports.",
+      "nigeria": "CBN AML/CFT rules and NFIU reporting; tiered KYC using BVN or NIN before limits rise.",
+      "source": "https://wiki.private.law/en/msb-license-usa"
+    },
+    {
+      "rule": "IT standards and government clients",
+      "unitedStates": "No IT licence; SOC 2 reports are a voluntary trust badge buyers often demand.",
+      "nigeria": "NITDA sets IT standards and the cloud policy; selling software to government needs NITDA clearance.",
+      "source": "https://nitda.gov.ng"
+    }
+  ],
+  "gameRules": [
+    {
+      "name": "Ship features",
+      "rule": "Ticket at a desk becomes a feature in 4 game-hours (junior) or 1.5 hours (senior). Bug chance 15% junior, 4% senior. Each shipped feature adds +2% sales-desk conversion, capped at +30%. Open bugs block that line's sales.",
+      "playerFeels": "Seniors are expensive but every feature they ship sticks.",
+      "simplifiedFrom": "Engineering velocity versus quality; senior pay about 7x junior in Lagos."
+    },
+    {
+      "name": "Subscriptions and take rate",
+      "rule": "Subscriptions bill on day 1 of each month. Pay Link fee = min(1.5% x payment + N100, N2,000); N100 waived under N2,500; foreign cards 3.9%. 40% of each fee goes to bank and card costs; keep 60%.",
+      "playerFeels": "Thousands of small payments add up; one huge payment barely moves the needle.",
+      "simplifiedFrom": "Published Nigerian processor pricing and Square gross profit near 1.6% of volume."
+    },
+    {
+      "name": "Churn and lifetime value",
+      "rule": "Monthly churn = 4% base, +1% per 10 open bugs, +0.5% per downtime hour, -1% per support agent per 100 subscribers, floor 1.5%. LTV = monthly gross profit per customer / churn. Show LTV:CAC; aim 3.",
+      "playerFeels": "Support agents feel like a cost until you see customers stop leaving.",
+      "simplifiedFrom": "SaaS LTV/CAC benchmarks; small-business churn of 3% to 6% a month."
+    },
+    {
+      "name": "Burn and runway",
+      "rule": "Burn = monthly costs - monthly revenue (if positive). Runway = cash / burn in months. Under 6 months: amber warning. Under 3: staff work 25% slower. Cash 0: salaries unpaid, must cut staff or close a round.",
+      "playerFeels": "A ticking clock that makes every hire a real decision.",
+      "simplifiedFrom": "Startup burn and runway tracking; 18 to 24 months target after a raise."
+    },
+    {
+      "name": "Funding rounds cost ownership",
+      "rule": "Seed: N3bn for 20%, needs 500 paying subscribers. Series A: N22.5bn for 20%, needs N50m monthly revenue. Series B: N75bn for 15%. Ownership x= (1 - stake). Owner's share of profit = ownership.",
+      "playerFeels": "Cash arrives fast but the slice shrinks; raise only when you must.",
+      "simplifiedFrom": "Lagos seed $1m to $3m and Nigerian Series A $11m to $22m at about N1,500 per dollar."
+    },
+    {
+      "name": "Settlement vault",
+      "rule": "All Pay Link money goes to a locked vault and is paid to sellers next day (T+1). Vault cash can never pay costs. Late settlement = 1 strike; 3 strikes in 90 days = Pay Link suspended 7 days. 30 clean days = +10% queue.",
+      "playerFeels": "Customer money is untouchable, and keeping it safe earns trust.",
+      "simplifiedFrom": "CBN and US state rules on separate settlement accounts and safeguarded funds."
+    },
+    {
+      "name": "Uptime",
+      "rule": "One site gives 99.5% uptime; a second site gives 1 - (1 - 0.995)^2. Each down hour loses that hour's fees and adds churn. Generator out of diesel = site down. Target 99.9% for 30 days unlocks bank clients.",
+      "playerFeels": "Spending on a second home for servers feels wasteful until the first outage.",
+      "simplifiedFrom": "Processor uptime targets, Lagos grid outages and multi-region failover."
+    },
+    {
+      "name": "Compliance audits",
+      "rule": "PCI audit yearly at game day 90, costs N15m, needed to keep Pay Link. Data audit due 31 March, fee N100k to N1m by customer count; late +50%; unfiled = fine 2% of yearly revenue and no new customers.",
+      "playerFeels": "Audits are a predictable bill; skipping them is never cheaper.",
+      "simplifiedFrom": "PCI DSS yearly assessment and NDPC GAID 2025 audit returns and fees."
+    }
+  ],
+  "stages": [
+    {"stage": "Umbrella Repair Stand", "licenceOrGate": "None. A table, tools and a market spot fee.", "startupCostNaira": 150000, "monthlyRevenueNaira": 250000, "monthlyCostNaira": 120000, "staff": 1, "customersPerDay": 12},
+    {"stage": "Night Class at the Cafe", "licenceOrGate": "Save N200,000 and ship first 3 Shop Pages.", "startupCostNaira": 400000, "monthlyRevenueNaira": 450000, "monthlyCostNaira": 250000, "staff": 1, "customersPerDay": 15},
+    {"stage": "Two Laptops, One Room", "licenceOrGate": "Register the company with CAC; 30 paying subscribers.", "startupCostNaira": 2500000, "monthlyRevenueNaira": 3000000, "monthlyCostNaira": 2200000, "staff": 4, "customersPerDay": 25},
+    {"stage": "The Pay Link Idea", "licenceOrGate": "Partner bank plus CBN PSSP licence with N100m capital (sandbox first).", "startupCostNaira": 120000000, "monthlyRevenueNaira": 12000000, "monthlyCostNaira": 10000000, "staff": 10, "customersPerDay": 60},
+    {"stage": "Seed Money, Real Pressure", "licenceOrGate": "500 paying subscribers; seed round gives 20% away.", "startupCostNaira": 300000000, "monthlyRevenueNaira": 60000000, "monthlyCostNaira": 110000000, "staff": 35, "customersPerDay": 200},
+    {"stage": "Series A and the Rack Room", "licenceOrGate": "N50m monthly revenue, Series A, PCI DSS audit passed, NDPC registration.", "startupCostNaira": 4000000000, "monthlyRevenueNaira": 450000000, "monthlyCostNaira": 600000000, "staff": 120, "customersPerDay": 800},
+    {"stage": "Five Cities, One Codebase", "licenceOrGate": "Licence in each new country and a clean yearly data protection audit.", "startupCostNaira": 15000000000, "monthlyRevenueNaira": 3000000000, "monthlyCostNaira": 3300000000, "staff": 400, "customersPerDay": 3000},
+    {"stage": "The Unicorn Bell", "licenceOrGate": "Switching licence (N2bn capital), 99.9% uptime 12 months, 2 clean audits.", "startupCostNaira": 60000000000, "monthlyRevenueNaira": 15000000000, "monthlyCostNaira": 12000000000, "staff": 1200, "customersPerDay": 15000}
+  ],
+  "uniqueMechanics": [
+    {
+      "name": "Runway clock",
+      "whatThePlayerDoes": "Watches cash divided by monthly burn, decides when to hire, cut or raise, and accepts a smaller ownership slice in exchange for investor cash.",
+      "screenNeeded": "Runway meter with months left, burn bar, ownership pie and round offers with required metrics."
+    },
+    {
+      "name": "Settlement vault",
+      "whatThePlayerDoes": "Sees seller money flow in, keeps only the fee, and taps Settle each morning so sellers are paid on time; vault cash is locked.",
+      "screenNeeded": "Vault panel showing money held for sellers, fee earned, settlement timer and trust strikes."
+    },
+    {
+      "name": "Uptime and audit board",
+      "whatThePlayerDoes": "Refuels generators, adds a second server site, and books PCI and data audits before their due dates to keep Pay Link running.",
+      "screenNeeded": "Status board with uptime %, diesel level per site, audit calendar and pass or fail badges."
+    }
+  ],
+  "failureStates": [
+    {
+      "what": "Cash runs out",
+      "trigger": "Runway below 0 months on salary day (28th).",
+      "consequence": "Staff unpaid, all desks stop, half the developers leave in 3 days.",
+      "recovery": "Cut staff to break even, sell Cloud Rack capacity, or accept a bridge round at 25% stake."
+    },
+    {
+      "what": "Settlement failure",
+      "trigger": "3 late settlements within 90 days.",
+      "consequence": "Pay Link suspended 7 days by the regulator; 20% of payment sellers leave.",
+      "recovery": "Hire a settlement officer, keep vault reconciled, pass a review after 7 clean days."
+    },
+    {
+      "what": "Major outage",
+      "trigger": "Uptime under 99% in a month (more than 7 hours down).",
+      "consequence": "Churn doubles that month and bank clients cancel Cloud Rack plans.",
+      "recovery": "Add a second site and solar backup; 30 days at 99.9% restores bank queue."
+    },
+    {
+      "what": "Failed or missed audit",
+      "trigger": "PCI audit failed or data audit unfiled 30 days past 31 March.",
+      "consequence": "Fine 2% of yearly revenue and no new Pay Link customers.",
+      "recovery": "Hire a Data Protection Officer, fix 5 findings tickets, refile and pay the late fee."
+    },
+    {
+      "what": "Customers flee",
+      "trigger": "Monthly churn above 8% for 2 months.",
+      "consequence": "Investors pull the next round offer; LTV:CAC falls under 1.",
+      "recovery": "Fix open bugs, add support agents, pause sales hiring until churn under 4%."
+    }
+  ],
+  "balanceNotes": "Payback: stages 1-3 repay in 1 to 3 months; stage 4 about 60 months on fees alone, so the licence is a deliberate wall; stages 5-7 run at a loss on purpose and live on funding, payback only once volume compounds; stage 8 repays in about 20 months. Players will feel stuck at the N100m licence and in the seed burn. Tune first: churn base, Pay Link net share (60%) and round thresholds.",
+  "openQuestions": [
+    "Should the Pay Link licence be reachable through a cheaper sandbox step first, or stay a single N100m wall?",
+    "Can players decline funding and grow slowly on profit, and should that earn a founder-ownership bonus at the end?",
+    "Should the game show real dollar values for rounds, or naira only at a fixed exchange rate?",
+    "Do foreign offices (Nairobi, Cairo, London) need their own licence mini-games, or one generic country gate?"
+  ],
+  "sources": [
+    {"claim": "Stripe processed $1.9 trillion in total payment volume in 2025, up 34%, for more than 5 million businesses, and was valued at $159bn in a tender offer.", "url": "https://stripe.com/newsroom/news/stripe-2025-update"},
+    {"claim": "Block reported 2025 gross profit of $10.36bn, Square GPV of $250.5bn and Square gross profit of $3.94bn.", "url": "https://s29.q4cdn.com/628966176/files/doc_financials/2025/q4/Q4-2025-Shareholder-Letter_Block.pdf"},
+    {"claim": "Stripe acquired Nigeria's Paystack for over $200m in 2020.", "url": "https://www.finextra.com/newsarticle/36762/stripe-buys-nigerias-paystack"},
+    {"claim": "Paystack charges 1.5% + N100 on local payments, waives the N100 under N2,500, caps at N2,000 and charges 3.9% on international cards.", "url": "https://paystack.com/pricing"},
+    {"claim": "Moniepoint processed about N412 trillion in over 14 billion transactions in 2025 and served over 6 million active businesses.", "url": "https://nairametrics.com/2026/01/30/moniepoint-mfb-processes-n412trn-transactions-in-2025-disburses-n1trn-loans"},
+    {"claim": "CBN minimum capital: Switching N2bn, Mobile Money N2bn, PSSP N100m, PTSP N100m, Super-Agent N50m, Payment Solution Services N250m, sandbox none.", "url": "https://www.legal500.com/intelligence/nigeria/technology/summary-of-the-revised-licence-categorisation-for-operators-in-the-nigerian-payments"},
+    {"claim": "FinCEN MSB registration renews every two years and 49 states plus DC require money transmitter licences; agent-of-payee treatment varies by state.", "url": "https://www.sanctionscanner.com/blog/us-money-transmitter-licensing-who-needs-it-and-what-the-mtma-changes-1443"},
+    {"claim": "Flutterwave held 34 US money transmitter licences by mid-2025, 20 newly secured in the half.", "url": "https://thepaymentsassociation.org/article/flutterwaves-half-year-2025-review-highlights-profitable-progress-and-strengthened-global-growth/"},
+    {"claim": "NDPC GAID 2025 requires annual compliance audits with filing fees of N100,000 to N1,000,000 from the 2026 cycle, effective 19 September 2025.", "url": "https://privacymatters.dlapiper.com/2025/06/nigeria-ndpc-issues-gaid-key-compliance-insights/"},
+    {"claim": "Major data controllers in Nigeria file audit returns by 31 March with a 50% late penalty and sanctions up to N10m or 2% of annual gross revenue.", "url": "https://www.mondaq.com/nigeria/data-protection/1734060/what-you-should-know-about-the-new-data-protection-compliance-audit-regime-in-nigeria"},
+    {"claim": "A 3:1 LTV to CAC ratio is generally considered healthy for SaaS and under 2:1 suggests losing money on acquisition.", "url": "https://www.saashero.net/uncategorized/b2b-saas-ltv-cac-ratio/"},
+    {"claim": "Nigerian developers earn a median of about N300,000 a month as juniors and N2,000,000 as seniors.", "url": "https://mctaba.com/learn/nigeria/software-developer-salaries-nigeria"},
+    {"claim": "Lagos seed rounds in 2026 typically run about $1m to $3m.", "url": "https://hub.causo.ai/guides/raising-seed-nigeria-lagos-2026"},
+    {"claim": "Nigerian Series A rounds in 2025 included deals of $11m, $20m and $22m.", "url": "https://nairametrics.com/2026/01/29/nigerias-most-funded-startups-capture-82-9-of-2025-capital-inflow/"},
+    {"claim": "PCI DSS v4.0.1 is the current card data security baseline for merchants and service providers.", "url": "https://www.brightdefense.com/news/pci-dss-v4-0-1-sets-new-baseline-for-cardholder-data-security/"}
+  ]
+}

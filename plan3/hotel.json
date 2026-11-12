@@ -1,0 +1,274 @@
+{
+ "key": "hotel",
+ "sector": "Hotels and hospitality (guest houses, business hotels, resorts, hotel chains)",
+ "howTheBusinessMakesMoney": "A hotel sells room nights: revenue = rooms x occupancy x average daily rate. On top come breakfast, restaurant and bar sales, and hall hire for conferences and weddings, which in Nigeria can be a third of income. Costs are mostly staff, food, linen, upkeep and power; in Nigeria diesel for generators is a huge line. Big chains own few hotels: they earn franchise and management fees from owners who use their brand, booking system and standards.",
+ "caseStudies": [
+  {
+   "company": "Marriott International",
+   "country": "US",
+   "scale": "1,779,936 rooms in 9,805 hotels; 2025 systemwide RevPAR $128.80 at 69.3% occupancy and $185.81 ADR.",
+   "lesson": "Asset-light: 2025 gross fees were $5.44bn, $3.33bn of it franchise fees. The endgame should let the player earn brand and management fees from hotels other owners build, not only own every building.",
+   "source": "https://marriott.gcs-web.com/news-releases/news-release-details/marriott-international-reports-fourth-quarter-and-full-year-2025"
+  },
+  {
+   "company": "Hilton Worldwide",
+   "country": "US",
+   "scale": "2025 net income $1.461bn; 97,000 rooms opened and 6.7% net unit growth; pipeline of 520,500 rooms.",
+   "lesson": "Growth comes from a pipeline of signed hotels run to one brand standard. Hilton also manages Transcorp Hilton Abuja for a fee: copy the 'manager runs a branch to your standard' loop.",
+   "source": "https://hotelbusiness.com/hilton-closes-2025-with-1-46b-net-income-modest-revpar-gains/"
+  },
+  {
+   "company": "Transcorp Hotels Plc (Transcorp Hilton Abuja)",
+   "country": "Nigeria",
+   "scale": "9M 2025 revenue N72.31bn (+49%): rooms N48.05bn (about 66%), food and beverage N21.02bn (about 29%).",
+   "lesson": "Rooms pay the bills but food, drink and events are almost a third of revenue. Opex rose 49% on staff, energy bills and Hilton management fees: power and brand fees must be real costs in the game.",
+   "source": "https://businessday.ng/companies/article/transcorp-hotels-profit-rises-to-a-record-on-hospitality-boom/"
+  },
+  {
+   "company": "Ikeja Hotel Plc (owner of Sheraton Lagos)",
+   "country": "Nigeria",
+   "scale": "FY2025 revenue N25.84bn (+37.8%); pre-tax profit N12.56bn; cost of sales N13.11bn.",
+   "lesson": "Profit jumped mainly on higher room rates and better occupancy while cost of sales rose only 17%. Rate rises after upgrades and stars should be the player's strongest lever.",
+   "source": "https://nairametrics.com/2026/01/27/ikeja-hotels-posts-n12-6-billion-profit-in-2025-on-stronger-hotel-operations/"
+  }
+ ],
+ "unitEconomics": [
+  {
+   "metric": "Occupancy",
+   "usTypical": "69.3% (Marriott system, 2025)",
+   "nigeriaTypical": "66.7% Lagos Oct 2025; 55% Feb 2024; 40% Feb 2023",
+   "basis": "sourced",
+   "source": "https://atqnews.com/news-lagos-hotel-prices-surge-to-n205534-amid-rising-demand-and-limited-supply/"
+  },
+  {
+   "metric": "Average daily rate (ADR)",
+   "usTypical": "$185.81 (Marriott system, 2025)",
+   "nigeriaTypical": "N205,534 Lagos average, Oct 2025 (N83,105 in 2023)",
+   "basis": "sourced",
+   "source": "https://atqnews.com/news-lagos-hotel-prices-surge-to-n205534-amid-rising-demand-and-limited-supply/"
+  },
+  {
+   "metric": "RevPAR (revenue per available room)",
+   "usTypical": "$128.80 (Marriott system, 2025)",
+   "nigeriaTypical": "About N137,000 Lagos (ADR x occupancy, Oct 2025)",
+   "basis": "sourced",
+   "source": "https://marriott.gcs-web.com/news-releases/news-release-details/marriott-international-reports-fourth-quarter-and-full-year-2025"
+  },
+  {
+   "metric": "Gross operating profit margin",
+   "usTypical": "34.8% (CBRE sample, 2025)",
+   "nigeriaTypical": "About 30-40%; Ikeja Hotel op. profit 38% of revenue 2025",
+   "basis": "sourced",
+   "source": "https://lodgingmagazine.com/?p=124116"
+  },
+  {
+   "metric": "Food, beverage and events share",
+   "usTypical": "About 20-30% at full-service hotels",
+   "nigeriaTypical": "About 29% (Transcorp Hotels, 9M 2025)",
+   "basis": "estimated",
+   "source": "https://businessday.ng/companies/article/transcorp-hotels-profit-rises-to-a-record-on-hospitality-boom/"
+  },
+  {
+   "metric": "Energy cost share",
+   "usTypical": "About 3-5% of revenue (grid utilities)",
+   "nigeriaTypical": "Diesel over 40% of GOP; about 10-18% of revenue",
+   "basis": "sourced",
+   "source": "https://businessday.ng/?p=822352"
+  },
+  {
+   "metric": "Staff per room",
+   "usTypical": "About 0.2-0.4 select-service; 0.8-1.2 luxury",
+   "nigeriaTypical": "About 0.8-1.5 (more manual work, own power and water)",
+   "basis": "estimated",
+   "source": ""
+  },
+  {
+   "metric": "Franchise and management fees",
+   "usTypical": "About 5-6% of room revenue royalty plus marketing fees",
+   "nigeriaTypical": "Branded hotels pay base plus incentive fees to the brand",
+   "basis": "estimated",
+   "source": "https://marriott.gcs-web.com/news-releases/news-release-details/marriott-international-reports-fourth-quarter-and-full-year-2025"
+  }
+ ],
+ "costStructure": [
+  {"item": "Staff wages and service charge", "percentOfRevenue": 20, "note": "Housekeeping, front desk, kitchen, engineers, managers (estimated for a Nigerian mid-size hotel)."},
+  {"item": "Energy (diesel, grid, gas)", "percentOfRevenue": 13, "note": "Generators run whenever grid power fails; diesel was N3,277 a litre in May 2026."},
+  {"item": "Food and drink cost of sales", "percentOfRevenue": 11, "note": "About 35-40% of food and beverage revenue goes on ingredients."},
+  {"item": "Linen, laundry, room supplies", "percentOfRevenue": 5, "note": "Sheets, towels, toiletries, cleaning chemicals, water."},
+  {"item": "Repairs and maintenance", "percentOfRevenue": 6, "note": "Generators, air conditioners, pumps, lifts, painting."},
+  {"item": "Sales, booking commissions, fees", "percentOfRevenue": 8, "note": "Online travel agent commission 15-18% on those bookings, plus brand fees if branded."},
+  {"item": "Admin, insurance, rates, levies", "percentOfRevenue": 7, "note": "Licences, insurance, security, accounting, IT."},
+  {"item": "Operating profit left over", "percentOfRevenue": 30, "note": "Before rent or loan repayments and income tax; Ikeja Hotel reached 38% in 2025."}
+ ],
+ "regulation": [
+  {
+   "rule": "Lodging licence or registration",
+   "unitedStates": "State licence for every lodging, e.g. Florida DBPR Division of Hotels and Restaurants licenses and inspects public lodging and food service each year.",
+   "nigeria": "Lagos Ministry of Tourism, Arts and Culture registers hotels online: 30-day provisional certificate, then a one-year certificate shown on the premises.",
+   "source": "https://nairametrics.com/2025/06/04/lagos-govt-begins-registration-of-beach-operators-rolls-out-licensing-scheme-for-hotels-bars"
+  },
+  {
+   "rule": "Star grading and classification",
+   "unitedStates": "No government star grading; private raters (AAA Diamonds, Forbes Travel Guide) and brand standards drive ratings.",
+   "nigeria": "Nigerian Tourism Development Authority (NTDA Act 2022) and state tourism bodies classify and grade hotels after inspection.",
+   "source": "https://thisdaylive.com/index.php/2024/05/07/ntda-act-2022-a-long-awaited-booster-for-tourism"
+  },
+  {
+   "rule": "Fire and life safety",
+   "unitedStates": "Hotel and Motel Fire Safety Act 1990: smoke detectors in rooms, sprinklers above 3 storeys, FEMA National Master List; local fire marshal inspects.",
+   "nigeria": "State fire service (e.g. Lagos State Fire and Rescue Service) fire safety certificate: extinguishers, alarms, clear exits; checked at grading.",
+   "source": "https://en.wikipedia.org/wiki/Hotel_and_Motel_Fire_Safety_Act_of_1990"
+  },
+  {
+   "rule": "Occupancy or consumption tax",
+   "unitedStates": "City, county and state lodging taxes averaged 14.34% across the 150 largest US cities in 2024 (HVS); collected from guests, filed monthly.",
+   "nigeria": "Lagos Hotel Occupancy and Restaurant Consumption Law 2009: 5% of the bill excluding VAT, collected for Lagos IRS, remitted by the 20th.",
+   "source": "https://www.mondaq.com/article/1646430"
+  },
+  {
+   "rule": "VAT or sales tax",
+   "unitedStates": "No VAT; most states also charge sales tax on room bills, administered by the state revenue department.",
+   "nigeria": "VAT 7.5% on hotel bills under the Nigeria Tax Act 2025, filed monthly with the Nigeria Revenue Service (formerly FIRS).",
+   "source": "https://www.pwc.com/ng/en/publications/the-nigerian-tax-reform-acts.html"
+  },
+  {
+   "rule": "Food hygiene and health",
+   "unitedStates": "State and county health departments permit and inspect hotel kitchens using the FDA Food Code; Florida DBPR inspects hotel restaurants.",
+   "nigeria": "State environmental health officers inspect kitchens; food handlers need medical fitness certificates; hygiene is on the grading checklist.",
+   "source": "https://www2.myfloridalicense.com/hotels-restaurants/licensing/general/"
+  }
+ ],
+ "gameRules": [
+  {
+   "name": "Room nights and occupancy",
+   "rule": "demand = rooms x 0.50 x reviewMult x seasonMult x (1 - 0.08 per 10% price above suggested), capped 0.95. Sold = min(demand, readyRooms). Revenue = sold x rate. Unsold or dirty room nights earn 0.",
+   "playerFeels": "Every empty or dirty room is money walking away.",
+   "simplifiedFrom": "Occupancy x ADR = RevPAR; Lagos 66.7% occupancy at N205,534 ADR (Oct 2025)."
+  },
+  {
+   "name": "Pricing by season",
+   "rule": "rate = baseRate x (1 + 0.15 x stars) x season. Dec 15-Jan 5: x1.5 and occupancy floor 0.90. Jun-Sep rains: x0.85 city, x0.70 resort. Player may set price -20% to +20% of suggested.",
+   "playerFeels": "December is harvest time; rainy months need clever deals.",
+   "simplifiedFrom": "Festive peak rates in Lagos; resort seasonality; elastic leisure demand."
+  },
+  {
+   "name": "Housekeeping turnaround",
+   "rule": "Checkout makes a room dirty. A housekeeper cleans a standard room in 30 game-min, suite 45, villa 60, using 1 linen set + 1 toiletry pack. Rooms not ready by 14:00 lose that night; guest waiting over 1h = -1 review point.",
+   "playerFeels": "A fast, stocked housekeeping team sells more rooms.",
+   "simplifiedFrom": "Rooms-sold capacity limited by housekeeping minutes per occupied room."
+  },
+  {
+   "name": "Generator fuel",
+   "rule": "gridHours per day random 8-16 (mean 12). genHours = (24 - gridHours) x occupancy. Litres = genHours x max(1, 0.25 x rooms) + 10 per hall hour. Cost = litres x diesel (N3,277 base). Solar upgrade cuts genHours 60%.",
+   "playerFeels": "Light off means diesel, and diesel eats profit fast.",
+   "simplifiedFrom": "Nigerian hotels self-generate; diesel over 40% of GOP (BusinessDay 2024); NBS diesel price 2026."
+  },
+  {
+   "name": "Events and hall hire",
+   "rule": "Hall day = N1,500,000 (weddings x2 on Saturdays). Booked 3-10 days ahead. Needs 4 stewards, 1 linen crate per 50 seats, tea crates = seats/25. Not ready at start: fee -30%, review -0.3. Each event books rooms for 10% of guests.",
+   "playerFeels": "One well-run conference beats a week of rooms.",
+   "simplifiedFrom": "Lagos hall hire N1.3m-N2m mid-size; F&B and events about 29% of Transcorp revenue."
+  },
+  {
+   "name": "Stars and reviews",
+   "rule": "Each stay scores 5 minus 1 per issue (wait >1h, no light, late food, dirty room). reviewScore = average of last 50 stays; reviewMult = 0.7 + 0.1 x score. Yearly inspection: stars = floor(checklist passed / 2), max 5.",
+   "playerFeels": "Stars are earned item by item; reviews move bookings now.",
+   "simplifiedFrom": "Tourism board grading checklist plus online review scores driving demand."
+  },
+  {
+   "name": "Taxes and service charge",
+   "rule": "Bill = price + 10% service charge (paid to staff, speed +10%) + 7.5% VAT + 5% consumption tax in the Lagos-like state. Taxes go to a locked tax box, auto-paid on day 20. Short box = 10% penalty and audit.",
+   "playerFeels": "Tax money is never mine, so I keep it set aside.",
+   "simplifiedFrom": "Nigeria VAT 7.5%; Lagos HORC 5% excl. VAT due by the 20th; customary 10% service charge."
+  },
+  {
+   "name": "Branch managers and brand fees",
+   "rule": "A branch without the player runs at managerSkill (0.7-0.95) x normal speed. Manager gets 8% of branch operating profit as bonus. From stage 7, partner hotels can join the brand paying 5% of room revenue to the player.",
+   "playerFeels": "Good managers let me grow beyond what I can watch.",
+   "simplifiedFrom": "Incentive management fees on profit; Marriott franchise fees $3.33bn in 2025."
+  }
+ ],
+ "stages": [
+  {"stage": "Four Rooms, One Dream", "licenceOrGate": "State tourism registration (provisional certificate) and a working fire extinguisher", "startupCostNaira": 3000000, "monthlyRevenueNaira": 2000000, "monthlyCostNaira": 1300000, "staff": 2, "customersPerDay": 3},
+  {"stage": "The Budget Hotel", "licenceOrGate": "Full one-year registration, VAT and consumption tax registration, 60% average occupancy", "startupCostNaira": 60000000, "monthlyRevenueNaira": 21000000, "monthlyCostNaira": 15000000, "staff": 10, "customersPerDay": 25},
+  {"stage": "Stars on the Door", "licenceOrGate": "Fire safety certificate, kitchen hygiene pass, guest register; pass the grading inspection", "startupCostNaira": 25000000, "monthlyRevenueNaira": 26000000, "monthlyCostNaira": 17000000, "staff": 12, "customersPerDay": 32},
+  {"stage": "Ikeja Means Business", "licenceOrGate": "2 stars, review score 4.0+, N80m savings for the 60-room lease and hall fit-out", "startupCostNaira": 800000000, "monthlyRevenueNaira": 140000000, "monthlyCostNaira": 98000000, "staff": 65, "customersPerDay": 120},
+  {"stage": "Abuja Calling", "licenceOrGate": "Hotel manager hired, Ikeja at 65%+ occupancy, FCT tourism registration for the new tower", "startupCostNaira": 1600000000, "monthlyRevenueNaira": 330000000, "monthlyCostNaira": 235000000, "staff": 150, "customersPerDay": 260},
+  {"stage": "Sand, Sea and Calabar", "licenceOrGate": "Both city hotels 3 stars, beach and pool safety plan, state tourism registration", "startupCostNaira": 2500000000, "monthlyRevenueNaira": 604000000, "monthlyCostNaira": 440000000, "staff": 260, "customersPerDay": 380},
+  {"stage": "Across the Continent", "licenceOrGate": "Local hotel licences and tax registration in each new country, central laundry built", "startupCostNaira": 6000000000, "monthlyRevenueNaira": 1100000000, "monthlyCostNaira": 800000000, "staff": 520, "customersPerDay": 650},
+  {"stage": "The Seven-City Crown", "licenceOrGate": "Five-star grading at home, audited accounts, local licences and fire certification abroad", "startupCostNaira": 40000000000, "monthlyRevenueNaira": 4500000000, "monthlyCostNaira": 3300000000, "staff": 1400, "customersPerDay": 2200}
+ ],
+ "uniqueMechanics": [
+  {
+   "name": "Room board turnaround",
+   "whatThePlayerDoes": "Watches every room flip from occupied to dirty to ready, sends housekeepers with linen and toiletries, and races the 14:00 check-in deadline before arrivals hit reception.",
+   "screenNeeded": "Floor-plan room board with colour states, housekeeper queue and linen and toiletry stock counters."
+  },
+  {
+   "name": "Light and diesel panel",
+   "whatThePlayerDoes": "Sees grid hours for today, keeps the diesel tank above empty, buys fuel when the price is low, and invests in solar and inverters to cut generator hours.",
+   "screenNeeded": "Power panel: grid on/off bar, tank gauge in litres, cost per hour, solar upgrade button."
+  },
+  {
+   "name": "Season and events calendar",
+   "whatThePlayerDoes": "Sets room rates per season, accepts or declines hall bookings, and stocks linen and food crates ahead of December, weddings and conferences.",
+   "screenNeeded": "Month calendar with season colours, booked events, suggested rate slider and stock-ahead checklist."
+  }
+ ],
+ "failureStates": [
+  {
+   "what": "Loan arrears from low occupancy",
+   "trigger": "Average occupancy below 45% for 4 game weeks while a hotel loan is running",
+   "consequence": "Bank warning, then repayment taken from savings; new branches locked until clear",
+   "recovery": "Run off-season deals, sign corporate contracts, raise review score; arrears cleared unlocks growth"
+  },
+  {
+   "what": "Diesel tank runs dry",
+   "trigger": "Tank hits 0 litres while grid is off with 1 or more guests in house",
+   "consequence": "Every guest that night scores 1 star; 30% of that night's room revenue refunded",
+   "recovery": "Buy emergency diesel at +25% price, add a bigger tank or solar and inverter"
+  },
+  {
+   "what": "Failed inspection",
+   "trigger": "Any of 3 safety items fails: blocked exit, expired extinguisher, dirty kitchen",
+   "consequence": "Hotel stops taking new guests for 3 game days and the star grade is withheld",
+   "recovery": "Fix each listed item, pay the re-inspection fee and pass the follow-up visit"
+  },
+  {
+   "what": "Review collapse",
+   "trigger": "Review score below 2.5 over the last 50 stays",
+   "consequence": "Demand multiplier drops to 0.75 and corporate clients cancel",
+   "recovery": "Deep clean, staff training day, then 20 good stays in a row lift the score"
+  },
+  {
+   "what": "Tax box short on day 20",
+   "trigger": "Tax box holds less than the VAT and consumption tax collected that month",
+   "consequence": "10% penalty, audit visit and expansion blocked until paid",
+   "recovery": "Pay the full amount plus penalty; keep tax box auto-transfer switched on"
+  }
+ ],
+ "balanceNotes": "Payback in game months: stage 1 about 4, stage 2 about 10, stage 3 about 3 (upgrade pays fast via +15% rate), stage 4 about 19, stage 5 about 17, stage 6 about 15 but uneven by season, stage 7 about 20, stage 8 about 33. Players will feel stuck at stage 4 (big jump in capital) and in the rainy months at the resort. Tune first: generator litres per room, the 0.50 base occupancy, and hall-day frequency, since these swing profit most.",
+ "openQuestions": [
+  "Should late-game growth allow brand-only partner hotels (fee income) or keep the player owning every building?",
+  "Should grid power hours differ by city (Abuja better than Lagos) or stay one random range for simplicity?",
+  "Do we show online travel agent commissions as a separate choice (more guests but 15% fee) or hide it in costs?",
+  "Should foreign branches use local currency with exchange rates or stay in naira-equivalent for younger players?"
+ ],
+ "sources": [
+  {"claim": "Marriott 2025 systemwide RevPAR was $128.80, occupancy 69.3%, ADR $185.81, with 1,779,936 rooms, gross fees $5,438m and franchise fees $3,325m.", "url": "https://marriott.gcs-web.com/news-releases/news-release-details/marriott-international-reports-fourth-quarter-and-full-year-2025"},
+  {"claim": "Hilton earned $1.461bn net income in 2025, opened 97,000 rooms with 6.7% net unit growth, and had a 520,500-room pipeline.", "url": "https://hotelbusiness.com/hilton-closes-2025-with-1-46b-net-income-modest-revpar-gains/"},
+  {"claim": "Transcorp Hotels 9M 2025 revenue was N72.31bn with rooms N48.05bn and food and beverage N21.02bn; opex rose on staff, energy and Hilton management fees.", "url": "https://businessday.ng/companies/article/transcorp-hotels-profit-rises-to-a-record-on-hospitality-boom/"},
+  {"claim": "Ikeja Hotel Plc FY2025 revenue was N25.84bn, pre-tax profit N12.56bn, cost of sales N13.11bn and operating profit N9.94bn.", "url": "https://nairametrics.com/2026/01/27/ikeja-hotels-posts-n12-6-billion-profit-in-2025-on-stronger-hotel-operations/"},
+  {"claim": "CBRE's US sample showed a 2025 GOP margin of 34.8%, down from 35.1% in 2024, with labor cost per occupied room up 2.9%.", "url": "https://lodgingmagazine.com/?p=124116"},
+  {"claim": "Nigerian hoteliers said diesel is over 40% of gross operating profit, Eko Hotels spends almost N10m a day on generators, and occupancy was 55% in Feb 2024.", "url": "https://businessday.ng/?p=822352"},
+  {"claim": "Lagos average daily rate reached N205,534 in October 2025 with occupancy at 66.7%.", "url": "https://atqnews.com/news-lagos-hotel-prices-surge-to-n205534-amid-rising-demand-and-limited-supply/"},
+  {"claim": "NBS put the average diesel price at N3,277.47 a litre in May 2026.", "url": "https://www.legit.ng/business-economy/energy/1716140-nbs-diesel-price-rises-8640-n3277litre-2026/"},
+  {"claim": "Lagos Hotel Occupancy and Restaurant Consumption Tax is 5% of the bill excluding VAT, administered by LIRS and remitted by the 20th of each month.", "url": "https://www.mondaq.com/article/1646430"},
+  {"claim": "Lagos registers hotels online with a 30-day provisional certificate followed by a one-year certificate to be displayed on the premises.", "url": "https://nairametrics.com/2025/06/04/lagos-govt-begins-registration-of-beach-operators-rolls-out-licensing-scheme-for-hotels-bars"},
+  {"claim": "The NTDA Act 2022 gives the Nigerian Tourism Development Authority powers including classification and grading of hospitality businesses.", "url": "https://thisdaylive.com/index.php/2024/05/07/ntda-act-2022-a-long-awaited-booster-for-tourism"},
+  {"claim": "The average total lodging tax across the 150 largest US cities was 14.34% in 2024.", "url": "https://www.hvs.com/Print/2025-Lodging-Tax-Report-USA?id=10299"},
+  {"claim": "The US Hotel and Motel Fire Safety Act of 1990 requires smoke detectors and, for taller buildings, sprinklers for hotels on FEMA's National Master List.", "url": "https://en.wikipedia.org/wiki/Hotel_and_Motel_Fire_Safety_Act_of_1990"},
+  {"claim": "Florida's DBPR Division of Hotels and Restaurants licenses and inspects public lodging and food service establishments.", "url": "https://www2.myfloridalicense.com/hotels-restaurants/licensing/general/"},
+  {"claim": "Nigeria's 2025 tax reform acts keep VAT at 7.5% and move administration to the Nigeria Revenue Service.", "url": "https://www.pwc.com/ng/en/publications/the-nigerian-tax-reform-acts.html"}
+ ]
+}

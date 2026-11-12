@@ -1,0 +1,405 @@
+{
+  "key": "council",
+  "sector": "Local and state government public finance (public service delivery)",
+  "howTheBusinessMakesMoney": "A council is not a profit business. Money comes mostly from transfers from higher governments (in Nigeria, the monthly Federation Account and VAT share), plus own revenue from property rates, market and park fees and charges, and borrowing for capital works. It spends that money on staff, schools, clinics, roads, drains and waste. Success is measured in services delivered, a balanced budget, a clean audit and public approval at the next election.",
+  "caseStudies": [
+    {
+      "company": "City of Austin, Texas",
+      "country": "US",
+      "scale": "FY2026-27 budget of $6.6bn incl. a $1.5bn General Fund and $4.3bn capital plan; tax rate 57.99 cents per $100 (2026)",
+      "lesson": "Every budget shows the cost to a typical household per year ($285.84 more in 2026). Game: show the player the per-resident cost of each choice, so fees and services feel like a trade-off, not free money.",
+      "source": "https://www.austintexas.gov/communications/news/austin-city-council-approves-66-billion-budget-fiscal-year-2026-2027"
+    },
+    {
+      "company": "Mecklenburg County, North Carolina",
+      "country": "US",
+      "scale": "FY2026 operating budget $2.5bn; $666.1m (about 27%) to the county school district; tax 49.27 cents per $100 (2025)",
+      "lesson": "A county is mainly a funder of schools and health it does not run day to day. Game: the biggest line is a transfer to schools and clinics; starving it shows up as empty classrooms, not as a saving.",
+      "source": "https://news.mecknc.gov/board-county-commissioners-adopts-25-billion-operating-budget-fy2026-0"
+    },
+    {
+      "company": "Lagos State Government",
+      "country": "Nigeria",
+      "scale": "2026 budget about N4.4tn passed; H1 2026 revenue N1.685tn, 69% internally generated, N501bn from FAAC",
+      "lesson": "A state can escape dependence on the monthly allocation by building its own revenue and then spend about half on capital. Game: late stages reward raising own revenue share, which unlocks bigger capital projects.",
+      "source": "https://www.premiumtimesng.com/news/top-news/899664-lagos-generates-69-of-%E2%82%A61-69-trillion-revenue-from-igr-spends-91-in-first-half-of-2026.html"
+    },
+    {
+      "company": "Chanchaga Local Government Area, Niger State",
+      "country": "Nigeria",
+      "scale": "Approved 2025 budget N9.81bn: personnel N5.91bn (60%), capital N1.47bn (15%), IGR only N0.2bn (about 2%)",
+      "lesson": "A typical LGA lives on the allocation and pays salaries first, leaving little for capital. Game: chairman stage starts with salaries eating most of the budget; fixing payroll and fees frees money to build.",
+      "source": "https://nogp.nigerstate.gov.ng/wp-content/uploads/CHANCHAGA-LOCAL-GOVERNMENT-AREA-APPROVED-2025-BUDGET.pdf"
+    }
+  ],
+  "unitEconomics": [
+    {
+      "metric": "Transfers from other governments, % of revenue",
+      "usTypical": "37% of local general revenue (2021)",
+      "nigeriaTypical": "About 90% or more for an LGA; 30% for Lagos State",
+      "basis": "sourced (US, Lagos); Nigeria LGA estimated from Chanchaga budget",
+      "source": "https://taxpolicycenter.org/briefing-book/what-are-sources-revenue-state-and-local-governments"
+    },
+    {
+      "metric": "Own taxes and fees, % of revenue",
+      "usTypical": "Property tax 30% plus charges 16% (2021)",
+      "nigeriaTypical": "LGA IGR about 2% (Chanchaga 2025); Lagos IGR 69%",
+      "basis": "sourced",
+      "source": "https://nogp.nigerstate.gov.ng/wp-content/uploads/CHANCHAGA-LOCAL-GOVERNMENT-AREA-APPROVED-2025-BUDGET.pdf"
+    },
+    {
+      "metric": "Monthly federation transfer per council",
+      "usTypical": "No equivalent; state aid is formula-based by program",
+      "nigeriaTypical": "About N674m per LGA per month (H1 2026 average)",
+      "basis": "estimated: N3.13tn to 774 LGAs over 6 months",
+      "source": "https://www.arise.tv/report-faac-generated-n18-72tn-shared-n12-59tn-in-h1-2026/"
+    },
+    {
+      "metric": "Personnel cost, % of budget",
+      "usTypical": "About 50% to 65% of operating budget",
+      "nigeriaTypical": "About 60% (Chanchaga LGA 2025)",
+      "basis": "Nigeria sourced; US estimated",
+      "source": "https://nogp.nigerstate.gov.ng/wp-content/uploads/CHANCHAGA-LOCAL-GOVERNMENT-AREA-APPROVED-2025-BUDGET.pdf"
+    },
+    {
+      "metric": "Capital spending, % of budget",
+      "usTypical": "About 15% to 25% of annual outlays",
+      "nigeriaTypical": "LGA about 15%; Lagos State about 50% (H1 2026)",
+      "basis": "Nigeria sourced; US estimated",
+      "source": "https://www.premiumtimesng.com/news/top-news/899664-lagos-generates-69-of-%E2%82%A61-69-trillion-revenue-from-igr-spends-91-in-first-half-of-2026.html"
+    },
+    {
+      "metric": "Spending per resident per year",
+      "usTypical": "About $1,500 (Austin General Fund / ~1m people)",
+      "nigeriaTypical": "About N30,000 to N35,000 (LGA); about N200,000 (Lagos)",
+      "basis": "estimated from budgets and population estimates",
+      "source": ""
+    },
+    {
+      "metric": "10-year default rate, investment-grade bonds",
+      "usTypical": "Municipal 0.1% vs corporate 2.2% (1970-2021)",
+      "nigeriaTypical": "LGAs cannot freely issue bonds; states borrow with approval",
+      "basis": "US sourced; Nigeria estimated",
+      "source": "https://www.alliancebernstein.com/us/en-us/investments/insights/investment-insights/five-reasons-municipals-have-rarely-defaulted.html"
+    },
+    {
+      "metric": "Purchase size that needs open bidding",
+      "usTypical": "Over $50,000 for Texas cities",
+      "nigeriaTypical": "Goods N30m+, works N50m+ (federal, May 2025)",
+      "basis": "sourced",
+      "source": "https://texas.public.law/statutes/tex._local_gov't_code_section_252.021"
+    }
+  ],
+  "costStructure": [
+    {
+      "item": "Staff salaries and pensions",
+      "percentOfBudget": 50,
+      "note": "Teachers, health workers, crews, clerks. Real LGAs run near 60%; target after payroll clean-up."
+    },
+    {
+      "item": "Roads, drains and capital works",
+      "percentOfBudget": 18,
+      "note": "Pothole patching, gutters, street lights; the line that gets squeezed first when payroll grows."
+    },
+    {
+      "item": "Primary health supplies",
+      "percentOfBudget": 9,
+      "note": "Drug cartons and clinic running costs at health posts."
+    },
+    {
+      "item": "Primary school supplies",
+      "percentOfBudget": 8,
+      "note": "Textbooks, chalk, minor repairs; teacher pay sits in salaries."
+    },
+    {
+      "item": "Waste collection",
+      "percentOfBudget": 7,
+      "note": "Truck fuel, repairs, bins and dumpsite fees."
+    },
+    {
+      "item": "Overheads, audit and publishing",
+      "percentOfBudget": 8,
+      "note": "Office running, revenue collection, internal audit, budget notices, contingency reserve."
+    }
+  ],
+  "regulation": [
+    {
+      "rule": "Where council money comes from",
+      "unitedStates": "State law sets local taxing powers and limits (e.g. Texas tax-rate caps); voters approve general obligation bonds.",
+      "nigeria": "Federation Account shared 52.68% federal, 26.72% states, 20.60% LGs; LGs get 35% of VAT. Set monthly by FAAC.",
+      "source": "https://dataphyte.com/latest-reports/finance/this-is-how-much-your-state-collected-as-faac-revenue-in-six-months"
+    },
+    {
+      "rule": "Council financial autonomy",
+      "unitedStates": "Cities and counties are creatures of the state; state law and charters define their powers.",
+      "nigeria": "Supreme Court, 11 July 2024: LG allocations go directly to elected councils, not via state accounts; no funds to appointed caretakers.",
+      "source": "https://nairametrics.com/2024/07/11/supreme-court-grants-full-financial-autonomy-to-774-local-government-areas"
+    },
+    {
+      "rule": "Annual audit and public accounts",
+      "unitedStates": "GASB standards for annual financial reports, audited by independent CPAs or state auditors; results go to bond market via MSRB EMMA.",
+      "nigeria": "Auditor-General for Local Governments audits each council; State Assembly public accounts committee reviews (Lagos, 57 councils, 2026).",
+      "source": "https://businessday.ng/news/article/lagos-assembly-begins-audit-of-57-lgas-lcdas-accounts/"
+    },
+    {
+      "rule": "Procurement thresholds",
+      "unitedStates": "Texas cities must use competitive sealed bids or proposals for buys over $50,000 (Local Gov't Code 252.021).",
+      "nigeria": "BPP (May 2025): quotations under N30m goods/N50m works; national competitive bidding above; tenders boards approve by size.",
+      "source": "https://fmino.gov.ng/bpp-announces-the-newly-revised-public-procurement-thresholds-to-reflect-current-economic-realities/"
+    },
+    {
+      "rule": "Borrowing and debt approval",
+      "unitedStates": "North Carolina's Local Government Commission (State Treasurer) must approve most local debt and checks repayment ability.",
+      "nigeria": "Fiscal Responsibility Act 2007 and state FR laws: borrow only for capital, within debt limits, with a medium-term expenditure framework.",
+      "source": "https://www.nctreasurer.gov/news/press-releases/2025/10/07/lgc-approves-200-million-bond-pay-charlotte-street-and-neighborhood-projects"
+    },
+    {
+      "rule": "Budget cycle and balance",
+      "unitedStates": "Most states require a balanced annual operating budget adopted before the fiscal year (Austin: 1 Oct; Mecklenburg: 1 Jul).",
+      "nigeria": "Council budget passed by the legislative council and published; states' FR laws demand an MTEF and budget performance reports.",
+      "source": "https://csj-ng.org/wp-content/uploads/2022/03/Fiscal-Responsibility-Act.pdf"
+    }
+  ],
+  "gameRules": [
+    {
+      "name": "Allocation day",
+      "rule": "On day 30 treasury += baseAllocation x (0.85 + rand*0.30). Chairman base = 674m scaled to game units. Money enters the council wallet only; personal wallet gets fixed salary only.",
+      "playerFeels": "Payday for the town, never for me; the size swings so I keep a reserve.",
+      "simplifiedFrom": "FAAC monthly shares to 774 LGAs, N3.13tn in H1 2026, varying with oil and VAT receipts."
+    },
+    {
+      "name": "Fee collection rate",
+      "rule": "Fees collected = fees due x rate. Rate = 0.60 cash desk, 0.95 e-ticket kiosk, +0.10 for 30 days after a budget is posted, -0.10 if approval < 40. Cap 1.0.",
+      "playerFeels": "Closing leaks and showing the books raises money without raising fees.",
+      "simplifiedFrom": "LGA IGR is about 2% of budget; cash collection leaks; Lagos raised IGR to 69% of revenue."
+    },
+    {
+      "name": "Salaries first",
+      "rule": "On allocation day salaries are paid before anything else. If treasury < payroll: strike, all service points closed 3 days, approval -10. If payroll > 60% of monthly budget, capital pads lock.",
+      "playerFeels": "Payroll is the giant in the room; I must keep it lean and clean.",
+      "simplifiedFrom": "Chanchaga LGA 2025: personnel 60% of budget; capital 15%."
+    },
+    {
+      "name": "Procurement tiers",
+      "rule": "Buy < 3% of monthly budget: quotation, instant. 3% to 15%: three quotes, 3 days. > 15%: open tender, 10 days, price 12% below list. Splitting a buy to dodge a tier = audit flag.",
+      "playerFeels": "Big projects take patience, but open tenders save real money.",
+      "simplifiedFrom": "BPP thresholds (RFQ under N30m goods, NCB above); Texas bids over $50,000."
+    },
+    {
+      "name": "Audit visit",
+      "rule": "Each quarter 40% chance of audit. Finds ghost workers = 1% to 3% of payroll or a padded invoice (+20%). Fix within 3 days: money back, approval +6. Ignore: spending pads freeze, approval -15.",
+      "playerFeels": "Audits are allies that find leaks I inherited, if I act fast.",
+      "simplifiedFrom": "Auditor-General for Local Governments reports reviewed by the State Assembly; GASB audited reports in US."
+    },
+    {
+      "name": "Approval meter",
+      "rule": "Daily approval += 0.3 per stocked service point - 0.5 per point with queue > 10 - 1 per closed point. Budget posted on time +5. Term end: >= 50 re-elected, >= 70 next office unlocks. Nothing buys approval.",
+      "playerFeels": "Approval is earned in queues and shelves, not in speeches.",
+      "simplifiedFrom": "Fixed terms set by state law; voters judge service delivery."
+    },
+    {
+      "name": "Credit grade and borrowing",
+      "rule": "Grade A if 3 clean audits, budgets on time and reserve >= 10% of budget; B if 2 of 3; else C (no borrowing). Loans only for capital pads. Monthly rate A 1.5%, B 2%. Debt service capped at 20% of revenue.",
+      "playerFeels": "Good habits unlock cheap money for roads; bad habits shut the door.",
+      "simplifiedFrom": "Muni ratings and NC Local Government Commission approval; Nigeria FR Act: borrow only for capital."
+    },
+    {
+      "name": "Budget vote cycle",
+      "rule": "Month 1 of each year the player sets shares per service; total must equal expected revenue. If not passed by day 15, spending is limited to 1/12 of last year's per month and approval -3.",
+      "playerFeels": "Planning ahead each year beats firefighting.",
+      "simplifiedFrom": "Balanced budget rules; Austin FY starts 1 Oct, Mecklenburg 1 Jul; Nigerian appropriation cycles."
+    }
+  ],
+  "stages": [
+    {
+      "stage": "The Secretary's Table",
+      "licenceOrGate": "Elected market association secretary; ledger opened; 18+ only",
+      "startupCostNaira": 150000,
+      "monthlyRevenueNaira": 900000,
+      "monthlyCostNaira": 750000,
+      "staff": 2,
+      "customersPerDay": 150
+    },
+    {
+      "stage": "Ward 7 Wants You",
+      "licenceOrGate": "Association accounts posted 8 Fridays running; approval 50+; candidate nomination filed",
+      "startupCostNaira": 1500000,
+      "monthlyRevenueNaira": 2500000,
+      "monthlyCostNaira": 2200000,
+      "staff": 4,
+      "customersPerDay": 300
+    },
+    {
+      "stage": "Councillor With a List",
+      "licenceOrGate": "Win ward election with approval 50+; sworn in to the legislative council",
+      "startupCostNaira": 12000000,
+      "monthlyRevenueNaira": 25000000,
+      "monthlyCostNaira": 23000000,
+      "staff": 15,
+      "customersPerDay": 600
+    },
+    {
+      "stage": "Chairman of Okele LGA",
+      "licenceOrGate": "Approval 70+ at term end; win chairmanship; council budget passed",
+      "startupCostNaira": 150000000,
+      "monthlyRevenueNaira": 700000000,
+      "monthlyCostNaira": 680000000,
+      "staff": 1200,
+      "customersPerDay": 3000
+    },
+    {
+      "stage": "The Audit Season",
+      "licenceOrGate": "Survive first state audit; fix all flags within 3 days; payroll under 60% of budget",
+      "startupCostNaira": 60000000,
+      "monthlyRevenueNaira": 760000000,
+      "monthlyCostNaira": 720000000,
+      "staff": 1150,
+      "customersPerDay": 3500
+    },
+    {
+      "stage": "Madam Commissioner",
+      "licenceOrGate": "Re-elected chairman with approval 70+ and 2 clean audits; appointment confirmed by assembly",
+      "startupCostNaira": 500000000,
+      "monthlyRevenueNaira": 3000000000,
+      "monthlyCostNaira": 2900000000,
+      "staff": 2500,
+      "customersPerDay": 40000
+    },
+    {
+      "stage": "The Long Road Tour",
+      "licenceOrGate": "Statewide approval 60+; resign office; campaign paid from party funds under the legal spending cap",
+      "startupCostNaira": 300000000,
+      "monthlyRevenueNaira": 3000000000,
+      "monthlyCostNaira": 2950000000,
+      "staff": 2500,
+      "customersPerDay": 45000
+    },
+    {
+      "stage": "Governor of Marobi State",
+      "licenceOrGate": "Win governorship; state budget passed; credit grade A or B",
+      "startupCostNaira": 2000000000,
+      "monthlyRevenueNaira": 58000000000,
+      "monthlyCostNaira": 56000000000,
+      "staff": 30000,
+      "customersPerDay": 250000
+    }
+  ],
+  "uniqueMechanics": [
+    {
+      "name": "Two-wallet budget board",
+      "whatThePlayerDoes": "Splits each allocation across salaries, clinics, schools, roads, waste and reserve with sliders; council wallet and personal salary wallet never mix.",
+      "screenNeeded": "Budget board with share sliders, per-resident cost, reserve gauge and a separate personal wallet tab"
+    },
+    {
+      "name": "Audit and clean payroll",
+      "whatThePlayerDoes": "When auditors flag a ghost worker or padded invoice, inspects the record, removes it, recovers money and publishes the report before the 3-day timer ends.",
+      "screenNeeded": "Audit desk with flagged items, evidence cards, a 3-day countdown and a publish button"
+    },
+    {
+      "name": "Approval and term clock",
+      "whatThePlayerDoes": "Watches approval by service point and ward, holds town halls, posts budgets, and reaches the threshold before the term clock ends.",
+      "screenNeeded": "Approval map by ward with service icons, term countdown and town hall action button"
+    }
+  ],
+  "failureStates": [
+    {
+      "what": "Salaries missed",
+      "trigger": "Treasury below payroll on allocation day",
+      "consequence": "Staff strike: all service points closed 3 days, approval -10",
+      "recovery": "Cut non-salary spend, collect fees via kiosks, keep a reserve of 10% of budget"
+    },
+    {
+      "what": "Audit ignored",
+      "trigger": "Audit flag not fixed within 3 days",
+      "consequence": "Spending pads freeze, approval -15, credit grade drops to C",
+      "recovery": "Fix all flags and publish the report; freeze lifts next day, grade recovers after 2 clean audits"
+    },
+    {
+      "what": "Service collapse",
+      "trigger": "3 or more service points empty for 7 days",
+      "consequence": "Approval -2 per day; fee collection rate -0.10",
+      "recovery": "Restock with a cargo keke or depot run; hold a town hall for +3"
+    },
+    {
+      "what": "Lost election",
+      "trigger": "Approval below 50 at term end",
+      "consequence": "Return to previous stage's role; unlocks kept, office lost",
+      "recovery": "Rebuild approval over one term and stand again"
+    },
+    {
+      "what": "Debt squeeze",
+      "trigger": "Debt service above 20% of monthly revenue",
+      "consequence": "New borrowing blocked; capital projects pause",
+      "recovery": "Repay from reserve or raise own revenue until below 20%"
+    }
+  ],
+  "balanceNotes": "Stages 1 to 3 should break even in 1 to 2 game months; surplus is small on purpose. Chairman stage feels stuck because payroll starts at 60% and capital is locked; the audit stage is the release valve (ghost removal plus kiosks lift the surplus to about 5%). Commissioner and governor stages have thin margins; progress comes from approval, not money. Tune first: fee collection rates, ghost worker share, and the approval gain per stocked point.",
+  "openQuestions": [
+    "Should costStructure key stay percentOfBudget, or be renamed back to percentOfRevenue for engine compatibility?",
+    "How many game days is one term (suggest 120), and do Nigerian election timings matter for pacing?",
+    "Should the governor stage let the player issue a state bond, or keep borrowing as simple loans?",
+    "Show real naira scale (N700m a month) or scale everything down to game units?"
+  ],
+  "sources": [
+    {
+      "claim": "Austin adopted a $6.6bn FY2026-27 budget with a $1.5bn General Fund, $4.3bn capital plan and a tax rate of 57.9948 cents per $100.",
+      "url": "https://www.austintexas.gov/communications/news/austin-city-council-approves-66-billion-budget-fiscal-year-2026-2027"
+    },
+    {
+      "claim": "Mecklenburg County adopted a $2.5bn FY2026 operating budget, with $666.1m for Charlotte-Mecklenburg Schools and a tax rate of 49.27 cents per $100.",
+      "url": "https://news.mecknc.gov/board-county-commissioners-adopts-25-billion-operating-budget-fy2026-0"
+    },
+    {
+      "claim": "In H1 2026 Lagos earned N1.685tn, 69.2% from IGR and N501bn from FAAC, and spent N767bn recurrent and N773bn capital.",
+      "url": "https://www.premiumtimesng.com/news/top-news/899664-lagos-generates-69-of-%E2%82%A61-69-trillion-revenue-from-igr-spends-91-in-first-half-of-2026.html"
+    },
+    {
+      "claim": "The Lagos State House of Assembly passed a N4.4tn budget for 2026.",
+      "url": "https://guardian.ng/news/lagos-assembly-passes-₦4-4-trillion-2026-budget/"
+    },
+    {
+      "claim": "Chanchaga LGA's approved 2025 budget was N9.81bn, with personnel N5.91bn, capital N1.47bn and IGR about N0.2bn (the document has some internal inconsistencies).",
+      "url": "https://nogp.nigerstate.gov.ng/wp-content/uploads/CHANCHAGA-LOCAL-GOVERNMENT-AREA-APPROVED-2025-BUDGET.pdf"
+    },
+    {
+      "claim": "In 2021, US local general revenue was 37% intergovernmental transfers, 30% property tax and 16% charges.",
+      "url": "https://taxpolicycenter.org/briefing-book/what-are-sources-revenue-state-and-local-governments"
+    },
+    {
+      "claim": "The Federation Account is shared 52.68% federal, 26.72% states and 20.60% local governments; VAT is shared 15/50/35.",
+      "url": "https://dataphyte.com/latest-reports/finance/this-is-how-much-your-state-collected-as-faac-revenue-in-six-months"
+    },
+    {
+      "claim": "In H1 2026, 774 local governments received N3.13tn from FAAC, and Lagos's 20 councils received N310.85bn.",
+      "url": "https://www.arise.tv/report-faac-generated-n18-72tn-shared-n12-59tn-in-h1-2026/"
+    },
+    {
+      "claim": "On 11 July 2024 the Supreme Court ordered that LG allocations be paid directly to democratically elected councils, not through states or to caretakers.",
+      "url": "https://nairametrics.com/2024/07/11/supreme-court-grants-full-financial-autonomy-to-774-local-government-areas"
+    },
+    {
+      "claim": "BPP's May 2025 thresholds set quotations below N30m for goods and N50m for works, with national competitive bidding above those levels.",
+      "url": "https://fmino.gov.ng/bpp-announces-the-newly-revised-public-procurement-thresholds-to-reflect-current-economic-realities/"
+    },
+    {
+      "claim": "Texas municipalities must use competitive sealed bids or proposals for contracts over $50,000.",
+      "url": "https://texas.public.law/statutes/tex._local_gov't_code_section_252.021"
+    },
+    {
+      "claim": "Since 1970, investment-grade municipal bonds have had a 0.1% 10-year cumulative default rate, compared with 2.2% for corporates (Moody's data).",
+      "url": "https://www.alliancebernstein.com/us/en-us/investments/insights/investment-insights/five-reasons-municipals-have-rarely-defaulted.html"
+    },
+    {
+      "claim": "North Carolina's Local Government Commission must approve most local debt and approved a $200m Charlotte GO bond in October 2025.",
+      "url": "https://www.nctreasurer.gov/news/press-releases/2025/10/07/lgc-approves-200-million-bond-pay-charlotte-street-and-neighborhood-projects"
+    },
+    {
+      "claim": "The Lagos Assembly's public accounts committee is reviewing the Auditor-General for Local Governments' report on 57 LGAs and LCDAs.",
+      "url": "https://businessday.ng/news/article/lagos-assembly-begins-audit-of-57-lgas-lcdas-accounts/"
+    },
+    {
+      "claim": "Nigeria's Fiscal Responsibility Act 2007 requires a medium-term expenditure framework and limits borrowing to capital purposes within debt limits.",
+      "url": "https://csj-ng.org/wp-content/uploads/2022/03/Fiscal-Responsibility-Act.pdf"
+    }
+  ]
+}

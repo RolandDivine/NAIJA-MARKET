@@ -1,0 +1,268 @@
+{
+ "key": "shipping",
+ "sector": "Courier, haulage, clearing and forwarding, and ocean shipping",
+ "howTheBusinessMakesMoney": "Logistics firms sell movement and paperwork. Couriers charge per parcel by zone and weight; hauliers charge per trip by distance and load, then pay fuel, drivers, tolls and repairs out of it; clearing agents earn a fixed fee per container while passing the customer's duty straight to customs; shipping lines sell container slots in dollars. Margins are thin (5 to 10 percent), so profit comes from full trucks both ways, fast port clearance and well-kept vehicles.",
+ "caseStudies": [
+  {
+   "company": "UPS",
+   "country": "US",
+   "scale": "Revenue of $88.7bn in 2025 with an 8.9% GAAP operating margin; US revenue per piece up 8.3% in Q4 2025",
+   "lesson": "Parcel profit is density: more pieces per stop and per route. UPS cut low-margin volume and raised revenue per piece. The game should reward dense zones and let players drop loss-making routes.",
+   "source": "https://about.ups.com/ae/en/newsroom/press-releases/financials/ups-releases-4q-2025-earnings-and-provides-2026-guidance.html"
+  },
+  {
+   "company": "J.B. Hunt Transport Services",
+   "country": "US",
+   "scale": "Revenue of $12.0bn in 2025, operating income $865m (operating ratio about 92.8%); 2.14m intermodal loads at $2,795 each",
+   "lesson": "Fuel is billed as a separate surcharge ($1.48bn in 2025), so fuel swings pass to customers. The game should show a fuel surcharge the player can set, and judge trucking by operating ratio.",
+   "source": "https://www.businesswire.com/news/home/20260115148495/en/J.B.-Hunt-Transport-Services-Inc.-Reports-U.S.-GAAP-Revenues-Net-Earnings-and-Earnings-Per-Share-for-Both-the-Fourth-Quarter-and-Year-Ended-December-31-2025"
+  },
+  {
+   "company": "GIG Logistics (GIGL)",
+   "country": "Nigeria",
+   "scale": "Over 160 service centres in 7 countries by mid-2026; 15 new centres and 70+ trucks added in H1 2026",
+   "lesson": "Growth came from walk-in drop-off centres feeding a shared truck network, then e-commerce and cross-border lanes. The game should unlock new drop-off centres that feed one fleet.",
+   "source": "https://techcabal.com/2026/06/23/gig-logistics-is-building-the-infrastructure-powering-african-trade/"
+  },
+  {
+   "company": "Red Star Express Plc",
+   "country": "Nigeria",
+   "scale": "Listed on NGX; H1 2025 revenue N11.1bn (courier N5.2bn, freight N2.4bn); Q2 2025 operating margin about 5.8%",
+   "lesson": "A Nigerian courier-plus-freight group runs on roughly 80% cost of sales and single-digit margins. The game should keep margins thin so efficiency, not price hikes, wins.",
+   "source": "https://nairametrics.com/2025/10/25/red-star-express-grows-q2-2025-profit-by-98-8-as-revenue-hits-n5-8-billion/"
+  }
+ ],
+ "unitEconomics": [
+  {
+   "metric": "Price per parcel (city / interstate)",
+   "usTypical": "About $12 to $14 per US ground parcel (estimate)",
+   "nigeriaTypical": "N1,500-4,000 Lagos bike; N8,000-12,000 interstate",
+   "basis": "sourced",
+   "source": "https://kolonell.com/en/blog/last-mile-delivery-pricing-lagos-2026"
+  },
+  {
+   "metric": "Truck operating cost per km",
+   "usTypical": "$2.34 per mile, about $1.45 per km (2025)",
+   "nigeriaTypical": "About N1,800-2,400 per km for a 40ft trailer (estimate)",
+   "basis": "sourced",
+   "source": "https://www.fleetowner.com/operations/article/55392569/atri-report-breaks-down-class-8-truck-operating-costs-by-region-and-expense-category"
+  },
+  {
+   "metric": "Fuel share of haulage cost",
+   "usTypical": "About 20% ($0.48 of $2.34 per mile, 2025)",
+   "nigeriaTypical": "About 35-45%; diesel N500k-900k on a N2.3m trip in 2023",
+   "basis": "sourced",
+   "source": "https://businessday.ng/maritime/article/interstate-container-haulage-costs-surge-on-lingering-energy-crisis/"
+  },
+  {
+   "metric": "Empty (deadhead) distance share",
+   "usTypical": "16.7% of miles run empty (2024)",
+   "nigeriaTypical": "Often 40-50% of return legs empty (estimate, no data)",
+   "basis": "estimated",
+   "source": "https://truckingresearch.org/2025/07/new-atri-report-shows-trucking-profitability-severly-squeezed-by-high-costs-low-rates/"
+  },
+  {
+   "metric": "Operating ratio (cost / revenue)",
+   "usTypical": "91% UPS, 92.8% J.B. Hunt (2025)",
+   "nigeriaTypical": "About 94% Red Star Express (Q2 2025)",
+   "basis": "sourced",
+   "source": "https://nairametrics.com/2025/10/25/red-star-express-grows-q2-2025-profit-by-98-8-as-revenue-hits-n5-8-billion/"
+  },
+  {
+   "metric": "Demurrage after free days, 40ft dry",
+   "usTypical": "Roughly $100-300 per day after free time (estimate)",
+   "nigeriaTypical": "5-7 free days, then N9,500 rising to N26,100/day",
+   "basis": "sourced",
+   "source": "https://ams.hapag-lloyd.com/content/dam/website/downloads/detention_demurrage/NG_DTD_DND.pdf"
+  },
+  {
+   "metric": "Ocean freight, 40ft from China",
+   "usTypical": "Not researched for US lanes; varies widely by season",
+   "nigeriaTypical": "About $5,067 to Apapa, 35-48 days (May 2026)",
+   "basis": "sourced",
+   "source": "https://goodhopefreight.com/nigeria/2026-freight.html"
+  },
+  {
+   "metric": "Clearing / brokerage fee per box",
+   "usTypical": "About $150-350 per customs entry (estimate)",
+   "nigeriaTypical": "N200,000-250,000 forwarding fee per container (2026)",
+   "basis": "sourced",
+   "source": "https://nairametrics.com/2026/05/31/how-much-it-costs-to-ship-a-container-out-of-apapa-in-2026/"
+  }
+ ],
+ "costStructure": [
+  {"item": "Fuel (diesel and petrol)", "percentOfRevenue": 28, "note": "Estimate for a Nigerian mixed courier and haulage firm; US truckers nearer 20%"},
+  {"item": "Riders, drivers and motor boys", "percentOfRevenue": 24, "note": "Pay plus trip allowances; riders paid by delivery share"},
+  {"item": "Vehicle loans, leases, depreciation", "percentOfRevenue": 11, "note": "Trucks are bought on bank loans; ATRI shows truck payments at a record in 2024"},
+  {"item": "Repairs, tyres and servicing", "percentOfRevenue": 9, "note": "Bad roads raise wear; ATRI repair cost rose 8.6% in 2025"},
+  {"item": "Tolls, port, terminal and handling", "percentOfRevenue": 8, "note": "Terminal handling and gate charges; duty itself is NOT revenue or cost"},
+  {"item": "Rent, IT, insurance and admin", "percentOfRevenue": 14, "note": "Offices, warehouses, tracking software, goods-in-transit cover"},
+  {"item": "Operating profit", "percentOfRevenue": 6, "note": "In line with Red Star Express (about 5.8%) and UPS (8.9%)"}
+ ],
+ "regulation": [
+  {
+   "rule": "Courier and parcel licensing",
+   "unitedStates": "No federal courier licence for parcels; USPS keeps the letter monopoly. Truck operators register with FMCSA for a USDOT number.",
+   "nigeria": "NIPOST licenses couriers by scope: municipal, state, regional, national, international. A 2020 fee rise (N250k SME to N20m) was suspended.",
+   "source": "https://techpoint.africa/2020/07/28/license-ngeria-nipost-logistics/"
+  },
+  {
+   "rule": "Truck operating authority and hours",
+   "unitedStates": "FMCSA: operating authority for for-hire carriers, 11-hour daily driving limit, electronic logging devices, drug and alcohol tests.",
+   "nigeria": "FRSC driver licence classes and vehicle permits; NPA electronic call-up for trucks entering Lagos ports. No hard hours limit found.",
+   "source": "https://www.fmcsa.dot.gov/regulations/hours-of-service"
+  },
+  {
+   "rule": "Customs broker / agent licence",
+   "unitedStates": "CBP licenses customs brokers after an exam (19 CFR 111); brokers must keep responsible supervision and records.",
+   "nigeria": "Nigeria Customs Service licenses customs agents under NCS Act 2023 s.103-107; renewal fees reviewed from January 2026.",
+   "source": "https://www.thecable.ng/customs-to-review-agents-licence-renewal-fees-january-2026"
+  },
+  {
+   "rule": "Demurrage and detention billing",
+   "unitedStates": "Federal Maritime Commission rule (from 28 May 2024): invoice within 30 days, bill only shipper or consignee, 30 days to dispute.",
+   "nigeria": "Nigerian Shippers' Council regulates charges, brokered longer free days, and orders refunds when carriers bill wrongly.",
+   "source": "https://www.thompsonhine.com/insights/fmc-issues-final-rule-on-billing-requirements-and-practices-for-detention-and-demurrage-invoices/"
+  },
+  {
+   "rule": "Duty paid on the importer's behalf",
+   "unitedStates": "CBP: importer of record owes duty and must post a customs bond; a broker may pay but the duty stays the importer's money.",
+   "nigeria": "Nigeria Customs Service: duty paid through designated banks before release; false declaration brings penalties and seizure.",
+   "source": "https://www.ecfr.gov/current/title-19/chapter-I/part-111"
+  },
+  {
+   "rule": "Ports, terminals and shipping",
+   "unitedStates": "FMC licenses freight forwarders and NVOCCs (bond required) and polices carrier and terminal practices.",
+   "nigeria": "Nigerian Ports Authority sets port dues; terminals charge storage; NSC registers shipping service providers.",
+   "source": "https://shipperscouncil.gov.ng/shippers-council-brokers-increment-of-fee-storage-days-to-12-days/"
+  }
+ ],
+ "gameRules": [
+  {
+   "name": "Route pricing",
+   "rule": "List price: bike = N1,500 + N500 x zone (1-5); waybill = N5,000 + N4 x km; 40ft trip = N1,200,000 + N1,900 x km. Player sets -20% to +20%; demand falls 1.5% per 1% above list, rises 1% per 1% below.",
+   "playerFeels": "Long routes pay more, but greedy pricing empties the drop-off yard.",
+   "simplifiedFrom": "Zone and distance tariffs used by Lagos couriers and Lagos-Kano haulage quotes"
+  },
+  {
+   "name": "Fuel cost per trip",
+   "rule": "Fuel = km driven x 0.45 L/km x diesel price (start N1,650/L, daily move +/-3%, bounds N1,300-2,300). Both legs always burn fuel. Fuel surcharge toggle adds (price-1,650)/1,650 x 30% to quotes.",
+   "playerFeels": "Diesel news matters; a surcharge protects margin but annoys some customers.",
+   "simplifiedFrom": "NBS diesel N1,648/L (Mar 2026), Nigerian fuel share 35-45%, J.B. Hunt fuel surcharge"
+  },
+  {
+   "name": "Fill the return trip",
+   "rule": "Chance of a backhaul = 30% + 10% per depot level at destination + 15% if player visited that city this week, cap 85%. Backhaul pays 50% of outbound price. Empty return earns N0 and still burns fuel.",
+   "playerFeels": "An empty truck coming home hurts; a found return load feels like a win.",
+   "simplifiedFrom": "ATRI 16.7% empty miles in the US; Kobo360-style load matching in Nigeria"
+  },
+  {
+   "name": "Demurrage clock",
+   "rule": "Each import box gets 5 free days from berthing. Then N13,000/day days 6-10, N19,000 days 11-15, N26,000 after. Customer is billed; if delay is the player's paperwork, player pays 50%. Trust -2 per day past free.",
+   "playerFeels": "A ticking timer on every box; clearing fast is the job.",
+   "simplifiedFrom": "Hapag-Lloyd Nigeria 40ft tariff: 5-7 free days then N9,500-26,100/day"
+  },
+  {
+   "name": "Duty held for customers",
+   "rule": "Duty = cargo value x class rate (5, 10, 20 or 35%) +7.5% VAT. Customer pays it into a locked Duty Pot, not player cash; job waits if pot is short. Income is the N250,000 fee only. 1 in 10 boxes inspected; wrong class = N500,000 fine+3 days.",
+   "playerFeels": "Big money passes through your hands but is never yours; honesty is safe.",
+   "simplifiedFrom": "Agents pay duty for importers via NCS banks; misdeclaration penalties under NCS Act 2023"
+  },
+  {
+   "name": "Fleet maintenance",
+   "rule": "Each vehicle has condition 100. Truck -1 per 250 km, bike -1 per 60 km. Service: truck N180,000, bike N15,000, restores 100. Below 60, breakdown chance per trip = (60 - condition)%. Breakdown: 2 days lost, N450,000 repair, trust -5.",
+   "playerFeels": "Skipping service saves cash today and costs a stranded load tomorrow.",
+   "simplifiedFrom": "ATRI repair cost $0.22/mile rising 8.6%; Nigerian road wear raises breakdown risk"
+  },
+  {
+   "name": "Rider share",
+   "rule": "Hired riders keep 70% of each delivery fee; player keeps 30%. Player delivering personally keeps 100% but cannot run stations meanwhile. Rider trust bonus +1 per 50 safe deliveries; speeding is never rewarded.",
+   "playerFeels": "Hiring trades margin for scale and time.",
+   "simplifiedFrom": "Lagos couriers take 60-75% of the delivery fee"
+  },
+  {
+   "name": "Operating ratio gate",
+   "rule": "Operating ratio = monthly costs / monthly revenue x 100, excluding duty passed to customs. Bank truck or ship loans need ratio under 95 for 3 straight months. Under 90 earns a 1-point lower interest rate.",
+   "playerFeels": "A single number tells the player if the business is healthy.",
+   "simplifiedFrom": "Trucking firms are judged by operating ratio: J.B. Hunt 92.8%, Red Star about 94%"
+  }
+ ],
+ "stages": [
+  {"stage": "One Bike, One Phone", "licenceOrGate": "None; NIPOST SME courier licence prompt after 100 deliveries", "startupCostNaira": 1200000, "monthlyRevenueNaira": 1170000, "monthlyCostNaira": 560000, "staff": 1, "customersPerDay": 15},
+  {"stage": "The Rider Squad", "licenceOrGate": "NIPOST municipal or state courier licence; 300 deliveries with under 1% lost", "startupCostNaira": 6500000, "monthlyRevenueNaira": 7000000, "monthlyCostNaira": 5700000, "staff": 7, "customersPerDay": 90},
+  {"stage": "Waybill to Every State", "licenceOrGate": "NIPOST national courier licence; trust 60+; two vans", "startupCostNaira": 45000000, "monthlyRevenueNaira": 22000000, "monthlyCostNaira": 18500000, "staff": 18, "customersPerDay": 250},
+  {"stage": "Big Wheels", "licenceOrGate": "Bank truck loan: operating ratio under 95 for 3 months; drivers with heavy-vehicle licences", "startupCostNaira": 180000000, "monthlyRevenueNaira": 60000000, "monthlyCostNaira": 47000000, "staff": 30, "customersPerDay": 300},
+  {"stage": "The Warehouse Years", "licenceOrGate": "Stock audit passed (records match 98%+); 1 supermarket contract", "startupCostNaira": 600000000, "monthlyRevenueNaira": 140000000, "monthlyCostNaira": 118000000, "staff": 70, "customersPerDay": 500},
+  {"stage": "Clearing Agent Licence", "licenceOrGate": "Customs agent licence exam passed; licensed agent on staff; zero false declarations", "startupCostNaira": 400000000, "monthlyRevenueNaira": 260000000, "monthlyCostNaira": 222000000, "staff": 110, "customersPerDay": 650},
+  {"stage": "Borders and Hubs", "licenceOrGate": "200 boxes cleared within free days; local registration in each foreign hub", "startupCostNaira": 2500000000, "monthlyRevenueNaira": 900000000, "monthlyCostNaira": 785000000, "staff": 300, "customersPerDay": 1200},
+  {"stage": "MV Waybill Sails", "licenceOrGate": "Shipping company registration; 12 months chartering with ratio under 92; ship loan", "startupCostNaira": 25000000000, "monthlyRevenueNaira": 9000000000, "monthlyCostNaira": 8100000000, "staff": 900, "customersPerDay": 3000}
+ ],
+ "uniqueMechanics": [
+  {
+   "name": "Route and return-load board",
+   "whatThePlayerDoes": "Picks a destination for each truck, sees fuel cost and price before dispatch, and taps waiting backhaul offers in the destination city to fill the trip home.",
+   "screenNeeded": "Nigeria map with truck icons, route cost/price card, and a list of return loads per city"
+  },
+  {
+   "name": "Demurrage clock wall",
+   "whatThePlayerDoes": "Watches every import box count down its free days, prioritises paperwork for the reddest boxes, and decides which to clear first when the desk is busy.",
+   "screenNeeded": "Port yard grid with a coloured day counter on each container and a daily charge preview"
+  },
+  {
+   "name": "Duty Pot ledger",
+   "whatThePlayerDoes": "Takes customer duty deposits into a locked pot, picks the correct goods class for each declaration, and pays customs from the pot; only the fee lands in cash.",
+   "screenNeeded": "Two-column ledger: locked Duty Pot vs business cash, with a declaration form and class picker"
+  }
+ ],
+ "failureStates": [
+  {
+   "what": "Stranded load",
+   "trigger": "Truck condition under 60 breaks down (chance = 60 minus condition, in %)",
+   "consequence": "2 days lost, N450,000 repair, trust -5, contract client may leave at trust under 40",
+   "recovery": "Send a rescue van, pay the repair, then service the whole fleet to 100"
+  },
+  {
+   "what": "Demurrage pile-up",
+   "trigger": "5 or more boxes past free days at once, or one box past 15 days",
+   "consequence": "Daily charges reach N26,000 per box, trust -2 per box per day, importers move to a rival",
+   "recovery": "Hire a second licensed agent or upgrade the paperwork desk; clear the oldest box first"
+  },
+  {
+   "what": "Cash squeeze from fuel",
+   "trigger": "Diesel above N2,000/L for 7 days with no fuel surcharge and ratio above 100",
+   "consequence": "Each trip loses money; bank loan gate closes",
+   "recovery": "Switch on fuel surcharge, cut empty returns, park the oldest truck"
+  },
+  {
+   "what": "Wrong declaration",
+   "trigger": "A box inspected (1 in 10) with the wrong goods class",
+   "consequence": "N500,000 fine paid from player cash, 3-day hold, trust -10",
+   "recovery": "Re-declare correctly, pay the fine, and pass a declaration training task"
+  }
+ ],
+ "balanceNotes": "Payback in game months: stage 1 about 2, stage 2 about 5, stage 3 about 13, stage 4 about 14, stage 5 about 27, stage 6 about 11, stage 7 about 22, stage 8 about 28. Players will feel stuck at Big Wheels and the Warehouse Years: trucks and warehouses are costly and margins are only 6 to 10%. Tune first the backhaul chance and the diesel start price, then the warehouse startup cost. Keep the duty pot outside every profit figure.",
+ "openQuestions": [
+  "Storyline says 3 free days and N40,000/day demurrage; research shows 5-7 days and N9,500-26,100. Which do we use?",
+  "Should the fuel surcharge be automatic or a player choice that costs some demand?",
+  "How many real minutes is one game day, so the 5-day demurrage clock feels tense but fair?",
+  "Is buying a ship (N25bn) the endgame, or should chartering stay the main path?"
+ ],
+ "sources": [
+  {"claim": "UPS reported 2025 revenue of $88.7bn with an 8.9% GAAP operating margin and US revenue per piece up 8.3% in Q4.", "url": "https://about.ups.com/ae/en/newsroom/press-releases/financials/ups-releases-4q-2025-earnings-and-provides-2026-guidance.html"},
+  {"claim": "J.B. Hunt 2025 revenue was $12.0bn, operating income $865m, fuel surcharge revenue $1.48bn and intermodal revenue per load $2,795.", "url": "https://www.businesswire.com/news/home/20260115148495/en/J.B.-Hunt-Transport-Services-Inc.-Reports-U.S.-GAAP-Revenues-Net-Earnings-and-Earnings-Per-Share-for-Both-the-Fourth-Quarter-and-Year-Ended-December-31-2025"},
+  {"claim": "ATRI found US truck operating cost of $2.336 per mile in 2025, with fuel at $0.48 and repairs at $0.22 per mile.", "url": "https://www.fleetowner.com/operations/article/55392569/atri-report-breaks-down-class-8-truck-operating-costs-by-region-and-expense-category"},
+  {"claim": "ATRI's report on 2024 data put empty miles at 16.7% and truckload operating margin at -2.3%.", "url": "https://truckingresearch.org/2025/07/new-atri-report-shows-trucking-profitability-severly-squeezed-by-high-costs-low-rates/"},
+  {"claim": "GIG Logistics had over 160 service centres in 7 countries and added 70+ trucks in H1 2026.", "url": "https://techcabal.com/2026/06/23/gig-logistics-is-building-the-infrastructure-powering-african-trade/"},
+  {"claim": "Red Star Express made Q2 2025 revenue of N5.8bn, cost of sales N4.7bn and operating profit N336.5m.", "url": "https://nairametrics.com/2025/10/25/red-star-express-grows-q2-2025-profit-by-98-8-as-revenue-hits-n5-8-billion/"},
+  {"claim": "In 2023 a 40ft Lagos-Kano haul cost N1.8m-2.3m and one trip burned N500k-900k of diesel.", "url": "https://businessday.ng/maritime/article/interstate-container-haulage-costs-surge-on-lingering-energy-crisis/"},
+  {"claim": "NBS put average diesel at N1,648 per litre in March 2026, up 16% on February.", "url": "https://nairametrics.com/2026/04/28/petrol-price-rises-to-n1288-diesel-hits-n1648-in-march-nbs/"},
+  {"claim": "Hapag-Lloyd's Nigeria tariff gives 5-7 free days then N9,500 to N26,100 per day for a 40ft dry box.", "url": "https://ams.hapag-lloyd.com/content/dam/website/downloads/detention_demurrage/NG_DTD_DND.pdf"},
+  {"claim": "The Nigerian Shippers' Council brokered a rise in free storage days from 5 to 12 to cut demurrage (2019).", "url": "https://shipperscouncil.gov.ng/shippers-council-brokers-increment-of-fee-storage-days-to-12-days/"},
+  {"claim": "The FMC demurrage and detention billing rule took effect 28 May 2024 with 30-day invoice and dispute windows.", "url": "https://www.thompsonhine.com/insights/fmc-issues-final-rule-on-billing-requirements-and-practices-for-detention-and-demurrage-invoices/"},
+  {"claim": "NIPOST's 2020 courier licence tiers ran from N250,000 for small operators to N20m international; the rise was suspended.", "url": "https://techpoint.africa/2020/07/28/license-ngeria-nipost-logistics/"},
+  {"claim": "Nigeria Customs Service planned a review of customs agent licence renewal fees from January 2026 under NCS Act 2023.", "url": "https://www.thecable.ng/customs-to-review-agents-licence-renewal-fees-january-2026"},
+  {"claim": "Kobo360 claimed haulage 27% cheaper than incumbents and 40% more trips per driver per month (2019).", "url": "https://ttnews.com/articles/ifc-backed-uber-trucks-reshapes-nigerias-haulage-market"},
+  {"claim": "Lagos bike delivery costs about N1,500-4,000 by zone in 2026, with couriers taking 60-75% of the fee.", "url": "https://kolonell.com/en/blog/last-mile-delivery-pricing-lagos-2026"},
+  {"claim": "Freight forwarding at Apapa costs about N200,000-250,000 per container (May 2026).", "url": "https://nairametrics.com/2026/05/31/how-much-it-costs-to-ship-a-container-out-of-apapa-in-2026/"}
+ ]
+}

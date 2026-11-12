@@ -1,0 +1,261 @@
+{
+ "key": "factory",
+ "sector": "Packaged food, drinks and household goods manufacturing (FMCG)",
+ "howTheBusinessMakesMoney": "A factory buys raw materials (water, flour, palm oil, sugar, film, preforms), turns them into branded packs on production lines and sells by the carton to distributors and wholesalers, who resell to shops. Profit is the gap between the factory-gate price and the cost of materials, energy, labour and delivery, multiplied by volume. It is won by keeping lines running, buying inputs well, keeping quality and registration intact and collecting cash from distributors on time.",
+ "caseStudies": [
+  {
+   "company": "Procter & Gamble",
+   "country": "US",
+   "scale": "FY2025 net sales $84.3bn with a 51.2% gross margin and 87% adjusted free cash flow productivity.",
+   "lesson": "Brands and scale earn a high gross margin. The game should reward a trusted brand (Quality Score) with a price premium and show that cash collected, not just sales, is the real score.",
+   "source": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000067/fy2425q4amj8-kexhibit991.htm"
+  },
+  {
+   "company": "Coca-Cola Consolidated (bottler)",
+   "country": "US",
+   "scale": "2025 net sales $7.23bn, cost of sales $4.36bn (39.7% gross margin), 354m physical cases, mostly direct store delivery.",
+   "lesson": "A bottler makes heavy, cheap goods, so plants sit near buyers and trucks matter. Copy this in the regional plants: building near demand cuts haulage cost per carton.",
+   "source": "https://www.sec.gov/Archives/edgar/data/317540/000162828026009048/cokeq42025ex-991.htm"
+  },
+  {
+   "company": "Nestle Nigeria",
+   "country": "Nigeria",
+   "scale": "2025 revenue about N1.2tn, cost of sales N771.9bn; finance costs fell to N101bn from N392.8bn in 2024, restoring profit.",
+   "lesson": "Even a strong food brand can lose money on debt and currency costs. The game should make big loans and imported inputs a real risk that can wipe out factory profit.",
+   "source": "https://nairametrics.com/2026/02/26/nestle-nigeria-returns-to-profitability-posts-n166-8-billion-pretax-profit-in-2025"
+  },
+  {
+   "company": "BUA Foods",
+   "country": "Nigeria",
+   "scale": "2025 revenue N1.77tn, up 16%; gross margin 41.5% versus 35.4% in 2024.",
+   "lesson": "Backward integration and several product lines (sugar, flour, pasta, rice) lift margins. Copy this with the packaging shop and multi-hall industrial park.",
+   "source": "https://proshare.co/articles/bua-foods-plc-fy-2025-what-a-97-payout-ratio-short-term-debt-profile-and-41.54-gross-margin-at-n1.77-trillion-revenue-tells-investors-about-the-cycle-ahead"
+  }
+ ],
+ "unitEconomics": [
+  {
+   "metric": "Cost of goods sold as share of revenue",
+   "usTypical": "49% (P&G FY2025) to 60% (Coke bottler 2025)",
+   "nigeriaTypical": "58% (BUA Foods 2025) to 64% (Nestle Nigeria 2025)",
+   "basis": "sourced",
+   "source": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000067/fy2425q4amj8-kexhibit991.htm"
+  },
+  {
+   "metric": "Energy cost share",
+   "usTypical": "About 2-4% of revenue, mostly grid (est.)",
+   "nigeriaTypical": "About 40% of operating costs, mostly self-generated",
+   "basis": "sourced",
+   "source": "https://businessday.ng/real-sector/article/nigerian-factories-spend-n1-4trn-on-power-in-2025/"
+  },
+  {
+   "metric": "Capacity utilisation",
+   "usTypical": "Food plants 82.9% (Fed, Aug 2026)",
+   "nigeriaTypical": "57.5% all manufacturing (CBN, Q2 2025)",
+   "basis": "sourced",
+   "source": "https://brandspurng.com/2026/10/07/nigerian-manufacturers-alternative-power-bill-hits-n1-35-trillion-as-energy-costs-threaten-investment/"
+  },
+  {
+   "metric": "Overall equipment effectiveness (OEE)",
+   "usTypical": "75-80% good for food lines; 85% world class",
+   "nigeriaTypical": "45-60% (est.), power cuts and spares delays",
+   "basis": "estimated",
+   "source": "https://www.mrpeasy.com/blog/overall-equipment-effectiveness"
+  },
+  {
+   "metric": "Distributor credit days",
+   "usTypical": "Net 30 days common (est.)",
+   "nigeriaTypical": "0-30 days; FMCG credit sales up 55% in H1 2025",
+   "basis": "estimated",
+   "source": "https://businessday.ng/market-intelligence/article/fmcg-firms-credit-sales-hit-5-year-high-on-inflation-weak-consumer-spending/"
+  },
+  {
+   "metric": "Diesel price for generators",
+   "usTypical": "Rarely needed; grid is reliable (est.)",
+   "nigeriaTypical": "N3,277 a litre average, May 2026 (up 86% in a year)",
+   "basis": "sourced",
+   "source": "https://www.legit.ng/business-economy/energy/1716140-nbs-diesel-price-rises-8640-n3277litre-2026/"
+  },
+  {
+   "metric": "Raw material price swing in a year",
+   "usTypical": "10-25% on key commodities (est.)",
+   "nigeriaTypical": "Up to 80% on imported film and inputs (2026 reports)",
+   "basis": "estimated",
+   "source": "https://gazettengr.com/lagos-residents-groan-over-rising-cost-of-sachet-bottled-water/"
+  }
+ ],
+ "costStructure": [
+  {"item": "Raw materials and packaging", "percentOfRevenue": 45, "note": "Flour, palm oil, sugar, pulp, film, preforms, cartons. Largest and most volatile cost (est.)."},
+  {"item": "Energy (grid, diesel, gas)", "percentOfRevenue": 10, "note": "Much higher on diesel days; gas or grid roughly halves it (est.)."},
+  {"item": "Factory labour", "percentOfRevenue": 7, "note": "Operators, packers, fitters, lab and store staff (est.)."},
+  {"item": "Maintenance and depreciation", "percentOfRevenue": 5, "note": "Spares, servicing and wear of lines and generators (est.)."},
+  {"item": "Distribution and trade discounts", "percentOfRevenue": 10, "note": "Trucks, fuel, distributor margins and credit-price discounts (est.)."},
+  {"item": "Admin, compliance and finance cost", "percentOfRevenue": 13, "note": "Registration, inspections, office, loan interest and FX losses (est.)."},
+  {"item": "Operating profit", "percentOfRevenue": 10, "note": "What is left in a decent year; can turn negative on debt or FX shocks (est.)."}
+ ],
+ "regulation": [
+  {
+   "rule": "Product and facility registration",
+   "unitedStates": "FDA food facility registration, renewed every 2 years (Oct-Dec), no fee; bottled water follows 21 CFR 129 processing rules.",
+   "nigeria": "NAFDAC: facility inspection, IPAN lab analysis, then a registration number printed on every pack before sale; renewal inspections apply.",
+   "source": "https://www.fda.gov/food/hfp-constituent-updates/fda-reminds-food-facilities-biennial-renewal-requirements"
+  },
+  {
+   "rule": "Hygienic plant and water treatment",
+   "unitedStates": "FDA current good manufacturing practice and preventive controls (21 CFR 117) plus bottled water standards; states inspect too.",
+   "nigeria": "NAFDAC packaged water guideline: tiled rooms, sand and carbon filters, UV, no galvanised pipes, staff medical tests.",
+   "source": "https://nafdac.gov.ng/wp-content/uploads/Files/Resources/Guidelines/FOOD/Guidelines-For-Establishment-Of-Packaged-Water-Plant_Registration.pdf"
+  },
+  {
+   "rule": "Product standards certification",
+   "unitedStates": "No general product certificate; FDA standards of identity apply and buyers often ask for third-party audits.",
+   "nigeria": "SON MANCAP for locally made goods: about 60 days, 2 inspections to qualify, valid 3 years with quarterly inspections.",
+   "source": "https://son.gov.ng/?p=996"
+  },
+  {
+   "rule": "Worker safety on machines",
+   "unitedStates": "OSHA lockout/tagout (29 CFR 1910.147) and machine guarding; inspections and fines for violations.",
+   "nigeria": "Factories Act: premises registered with the Federal Ministry of Labour factory inspectorate; guarding, first aid, accident reports.",
+   "source": "https://www.osha.gov/control-hazardous-energy"
+  },
+  {
+   "rule": "Waste water and plastic waste",
+   "unitedStates": "EPA NPDES permits (Clean Water Act) for discharges, usually run by state environment agencies.",
+   "nigeria": "NESREA plastics rules: producer responsibility, producer registry, 25% recycled PET by 2028; state agencies like LASEPA issue permits.",
+   "source": "https://www.thisdaylive.com/2026/09/04/nigeria-tightens-war-on-plastic-waste-makes-producers-responsible-for-end-of-life-products/"
+  },
+  {
+   "rule": "Export paperwork",
+   "unitedStates": "Census Bureau: Electronic Export Information filed in AES for most shipments over $2,500; FDA export certificates on request.",
+   "nigeria": "NEPC exporter certificate (about N20,000, 24 months, companies only); bank export form, invoice and packing list per shipment.",
+   "source": "https://www.dhl.com/discover/en-ng/logistics-advice/import-export-advice/how-to-register-with-nepc-and-start-exporting-from-nigeria"
+  }
+ ],
+ "gameRules": [
+  {
+   "name": "Line output and downtime (OEE)",
+   "rule": "Units/day = ratedPerHour x 10h x A x P x Q. A = 1 - downHours/10. Breakdown chance/day = 2% + 1% per 7 days since service (max 20%); costs 4h with a fitter, 8h without. P = 0.85 manual, 0.95 auto. Q = QS/100.",
+   "playerFeels": "Servicing machines on time keeps the line humming; skipping it costs whole afternoons.",
+   "simplifiedFrom": "OEE = availability x performance x quality; food lines 75-80% good, Nigeria lower from outages."
+  },
+  {
+   "name": "Power source choice",
+   "rule": "Each hour grid is on with p = 0.5 (0.7 at night). Cost per kWh: grid N210, gas N350, diesel N900. Off-grid hours use gas if piped (one-off N80m, stage 4+), else diesel. No fuel = line stops; cold store loses 10%/h of stock.",
+   "playerFeels": "Blackout days hurt until the gas line pays for itself in about a year.",
+   "simplifiedFrom": "MAN: energy is ~40% of operating cost; diesel N3,277/L May 2026; firms switching to gas."
+  },
+  {
+   "name": "Raw material stock and prices",
+   "rule": "Weekly price index i = clamp(i + rand(-0.2,0.2) - 0.25(i-1), 0.7, 1.5). Store holds 30 days of use; holding cost 1%/week of stock value. Stock-out stops that line until a delivery (1 day local, 3 days imported).",
+   "playerFeels": "Buying a full tanker on a cheap week feels clever; an empty store feels awful.",
+   "simplifiedFrom": "Nylon and other inputs rose ~80% in 2026; palm oil and flour swing with harvest and naira."
+  },
+  {
+   "name": "Quality Score and registration",
+   "rule": "QS 0-100. +2/day lab test done, -5/day missed, -10 if filters unchanged 30 days, -15 per failed batch. QS<60: line sealed until re-inspection (N150k, 1 day). QS>=90: price +10%. New product: N300k + inspection.",
+   "playerFeels": "The lab technician is worth every naira; a clean record pays a premium.",
+   "simplifiedFrom": "NAFDAC registration and inspections, SON MANCAP quarterly checks, buyer audits."
+  },
+  {
+   "name": "Distributor credit",
+   "rule": "Credit buyer pays price +5% after 7, 14 or 30 days. Limit = trust x N20k x stage. Default chance per invoice = (100-trust)/400. On time: trust +3; late: -15; frozen below 40. Receivables over 40% of monthly sales: bank loans x1.5 rate.",
+   "playerFeels": "Credit sells more cartons, but too much of it leaves the till empty.",
+   "simplifiedFrom": "Nigerian FMCG firms sell more on credit (+55% H1 2025); distributors take 7-30 days."
+  },
+  {
+   "name": "Waste and recycling",
+   "rule": "Scrap = output x (1 - Q) plus 2% of film used. Waste bin holds 500kg; over it: N250k fine and QS -10. Sell waste to a licensed recycler at N150/kg, or (stage 5) regrind in-house for non-food sacks, saving 50%.",
+   "playerFeels": "Waste becomes a small income instead of a fine; recycling is part of running clean.",
+   "simplifiedFrom": "NESREA producer responsibility rules and state environmental permits; scrap film resale."
+  },
+  {
+   "name": "Working capital",
+   "rule": "Cash = cash sales + collected invoices - supplier payments - wages. Suppliers want cash until QS >= 80 for 30 days, then give 14 days. Payroll missed: output -30% next day. Loan repayment due on day 1 each month.",
+   "playerFeels": "Profit on paper is not cash in hand; timing payments becomes a skill.",
+   "simplifiedFrom": "Working capital cycle: inventory days + receivable days - payable days; Nestle Nigeria finance costs."
+  },
+  {
+   "name": "Export containers",
+   "rule": "Exporter certificate N20k, valid 24 game months. Each container: bank export form + label check (passes if QS >= 85 and label set to destination). Pass: 2x gate price minus 25% freight. Fail: container returns after 14 days.",
+   "playerFeels": "Clean paperwork turns into big foreign orders; one sloppy label costs weeks.",
+   "simplifiedFrom": "NEPC exporter certificate, bank export form, destination standards and buyer audits."
+  }
+ ],
+ "stages": [
+  {"stage": "One Machine, One Borehole", "licenceOrGate": "Starting cash, borehole and one manual sealing machine", "startupCostNaira": 3500000, "monthlyRevenueNaira": 3100000, "monthlyCostNaira": 2500000, "staff": 3, "customersPerDay": 25},
+  {"stage": "The Number on the Nylon", "licenceOrGate": "Tiled room, lab test passed, packaged water registration number", "startupCostNaira": 6000000, "monthlyRevenueNaira": 8300000, "monthlyCostNaira": 6600000, "staff": 8, "customersPerDay": 60},
+  {"stage": "Bottles on the Line", "licenceOrGate": "QS 75+ for 30 days, bottled water registration, first truck", "startupCostNaira": 45000000, "monthlyRevenueNaira": 21000000, "monthlyCostNaira": 17000000, "staff": 18, "customersPerDay": 90},
+  {"stage": "Sweet Success", "licenceOrGate": "Fruit drink registration, cold store, standards certificate", "startupCostNaira": 120000000, "monthlyRevenueNaira": 48000000, "monthlyCostNaira": 40000000, "staff": 35, "customersPerDay": 140},
+  {"stage": "Flour, Oil and Steam", "licenceOrGate": "Land, factory premises registration, environment permit, bank loan", "startupCostNaira": 900000000, "monthlyRevenueNaira": 420000000, "monthlyCostNaira": 360000000, "staff": 150, "customersPerDay": 300},
+  {"stage": "North and East", "licenceOrGate": "Branch inspections passed in Kano and Aba, plant managers hired", "startupCostNaira": 1500000000, "monthlyRevenueNaira": 1100000000, "monthlyCostNaira": 940000000, "staff": 420, "customersPerDay": 700},
+  {"stage": "Across the Border", "licenceOrGate": "Exporter certificate, destination standards approvals, QS 85+", "startupCostNaira": 3000000000, "monthlyRevenueNaira": 2200000000, "monthlyCostNaira": 1850000000, "staff": 750, "customersPerDay": 1100},
+  {"stage": "Made in Nigeria, Sold Abroad", "licenceOrGate": "All 5 plants pass buyer audits with QS 90+, group listing", "startupCostNaira": 6000000000, "monthlyRevenueNaira": 4500000000, "monthlyCostNaira": 3700000000, "staff": 1200, "customersPerDay": 1600}
+ ],
+ "uniqueMechanics": [
+  {
+   "name": "Power Switchboard",
+   "whatThePlayerDoes": "Watches grid hours, keeps diesel topped up, decides which lines run in a blackout and when to invest in a gas line.",
+   "screenNeeded": "Panel with grid on/off lamp, diesel gauge, gas toggle, cost per hour and line on/off switches."
+  },
+  {
+   "name": "Line Health Board",
+   "whatThePlayerDoes": "Sees each line's OEE, schedules servicing, sends the fitter to breakdowns and balances operators across lines.",
+   "screenNeeded": "List of lines with OEE bar split into availability, speed and quality, days since service, repair button."
+  },
+  {
+   "name": "Distributor Ledger",
+   "whatThePlayerDoes": "Sets cash or credit per distributor, chooses 7/14/30-day terms, chases late payers and watches trust ratings.",
+   "screenNeeded": "Table of distributors with trust stars, limit, amount owed, due date and a cash-in-hand vs owed gauge."
+  }
+ ],
+ "failureStates": [
+  {
+   "what": "Line sealed by the inspector",
+   "trigger": "Quality Score falls below 60",
+   "consequence": "That line makes nothing until re-inspection; stock on hand cannot be sold",
+   "recovery": "Do lab tests, change filters, pay N150,000 re-inspection; line reopens next day if QS is back to 60+"
+  },
+  {
+   "what": "Cash crunch",
+   "trigger": "Cash below one week of wages while receivables exceed 40% of monthly sales",
+   "consequence": "Suppliers stop credit, payroll at risk, loan rate x1.5",
+   "recovery": "Collect overdue invoices, switch buyers to cash for 14 days, sell stored stock at gate price"
+  },
+  {
+   "what": "Generator runs dry",
+   "trigger": "Grid off and diesel tank at 0 litres with no gas line",
+   "consequence": "All lines stop; cold store loses 10% of stock per hour",
+   "recovery": "Buy diesel at a 20% emergency premium, or install a gas line to end the risk"
+  },
+  {
+   "what": "Missed loan repayment",
+   "trigger": "Monthly repayment unpaid 7 days after due date",
+   "consequence": "Bank takes the newest plant's revenue for 30 days",
+   "recovery": "Pay arrears plus 5% penalty; plant returns once the loan is current"
+  }
+ ],
+ "balanceNotes": "Target payback in game months: stage 1 about 6, stage 2 about 4, stage 3 about 11, stages 4 and 5 about 15, stages 6 to 8 about 8 to 9. The player will feel stuck at stage 4 to 5, where the industrial park costs about 19 months of stage 4 revenue and needs a loan. Tune first: grid probability and diesel price (largest swing on margin), then breakdown rate, then credit default chance. Keep margins near 10-20%, not more.",
+ "openQuestions": [
+  "Should registration and inspection wait times run on game days or be shortened to a few minutes of real play?",
+  "Should the bank loan for the industrial park be mandatory, or can a patient player save up for it?",
+  "Is grid reliability fixed per city (Lagos, Kano, Aba) or improved by a later event or upgrade?",
+  "Should recycled film ever be allowed in food packs, or stay for non-food sacks only to keep food-safety messaging clear?"
+ ],
+ "sources": [
+  {"claim": "P&G FY2025 net sales were $84.3bn with a 51.2% GAAP gross margin and 87% adjusted free cash flow productivity.", "url": "https://www.sec.gov/Archives/edgar/data/80424/000008042425000067/fy2425q4amj8-kexhibit991.htm"},
+  {"claim": "Coca-Cola Consolidated 2025 net sales were $7.23bn, cost of sales $4.36bn, 354.0m physical cases.", "url": "https://www.sec.gov/Archives/edgar/data/317540/000162828026009048/cokeq42025ex-991.htm"},
+  {"claim": "Nestle Nigeria 2025 revenue about N1.2tn, cost of sales N771.88bn, finance costs N100.96bn vs N392.83bn in 2024, profit after tax N105bn.", "url": "https://nairametrics.com/2026/02/26/nestle-nigeria-returns-to-profitability-posts-n166-8-billion-pretax-profit-in-2025"},
+  {"claim": "BUA Foods 2025 revenue N1.77tn with a 41.54% gross margin, up from 35.40%.", "url": "https://proshare.co/articles/bua-foods-plc-fy-2025-what-a-97-payout-ratio-short-term-debt-profile-and-41.54-gross-margin-at-n1.77-trillion-revenue-tells-investors-about-the-cycle-ahead"},
+  {"claim": "MAN says manufacturers spent about N1.35tn on alternative energy in 2025; CBN capacity utilisation was 57.5% in Q2 2025.", "url": "https://brandspurng.com/2026/10/07/nigerian-manufacturers-alternative-power-bill-hits-n1-35-trillion-as-energy-costs-threaten-investment/"},
+  {"claim": "MAN data put energy at about 40% of Nigerian factories' operating costs.", "url": "https://businessday.ng/real-sector/article/nigerian-factories-spend-n1-4trn-on-power-in-2025/"},
+  {"claim": "An Aba vegetable oil maker runs a 1.7 MW gas plant with diesel only as backup, reporting significantly lower operating costs.", "url": "https://businessday.ng/news/article/manufacturer-sees-costs-fall-by-half-since-transitioning-to-gas-plants/"},
+  {"claim": "US food manufacturing capacity utilisation was 82.9% in August 2026 (Federal Reserve series).", "url": "https://foodindustryexecutive.com/2026/09/food-plants-havent-run-this-empty-since-2021-and-a-new-line-wont-fix-it/"},
+  {"claim": "OEE = availability x performance x quality; 85% is world class and 75-80% is respectable for food processing.", "url": "https://www.mrpeasy.com/blog/overall-equipment-effectiveness"},
+  {"claim": "Nigerian FMCG credit sales reached N325.2bn in H1 2025, up 55.4% year on year.", "url": "https://businessday.ng/market-intelligence/article/fmcg-firms-credit-sales-hit-5-year-high-on-inflation-weak-consumer-spending/"},
+  {"claim": "Average diesel price was N3,277.47 a litre in May 2026, up 86.4% in a year.", "url": "https://www.legit.ng/business-economy/energy/1716140-nbs-diesel-price-rises-8640-n3277litre-2026/"},
+  {"claim": "SON MANCAP certificates take about 60 days, are valid for 3 years and involve quarterly factory inspections.", "url": "https://son.gov.ng/?p=996"},
+  {"claim": "NAFDAC packaged water plants need tiled rooms, sand/carbon filtration, UV, non-galvanised pipes, IPAN lab analysis and staff medicals.", "url": "https://nafdac.gov.ng/wp-content/uploads/Files/Resources/Guidelines/FOOD/Guidelines-For-Establishment-Of-Packaged-Water-Plant_Registration.pdf"},
+  {"claim": "FDA food facility registrations must be renewed every two years between October 1 and December 31, at no fee.", "url": "https://www.fda.gov/food/hfp-constituent-updates/fda-reminds-food-facilities-biennial-renewal-requirements"},
+  {"claim": "NESREA's 2026 plastics rules apply producer responsibility and require 25% recycled PET content by January 2028.", "url": "https://www.thisdaylive.com/2026/09/04/nigeria-tightens-war-on-plastic-waste-makes-producers-responsible-for-end-of-life-products/"},
+  {"claim": "NEPC exporter certificates cost about N20,000, last 24 months, and each shipment needs a bank export form, invoice and packing list.", "url": "https://www.dhl.com/discover/en-ng/logistics-advice/import-export-advice/how-to-register-with-nepc-and-start-exporting-from-nigeria"}
+ ]
+}

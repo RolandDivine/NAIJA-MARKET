@@ -1,0 +1,273 @@
+{
+ "key": "ibank",
+ "sector": "Investment banking: deal advisory, share and bond underwriting, mergers and asset management",
+ "howTheBusinessMakesMoney": "An investment bank wins a mandate from a company or government, staffs a deal team, and is paid mostly when the deal closes: a percentage of money raised (share and bond offers) or of deal value (mergers). Underwriters also promise to buy any securities investors do not take, earning an extra commission but risking their own capital. Asset management adds a steady yearly fee on savings looked after. Staff pay is the biggest cost, often a third to two thirds of revenue.",
+ "caseStudies": [
+  {
+   "company": "Goldman Sachs",
+   "country": "US",
+   "scale": "2025: $58.3bn net revenue; $9.3bn investment banking fees ($4.7bn advisory, $1.8bn equity, $2.8bn debt underwriting)",
+   "lesson": "Run several fee engines side by side: lumpy deal fees from advisory and underwriting, plus steady management fees ($11.5bn in 2025) that keep the lights on when deals are slow.",
+   "source": "https://www.goldmansachs.com/pressroom/press-releases/current/pdfs/2025-q4-results.pdf"
+  },
+  {
+   "company": "Evercore",
+   "country": "US",
+   "scale": "2025: $3.86bn net revenue, of which $3.27bn advisory fees; 171 investment banking senior managing directors",
+   "lesson": "A boutique lives on advisory and people: no big balance sheet, little underwriting, and a 64.9% compensation ratio. The game's early stages should feel like this: fees from brains, pay is the main cost.",
+   "source": "https://www.businesswire.com/news/home/20260203418042/en/Evercore-Reports-Record-Fourth-Quarter-and-Full-Year-2025-Revenues-Quarterly-Dividend-of-0.84-Per-Share"
+  },
+  {
+   "company": "Stanbic IBTC Holdings",
+   "country": "Nigeria",
+   "scale": "2025: N551.7bn profit before tax; N257.7bn total fees and commissions across banking, asset management and pensions",
+   "lesson": "In Nigeria the winning model bundles an issuing house with asset management, pensions and stockbroking, so a client met on one deal brings fee income in every other line.",
+   "source": "https://nairametrics.com/2026/04/20/stanbics-fy2025-profit-hits-n551-7-billion-as-deposits-surge-declares-dividend/"
+  },
+  {
+   "company": "Chapel Hill Denham",
+   "country": "Nigeria",
+   "scale": "Dec 2025: listed a N15.34bn series of its infrastructure debt fund under a N200bn programme; 1.196bn units now listed",
+   "lesson": "An independent house can grow by raising money in repeat series for one long-life fund it manages, earning fees on each raise and on the assets for years after.",
+   "source": "https://www.thisdaylive.com/2025/12/15/ngx-admits-n15-34bn-chapel-hill-denham-infrastructure-debt-fund"
+  }
+ ],
+ "unitEconomics": [
+  {
+   "metric": "IPO underwriting spread (share of money raised)",
+   "usTypical": "7% on over 96% of mid-size IPOs; large IPOs often less",
+   "nigeriaTypical": "About 1.5% to 3% all-in to issuing and underwriting houses",
+   "basis": "sourced (US); estimated (Nigeria)",
+   "source": "https://www.sec.gov/newsroom/speeches-statements/jackson-middle-market-ipo-tax"
+  },
+  {
+   "metric": "Total public bond issue costs",
+   "usTypical": "About 0.5% to 1% for investment-grade corporates",
+   "nigeriaTypical": "Capped at 4.3% excluding underwriting; SEC fee 0.15%",
+   "basis": "estimated (US); sourced (Nigeria, older SEC guide)",
+   "source": "https://home.sec.gov.ng/documents/95/Guide_to_Preparing_for_Bond_Issuance_in_Nigeria.pdf"
+  },
+  {
+   "metric": "M&A advisory success fee (share of deal value)",
+   "usTypical": "About 1% to 3% mid-market, falling as deal size rises",
+   "nigeriaTypical": "About 1% to 2%, with a retainer credited at close",
+   "basis": "estimated",
+   "source": "https://www.divestopedia.com/making-sense-of-private-market-ma-advisory-fees/2/8402"
+  },
+  {
+   "metric": "Compensation ratio (pay / net revenue)",
+   "usTypical": "32% at Goldman Sachs; 64.9% at Evercore (2025)",
+   "nigeriaTypical": "About 35% to 50%",
+   "basis": "sourced (US); estimated (Nigeria)",
+   "source": "https://www.businesswire.com/news/home/20260203418042/en/Evercore-Reports-Record-Fourth-Quarter-and-Full-Year-2025-Revenues-Quarterly-Dividend-of-0.84-Per-Share"
+  },
+  {
+   "metric": "Asset management fee (yearly, share of assets)",
+   "usTypical": "About 0.3% to 0.8% blended",
+   "nigeriaTypical": "About 1% to 1.5% on mutual funds",
+   "basis": "estimated",
+   "source": ""
+  },
+  {
+   "metric": "Regulator approval time for an offer",
+   "usTypical": "About 3 to 6 months from first filing to pricing",
+   "nigeriaTypical": "Bonds: 2 to 3 weeks if clean, 6 weeks maximum",
+   "basis": "estimated (US); sourced (Nigeria)",
+   "source": "https://home.sec.gov.ng/documents/95/Guide_to_Preparing_for_Bond_Issuance_in_Nigeria.pdf"
+  },
+  {
+   "metric": "Whole-country investment banking fee pool",
+   "usTypical": "Goldman Sachs alone earned $9.3bn in 2025",
+   "nigeriaTypical": "$97.9m in 2025, 19.4% of Sub-Saharan Africa",
+   "basis": "sourced",
+   "source": "https://www.legit.ng/business-economy/capital-market/1696551-nigeria-ranks-largest-investment-banking-markets-sub-saharan-africa-lseg"
+  },
+  {
+   "metric": "Share of offer that investors actually take",
+   "usTypical": "Most priced IPOs fill; about 10% to 20% of filings withdraw",
+   "nigeriaTypical": "Varies widely: one N400.5bn bank offer was 52% taken",
+   "basis": "estimated (US); sourced (Nigeria)",
+   "source": "https://allafrica.com/stories/202501140367.html"
+  }
+ ],
+ "costStructure": [
+  {"item": "Staff salaries and bonuses", "percentOfRevenue": 45, "note": "Biggest cost; bonus pool set at year end from deals closed"},
+  {"item": "Offices, data and technology", "percentOfRevenue": 12, "note": "Prime offices, market data screens, secure data rooms"},
+  {"item": "Legal, compliance and regulatory fees", "percentOfRevenue": 7, "note": "Compliance staff, regulator and exchange fees, audits"},
+  {"item": "Travel, roadshows and marketing", "percentOfRevenue": 6, "note": "Investor meetings in Abuja, London and beyond; pitch books"},
+  {"item": "Underwriting losses and provisions", "percentOfRevenue": 4, "note": "Average cost of shares or bonds left unsold and later sold at a loss"},
+  {"item": "Other administration", "percentOfRevenue": 6, "note": "Insurance, power, security, admin staff"},
+  {"item": "Profit before tax", "percentOfRevenue": 20, "note": "Swings hard with the deal cycle"}
+ ],
+ "regulation": [
+  {
+   "rule": "Firm licence and minimum capital",
+   "unitedStates": "Register as a broker-dealer with the SEC, join FINRA, and keep net capital above SEC Rule 15c3-1 minimums at all times.",
+   "nigeria": "SEC Nigeria: N7bn capital for underwriting issuing houses, N2bn advisory-only, N5bn for fund managers over N20bn; deadline 30 June 2027.",
+   "source": "https://nairametrics.com/2026/01/16/sec-raises-capital-requirements-for-brokers-fund-managers-digital-firms/"
+  },
+  {
+   "rule": "Register every public offer",
+   "unitedStates": "SEC: registration statement and prospectus under the Securities Act of 1933 before any sale; SEC staff comment until cleared.",
+   "nigeria": "SEC Nigeria (ISA 2025): register before offering; fine of at least 50% of the offer value if not; adverts need SEC approval too.",
+   "source": "https://www.afriwise.com/blog/public-offers-and-investor-protection-the-regulatory-framework-governing-ipos-in-nigeria-under-the-investments-and-securities-act-2025"
+  },
+  {
+   "rule": "Underwriting pay is reviewed",
+   "unitedStates": "FINRA Rule 5110: file offer documents within 3 business days of SEC filing; FINRA objects to unfair or unreasonable underwriting terms.",
+   "nigeria": "SEC Nigeria guide: total issue costs capped at 4.3% excluding underwriting; SEC fee 0.15% and exchange fee 0.15% of money raised.",
+   "source": "https://www.finra.org/rules-guidance/key-topics/public-offerings/filing-guidance"
+  },
+  {
+   "rule": "Money held safe and allotment approved",
+   "unitedStates": "SEC and FINRA: funds are settled through the underwriters; misstatements in the prospectus make issuer and underwriters liable.",
+   "nigeria": "SEC Nigeria: application money sits in a custodian trust account; SEC approves the basis of allotment and a minimum subscription.",
+   "source": "https://www.afriwise.com/blog/public-offers-and-investor-protection-the-regulatory-framework-governing-ipos-in-nigeria-under-the-investments-and-securities-act-2025"
+  },
+  {
+   "rule": "Listing and bond venues",
+   "unitedStates": "NYSE or Nasdaq listing standards; bonds mostly trade over the counter with FINRA trade reporting.",
+   "nigeria": "NGX listing rules for shares; NGX or FMDQ for bonds; public bonds need a trustee, registrar and a BBB- or better rating.",
+   "source": "https://home.sec.gov.ng/documents/95/Guide_to_Preparing_for_Bond_Issuance_in_Nigeria.pdf"
+  },
+  {
+   "rule": "Merger approval",
+   "unitedStates": "FTC and DOJ: Hart-Scott-Rodino premerger filing and a waiting period before large deals may close.",
+   "nigeria": "FCCPC: notify if combined turnover is N1bn+ or target N500m+; large mergers reviewed in 60 business days, extendable.",
+   "source": "https://www.mondaq.com/nigeria/corporate-and-company-law/1662042/merger-control-2025"
+  }
+ ],
+ "gameRules": [
+  {
+   "name": "Win the mandate",
+   "rule": "winChance = 15% + 5% x reputation level (0-10) + 10% if pitch book done - 10% per rival pitching; each 0.25% fee cut adds 5%; clamp 5% to 85%. On win the client pays a retainer of 10% of the expected fee.",
+   "playerFeels": "A good name and a sharp pitch win the room; cheap fees win it too, but cost you later.",
+   "simplifiedFrom": "Banks pitch for mandates on league table rank, ideas and fee; retainers are credited at close."
+  },
+  {
+   "name": "Staff the deal team",
+   "rule": "Deal needs work points: raise 2, bond 6, IPO 8, merger 10. Analyst gives 1, associate 2, VP 3. Days = baseDays x needed / assigned, floor 50% of base. Base days: raise 10, bond 24, IPO 30, merger 40. Staff work one deal at a time.",
+   "playerFeels": "Every banker is busy; taking one more mandate means something else slows down.",
+   "simplifiedFrom": "Deal teams of analysts, associates, VPs and an MD are staffed per mandate and stretched across deals."
+  },
+  {
+   "name": "Regulator review",
+   "rule": "IPO and bond filings wait 14 game days; each compliance officer cuts 20% (max 2). Query chance 30% minus 10% per compliance officer; a query adds 7 days. No sale may start before approval.",
+   "playerFeels": "Clean paperwork is speed; a missing page costs a week.",
+   "simplifiedFrom": "SEC Nigeria approves bond offers in 2 to 6 weeks; poor documents cause queries and delays."
+  },
+  {
+   "name": "Build the order book",
+   "rule": "Offer runs 3 game days. Daily orders = offer size x 0.25 x (1 + 0.10 x roadshow stops, max 4) x market mood (0.7 to 1.3) x price factor. Coverage = total orders / offer size, shown live as a bar.",
+   "playerFeels": "Watching the bar climb as roadshow trips pay off; dreading a market wobble on day 2.",
+   "simplifiedFrom": "Book building: investors bid over a set offer period after roadshows; demand moves with market mood."
+  },
+  {
+   "name": "Price the deal",
+   "rule": "Player sets price vs fair value from -20% to +10% in 5% steps. Price factor = 1 + 0.15 per 5% below, or 1 - 0.20 per 5% above. Each 5% below fair value also cuts client happiness 10 points.",
+   "playerFeels": "Price low and it sells but the client grumbles; price high and the book may not fill.",
+   "simplifiedFrom": "Bookrunners set the IPO price or bond coupon from bids, trading certainty of sale against issuer proceeds."
+  },
+  {
+   "name": "Success fee on close",
+   "rule": "Fee = rate x money raised (or deal value), paid at close minus retainer. Raise 2.5%; IPO 1.5%; bond 1%; merger 2% of first N5bn + 1% of next N15bn + 0.5% above. If coverage < 100%, fee x coverage. Deal fails below 50%.",
+   "playerFeels": "Months of work, then one big payday when the bell rings.",
+   "simplifiedFrom": "Advisers are paid a negotiated percentage on completion; M&A fees fall as deal size rises (Lehman-style scale)."
+  },
+  {
+   "name": "Underwriting promise",
+   "rule": "Needs N7bn licence. Commitment cap = 100% of firm capital. Earn extra 1.5% of offer size. If coverage < 100%, firm buys the gap at offer price; holds it 10 game days, then sells at offer price x (0.80 to 1.00) by mood.",
+   "playerFeels": "Bigger fees with real teeth: a weak book can lock up and dent your capital.",
+   "simplifiedFrom": "Firm-commitment underwriters take up unsold securities for a commission and carry the market risk."
+  },
+  {
+   "name": "Asset management fee",
+   "rule": "Monthly fee = assets under care x 1.5% / 12. Assets grow 1% a month per fund manager (max 3) plus 2% of money raised on each closed deal. Licence needs N2bn capital, N5bn once assets pass N20bn.",
+   "playerFeels": "A steady trickle that pays salaries while deal months are dry.",
+   "simplifiedFrom": "Fund managers charge a yearly percentage of assets; SEC Nigeria capital rises with assets managed."
+  }
+ ],
+ "stages": [
+  {"stage": "One Desk, One Umbrella", "licenceOrGate": "Company registered; tax number; desk rent paid", "startupCostNaira": 500000, "monthlyRevenueNaira": 1500000, "monthlyCostNaira": 900000, "staff": 1, "customersPerDay": 2},
+  {"stage": "The First Fund Raise", "licenceOrGate": "10 happy starter-pack clients; office lease signed", "startupCostNaira": 6000000, "monthlyRevenueNaira": 8000000, "monthlyCostNaira": 5000000, "staff": 4, "customersPerDay": 4},
+  {"stage": "Boutique on the Island", "licenceOrGate": "SEC Nigeria advisory issuing house registration; N2bn capital held aside", "startupCostNaira": 2150000000, "monthlyRevenueNaira": 60000000, "monthlyCostNaira": 40000000, "staff": 12, "customersPerDay": 6},
+  {"stage": "Ring the Bell", "licenceOrGate": "Compliance officer hired; first IPO filing approved by the regulator", "startupCostNaira": 300000000, "monthlyRevenueNaira": 250000000, "monthlyCostNaira": 160000000, "staff": 25, "customersPerDay": 8},
+  {"stage": "Bonds for the Bridge", "licenceOrGate": "Underwriting licence with N7bn capital; bond exchange sponsor membership", "startupCostNaira": 5200000000, "monthlyRevenueNaira": 600000000, "monthlyCostNaira": 380000000, "staff": 45, "customersPerDay": 10},
+  {"stage": "Two Become One", "licenceOrGate": "Two closed listings; secure data room and wall between teams in place", "startupCostNaira": 800000000, "monthlyRevenueNaira": 1100000000, "monthlyCostNaira": 700000000, "staff": 70, "customersPerDay": 12},
+  {"stage": "Money That Works", "licenceOrGate": "Fund manager registration; N5bn capital once assets pass N20bn", "startupCostNaira": 5500000000, "monthlyRevenueNaira": 1600000000, "monthlyCostNaira": 1000000000, "staff": 110, "customersPerDay": 20},
+  {"stage": "Lagos to New York", "licenceOrGate": "Partner licences abroad (US broker-dealer and London firm); reputation level 9", "startupCostNaira": 25000000000, "monthlyRevenueNaira": 4000000000, "monthlyCostNaira": 2800000000, "staff": 250, "customersPerDay": 30}
+ ],
+ "uniqueMechanics": [
+  {
+   "name": "Pitch for the mandate",
+   "whatThePlayerDoes": "Picks a client card, sets a fee and a team, and pitches against rival houses. Win chance shows live; a win pays a 10% retainer and adds the deal to the pipeline board.",
+   "screenNeeded": "Pitch screen: client card, fee slider, rival list, win-chance meter, pipeline board"
+  },
+  {
+   "name": "Order book and price",
+   "whatThePlayerDoes": "Sets the price against fair value, sends the VP on roadshow stops, then watches orders fill over 3 days and decides when to close the book.",
+   "screenNeeded": "Book screen: coverage bar to 200%, price slider, roadshow map, market mood gauge, day timer"
+  },
+  {
+   "name": "Underwriting promise",
+   "whatThePlayerDoes": "Chooses whether to guarantee the offer for an extra 1.5%. If the book falls short, the firm's capital buys the gap and sits locked on a ticker for 10 days.",
+   "screenNeeded": "Capital panel: free vs locked capital, licence minimum line, held-securities ticker with sell button"
+  }
+ ],
+ "failureStates": [
+  {
+   "what": "Deal falls through",
+   "trigger": "Order book coverage under 50% at close, or merger client happiness under 30",
+   "consequence": "No success fee; retainer kept; reputation -1; staff on the deal idle for 5 days",
+   "recovery": "Re-launch after 20 game days at a lower price, or drop the mandate"
+  },
+  {
+   "what": "Underwriting loss",
+   "trigger": "Firm takes up more than 20% of an offer and mood drops below 0.9",
+   "consequence": "Sold back at up to 20% below offer price; loss comes out of capital",
+   "recovery": "Hold to the 10-day mark for a better mood, raise partner capital, take smaller commitments"
+  },
+  {
+   "what": "Capital below licence minimum",
+   "trigger": "Firm capital under N7bn (underwriting) or N2bn (advisory) for 30 game days",
+   "consequence": "Licence suspended: matching deal lines locked, no new mandates of that type",
+   "recovery": "Inject capital from profits or new partners; licence returns once the minimum is met"
+  },
+  {
+   "what": "Regulator sanction",
+   "trigger": "Three regulator queries on one filing, or a prospectus error rated serious (10% chance with no compliance officer)",
+   "consequence": "Fine of 5% of the expected fee; that deal paused 14 days; reputation -1",
+   "recovery": "Hire compliance staff, fix and refile; clean record for 90 days removes the mark"
+  },
+  {
+   "what": "Bankers walk out",
+   "trigger": "December bonus pool under 30% of yearly salaries",
+   "consequence": "Each analyst and associate has a 25% chance to leave; team speed -10% next year",
+   "recovery": "Pay bonuses of 30% to 150% of salary, scaled to deals closed; rehire through the front desk"
+  }
+ ],
+ "balanceNotes": "Payback: stages 1-2 in 1-2 months; stage 3 office in about 8 months (the N2bn capital is held, not spent); stage 4 in 3-4 months; stage 5 capital top-up feels slow, about 2 years if counted. Players will feel stuck saving capital for the N7bn and N5bn licence gates and waiting on the 14-day regulator review. Tune first: order book daily fill rate (0.25), regulator wait days, and the merger fee scale, since mergers carry stages 6-8.",
+ "openQuestions": [
+  "Should licence capital sit locked in reserve (realistic) or count as spent (simpler) for payback and save-up screens?",
+  "Should the underwriting loss be able to wipe out capital below the licence line, or be capped so a single deal never ends a run?",
+  "Do we show real-style percentages (1.5% fee) on screen, or only naira amounts, to keep it clear money in the game is not real?",
+  "Is the New York stage reached through partner firms only, or does the player apply for a US licence as a separate gate?"
+ ],
+ "sources": [
+  {"claim": "Over 96% of US middle-market IPOs from 2001 to 2016 paid a 7% gross spread, while nearly half of large IPOs paid less.", "url": "https://www.sec.gov/newsroom/speeches-statements/jackson-middle-market-ipo-tax"},
+  {"claim": "Goldman Sachs earned $58.3bn net revenue and $9.3bn investment banking fees in 2025, with $11.5bn management and other fees and $18.9bn compensation.", "url": "https://www.goldmansachs.com/pressroom/press-releases/current/pdfs/2025-q4-results.pdf"},
+  {"claim": "Evercore earned $3.86bn net revenue in 2025, $3.27bn from advisory, with a 64.9% compensation ratio.", "url": "https://www.businesswire.com/news/home/20260203418042/en/Evercore-Reports-Record-Fourth-Quarter-and-Full-Year-2025-Revenues-Quarterly-Dividend-of-0.84-Per-Share"},
+  {"claim": "SEC Nigeria set N7bn capital for underwriting issuing houses, N2bn for advisory-only, and N5bn for fund managers above N20bn, by 30 June 2027.", "url": "https://nairametrics.com/2026/01/16/sec-raises-capital-requirements-for-brokers-fund-managers-digital-firms/"},
+  {"claim": "Under ISA 2025, offers must be registered with SEC Nigeria, application money is held by a custodian in trust, and allotment needs SEC approval.", "url": "https://www.afriwise.com/blog/public-offers-and-investor-protection-the-regulatory-framework-governing-ipos-in-nigeria-under-the-investments-and-securities-act-2025"},
+  {"claim": "SEC Nigeria's bond guide sets approval at 2 to 6 weeks, caps issue costs at 4.3% excluding underwriting, and requires a BBB- rating and a trustee.", "url": "https://home.sec.gov.ng/documents/95/Guide_to_Preparing_for_Bond_Issuance_in_Nigeria.pdf"},
+  {"claim": "FINRA Rule 5110 requires offering documents to be filed within 3 business days of SEC filing and bars unfair underwriting terms.", "url": "https://www.finra.org/rules-guidance/key-topics/public-offerings/filing-guidance"},
+  {"claim": "Nigeria's investment banking fee pool was $97.9m in 2025, second in Sub-Saharan Africa at 19.4% of the regional pool.", "url": "https://www.legit.ng/business-economy/capital-market/1696551-nigeria-ranks-largest-investment-banking-markets-sub-saharan-africa-lseg"},
+  {"claim": "A N400.5bn Nigerian bank public offer was 52% subscribed, raising about N209bn.", "url": "https://allafrica.com/stories/202501140367.html"},
+  {"claim": "FCMB Capital Markets topped the FMDQ sponsors league table for 2025 with N1.53 trillion of debt raised.", "url": "https://nairametrics.com/2026/04/01/fcmb-capital-markets-tops-fmdq-sponsors-league-table-in-2025-with-%E2%82%A61-53-trillion-in-debt-capital-market-transactions/"},
+  {"claim": "Stanbic IBTC reported N551.7bn profit before tax and N257.7bn fees and commissions for 2025.", "url": "https://nairametrics.com/2026/04/20/stanbics-fy2025-profit-hits-n551-7-billion-as-deposits-surge-declares-dividend/"},
+  {"claim": "Chapel Hill Denham's infrastructure debt fund listed a N15.34bn series in December 2025 under a N200bn programme.", "url": "https://www.thisdaylive.com/2025/12/15/ngx-admits-n15-34bn-chapel-hill-denham-infrastructure-debt-fund"},
+  {"claim": "FCCPC merger notification applies at N1bn combined or N500m target turnover, with 60 business days for large mergers.", "url": "https://www.mondaq.com/nigeria/corporate-and-company-law/1662042/merger-control-2025"},
+  {"claim": "M&A advisory success fee percentages fall as deal size rises, often on a Lehman-style descending scale, with retainers credited at close.", "url": "https://www.divestopedia.com/making-sense-of-private-market-ma-advisory-fees/2/8402"},
+  {"claim": "A N160bn Nigerian public offer in 2025 ran from 2 October to 6 November at N10 per share.", "url": "https://nairametrics.com/2025/10/16/fcmb-group-presents-facts-behind-n160-billion-public-offer"}
+ ]
+}

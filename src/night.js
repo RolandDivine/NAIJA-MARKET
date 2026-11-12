@@ -1,6 +1,6 @@
 /* ===== evening routine: traffic, dinner, bath, sleep, payday statement, morning ===== */
 const NORD=['drive','dinner','bath','sleep','stmt','morning'],DISH=['plate','#e8541e',null,['#b92c14','#ffcf4a'],'#6b3a1f'],CUP=['bottle','#8fd3f7','#1e6fb5'];
-function startNight(){const NL=PLAN.road.night;$('hqp').hidden=true;G.trip=null;S.money+=S.till;S.till=0;const br=brDay();S.money+=br;S.mo.br+=br;S.lastEarn=S.dayEarn;
+function startNight(){const NL=PLAN.road.night;$('hqp').hidden=true;G.trip=null;S.money+=S.till;S.till=0;const br=brDay();S.money+=br;S.mo.br+=br;S.lastEarn=S.dayEarn;SAVE.life=(SAVE.life||0)+S.dayEarn+(S.dayExp||0)+br;
   const due=monthDue(false),set=Math.max(0,Math.min(S.money,due.wages+due.tax-S.resv));S.money-=set;S.resv+=set;let stmt=null;
   if(S.day%MONTH===0){const d=monthDue(true),total=d.wages+d.tax,pool=S.resv;S.resv=0;S.money+=pool-total;S.stat.wages+=d.wages;S.stat.tax+=d.tax;
     stmt={m:S.day/MONTH,rev:d.rev,wages:d.wages,tax:d.tax,staff:d.staff,net:d.rev-total,short:Math.max(0,total-pool)};S.mo={rev:0,exp:0,br:0};}
