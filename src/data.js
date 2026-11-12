@@ -1,5 +1,8 @@
 /* ===== businesses: 10 independent shops, 5 product lines each. Prices: Lagos retail, Nov 2026 ===== */
 const L=(n,short,col,price,unit,src,raw,prod,st)=>({n,short,col,price,unit,src,raw,prod,st});
+/* New businesses plug in here (src/biz/<key>.js): BIZX[key] = {demand, lineW, sale, gate, html, bind, night, month, crew,
+   strip, base, floor, locked}. XITEM[kind] draws an item kind, XSTATION[kind] draws a station kind. */
+const BIZX={},XITEM={},XSTATION={};
 const BIZ={
 nkechi:{name:"Mama Nkechi's Kitchen",tag:'Cooked food',tone:'#e8541e',field:'farm',food:true,owner:{cloth:'#e8501e',trim:'#ffc23d',hat:'gele'},
   venue:['Roadside bench','Canopy and tables','Buka','Restaurant, 150 seats','Grand Restaurant, 1,000 seats'],

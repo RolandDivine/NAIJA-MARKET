@@ -99,7 +99,7 @@ const SOON=[['🏦','PadiTrust Bank','Retail bank: deposits, loans, cards'],['�
   ['✈️','KiteRise Air & Travels','Travel desk to intercontinental airline'],['🏭','Omi-Ola Industries','Pure water to consumer goods'],['⚡','Kpakpando Energy','Gas kiosk to power plants'],
   ['🏥','Dawnfield Health Group','Chemist to teaching hospital'],['🏨','Adunni Palms Hotels','Guest house to luxury chain'],['💻','KoboWave Technologies','Phone repair to payments company'],
   ['🎬','Koko Reel Entertainment','Wedding videos to studios and streaming'],['🏛️','Okele Council Services','Public service: ward to state']];
-$('soon').innerHTML=SOON.map(s=>'<div class="card"><div class="ico">'+s[0]+'</div><div><h2>'+esc(s[1])+'</h2><span>'+esc(s[2])+'</span><em>Coming soon</em></div></div>').join('');
+$('soon').innerHTML=SOON.filter(s=>!Object.values(BIZ).some(b=>b.name===s[1])).map(s=>'<div class="card"><div class="ico">'+s[0]+'</div><div><h2>'+esc(s[1])+'</h2><span>'+esc(s[2])+'</span><em>Coming soon</em></div></div>').join('');
 $('soonh').hidden=false;
 $('cards').addEventListener('click',e=>{const c=e.target.closest('.card');if(c&&NM.pid&&NM.player&&!NM.player.career)nmApi('PUT','/profile',{career:c.dataset.biz}).then(r=>{if(r.ok)NM.player=r.j.player;});},true);
 

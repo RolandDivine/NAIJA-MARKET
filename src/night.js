@@ -4,7 +4,7 @@ function startNight(){const NL=PLAN.road.night;$('hqp').hidden=true;G.trip=null;
   const due=monthDue(false),set=Math.max(0,Math.min(S.money,due.wages+due.tax-S.resv));S.money-=set;S.resv+=set;let stmt=null;
   const xr=typeof shipNight==='function'?shipNight()||[]:[];
   if(S.day%MONTH===0){const sm=typeof shipMonth==='function'?shipMonth():null;const d=monthDue(true),total=d.wages+d.tax,pool=S.resv;S.resv=0;S.money+=pool-total;S.stat.wages+=d.wages;S.stat.tax+=d.tax;
-    stmt={m:S.day/MONTH,rev:d.rev,wages:d.wages,tax:d.tax,staff:d.staff,net:d.rev-total,short:Math.max(0,total-pool)};if(sm){stmt.net-=sm.cost;stmt.or=sm.or;stmt.ops=sm.cost;}const sc=typeof schoolMonth==='function'?schoolMonth(stmt):[];if(sc&&sc.rows){stmt.net-=sc.cost;stmt.ops=sc.cost;stmt.or=sc.or;}stmt.extra=[...(sc&&sc.rows||[]),...finMonth(stmt)];S.mo={rev:0,exp:0,br:0};}
+    stmt={m:S.day/MONTH,rev:d.rev,wages:d.wages,tax:d.tax,staff:d.staff,net:d.rev-total,short:Math.max(0,total-pool)};if(sm){stmt.net-=sm.cost;stmt.or=sm.or;stmt.ops=sm.cost;}const X=bx(),sc=X?(X.month?X.month(stmt):null):schoolMonth(stmt);if(sc&&sc.rows){stmt.net-=sc.cost;stmt.ops=sc.cost;stmt.or=sc.or;}stmt.extra=[...(sc&&sc.rows||[]),...finMonth(stmt)];S.mo={rev:0,exp:0,br:0};}
   const tr=PLAN.road.night.traffic.slice().sort(()=>Math.random()-.5).slice(0,4);
   G.night={st:'drive',t:0,T:0,jam:rnd(10,14),off:0,v:0,stmt,sum:{day:S.day,earn:S.dayEarn,sold:S.daySold,exp:S.dayExp,br,set,left:MONTH-dayOfMonth(),extra:xr},
     L:{tr,radio:pick(NL.radio),dinner:pick(NL.dinner),bath:pick(NL.bath),sleep:pick(Math.random()<.5?NL.sleep:PBZ().chatter.night),morning:pick(NL.morning)}};

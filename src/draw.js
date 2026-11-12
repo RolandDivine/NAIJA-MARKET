@@ -2,7 +2,7 @@
 function E(g,x,y,rx,ry,col){g.fillStyle=col;g.beginPath();g.ellipse(x,y,Math.max(.1,rx),Math.max(.1,ry),0,0,6.2832);g.fill();}
 function R(g,x,y,w,h,r,col){g.fillStyle=col;g.beginPath();g.roundRect(x,y,w,h,r);g.fill();}
 const HI='rgba(255,255,255,.35)',LO='rgba(0,0,0,.18)';
-function drawKind(g,d){const[k,a,b,c,m]=d;switch(k){
+function drawKind(g,d){const[k,a,b,c,m]=d;if(XITEM[k])return XITEM[k](g,a,b,c,m);switch(k){
   case'plate':E(g,0,-3,12,4.6,'#d9d2c2');E(g,0,-4,12,4.6,'#fff');
     if(b){E(g,4.5,-6.5,5.5,3.2,b);E(g,-3.5,-7.5,5.6,4.2,a);E(g,-5,-9,2,1.2,HI);if(c)c.forEach((s,i)=>E(g,3+i*2.4,-7.2+i*.8,1.5,1,s));}
     else{E(g,0,-7,8,4,a);E(g,-2,-8.6,3,1.3,HI);if(c)c.forEach((s,i)=>{E(g,-4.5+i*3.2,-6.4-(i%2)*1.8,1.25,.95,s);E(g,3.6-i*2.6,-8.4+(i%2)*1.6,1.1,.85,s);});}
@@ -86,11 +86,12 @@ const OUTFIT={hand:{cloth:'#6d8f2f',trim:'#d9c27a',hat:'straw'},porter:{cloth:'#
 function drawGround(){const f=G.field,st=stage();
   ctx.fillStyle='#d98c4a';ctx.fillRect(0,0,WW,WH);
   // field
-  const base={farm:'#6aa23e',pasture:'#8fae45',water:'#2f8fd0',yard:'#a39f96',port:'#7d7a74',campus:'#7fb24a'}[B.field];rr(f.x-6,f.y-6,f.w+12,f.h+12,16,'#8a5a2a');rr(f.x,f.y,f.w,f.h,12,base);
+  const base={farm:'#6aa23e',pasture:'#8fae45',water:'#2f8fd0',yard:'#a39f96',port:'#7d7a74',campus:'#7fb24a'}[B.field]||(BIZX[SAVE.cur]&&BIZX[SAVE.cur].base)||'#8a9a6a';rr(f.x-6,f.y-6,f.w+12,f.h+12,16,'#8a5a2a');rr(f.x,f.y,f.w,f.h,12,base);
   for(const s of G.strips){const open=lineOpen(s.li);
     if(B.field==='farm'){ctx.fillStyle='rgba(60,40,10,.16)';for(let y=f.y+22;y<f.y+f.h;y+=30)ctx.fillRect(s.x+6,y-3,s.w-12,8);}
     else if(B.field==='port')portStrip(s,f);
     else if(B.field==='campus')campusStrip(s,f);
+    else if(BIZX[SAVE.cur]&&BIZX[SAVE.cur].strip)BIZX[SAVE.cur].strip(s,f);
     else if(B.field==='yard'){ctx.strokeStyle='rgba(255,220,80,.5)';ctx.lineWidth=2;ctx.setLineDash([12,10]);ctx.strokeRect(s.x+8,f.y+8,s.w-16,f.h-16);ctx.setLineDash([]);}
     else{for(let i=0;i<10;i++)ell(s.x+((i*97)%s.w),f.y+((i*53)%f.h),6,2,'#7c9a38');}
     if(s!==G.strips[0]){ctx.fillStyle='rgba(40,20,5,.35)';ctx.fillRect(s.x-1.5,f.y,3,f.h);}
@@ -99,7 +100,7 @@ function drawGround(){const f=G.field,st=stage();
   // delivery road + depot
   if(G.D.length){rr(712,-20,276,330,0,'#4a4640');ctx.strokeStyle='#e9d27a';ctx.lineWidth=3;ctx.setLineDash([18,16]);ctx.beginPath();ctx.moveTo(850,0);ctx.lineTo(850,150);ctx.stroke();ctx.setLineDash([]);rr(704,300,284,78,8,'#b9b3a6');label(846,316,'DELIVERIES','#fff','rgba(43,22,8,.6)',10);}
   // kitchen floor
-  const kf=(B.field==='campus'?['#e7d3a8','#ecdcb8','#f0e6cc','#f4eedc','#f6f2e6']:B.field==='port'?['#9c968c','#a8a296','#b3b0a8','#c4c2bc','#d3d6da']:['#cf7f3f','#c79a62','#d6cfc0','#ece8de','#dfe7ec'])[st];rr(24,425,962,345,14,kf);
+  const kf=(BIZX[SAVE.cur]&&BIZX[SAVE.cur].floor?BIZX[SAVE.cur].floor:B.field==='campus'?['#e7d3a8','#ecdcb8','#f0e6cc','#f4eedc','#f6f2e6']:B.field==='port'?['#9c968c','#a8a296','#b3b0a8','#c4c2bc','#d3d6da']:['#cf7f3f','#c79a62','#d6cfc0','#ece8de','#dfe7ec'])[st];rr(24,425,962,345,14,kf);
   ctx.fillStyle='rgba(0,0,0,.06)';if(st<2){for(let y=450;y<765;y+=26)ctx.fillRect(24,y,962,2);}else{for(let y=425;y<770;y+=38)ctx.fillRect(24,y,962,1.5);for(let x=24;x<986;x+=38)ctx.fillRect(x,425,1.5,345);}
   for(let i=0;i<5;i++){ctx.globalAlpha=lineOpen(i)?.2:.07;rr(LX(i)-46,438,92,322,12,B.lines[i].col);ctx.globalAlpha=1;}
   // dining / shop floor
@@ -148,7 +149,7 @@ function drawTrail(tr,pos,isP){if(!tr)return;const s=tr.strain||0,warn=isP&&s>.8
   ctx.strokeStyle=warn?'#ff3b30':'#f3e08a';ctx.lineWidth=warn?6:5;ctx.beginPath();tr.pts.forEach((p,i)=>i?ctx.lineTo(p.x,p.y-10):ctx.moveTo(p.x,p.y-10));ctx.lineTo(pos.x,pos.y-14);ctx.stroke();
   ctx.strokeStyle='rgba(120,90,30,.6)';ctx.lineWidth=1.5;ctx.setLineDash([3,4]);ctx.stroke();ctx.setLineDash([]);
   if(isP)label(pos.x,pos.y-78,'Rope '+Math.min(100,Math.round(s*100))+'%',warn?'#fff':'#2b1608',warn?'#e0281e':'#ffe9a8',10);}
-function unitBody(kind,col,busy){
+function unitBody(kind,col,busy){if(XSTATION[kind])return XSTATION[kind](col,busy);
   if(kind==='pot'){for(let i=-2;i<=2;i++){ctx.save();ctx.translate(i*9,8);ctx.rotate(i*.3);rr(-3,-14,6,16,2,'#6b3b18');ctx.restore();}
     ell(0,-14,32,21,'#1f1b1a');ell(0,-28,32,10,'#2c2726');ell(0,-28,27,8,col);ell(-8,-30,9,3,HI);rr(-38,-30,8,5,2,'#1f1b1a');rr(30,-30,8,5,2,'#1f1b1a');}
   else if(kind==='grill'){rr(-40,-24,80,28,4,'#2a2523');rr(-37,-31,74,13,3,busy?'#e8461e':'#5a463c');ctx.strokeStyle='#bbb';ctx.lineWidth=1;for(let i=-34;i<36;i+=6){ctx.beginPath();ctx.moveTo(i,-31);ctx.lineTo(i,-18);ctx.stroke();}
@@ -317,7 +318,9 @@ function cardHtml(k){const b=BIZ[k],s=SAVE.biz[k];const lv=s?1+Object.values(s.p
     (s?'<em>Level '+lv+' · Day '+s.day+' · ₦'+short(Math.floor(s.money))+'</em>':'<em class="new">Start: '+b.lines[0].short+' at ₦'+b.lines[0].price.toLocaleString()+' per '+b.lines[0].unit+'</em>')+'</div></button>';}
 function showMenu(){$('cards').innerHTML=Object.keys(BIZ).map(cardHtml).join('');
   document.querySelectorAll('#cards canvas').forEach(c=>{const g=c.getContext('2d'),b=BIZ[c.dataset.k];E(g,60,60,58,58,'#ffe2b8');drawDef(b.lines[0].prod,60,96,3.6,g);});
-  document.querySelectorAll('#cards .card').forEach(el=>el.addEventListener('click',()=>enter(el.dataset.biz)));
+  // A business can stay locked until the player has earned it elsewhere (local government: level 50+).
+  document.querySelectorAll('#cards .card').forEach(el=>{const X=BIZX[el.dataset.biz],m=X&&X.locked?X.locked():null;if(m){el.classList.add('locked');const sp=el.querySelector('span');if(sp)sp.textContent='🔒 '+m;}
+    el.addEventListener('click',()=>{if(!(X&&X.locked&&X.locked()))enter(el.dataset.biz);});});
   $('back').hidden=!G;$('reset').hidden=!G;$('reset').textContent='Restart this business';$('reset').dataset.arm='';$('pick').hidden=false;$('pick').scrollTop=0;}
 function enter(k){if(G)save();SAVE.cur=k;const fresh=!SAVE.biz[k];if(fresh)SAVE.biz[k]={money:0,pads:{},day:1,clock:0,till:0,dayEarn:0,daySold:0,sold:0};$('hqp').hidden=true;
   build();save();$('pick').hidden=true;
