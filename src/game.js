@@ -79,7 +79,7 @@ function makeSeats(){const st=stage(),s=[];G.tables=[];
 function syncStaff(){const want=[];
   for(let i=0;i<lvl('hand');i++)want.push('hand');for(let i=0;i<lvl('porter');i++)want.push('porter');for(let i=0;i<lvl('server');i++)want.push('server');
   for(let i=0;i<5;i++)if(lvl('cook'+i))want.push('cook'+i);if(lvl('cashier'))want.push('cashier');
-  if(S.emp.mgr)want.push('manager');for(let i=0;i<[0,1,1,2,2,3,3][S.emp.con];i++)want.push('loader');
+  if(S.emp.mgr)want.push('manager');for(let i=0;i<[0,1,2,2,3,3,4][S.emp.con];i++)want.push('loader');
   for(const k of want){const have=G.workers.filter(w=>w.key===k).length,need=want.filter(x=>x===k).length;
     for(let j=have;j<need;j++){const w={key:k,kind:k.replace(/\d/,''),li:+(k.match(/\d/)||[0])[0],x:500,y:420,stack:[],state:'idle',wait:rnd(.2,1.5),path:[],trail:null,step:0,face:1,n:j};
       if(w.kind==='cook'){w.x=LX(w.li)-52;w.y=524;}else if(w.kind==='cashier'){w.x=915;w.y=716;}else if(w.kind==='hand'){w.x=G.postA.x+40+j*30;w.y=350;}else if(w.kind==='porter'){w.x=780+j*30;w.y=380;}else if(w.kind==='loader'){w.x=720+j*36;w.y=1215;}else if(w.kind==='manager'){w.x=500;w.y=660;}else{w.x=300+j*60;w.y=640;}
@@ -127,10 +127,17 @@ function moveTo(o,tx,ty,sp,dt){const d=dist(o.x,o.y,tx,ty);if(d<4)return true;co
 function updWorker(w,dt){const hm=w.kind==='hand'||w.kind==='porter'?S.emp.haul||0:0,sp=staffSpd()*HSPD[hm],cap=Math.round(staffCap()*HCAP[hm]),f=G.field;
   if(w.kind==='cook'||w.kind==='cashier'){w.step+=dt*(w.kind==='cook'&&G.procIn[w.li]>0?9:0);return;}
   if(w.kind==='manager'){if(w.state==='idle'){w.wait-=dt;if(w.wait<=0){w.tx=rnd(120,860);w.ty=pick([640,660,800,470]);w.state='walk';}}else if(moveTo(w,w.tx,w.ty,sp*.6,dt)){w.state='idle';w.wait=rnd(2,5);}return;}
-  if(w.kind==='loader'){const o=G.exp.state==='load'?G.exp.ord:null;
-    if(w.state==='idle'){if(o&&o.got<o.need&&G.out[o.li]>0){w.li=o.li;w.state='load';}else moveTo(w,720+w.n*36,1215,sp,dt);}
-    else if(w.state==='load'){if(moveTo(w,LX(w.li)+30,604,sp,dt)){w.wait-=dt;if(w.wait<=0&&G.out[w.li]>0&&w.stack.length<cap){G.out[w.li]--;w.stack.push('p'+w.li);w.wait=.02;}if(w.stack.length>=cap||G.out[w.li]===0)w.state=w.stack.length?'drop':'idle';}}
-    else{if(moveTo(w,BAY.x+w.n*14,BAY.y,sp,dt)){w.wait-=dt;if(w.wait<=0&&w.stack.length){w.stack.pop();if(o&&o.li===w.li&&o.got<o.need)o.got++;else G.counter[w.li]++;w.wait=.015;}if(!w.stack.length)w.state='idle';}}
+  // Export loaders pack in bulk: a pallet of up to 24 goods (more with machines), taken from the station and the shop
+  // counter, and they wait at the station until the pallet covers what the truck still needs, so the truck fills in time.
+  if(w.kind==='loader'){const o=G.exp.state==='load'?G.exp.ord:null,pal=Math.max(24,cap*3);
+    const carried=()=>G.workers.reduce((a,x)=>a+(x.kind==='loader'&&x.state!=='idle'&&x.li===(o&&o.li)?x.stack.length:0),0);
+    const left=()=>o?o.need-o.got-carried():0,stock=li=>G.out[li]+G.counter[li];
+    if(w.state==='idle'){if(o&&left()>0&&stock(o.li)>0){w.li=o.li;w.state='load';w.hold=0;}else moveTo(w,720+w.n*36,1215,sp,dt);}
+    else if(w.state==='load'){if(moveTo(w,LX(w.li)+30,604,sp,dt)){w.wait-=dt;w.hold=(w.hold||0)+dt;
+        if(w.wait<=0&&w.stack.length<pal&&(!o||w.stack.length<o.need-o.got)){if(G.out[w.li]>0){G.out[w.li]--;w.stack.push('p'+w.li);}else if(G.counter[w.li]>0){G.counter[w.li]--;w.stack.push('p'+w.li);}w.wait=.01;}
+        const need=o?o.need-o.got:0,full=w.stack.length>=pal||(o&&w.stack.length>=need),dry=stock(w.li)===0;
+        if(full||(dry&&w.hold>3)||!o||G.exp.t<6)w.state=w.stack.length?'drop':'idle';}}
+    else{if(moveTo(w,BAY.x+w.n*14,BAY.y,sp*1.2,dt)){w.wait-=dt;while(w.stack.length&&w.wait<=0){w.stack.pop();if(o&&o.li===w.li&&o.got<o.need)o.got++;else G.counter[w.li]++;w.wait+=.004;}if(!w.stack.length)w.state='idle';}}
     return;}
   if(w.kind==='hand'){
     if(w.state==='idle'){w.wait-=dt;if(w.wait<=0){const ss=G.strips.filter(s=>lineOpen(s.li)&&G.procIn[s.li]<140);if(!ss.length){w.wait=1;return;}const s=ss[Math.floor(Math.random()*ss.length)];

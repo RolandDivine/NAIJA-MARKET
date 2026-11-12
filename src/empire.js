@@ -70,8 +70,8 @@ function updChatter(dt){for(const b of G.bub)b.t-=dt;G.bub=G.bub.filter(b=>b.t>0
 
 /* ----- export bay ----- */
 function updExport(dt){const e=S.emp,X=G.exp;if(!e.con)return;
-  if(X.state==='wait'){X.t-=dt;if(X.t<=0&&!G.closing){const li=pick(openLines()),need=40+20*e.con;X.ord={li,need,got:0,pay:Math.round(expDay()*50/dayLen()),buyer:PBZ().export.contracts[Math.floor(Math.random()*e.con)]};X.state='in';X.x=WW+160;X.t0=G.t;}}
-  else if(X.state==='in'){X.x-=300*dt;if(X.x<=880){X.x=880;X.state='load';X.t=42;horn();toast('🚛 '+X.ord.buyer.buyer+' wants '+X.ord.need+' '+B.lines[X.ord.li].short+'. Load the truck!',4);}}
+  if(X.state==='wait'){X.t-=dt;if(X.t<=0&&!G.closing){const li=pick(openLines()),need=40+15*e.con;X.ord={li,need,got:0,pay:Math.round(expDay()*50/dayLen()),buyer:PBZ().export.contracts[Math.floor(Math.random()*e.con)]};X.state='in';X.x=WW+160;X.t0=G.t;}}
+  else if(X.state==='in'){X.x-=300*dt;if(X.x<=880){X.x=880;X.state='load';X.t=60;horn();toast('🚛 '+X.ord.buyer.buyer+' wants '+X.ord.need+' '+B.lines[X.ord.li].short+'. Load the truck!',4);}}
   else if(X.state==='load'){X.t-=dt;const o=X.ord;if(o.got>=o.need||X.t<=0||G.closing){const pay=Math.round(o.pay*Math.min(1,o.got/o.need));if(pay>0){S.money+=pay;S.mo.exp+=pay;S.dayExp+=pay;floatTxt(X.x-40,1210,'EXPORT +₦'+short(pay),'#ffd659',18);puff(BAY.x,BAY.y-20,12,'#ffe9a8');beep(784,.22,'square',.06,1.5);}
       X.state='out';}}
   else{X.x-=320*dt;if(X.x<-200){X.state='wait';X.t=Math.max(5,50-(G.t-X.t0));X.ord=null;}}}
