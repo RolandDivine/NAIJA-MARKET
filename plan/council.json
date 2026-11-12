@@ -1,0 +1,219 @@
+{
+ "key": "council",
+ "branchNoun": "council",
+ "rankTitles": [
+  "Ward Volunteer",
+  "Councillor",
+  "Chairman",
+  "Commissioner",
+  "Governor",
+  "Two-term Governor"
+ ],
+ "export": {
+  "bay": "Shared Services Desk",
+  "pack": "service toolkits",
+  "contracts": [
+   {
+    "buyer": "Ifeso Local Government",
+    "where": "Marobi State",
+    "blurb": "A neighbouring council uses your depot system to stock its clinics, paid per month."
+   },
+   {
+    "buyer": "Ugwaro Council Training Fund",
+    "where": "Marobi State",
+    "blurb": "Your revenue clerks train new clerks on e-ticket kiosks, paid per course."
+   },
+   {
+    "buyer": "Edun State Sanitation Board",
+    "where": "Edun State",
+    "blurb": "Your waste timetable runs in their capital, paid per route."
+   },
+   {
+    "buyer": "Abuja Primary Health Partners",
+    "where": "Abuja",
+    "blurb": "A health fund pays you to run drug deliveries for 40 health centres."
+   },
+   {
+    "buyer": "Accra Municipal Forum",
+    "where": "Accra, Ghana",
+    "blurb": "Ghanaian councils license your open budget template."
+   },
+   {
+    "buyer": "Kigali Clean Streets Exchange",
+    "where": "Kigali, Rwanda",
+    "blurb": "An exchange of sanitation crews and ideas, paid per visit."
+   }
+  ]
+ },
+ "machines": {
+  "belt": {
+   "name": "Cargo Keke Runner",
+   "blurb": "Carries supplies from the yard to the nearest service points without you."
+  },
+  "auto": {
+   "name": "E-Ticket Kiosk Line",
+   "blurb": "Logs every fee so no naira goes missing between the gate and the treasury."
+  },
+  "pack": {
+   "name": "Compactor Fleet and Hub",
+   "blurb": "Trucks restock all five service points and clear waste routes on a timetable."
+  }
+ },
+ "manager": {
+  "name": "Mr Ibikunle",
+  "title": "Council Treasurer"
+ },
+ "milestones": [
+  {
+   "at": 1,
+   "title": "Second Council",
+   "blurb": "Ifeso council copies your posted budget and depot."
+  },
+  {
+   "at": 5,
+   "title": "Five Councils",
+   "blurb": "Five councils pay salaries on time and post their books."
+  },
+  {
+   "at": 10,
+   "title": "Half of Marobi",
+   "blurb": "Nine councils share one drug depot and one waste timetable."
+  },
+  {
+   "at": 25,
+   "title": "Across States",
+   "blurb": "Councils in Edun and Ogaji States run the Okele system."
+  },
+  {
+   "at": 50,
+   "title": "Open Data Wall",
+   "blurb": "Every clinic, school and bin route shows live on a public screen."
+  },
+  {
+   "at": 100,
+   "title": "Peer Visits",
+   "blurb": "Teams from other states and countries come to learn."
+  },
+  {
+   "at": 250,
+   "title": "Clean Audits Everywhere",
+   "blurb": "Five years of clean audits in every council you serve."
+  },
+  {
+   "at": 500,
+   "title": "A Town That Works",
+   "blurb": "Stocked clinics, full classrooms, clean streets. Mama Risi smiles."
+  }
+ ],
+ "chatter": {
+  "staff": [
+   "Drug cartons for the health centre, coming!",
+   "Ticket rolls loaded at the market desk.",
+   "Textbooks for Primary 4, counted and stamped.",
+   "Gutter on Market Road is clear.",
+   "Bin route 3 done before 8am.",
+   "Asphalt bags ready for the park gate.",
+   "Every payment is in the ledger.",
+   "Birth certificate printed, free of charge.",
+   "Pothole by the keke stand is patched.",
+   "Budget notice is up on the gate."
+  ],
+  "customer": [
+   "The clinic has drugs again. Thank you!",
+   "Where can I register my baby's birth?",
+   "My stall ticket, please.",
+   "The gutter no flood this time!",
+   "When does the bin truck come to our street?",
+   "Can I see what my levy paid for?",
+   "My son has his own textbook now.",
+   "The park road is smooth. Well done.",
+   "I read the budget on my phone.",
+   "Please, the light at the market gate."
+  ],
+  "manager": [
+   "Salaries first, then supplies.",
+   "Keep a reserve for the lean months.",
+   "The auditor is our friend. Show her everything.",
+   "Post the budget, people will pay.",
+   "Kiosks close the leaks.",
+   "Approval is earned in queues, not speeches."
+  ],
+  "night": [
+   "Papa Garba kept the stew warm.",
+   "Ledger closed. Every naira counted.",
+   "Tomorrow: clinic shelves and the park road.",
+   "The ward is quiet. The gutters are clear.",
+   "Mama Risi called: write am down, my daughter.",
+   "Sleep well. Allocation day is coming."
+  ]
+ },
+ "events": [
+  {
+   "name": "Gutter Flood",
+   "text": "Heavy rain blocks the market gutter. Fewer traders open until the crew clears it.",
+   "effect": "demand_down"
+  },
+  {
+   "name": "Town Hall Praise",
+   "text": "Residents clap at the town hall. More people come to pay fees today.",
+   "effect": "demand_up"
+  },
+  {
+   "name": "Truck Breakdown",
+   "text": "The refuse truck will not start. Supplies move slowly today.",
+   "effect": "supply_slow"
+  },
+  {
+   "name": "Pothole Season",
+   "text": "Rain opens new potholes at the motor park. Repairs cost extra today.",
+   "effect": "cost_hit"
+  },
+  {
+   "name": "Budget Goes Viral",
+   "text": "A resident shares your posted budget online. Everyone wants to see the council that shows its work.",
+   "effect": "vip_day"
+  },
+  {
+   "name": "Free Drug Donation",
+   "text": "A health charity donates malaria drugs. The clinic serves faster today.",
+   "effect": "speed_up"
+  },
+  {
+   "name": "State Health Grant",
+   "text": "A primary health grant arrives in the council account for the clinics.",
+   "effect": "bonus_cash"
+  },
+  {
+   "name": "Market Day",
+   "text": "Big market day in Okele. Traders and buyers fill every lane.",
+   "effect": "demand_up"
+  }
+ ],
+ "mech": [
+  {
+   "name": "Hand carry",
+   "how": "Drug cartons and ticket rolls carried from the depot in both arms"
+  },
+  {
+   "name": "Wheelbarrow",
+   "how": "A council wheelbarrow rolls asphalt bags and books along the yard"
+  },
+  {
+   "name": "Cargo keke",
+   "how": "Teal three-wheeler with a flat cargo bed brings crates to the nearest points"
+  },
+  {
+   "name": "Council pickup",
+   "how": "White pickup with the council crest parks at the depot, crates move in"
+  },
+  {
+   "name": "Depot forklift",
+   "how": "Small forklift lifts pallets of drugs and books into the state depot"
+  },
+  {
+   "name": "Compactor fleet",
+   "how": "White compactor trucks with teal stripes run every route on a timetable"
+  }
+ ],
+ "storyNote": "Story follows plan2/council.json. No bribery, vote buying, rigging or fraud scenes exist: elections are won only by service and approval. Places and teams are invented; no real parties or politicians."
+}

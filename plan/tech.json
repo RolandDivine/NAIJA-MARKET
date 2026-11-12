@@ -1,0 +1,219 @@
+{
+ "key": "tech",
+ "branchNoun": "city office",
+ "rankTitles": [
+  "Screen Fixer",
+  "App Builder",
+  "Founder",
+  "CEO",
+  "Group CEO",
+  "Unicorn Founder"
+ ],
+ "export": {
+  "bay": "Partnerships Desk",
+  "pack": "software licence bundles",
+  "contracts": [
+   {
+    "buyer": "Lagos Market Traders' Union",
+    "where": "Ikeja, Lagos",
+    "blurb": "Shop Pages for every stall in the union, paid as one yearly bundle."
+   },
+   {
+    "buyer": "Kano Pharmacies Cooperative",
+    "where": "Kano",
+    "blurb": "Invoice and Stock App for 300 pharmacies, set up in one go."
+   },
+   {
+    "buyer": "Private Schools Bursars' Network",
+    "where": "Abuja",
+    "blurb": "Payroll and HR Suite for teachers in member schools."
+   },
+   {
+    "buyer": "Port Harcourt Hospitals Group",
+    "where": "Port Harcourt",
+    "blurb": "Staff payroll and stock apps for five hospitals."
+   },
+   {
+    "buyer": "Nairobi Retail Partners",
+    "where": "Nairobi, Kenya",
+    "blurb": "KoboWave shop software for East African retailers."
+   },
+   {
+    "buyer": "Cairo SME Alliance",
+    "where": "Cairo, Egypt",
+    "blurb": "Arabic-language invoicing and checkout for small businesses."
+   }
+  ]
+ },
+ "machines": {
+  "belt": {
+   "name": "Ticket Trolley Bot",
+   "blurb": "Rolls tickets from the product board to developer desks without the player."
+  },
+  "auto": {
+   "name": "Auto-Deploy Belt",
+   "blurb": "Carries finished features from every desk straight to the sales desk."
+  },
+  "pack": {
+   "name": "Data Centre Robot Arm",
+   "blurb": "Unloads the delivery bay and fits server parts into racks all day and night."
+  }
+ },
+ "manager": {
+  "name": "Ngozi",
+  "title": "Co-founder and Head of Product"
+ },
+ "milestones": [
+  {
+   "at": 1,
+   "title": "Second Office",
+   "blurb": "Abuja opens, close to the regulators. Same teal hoodies, same codebase."
+  },
+  {
+   "at": 5,
+   "title": "Five City Offices",
+   "blurb": "Traders in five cities pay for KoboWave apps every month."
+  },
+  {
+   "at": 10,
+   "title": "Nairobi Second Home",
+   "blurb": "The East Africa office opens with its own engineers and a second data centre."
+  },
+  {
+   "at": 25,
+   "title": "Cairo and London",
+   "blurb": "Arabic checkout in Cairo and diaspora payments from London."
+  },
+  {
+   "at": 50,
+   "title": "Free Coding School",
+   "blurb": "The old repair stand is now a free coding school for young builders."
+  },
+  {
+   "at": 100,
+   "title": "Pan-African Network",
+   "blurb": "A hundred offices, one codebase, and sellers paid on time every morning."
+  },
+  {
+   "at": 250,
+   "title": "San Francisco Office",
+   "blurb": "A small team near the cloud partner, and a rooftop garden for visitors."
+  },
+  {
+   "at": 500,
+   "title": "The Unicorn Bell",
+   "blurb": "Kelechi rings the bell at the old umbrella spot. Stay honest, stay up, train the next builders."
+  }
+ ],
+ "chatter": {
+  "staff": [
+   "Ticket for a new Shop Page, coming!",
+   "Feature shipped. Tests are green.",
+   "Saving every five minutes, just in case.",
+   "Server parts in from the delivery bay.",
+   "Settlement file sent to the partner bank.",
+   "Generator topped up. Racks are happy.",
+   "Bug fixed. Checkout works again.",
+   "New customer signed up for the Invoice App.",
+   "Support line is calm today.",
+   "Code review done. Ship it!"
+  ],
+  "customer": [
+   "You fit build app for my shop?",
+   "My Shop Page brought three new buyers!",
+   "Can my school collect fees with Pay Link?",
+   "How much is the Invoice App a month?",
+   "I got my money next morning. Thank you!",
+   "We need payroll for 50 staff.",
+   "Is my customers' data safe with you?",
+   "Can you fix this cracked screen first?",
+   "Our bank wants a managed server.",
+   "My friend told me about KoboWave."
+  ],
+  "manager": [
+   "Every seller was settled on time this morning.",
+   "Open bugs are down. Customers are staying.",
+   "Runway is fine. Hire carefully.",
+   "Audit day is close. Book it early.",
+   "Support agents saved ten customers this week.",
+   "Diesel is full on both sites."
+  ],
+  "night": [
+   "Customers' money is not my money. Settle first.",
+   "One cracked screen, one umbrella. Look at us now.",
+   "Tomorrow I fix bugs before I add features.",
+   "Mama says chop before you code. She is right.",
+   "Raise only when you must. Keep your slice.",
+   "Two server sites. Never again a Friday outage."
+  ]
+ },
+ "events": [
+  {
+   "name": "Light Don Go",
+   "text": "Grid power is out. The generator kicks in and diesel burns twice as fast today.",
+   "effect": "cost_hit"
+  },
+  {
+   "name": "Trader Went Viral",
+   "text": "A shoe seller's Shop Page is trending. More businesses queue at the sales desk today.",
+   "effect": "demand_up"
+  },
+  {
+   "name": "Bug in Production",
+   "text": "A release broke checkout. Developers are fixing it, so features ship slowly today.",
+   "effect": "supply_slow"
+  },
+  {
+   "name": "Hackathon Win",
+   "text": "Your juniors won a weekend hackathon. Everyone works faster today.",
+   "effect": "speed_up"
+  },
+  {
+   "name": "Rival Poaching",
+   "text": "ZapPadi tried to hire your senior dev. She stays, but the team is distracted. Fewer sign-ups today.",
+   "effect": "demand_down"
+  },
+  {
+   "name": "Server Parts Stuck",
+   "text": "The delivery truck is held at the port. Server parts arrive slowly today.",
+   "effect": "supply_slow"
+  },
+  {
+   "name": "Clean Audit",
+   "text": "The data audit passed with no issues. Big companies join the queue today.",
+   "effect": "vip_day"
+  },
+  {
+   "name": "School Fees Season",
+   "text": "Schools are collecting fees with Pay Link. Payment income is up today.",
+   "effect": "price_up"
+  }
+ ],
+ "mech": [
+  {
+   "name": "Hand carry",
+   "how": "Kelechi carries ticket cards and phone parts in both hands from the board to the desk"
+  },
+  {
+   "name": "Ticket clipboard",
+   "how": "A clipboard stacked with coloured tickets goes from desk to desk"
+  },
+  {
+   "name": "Ticket Trolley Bot",
+   "how": "Knee-high teal robot on wheels with a tray of coloured cards and blinking eyes"
+  },
+  {
+   "name": "Parts van",
+   "how": "White KoboWave van backs into the delivery bay, doors open, server boxes roll in"
+  },
+  {
+   "name": "Auto-Deploy Belt",
+   "how": "Glowing overhead rail with small glass boxes sliding along, green lights"
+  },
+  {
+   "name": "Data Centre Robot Arm",
+   "how": "Tall orange robot arm on a floor rail between rows of black racks with blue LEDs"
+  }
+ ],
+ "storyNote": "Story follows plan2/tech.json. The cyber cafe is only a place to learn. Hacking appears nowhere, not even as an offer; customer money and data are always protected. The rival poaching scene is softened: the senior dev stays."
+}

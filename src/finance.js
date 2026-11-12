@@ -14,7 +14,7 @@ function bankOffer(){const f=finState(),h=lastMonths(3);
   if(h.some(m=>m.or>=95))return{no:'The bank lends when costs stay under 95% of revenue for 3 straight months.'};
   if(h.length<3&&typeof isShip==='function'&&isShip()&&lvl('line2'))return{no:'Truck loans need 3 straight months with the operating ratio under 95.'};
   const last=h[h.length-1],good=h.every(m=>m.or<90);return{amt:nice(Math.max(1e6,last.rev*2)),rate:good?FIN.goodRate:FIN.bankRate,good};}
-function groupOffer(){const others=Object.keys(SAVE.biz).filter(k=>k!==SAVE.cur&&SAVE.biz[k].money>0);if(!others.length)return{no:'Open another business first. Your businesses can lend to each other.'};
+function groupOffer(){const others=Object.keys(SAVE.biz).filter(k=>k!==SAVE.cur&&k!=='bank'&&SAVE.biz[k].money>0) /* the bank is fenced off */;if(!others.length)return{no:'Open another business first. Your businesses can lend to each other.'};
   const k=others.sort((a,b)=>SAVE.biz[b].money-SAVE.biz[a].money)[0];const amt=nice(SAVE.biz[k].money*.5);return amt>0?{from:k,amt}:{no:'Your other businesses have no spare cash.'};}
 function partnerOffer(){const f=finState();if(f.partner>=FIN.maxPartner)return{no:'Partners already hold 49%. You keep 51% control.'};
   const h=lastMonths(12),yr=h.length?h.reduce((a,m)=>a+Math.max(0,m.net),0)*12/h.length:0,worth=Math.max(yr*8,S.spent||0);

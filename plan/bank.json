@@ -1,0 +1,58 @@
+{
+ "key": "bank",
+ "branchNoun": "branch",
+ "rankTitles": ["POS Agent", "Agent Shop Owner", "Microfinance MD", "Bank MD", "Group Managing Director", "Chairman"],
+ "export": {
+  "bay": "Correspondent Banking Desk",
+  "pack": "payment and settlement services",
+  "contracts": [
+   {"buyer": "Ibadan Market Women's Cooperative", "where": "Ibadan, Oyo", "blurb": "The cooperative keeps its ajo savings with you and pays a small fee for every payout."},
+   {"buyer": "Kano Grain Traders' Association", "where": "Kano", "blurb": "Traders settle grain payments through your bank at harvest time."},
+   {"buyer": "State Schools Salary Office", "where": "Abeokuta, Ogun", "blurb": "Teachers' salaries are paid into PadiTrust accounts every month."},
+   {"buyer": "Abuja Clinics Network", "where": "Abuja", "blurb": "Clinics collect patient payments on your POS terminals."},
+   {"buyer": "Nairobi Diaspora Remit", "where": "Nairobi, Kenya", "blurb": "Kenyan partners route family transfers to Nigeria through you."},
+   {"buyer": "London Home Send", "where": "London, United Kingdom", "blurb": "Nigerians in the UK send money home through a bank they know."}
+  ]
+ },
+ "machines": {
+  "belt": {"name": "Note Counting Machine", "blurb": "Counts and bundles deposits at once, so each teller serves twice as fast."},
+  "auto": {"name": "ATM Gallery", "blurb": "Serves withdrawals without a teller; the vault refills it."},
+  "pack": {"name": "Mobile App Data Centre", "blurb": "Handles transfers, bills and small loans on phones; cash moves by vault conveyor."}
+ },
+ "manager": {"name": "Mr Emeka", "title": "Branch Manager"},
+ "milestones": [
+  {"at": 1, "title": "Second Branch", "blurb": "Ibadan opens. Same green logo, same welcome at the door."},
+  {"at": 5, "title": "Five Branches", "blurb": "Market women across Lagos and Oyo know PadiTrust by name."},
+  {"at": 10, "title": "Salary Accounts", "blurb": "Schools and clinics pay their staff into PadiTrust accounts."},
+  {"at": 25, "title": "Every Region", "blurb": "Branches in the North, East and South-South, each with its own manager."},
+  {"at": 50, "title": "Clean Books", "blurb": "Fifty branches and bad loans still under 5%."},
+  {"at": 100, "title": "Across Africa", "blurb": "Nairobi and Accra branches open with local managers."},
+  {"at": 250, "title": "Teller Academy", "blurb": "PadiTrust trains its own tellers and credit officers."},
+  {"at": 500, "title": "The People's Bank", "blurb": "The first umbrella and POS sit in the museum corner of the head office."}
+ ],
+ "chatter": {
+  "staff": ["Cash bag for the vault, coming!", "Note counter is warm today.", "Float is full, we are ready.", "Next customer, please.", "Vault balanced to the last kobo.", "Card printed and activated.", "Transfer gone, alert sent.", "Credit check done, the shop is real.", "Till topped up from the vault.", "Guard escort to the vault, clear."],
+  "customer": ["Abeg, ten thousand cash-out.", "I want to open a savings account.", "How much is the transfer fee?", "Can I see my repay chance before I sign?", "My shop needs a small loan for stock.", "Thank you for the polite reminder.", "Is my money insured?", "The queue is moving fast today.", "I pay my light bill here every month.", "Madam Folake knows my name!"],
+  "manager": ["Bad loans are under 5%, ma.", "Till holds 5% of deposits.", "T-bills are ready if the queue grows.", "Capital ratio is healthy.", "Credit Officer checked every loan this week.", "The examiner said our books are clean."],
+  "night": ["Trust first. Money follows.", "One umbrella, one POS. Look at us now.", "Tomorrow I check the till before I open.", "Every customer paid today. That is the job.", "Never lose one person's kobo."]
+ },
+ "events": [
+  {"name": "Salary Day Rush", "text": "Month end! Workers flood in to withdraw. Keep the till full.", "effect": "vip_day"},
+  {"name": "Network Is Down", "text": "POS and transfers hang for a while. Fewer customers today.", "effect": "demand_down"},
+  {"name": "Ajo Payout Day", "text": "The market cooperative pays out. More customers at the counter.", "effect": "demand_up"},
+  {"name": "Bullion Van in Traffic", "text": "The van is stuck on the bridge. Cash bags arrive slowly today.", "effect": "supply_slow"},
+  {"name": "Clean Inspection", "text": "The examiner finds every kobo in place. A fee is waived for you.", "effect": "bonus_cash"},
+  {"name": "Rate Cut News", "text": "The central bank trims its rate. More traders come in today.", "effect": "demand_up"},
+  {"name": "Generator Wahala", "text": "No light in the banking hall. Diesel costs extra today.", "effect": "cost_hit"},
+  {"name": "Teller Training Day", "text": "Tellers practised on the new note counter. Service is quicker today.", "effect": "speed_up"}
+ ],
+ "mech": [
+  {"name": "Hand carry", "how": "Cash bags carried from the door to the vault under a guard's eye"},
+  {"name": "Cash trolley", "how": "Steel trolley with a locked box rolls from the counter to the vault"},
+  {"name": "Pneumatic tube", "how": "Capsules whoosh cash from the counters to the vault room"},
+  {"name": "Bullion van", "how": "Armoured green van backs into the bay, boxes move into the strong room"},
+  {"name": "Vault conveyor", "how": "Sealed belt carries cash boxes between the vault and the ATM gallery"},
+  {"name": "Cash centre", "how": "Automated cash centre sorts, counts and dispatches for every branch"}
+ ],
+ "storyNote": "Story follows plan2/bank.json. The 'Fake Alert Attempt' event is left out: no fraud of any kind appears in the game. No special cheap farm loan; loans to the owner's own businesses use outside terms."
+}

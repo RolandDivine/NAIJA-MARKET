@@ -324,7 +324,7 @@ function showMenu(){$('cards').innerHTML=Object.keys(BIZ).map(cardHtml).join('')
   $('back').hidden=!G;$('reset').hidden=!G;$('reset').textContent='Restart this business';$('reset').dataset.arm='';$('pick').hidden=false;$('pick').scrollTop=0;}
 function enter(k){if(G)save();SAVE.cur=k;const fresh=!SAVE.biz[k];if(fresh)SAVE.biz[k]={money:0,pads:{},day:1,clock:0,till:0,dayEarn:0,daySold:0,sold:0};$('hqp').hidden=true;
   build();save();$('pick').hidden=true;
-  toast(fresh?'Welcome to '+B.name+'! Walk into the '+(B.field==='water'?'river':B.field==='campus'?'school compound':B.field==='yard'||B.field==='port'?'yard':'farm')+', make a circle and come back out.':'Welcome back! Day '+S.day+'.',4.5);}
+  toast(fresh?'Welcome to '+B.name+'! Walk into the '+(B.field==='water'?'river':B.field==='campus'?'school compound':B.field==='yard'||B.field==='port'?'yard':B.isNew?'work area':'farm')+', make a circle and come back out.':'Welcome back! Day '+S.day+'.',4.5);}
 $('mute').addEventListener('click',()=>{SAVE.snd=(sndLvl()+2)%3;SAVE.sound=!!SAVE.snd;audio();$('mute').textContent=['🔇','🔉','🔊'][sndLvl()];save();});$('mute').textContent=['🔇','🔉','🔊'][sndLvl()];
 $('menu').addEventListener('click',()=>{if(G)save();showMenu();});
 $('back').addEventListener('click',()=>{$('pick').hidden=true;});

@@ -1,0 +1,219 @@
+{
+ "key": "trading",
+ "branchNoun": "client office",
+ "rankTitles": [
+  "Bureau Apprentice",
+  "Stockbroker",
+  "Dealing Director",
+  "Managing Director",
+  "Group Chairman",
+  "Chair of the Trading House"
+ ],
+ "export": {
+  "bay": "Institutional Desk",
+  "pack": "bulk fund order books",
+  "contracts": [
+   {
+    "buyer": "Lagos Teachers' Pension Trust",
+    "where": "Ikeja, Lagos",
+    "blurb": "Sends its monthly bond and bill orders to your desk. You earn the fee on every ticket."
+   },
+   {
+    "buyer": "Ondo Cocoa Farmers' Cooperative",
+    "where": "Akure",
+    "blurb": "Books its cocoa contracts through you with warehouse receipts. Fee per contract."
+   },
+   {
+    "buyer": "Northern Grain Processors' Union",
+    "where": "Kano",
+    "blurb": "Grain contracts for maize and sorghum, placed in bulk after harvest."
+   },
+   {
+    "buyer": "Federal Civil Service Cooperative",
+    "where": "Abuja",
+    "blurb": "Treasury bill bids for thousands of members, sent in one clean file."
+   },
+   {
+    "buyer": "Accra Savings Union",
+    "where": "Accra, Ghana",
+    "blurb": "Buys Nigerian bills and bonds through your desk, in cedi and naira."
+   },
+   {
+    "buyer": "Highveld Workers' Provident Fund",
+    "where": "Johannesburg, South Africa",
+    "blurb": "Places African share and gold orders with your Johannesburg desk."
+   }
+  ]
+ },
+ "machines": {
+  "belt": {
+   "name": "Ticket Tube",
+   "blurb": "Blue capsules whoosh order tickets from the client desk to the dealing desks."
+  },
+  "auto": {
+   "name": "Auto-Settlement Engine",
+   "blurb": "Matches every trade and prints contract notes. Failed tickets drop to 1 in 200."
+  },
+  "pack": {
+   "name": "Order Routing Screen",
+   "blurb": "Clients type orders on kiosks and tickets appear at the right desk at once."
+  }
+ },
+ "manager": {
+  "name": "Mrs Ngozi",
+  "title": "Head of Operations"
+ },
+ "milestones": [
+  {
+   "at": 1,
+   "title": "Second Client Office",
+   "blurb": "Ibadan opens. Same blue jacket, same clean files."
+  },
+  {
+   "at": 5,
+   "title": "Five Client Offices",
+   "blurb": "Teachers, traders and pensioners across the South West know the blue ticker."
+  },
+  {
+   "at": 10,
+   "title": "Ten Offices, Zero Missing Files",
+   "blurb": "The regulator's audit finds every client paper in place."
+  },
+  {
+   "at": 25,
+   "title": "Every Region",
+   "blurb": "Client offices in the North, East and South-South, each with a compliance desk."
+  },
+  {
+   "at": 50,
+   "title": "Dealer Academy",
+   "blurb": "Blue Ticker trains young dealers. First lesson: count am twice, pay am once."
+  },
+  {
+   "at": 100,
+   "title": "Across Africa",
+   "blurb": "Accra, Nairobi and Johannesburg offices share one risk limit."
+  },
+  {
+   "at": 250,
+   "title": "Round the Clock",
+   "blurb": "As Lagos closes, the next desk opens. Orders pass from city to city."
+  },
+  {
+   "at": 500,
+   "title": "The Opening Bell",
+   "blurb": "Sade rings the Lagos opening bell with her old notebook in her pocket and Aunty Bisi in the front row."
+  }
+ ],
+ "chatter": {
+  "staff": [
+   "Ticket for the share desk, coming!",
+   "Contract note stamped and ready.",
+   "Count am twice, pay am once.",
+   "Client ID checked. File complete.",
+   "Bill auction bids are in.",
+   "Slip to settlement before the cut-off!",
+   "Dollar rate updated on the board.",
+   "Cocoa receipt matched to the contract.",
+   "Bond ticket from the pension fund.",
+   "All tickets matched today."
+  ],
+  "customer": [
+   "Please change 500 dollars for my school fees abroad.",
+   "I want to buy some Akara Foods shares.",
+   "How much is your commission?",
+   "When will my contract note be ready?",
+   "Our cooperative wants to bid for treasury bills.",
+   "Here is my ID card and utility bill.",
+   "Thank you for explaining the fees clearly.",
+   "Can I sell my Mango Tree Bank shares today?",
+   "We have a cocoa contract to book.",
+   "Your rate board is easy to read."
+  ],
+  "manager": [
+   "Every client file has its ID papers, ma.",
+   "Settlement is clean today. No failed tickets.",
+   "The vault is above the licence line.",
+   "Own book is inside the 10% limit.",
+   "The analyst posted three clues for the week.",
+   "Two tickets failed. The clerks are redoing them."
+  ],
+  "night": [
+   "Small profit, every day, no gamble.",
+   "Fees pay the salaries. Never luck.",
+   "Tomorrow I check the files before the screens.",
+   "The market will open again tomorrow. Will our capital?",
+   "One counter in Aunty's shop. Look at us now.",
+   "If I cannot explain a loss, I will not take the trade."
+  ]
+ },
+ "events": [
+  {
+   "name": "Good Results Season",
+   "text": "Big companies publish strong results. More clients come in with share orders today.",
+   "effect": "demand_up"
+  },
+  {
+   "name": "Red Week Nerves",
+   "text": "Prices fell last week and clients are nervous. Fewer orders today, but every ticket still pays its fee.",
+   "effect": "demand_down"
+  },
+  {
+   "name": "Pension Fund Ticket",
+   "text": "A pension fund sends one big bond order. Executed cleanly, it pays a bonus fee.",
+   "effect": "bonus_cash"
+  },
+  {
+   "name": "Wrong Ticket",
+   "text": "A trainee typed 10,000 units instead of 1,000. Tickets move slowly while everyone double-checks.",
+   "effect": "supply_slow"
+  },
+  {
+   "name": "Auction Day",
+   "text": "Treasury bill auction today. Bigger bid tickets queue at the money market desk.",
+   "effect": "vip_day"
+  },
+  {
+   "name": "Surprise Inspection",
+   "text": "The regulator visits tonight to check client files. Staff work sharp all day.",
+   "effect": "speed_up"
+  },
+  {
+   "name": "Naira Steady Week",
+   "text": "The exchange rate holds calm. Currency desk clients come back smiling.",
+   "effect": "demand_up"
+  },
+  {
+   "name": "Network Down",
+   "text": "The trading link drops for an hour. Tickets pile up while dealers work them by phone.",
+   "effect": "supply_slow"
+  }
+ ],
+ "mech": [
+  {
+   "name": "Hand carry",
+   "how": "Order tickets carried by hand from the client desk to each dealing desk"
+  },
+  {
+   "name": "Ticket bag",
+   "how": "Sade's apprentice ticket bag, a blue satchel stuffed with order slips"
+  },
+  {
+   "name": "Messenger bike",
+   "how": "A dispatch rider brings bulk fund tickets from the institutions to the client desk"
+  },
+  {
+   "name": "Ticket tube",
+   "how": "Clear ceiling tube with blue capsules whooshing tickets to the right desk"
+  },
+  {
+   "name": "Order routing screens",
+   "how": "Blue kiosks where clients type orders; a ceiling board lights up with live tickets"
+  },
+  {
+   "name": "Auto-settlement engine",
+   "how": "Glass cabinet with blue lights matching trades and printing contract notes into trays"
+  }
+ ],
+ "storyNote": "Story follows plan2/trading.json with these changes: settlement is T+1 (Nigeria moved to T+1 in June 2026), not two days. Chief Dapo Fastlane's 'double by Friday' line and the Abuja rival's 'guaranteed profit' scene are left out: no promised returns, fraud, insider trading or pump-and-dump appear anywhere, not even as an offer. Red Day no longer moves prices in a day: prices of the five made-up companies move once a week. The commodities desk opens with the Johannesburg stage. Every company and ticker in the game is invented. Everything is game money and nothing is investment advice."
+}

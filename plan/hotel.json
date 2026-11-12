@@ -1,0 +1,58 @@
+{
+ "key": "hotel",
+ "branchNoun": "hotel",
+ "rankTitles": ["Guest House Keeper", "Hotelier", "Hotel Director", "Group Managing Director", "Chain Founder", "Hospitality Queen"],
+ "export": {
+  "bay": "Corporate Sales Office",
+  "pack": "corporate room packages",
+  "contracts": [
+   {"buyer": "Lagos Bankers' Training Institute", "where": "Ikeja, Lagos", "blurb": "Staff on training courses stay in your rooms and use your hall."},
+   {"buyer": "Abuja Civil Engineers' Association", "where": "Abuja", "blurb": "Your Abuja tower hosts their quarterly meetings and members' rooms."},
+   {"buyer": "Calabar Carnival Travel Desk", "where": "Calabar", "blurb": "Holiday packages fill your villas every December."},
+   {"buyer": "Port Harcourt Oil Services Crew Desk", "where": "Port Harcourt", "blurb": "Field crews book rooms on a monthly contract."},
+   {"buyer": "Accra Business Travel Partners", "where": "Accra, Ghana", "blurb": "Ghanaian companies book your Lagos rooms for business trips."},
+   {"buyer": "London Diaspora Homecoming Tours", "where": "London, UK", "blurb": "Families coming home for December book room blocks early."}
+  ]
+ },
+ "machines": {
+  "belt": {"name": "Self-Rolling Linen Cart", "blurb": "Carries clean linen and toiletries from the laundry to the rooms on its own."},
+  "auto": {"name": "Service Lift and Chute", "blurb": "Lifts food to the hall and upper rooms; drops used linen straight to the laundry."},
+  "pack": {"name": "Central Laundry Plant", "blurb": "Washes, dries and delivers linen for every room and hall with no carrying at all."}
+ },
+ "manager": {"name": "Mrs Funmi Okafor", "title": "Hotel Manager"},
+ "milestones": [
+  {"at": 1, "title": "Second Hotel", "blurb": "A new signboard, the same brass key and the same warm welcome."},
+  {"at": 5, "title": "Five Hotels", "blurb": "Travellers across Lagos know the Adunni Palms welcome."},
+  {"at": 10, "title": "Abuja and Beyond", "blurb": "Every branch passes inspection on the first visit."},
+  {"at": 25, "title": "Every Region", "blurb": "Hotels in the North, East and South-South, each with its own manager."},
+  {"at": 50, "title": "Solar on Every Roof", "blurb": "Generators rest most nights. Guests sleep in quiet."},
+  {"at": 100, "title": "Across Africa", "blurb": "Accra and Zanzibar open with local teams and local licences."},
+  {"at": 250, "title": "Hospitality Academy", "blurb": "Young Nigerians train as chefs, housekeepers and managers."},
+  {"at": 500, "title": "The Seven-City Crown", "blurb": "Aunty's brass key hangs in every lobby, from Surulere to London."}
+ ],
+ "chatter": {
+  "staff": ["Room 3 is ready, fresh sheets!", "Linen cart coming through!", "Toiletries are low, bring a carton.", "Breakfast buffet is hot.", "Hall is dressed for the training.", "Tea break crates are in.", "Generator is checked and full.", "Key for room 12, ma.", "Fire exits are clear.", "Towels folded, forty of them."],
+  "customer": ["Is there a room for tonight?", "The bed was so clean, thank you.", "Do you serve breakfast early?", "We need the hall for Saturday.", "Is there light all night?", "Can I check in before two?", "My company will book again.", "The receptionist was very kind.", "How much is a suite?", "I will come back in December."],
+  "manager": ["Every room was ready by two, ma.", "Tank is half full. Diesel is cheaper this week.", "The tax box is complete for the 20th.", "Stewards are ready for the conference.", "Reviews are climbing. Guests like the breakfast.", "Inspector visits next month. Checklist is green."],
+  "night": ["A clean room sells itself.", "Four rooms and one bucket. Look at us now.", "Buy diesel when it is cheap, not when it is dark.", "Tax money is never mine. Keep it in the box.", "Guests remember how you treat them.", "Tomorrow I check the fire exits first."]
+ },
+ "events": [
+  {"name": "Light Don Go", "text": "Grid power is out all evening. The generator works hard and costs more today.", "effect": "cost_hit"},
+  {"name": "Wedding Party Arrives", "text": "A wedding party books rooms for the weekend. Guests spend more today.", "effect": "vip_day"},
+  {"name": "One-Star Review", "text": "A guest posts about a stained pillow. Fewer bookings today. Check every room.", "effect": "demand_down"},
+  {"name": "Conference Delegation", "text": "Forty delegates arrive for a three-day training. More guests today.", "effect": "demand_up"},
+  {"name": "Burst Pipe on Floor Two", "text": "Water floods two rooms. The repair costs extra today.", "effect": "cost_hit"},
+  {"name": "Nollywood Crew Checks In", "text": "A film crew shoots in your lobby. More people book today.", "effect": "demand_up"},
+  {"name": "Supply Van Stuck", "text": "The supply van is stuck in traffic. Linen and food arrive slowly today.", "effect": "supply_slow"},
+  {"name": "Inspection Passed", "text": "The inspector finds every exit clear and every record neat. A small grant arrives for staff training.", "effect": "bonus_cash"}
+ ],
+ "mech": [
+  {"name": "Hand carry", "how": "Linen bundles and toiletry boxes carried in both arms from the laundry yard"},
+  {"name": "Linen trolley", "how": "Green and brass trolley stacked with towels rolls down the corridor"},
+  {"name": "Self-rolling linen cart", "how": "Cart with a tiny bell rolls to each room on its own"},
+  {"name": "Supply van", "how": "Van with the palm logo parks at the back door, crates move in"},
+  {"name": "Service lift and chute", "how": "Steel dumbwaiter lifts food up; used linen drops down the chute"},
+  {"name": "Central laundry plant", "how": "Drum washers and a conveyor feed branded vans for every hotel"}
+ ],
+ "storyNote": "Story follows plan2/hotel.json. Inspectors are never bribed; there is no bar push and no romance hints. Diesel price moves week to week. All money is game money."
+}
