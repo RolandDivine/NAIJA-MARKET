@@ -140,6 +140,8 @@ button:focus-visible{outline:3px solid var(--gold)}
 #hqp table{width:100%;border-collapse:collapse;font-weight:700;font-size:13px;font-variant-numeric:tabular-nums}
 #hqp td{padding:5px 4px;border-bottom:1px solid rgba(255,255,255,.12)}#hqp td:last-child{text-align:right;white-space:nowrap}
 #hqp .note{font-weight:700;font-size:12.5px;opacity:.9;margin:0}
+#hqp .diap{display:grid;grid-template-columns:1fr 1fr;gap:8px}#hqp .diap button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px 8px;font-size:17px}#hqp .diap button small{font-size:11.5px;opacity:.85}#hqp .diap button.on{box-shadow:inset 0 0 0 3px var(--gold);background:#2d4a2f}#hqp .diap button:focus{outline:none}#hqp .diap button.off{opacity:.45}#hqp label.note{display:flex;flex-direction:column;gap:6px}#hqp input{font:inherit;font-size:16px;padding:10px 12px;border-radius:12px;border:0}
+#hqp .big{font:900 16px var(--body);border:0;border-radius:999px;padding:13px 16px;cursor:pointer;color:#fff;background:#1f8a4c;box-shadow:0 4px 0 #0b3a1f;min-height:48px}#hqp .big:disabled{background:#4a5a66;cursor:default}
 #hqp .lock{background:rgba(255,255,255,.08);border-radius:14px;padding:12px;font-weight:800;font-size:14px}
 @media (prefers-reduced-motion:reduce){.card:hover{transform:none}#banner.go{animation-duration:.01s}}
 </style>
@@ -318,7 +320,7 @@ const PICON={hand:'🧑‍🌾',rope:'🪢',tray:'🧺',porter:'📦',truck:'�
 
 /* ===== world build ===== */
 function build(){
-  B=BIZ[SAVE.cur];S=migrate(SAVE.biz[SAVE.cur]);dirty();
+  B=BIZ[SAVE.cur];S=migrate(SAVE.biz[SAVE.cur]);dirty();if(typeof diaCheck==='function')setTimeout(diaCheck,1500);
   G={t:0,flyers:[],parts:[],floats:[],conf:[],custs:[],workers:[],cars:[],crops:[],procIn:[0,0,0,0,0],procT:[0,0,0,0,0],out:[0,0,0,0,0],counter:[0,0,0,0,0],depot:[0,0,0,0,0],
      player:{x:450,y:400,stack:[],trail:null,face:1,step:0},input:{active:false},keys:{},cam:{x:450,y:400},acc:{pick:0,drop:0,cash:0,payFly:0,spawn:0,v:0,hud:0,save:0,fl:0,chat:3},
      truck:{state:'wait',t:6,y:-140},exp:{state:'wait',t:10,x:WW+160,ord:null},mach:{x:120,y:160,v:150,acc:0},beltT:[0,0,0,0,0],depT:[0,0,0,0,0],bub:[],closing:false,closeT:0,night:null,inside:0,toastT:0,warnT:0,onPad:null,speed:1};
@@ -633,7 +635,7 @@ function updMachines(dt){const e=S.emp,f=G.field;
 
 /* ----- HQ panel ----- */
 function hqRender(){const e=S.emp,P=PBZ(),items=empItems(),due=monthDue(false),rows=payrollList();let h='';
-  h+='<header><h1>'+rank()+'<small>'+B.name+' · Day '+S.day+' · Level '+level()+'</small></h1><div class="btns">'+(typeof canShare==='function'&&canShare()?'<button class="ghost" id="hqshare" type="button">📣 Share</button>':'')+'<button class="ghost" id="hqx" type="button">Back to shop</button></div></header>';
+  h+='<header><h1>'+rank()+'<small>'+B.name+' · Day '+S.day+' · Level '+level()+'</small></h1><div class="btns">'+(typeof canShare==='function'&&canShare()?'<button class="ghost" id="hqshare" type="button">📣 Share</button>':'')+(typeof canShare==='function'&&canShare()?'<button class="ghost" id="hqdia" type="button">💎 Top up</button>':'')+'<button class="ghost" id="hqx" type="button">Back to shop</button></div></header>';
   h+='<div class="stats"><div class="stat">Cash<b id="hqcash">₦'+fmt(S.money)+'</b></div><div class="stat">Branches<b>'+e.br+' / 500</b></div><div class="stat">People employed<b>'+due.staff.toLocaleString()+'</b></div><div class="stat">Branch income a day<b>₦'+fmt(brDay())+'</b></div></div>';
   if(stage()<4)h+='<div class="lock">🔒 Your empire starts when you build the '+B.venue[4]+'. After that: a manager, machines, export contracts and up to 500 '+P.branchNoun+'s across Nigeria, Africa and the world.</div>';
   const sec=['Flagship: manager and machines','Wholesale and export','Branches','From rope to machines'];
@@ -646,7 +648,7 @@ function hqRender(){const e=S.emp,P=PBZ(),items=empItems(),due=monthDue(false),r
   h+='<h2>Salaries (paid every 30 days)</h2><table>';for(const r of rows)h+='<tr><td>'+r.n.toLocaleString()+' × '+r.name+'</td><td>₦'+short(r.each)+' a month</td></tr>';h+='</table>';
   h+='<h2>This month so far</h2><table><tr><td>Shop sales</td><td>₦'+fmt(S.mo.rev)+'</td></tr><tr><td>Export</td><td>₦'+fmt(S.mo.exp)+'</td></tr><tr><td>Branches</td><td>₦'+fmt(S.mo.br)+'</td></tr><tr><td>Salaries due so far</td><td>-₦'+fmt(due.wages)+'</td></tr><tr><td>'+TAX.label+' ('+Math.round(TAX.gameRate*100)+'% of profit)</td><td>'+(stage()<2?'₦0 (small business relief)':due.tax?'-₦'+fmt(due.tax):'₦0')+'</td></tr><tr><td>Already set aside</td><td>₦'+fmt(S.resv)+'</td></tr></table>';
   h+='<p class="note">Payday is in '+(MONTH-dayOfMonth()+1)+' day'+(MONTH-dayOfMonth()?'s':'')+'. Each night your accountant sets money aside so salaries and tax are ready. Total paid so far: salaries ₦'+fmt(S.stat.wages)+', tax ₦'+fmt(S.stat.tax)+'.</p>';
-  $('hqin').innerHTML=h;$('hqx').addEventListener('click',hqClose);if($('hqshare'))$('hqshare').addEventListener('click',()=>{hqClose();shareStart();});document.querySelectorAll('#hqin [data-go]').forEach(b=>b.addEventListener('click',()=>tripStart(+b.dataset.go)));
+  $('hqin').innerHTML=h;$('hqx').addEventListener('click',hqClose);if($('hqshare'))$('hqshare').addEventListener('click',()=>{hqClose();shareStart();});if($('hqdia'))$('hqdia').addEventListener('click',diaOpen);document.querySelectorAll('#hqin [data-go]').forEach(b=>b.addEventListener('click',()=>tripStart(+b.dataset.go)));
   document.querySelectorAll('#hqin [data-buy]').forEach(b=>b.addEventListener('click',()=>{if(empBuy(b.dataset.buy))hqRender();else{const em=b.querySelector('em'),need=Math.max(0,+b.dataset.cost-S.money);em.textContent='Need ₦'+short(Math.ceil(need))+' more';b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');clearTimeout(b._t);b._t=setTimeout(()=>{em.textContent='₦'+short(+b.dataset.cost);},1600);beep(160,.15,'sawtooth',.04);}}));}
 // The shop keeps trading while HQ is open; this keeps the cash and the buy buttons current.
 let hqAcc=0;function hqTick(dt){hqAcc+=dt;if(hqAcc<.4)return;hqAcc=0;if(G.night)return hqClose();if(G.trip)return;const c=$('hqcash');if(c)setT(c,'₦'+fmt(S.money));
@@ -1282,5 +1284,40 @@ $('logout').addEventListener('click',async()=>{if(NM.pid)await nmPush();await nm
   const r=await nmApi('GET','/me');
   if(!r.ok||!r.j||!('player' in r.j)){A.hidden=true;$('localnote').hidden=false;return;}   // not on Community Square: play locally on this device
   NM.cfg=r.j;if(r.j.player)return signedIn(r.j);showFront();})();
+
+/* ----- diamonds into game money (Community Square members only, one way, never cashed out) ----- */
+const DIA={per:1e6,naira:10,min:10,max:10000,have:null};
+// Adds any credits the server holds for this player to the business being played, once each (ids kept in SAVE.dia).
+function diaApply(list){if(!G||!S||!list||!list.length)return 0;SAVE.dia=SAVE.dia||[];let got=0;
+  for(const c of list){if(SAVE.dia.includes(c.id))continue;SAVE.dia.push(c.id);S.money+=c.gameNaira;got+=c.gameNaira;}
+  if(SAVE.dia.length>200)SAVE.dia=SAVE.dia.slice(-200);
+  if(got){toast('💎 ₦'+fmt(got)+' game money added to '+B.name,4);save();nmPush();}return got;}
+async function diaCheck(){if(!NM.pid||!NM.player||!NM.player.linked)return;const r=await nmApi('GET','/diamonds');if(r.ok&&r.j)diaApply(r.j.pending);}
+async function diaOpen(){if(!G)return;G.input.active=false;$('hqp').hidden=false;
+  $('hqin').innerHTML='<header><h1>Top up with diamonds<small>Loading...</small></h1><button class="ghost" id="hqx" type="button">Back</button></header>';$('hqx').onclick=hqOpen;
+  const r=await nmApi('GET','/diamonds');if($('hqp').hidden)return;
+  if(!r.ok||!r.j){$('hqin').innerHTML+='<div class="lock">Could not reach Community Square. Check your connection and try again.</div>';return;}
+  const j=r.j;Object.assign(DIA,{per:j.perDiamond,naira:j.nairaPerDiamond,min:j.limits.min,max:j.limits.max,have:j.diamonds});diaApply(j.pending);
+  let h='<header><h1>Top up with diamonds<small>'+B.name+' · ₦'+fmt(S.money)+' game money now</small></h1><button class="ghost" id="hqx" type="button">Back</button></header>';
+  h+='<p class="note">Need more cash for the next machine or branch? Turn your Community Square 💎 into game money for '+B.name+'.</p>';
+  h+='<div class="stats"><div class="stat">1 💎 gives<b>₦'+fmt(DIA.per)+'</b></div><div class="stat">10,000 💎 give<b>₦'+fmt(DIA.per*1e4)+'</b></div><div class="stat">Your diamonds<b>'+(j.signedIn?j.diamonds.toLocaleString('en-NG')+' 💎':'—')+'</b></div></div>';
+  if(!j.linked)h+='<div class="lock">Diamonds come from Community Square. Log out, then continue with Community Square to use them.</div>';
+  else if(!j.signedIn)h+='<div class="lock">Sign in to Community Square in this browser, then come back here.</div><a class="cslink" href="/" target="_blank" rel="noopener">Open Community Square</a>';
+  else{h+='<h2>Pick an amount</h2><div class="diap">'+[10,100,1000,10000].map(d=>'<button class="ghost'+(d>j.diamonds?' off':'')+'" data-d="'+d+'" type="button">'+d.toLocaleString('en-NG')+' 💎<small>₦'+fmt(d*DIA.per)+' game money</small></button>').join('')+'</div>';
+    h+='<label class="note">Or type how many ('+DIA.min+' to '+DIA.max.toLocaleString('en-NG')+')<input id="diaN" type="number" inputmode="numeric" min="'+DIA.min+'" max="'+DIA.max+'" placeholder="e.g. 250"></label>';
+    h+='<div id="diaQ" class="note"></div><button class="big" id="diaGo" type="button" disabled>Choose an amount</button>';
+    if(j.diamonds<DIA.min)h+='<a class="cslink" href="/wallet" target="_blank" rel="noopener">Get diamonds in your Community Square Wallet</a>';}
+  h+='<p class="note">Game money is for playing only. It stays in Naija Market: it can\'t be cashed out, sent to a bank or turned back into diamonds, and it earns nothing in real life. Diamonds cost real money (100 💎 = ₦'+(100*DIA.naira).toLocaleString('en-NG')+'), so only spend what you\'re happy to spend on a game.</p>';
+  $('hqin').innerHTML=h;$('hqx').onclick=hqOpen;$('hqp').scrollTop=0;if(!j.signedIn)return;
+  let pick=0;const set=d=>{pick=d;const ok=Number.isInteger(d)&&d>=DIA.min&&d<=DIA.max&&d<=DIA.have,b=$('diaGo');b.disabled=!ok;
+    document.querySelectorAll('.diap button').forEach(x=>x.classList.toggle('on',+x.dataset.d===d));
+    $('diaQ').textContent=!d?'':d>DIA.have?'You have '+DIA.have.toLocaleString('en-NG')+' 💎. Top up your Wallet on Community Square first.':!ok?'Choose between '+DIA.min+' and '+DIA.max.toLocaleString('en-NG')+' diamonds.':d.toLocaleString('en-NG')+' 💎 (worth ₦'+(d*DIA.naira).toLocaleString('en-NG')+' real) → ₦'+fmt(d*DIA.per)+' game money.';
+    b.textContent=ok?'Spend '+d.toLocaleString('en-NG')+' 💎':'Choose an amount';};
+  document.querySelectorAll('.diap button').forEach(x=>x.onclick=()=>{$('diaN').value='';set(+x.dataset.d);});
+  $('diaN').oninput=()=>set(Math.floor(+$('diaN').value));
+  $('diaGo').onclick=async()=>{const b=$('diaGo');if(b.disabled)return;b.disabled=true;b.textContent='Sending...';
+    const r=await nmApi('POST','/diamonds',{diamonds:pick});
+    if(!r.ok||!r.j){$('diaQ').textContent=(r.j&&r.j.error)||'That did not go through. Nothing was taken. Please try again.';set(pick);return;}
+    DIA.have=r.j.diamonds;diaApply(r.j.pending);beep(988,.12,'square',.06);diaOpen();};}
 })();
 </script></body></html>

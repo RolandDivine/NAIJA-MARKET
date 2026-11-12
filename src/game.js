@@ -56,7 +56,7 @@ const PICON={hand:'🧑‍🌾',rope:'🪢',tray:'🧺',porter:'📦',truck:'�
 
 /* ===== world build ===== */
 function build(){
-  B=BIZ[SAVE.cur];S=migrate(SAVE.biz[SAVE.cur]);dirty();
+  B=BIZ[SAVE.cur];S=migrate(SAVE.biz[SAVE.cur]);dirty();if(typeof diaCheck==='function')setTimeout(diaCheck,1500);
   G={t:0,flyers:[],parts:[],floats:[],conf:[],custs:[],workers:[],cars:[],crops:[],procIn:[0,0,0,0,0],procT:[0,0,0,0,0],out:[0,0,0,0,0],counter:[0,0,0,0,0],depot:[0,0,0,0,0],
      player:{x:450,y:400,stack:[],trail:null,face:1,step:0},input:{active:false},keys:{},cam:{x:450,y:400},acc:{pick:0,drop:0,cash:0,payFly:0,spawn:0,v:0,hud:0,save:0,fl:0,chat:3},
      truck:{state:'wait',t:6,y:-140},exp:{state:'wait',t:10,x:WW+160,ord:null},mach:{x:120,y:160,v:150,acc:0},beltT:[0,0,0,0,0],depT:[0,0,0,0,0],bub:[],closing:false,closeT:0,night:null,inside:0,toastT:0,warnT:0,onPad:null,speed:1};

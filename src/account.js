@@ -166,3 +166,38 @@ $('logout').addEventListener('click',async()=>{if(NM.pid)await nmPush();await nm
   const r=await nmApi('GET','/me');
   if(!r.ok||!r.j||!('player' in r.j)){A.hidden=true;$('localnote').hidden=false;return;}   // not on Community Square: play locally on this device
   NM.cfg=r.j;if(r.j.player)return signedIn(r.j);showFront();})();
+
+/* ----- diamonds into game money (Community Square members only, one way, never cashed out) ----- */
+const DIA={per:1e6,naira:10,min:10,max:10000,have:null};
+// Adds any credits the server holds for this player to the business being played, once each (ids kept in SAVE.dia).
+function diaApply(list){if(!G||!S||!list||!list.length)return 0;SAVE.dia=SAVE.dia||[];let got=0;
+  for(const c of list){if(SAVE.dia.includes(c.id))continue;SAVE.dia.push(c.id);S.money+=c.gameNaira;got+=c.gameNaira;}
+  if(SAVE.dia.length>200)SAVE.dia=SAVE.dia.slice(-200);
+  if(got){toast('💎 ₦'+fmt(got)+' game money added to '+B.name,4);save();nmPush();}return got;}
+async function diaCheck(){if(!NM.pid||!NM.player||!NM.player.linked)return;const r=await nmApi('GET','/diamonds');if(r.ok&&r.j)diaApply(r.j.pending);}
+async function diaOpen(){if(!G)return;G.input.active=false;$('hqp').hidden=false;
+  $('hqin').innerHTML='<header><h1>Top up with diamonds<small>Loading...</small></h1><button class="ghost" id="hqx" type="button">Back</button></header>';$('hqx').onclick=hqOpen;
+  const r=await nmApi('GET','/diamonds');if($('hqp').hidden)return;
+  if(!r.ok||!r.j){$('hqin').innerHTML+='<div class="lock">Could not reach Community Square. Check your connection and try again.</div>';return;}
+  const j=r.j;Object.assign(DIA,{per:j.perDiamond,naira:j.nairaPerDiamond,min:j.limits.min,max:j.limits.max,have:j.diamonds});diaApply(j.pending);
+  let h='<header><h1>Top up with diamonds<small>'+B.name+' · ₦'+fmt(S.money)+' game money now</small></h1><button class="ghost" id="hqx" type="button">Back</button></header>';
+  h+='<p class="note">Need more cash for the next machine or branch? Turn your Community Square 💎 into game money for '+B.name+'.</p>';
+  h+='<div class="stats"><div class="stat">1 💎 gives<b>₦'+fmt(DIA.per)+'</b></div><div class="stat">10,000 💎 give<b>₦'+fmt(DIA.per*1e4)+'</b></div><div class="stat">Your diamonds<b>'+(j.signedIn?j.diamonds.toLocaleString('en-NG')+' 💎':'—')+'</b></div></div>';
+  if(!j.linked)h+='<div class="lock">Diamonds come from Community Square. Log out, then continue with Community Square to use them.</div>';
+  else if(!j.signedIn)h+='<div class="lock">Sign in to Community Square in this browser, then come back here.</div><a class="cslink" href="/" target="_blank" rel="noopener">Open Community Square</a>';
+  else{h+='<h2>Pick an amount</h2><div class="diap">'+[10,100,1000,10000].map(d=>'<button class="ghost'+(d>j.diamonds?' off':'')+'" data-d="'+d+'" type="button">'+d.toLocaleString('en-NG')+' 💎<small>₦'+fmt(d*DIA.per)+' game money</small></button>').join('')+'</div>';
+    h+='<label class="note">Or type how many ('+DIA.min+' to '+DIA.max.toLocaleString('en-NG')+')<input id="diaN" type="number" inputmode="numeric" min="'+DIA.min+'" max="'+DIA.max+'" placeholder="e.g. 250"></label>';
+    h+='<div id="diaQ" class="note"></div><button class="big" id="diaGo" type="button" disabled>Choose an amount</button>';
+    if(j.diamonds<DIA.min)h+='<a class="cslink" href="/wallet" target="_blank" rel="noopener">Get diamonds in your Community Square Wallet</a>';}
+  h+='<p class="note">Game money is for playing only. It stays in Naija Market: it can\'t be cashed out, sent to a bank or turned back into diamonds, and it earns nothing in real life. Diamonds cost real money (100 💎 = ₦'+(100*DIA.naira).toLocaleString('en-NG')+'), so only spend what you\'re happy to spend on a game.</p>';
+  $('hqin').innerHTML=h;$('hqx').onclick=hqOpen;$('hqp').scrollTop=0;if(!j.signedIn)return;
+  let pick=0;const set=d=>{pick=d;const ok=Number.isInteger(d)&&d>=DIA.min&&d<=DIA.max&&d<=DIA.have,b=$('diaGo');b.disabled=!ok;
+    document.querySelectorAll('.diap button').forEach(x=>x.classList.toggle('on',+x.dataset.d===d));
+    $('diaQ').textContent=!d?'':d>DIA.have?'You have '+DIA.have.toLocaleString('en-NG')+' 💎. Top up your Wallet on Community Square first.':!ok?'Choose between '+DIA.min+' and '+DIA.max.toLocaleString('en-NG')+' diamonds.':d.toLocaleString('en-NG')+' 💎 (worth ₦'+(d*DIA.naira).toLocaleString('en-NG')+' real) → ₦'+fmt(d*DIA.per)+' game money.';
+    b.textContent=ok?'Spend '+d.toLocaleString('en-NG')+' 💎':'Choose an amount';};
+  document.querySelectorAll('.diap button').forEach(x=>x.onclick=()=>{$('diaN').value='';set(+x.dataset.d);});
+  $('diaN').oninput=()=>set(Math.floor(+$('diaN').value));
+  $('diaGo').onclick=async()=>{const b=$('diaGo');if(b.disabled)return;b.disabled=true;b.textContent='Sending...';
+    const r=await nmApi('POST','/diamonds',{diamonds:pick});
+    if(!r.ok||!r.j){$('diaQ').textContent=(r.j&&r.j.error)||'That did not go through. Nothing was taken. Please try again.';set(pick);return;}
+    DIA.have=r.j.diamonds;diaApply(r.j.pending);beep(988,.12,'square',.06);diaOpen();};}
