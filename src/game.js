@@ -67,7 +67,7 @@ function build(){
   G.stacks=G.D.map((li,j)=>({li,x:735+j*70,y:338}));
   const moving=B.field==='pasture'||B.field==='water';
   for(const s of G.strips){if(moving){const n=Math.round(s.w*f.h/1350);for(let i=0;i<n;i++)G.crops.push(newAnimal(s));}
-    else for(let y=f.y+22;y<f.y+f.h-10;y+=30)for(let x=s.x+18;x<s.x+s.w-8;x+=30)if(!(B.field==='port'&&s.li>=2&&y<f.y+72))G.crops.push({li:s.li,x:x+rnd(-4,4),y:y+rnd(-4,4),ready:true,t:0});}
+    else for(let y=f.y+22;y<f.y+f.h-10;y+=30)for(let x=s.x+18;x<s.x+s.w-8;x+=30)if(!(B.field==='port'&&s.li>=2&&y<f.y+72)&&!(B.field==='campus'&&(s.li===0||s.li===3||s.li===4)&&y<f.y+108))G.crops.push({li:s.li,x:x+rnd(-4,4),y:y+rnd(-4,4),ready:true,t:0});}
   makeSeats();syncStaff();updateHud(true);
 }
 function newAnimal(s){const f=G.field;return{li:s.li,s,x:rnd(s.x+16,s.x+s.w-16),y:rnd(f.y+16,f.y+f.h-16),vx:rnd(-16,16),vy:rnd(-16,16),ready:true,t:0,mv:true,ph:rnd(0,6)};}
@@ -119,7 +119,7 @@ function trailLen(tr){let L=0;for(let i=1;i<tr.pts.length;i++)L+=dist(tr.pts[i-1
 function harvest(poly,isPlayer){let n=0;
   for(const c of G.crops){if(c.ready&&lineOpen(c.li)&&pip(c.x,c.y,poly)){c.ready=false;c.t=rnd(2.6,4.6)*(evx('supply_slow')?1.6:1);n++;G.procIn[c.li]++;fly('r'+c.li,c.x,c.y,6,LX(c.li),500,24,rnd(.45,.8),n*.005,90);}}
   if(isPlayer){if(n>0){floatTxt(G.player.x,G.player.y-70,'+'+n+(n>=40?'  CORRECT!':''),'#fff',n>=40?20:15);beep(660,.12,'square',.05,1.5);if(n>=40)puff(G.player.x,G.player.y-30,14,'#ffe9a8');}
-    else toast('Nothing inside the circle. Go round the '+(B.field==='port'?'parcels and boxes':B.field==='yard'?'cartons':B.field==='water'?'fish':B.field==='pasture'?'animals':'crops')+'!',2);}
+    else toast('Nothing inside the circle. Go round the '+(B.field==='campus'?'books and supplies':B.field==='port'?'parcels and boxes':B.field==='yard'?'cartons':B.field==='water'?'fish':B.field==='pasture'?'animals':'crops')+'!',2);}
   return n;}
 
 /* ===== workers ===== */

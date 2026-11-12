@@ -95,7 +95,7 @@ function showCountry(){const C=(NM.cfg&&NM.cfg.countries)||{NG:'Nigeria'},live=(
 
 /* ----- 4. career path (the business picker) ----- */
 const SOON=[['🏦','PadiTrust Bank','Retail bank: deposits, loans, cards'],['💼','Kolanut Crown Capital','Investment bank: listings, bonds, mergers'],['📈','Blue Ticker Trading House','Stockbroking and trading floor'],
-  ['🏫','Almond Shade Schools','From lesson teacher to university'],['🏗️','Oke-Ile Homes & Towers','Agent to estate and tower developer'],
+ ['🏗️','Oke-Ile Homes & Towers','Agent to estate and tower developer'],
   ['✈️','KiteRise Air & Travels','Travel desk to intercontinental airline'],['🏭','Omi-Ola Industries','Pure water to consumer goods'],['⚡','Kpakpando Energy','Gas kiosk to power plants'],
   ['🏥','Dawnfield Health Group','Chemist to teaching hospital'],['🏨','Adunni Palms Hotels','Guest house to luxury chain'],['💻','KoboWave Technologies','Phone repair to payments company'],
   ['🎬','Koko Reel Entertainment','Wedding videos to studios and streaming'],['🏛️','Okele Council Services','Public service: ward to state']];

@@ -1,7 +1,7 @@
 /* ===== empire: managers, machines, export, branches, salaries, tax, events, chatter ===== */
 const EC=PLAN.econ.empire,RG=PLAN.road.regions,ROLE=PLAN.econ.salaries,TAX=PLAN.econ.tax,PAYSH=.08; // salaries as a share of revenue (was 15%)
 const HCAP=[1,1.5,2.2,3.2,4.5,6],HSPD=[1,1.1,1.25,1.4,1.55,1.7],haulCost=t=>nice(refP()*12*Math.pow(GROW,[8,18,28,38,48][t])*1.5);
-const QF={nkechi:12600,tunde:5700,musa:6300,basira:11200,zainab:5000,chidi:5800,sikira:7400,sani:7000,bola:6400,chinedu:5100,ship:130},BAY={x:800,y:1228},MONTH=30;
+const QF={nkechi:12600,tunde:5700,musa:6300,basira:11200,zainab:5000,chidi:5800,sikira:7400,sani:7000,bola:6400,chinedu:5100,ship:130,school:310},BAY={x:800,y:1228},MONTH=30;
 const refP=()=>{let a=0,w=0;for(const l of B.lines){a+=l.price*(l.w||1);w+=l.w||1;}return a/w;};
 const PBZ=()=>PLAN.biz[SAVE.cur],pick=a=>a[Math.floor(Math.random()*a.length)];
 function migrate(s){s.emp=Object.assign({mgr:0,belt:0,auto:0,pack:0,con:0,reg:0,br:0,haul:0},s.emp||{});s.mo=Object.assign({rev:0,exp:0,br:0},s.mo||{});
@@ -42,7 +42,7 @@ const TEAM=[1,3,10,40,150],BRSTAFF=120;
 function payrollList(){const tm=TEAM[stage()],g=Math.max(1,payGrade()/tm),c={},rows=[];for(const w of G.workers)c[w.kind]=(c[w.kind]||0)+1;
   const nm={hand:handName(),porter:'Porter',server:B.seller?(t=>t[0].toUpperCase()+t.slice(1))(B.seller):B.food?'Server':'Sales girl',cook:B.cook?(t=>t[0].toUpperCase()+t.slice(1))(B.cook):B.food?'Cook':'Packer',cashier:'Cashier',loader:'Export loader'};
   for(const k in nm)if(c[k])rows.push({name:nm[k]+(tm>1?'s':c[k]>1?'s':''),n:c[k]*tm,each:nice(ROLE[k]*g)});
-  if(typeof shipCrew==='function')rows.push(...shipCrew());
+  if(typeof shipCrew==='function')rows.push(...shipCrew(),...schCrew());
   if(c.manager)rows.push({name:PBZ().manager.name+', '+PBZ().manager.title,n:1,each:nice(ROLE.manager*g*4)});
   if(S.emp.reg)rows.push({name:'Regional manager'+(S.emp.reg>1?'s':''),n:S.emp.reg,each:nice(ROLE.regional*g*4)});
   if(S.emp.br)rows.push({name:'Branch staff ('+BRSTAFF+' per '+PBZ().branchNoun+')',n:S.emp.br*BRSTAFF,each:Math.round(PAYSH*brDay()*MONTH/(S.emp.br*BRSTAFF)),br:1});
@@ -52,8 +52,8 @@ function monthDue(full){const rows=payrollList(),k=full?1:dayOfMonth()/MONTH;let
   wages=Math.round(wages+PAYSH*(S.mo.br+S.mo.exp));const rev=S.mo.rev+S.mo.exp+S.mo.br;const tax=stage()<2?0:Math.round(TAX.gameRate*Math.max(0,rev-wages));return{rev,wages,tax,staff:rows.reduce((a,r)=>a+r.n,0)};}
 
 /* ----- daily events ----- */
-const EVI={diesel_up:'⛽',backhaul:'🚛',port_down:'🖥️',fx_up:'💱',demand_up:'📈',demand_down:'🌧️',price_up:'💹',supply_slow:'🐢',cost_hit:'💸',bonus_cash:'🎁',vip_day:'🤑',speed_up:'⚡'};
-const EVT={diesel_up:'Diesel up 10% today',backhaul:'Trucks coming home earn a return load',port_down:'The paperwork desk is slow today',fx_up:'Ocean freight earns 5% more today',demand_up:'More customers today',demand_down:'Fewer customers today',price_up:'Prices up 25% today',supply_slow:'Supplies are slow today',cost_hit:'It cost you',bonus_cash:'You received',vip_day:'Big spenders everywhere',speed_up:'Staff are fired up'};
+const EVI={inspect:'📋',diesel_up:'⛽',backhaul:'🚛',port_down:'🖥️',fx_up:'💱',demand_up:'📈',demand_down:'🌧️',price_up:'💹',supply_slow:'🐢',cost_hit:'💸',bonus_cash:'🎁',vip_day:'🤑',speed_up:'⚡'};
+const EVT={inspect:'An inspector visits tonight',diesel_up:'Diesel up 10% today',backhaul:'Trucks coming home earn a return load',port_down:'The paperwork desk is slow today',fx_up:'Ocean freight earns 5% more today',demand_up:'More customers today',demand_down:'Fewer customers today',price_up:'Prices up 25% today',supply_slow:'Supplies are slow today',cost_hit:'It cost you',bonus_cash:'You received',vip_day:'Big spenders everywhere',speed_up:'Staff are fired up'};
 function rollEvent(){S.ev=null;if(S.day<3||Math.random()>.55)return;const ev=pick(PBZ().events.concat(PLAN.road.commonEvents));S.ev={name:ev.name,text:ev.text,fx:ev.effect,amt:0};
   if(ev.effect==='cost_hit'){S.ev.amt=Math.round(Math.max(0,S.money)*.04);S.money-=S.ev.amt;}
   if(ev.effect==='bonus_cash'){S.ev.amt=Math.round((S.lastEarn||0)*.2);S.money+=S.ev.amt;}}

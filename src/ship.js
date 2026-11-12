@@ -19,8 +19,8 @@ const ratio=()=>{const m=S.ship.mo,w=monthDue(false).wages;return m.rev>0?Math.r
 const oceanUsd=()=>Math.round(SHIPR.usd*((S.day/MONTH|0)%12===11?1.2:1)); // peak season: up 20% before Christmas
 
 // Customers: trust, price and failures change how many come, and which lines they ask for.
-function newDemand(){if(!isShip())return 1;const s=shipState(),p=s.px;return(.7+.6*s.trust/100)*(p>0?1-.015*p:1-.01*p)*(s.sur?.97:1);}
-function lineW(i){if(!isShip())return 1;const s=shipState();
+function newDemand(){if(isSchool())return schDemand();if(!isShip())return 1;const s=shipState(),p=s.px;return(.7+.6*s.trust/100)*(p>0?1-.015*p:1-.01*p)*(s.sur?.97:1);}
+function lineW(i){if(isSchool())return schLineW(i);if(!isShip())return 1;const s=shipState();
   if(i===0)return 1+.3*s.riders;
   if(i===2)return trucksFree()>0?(s.sur?.85:1):0;
   if(i===3){const late=s.boxes.filter(b=>b.age>SHIPR.free).length;if(s.boxes.length>=deskCap()*SHIPR.free)return 0;return late>=5||s.boxes.some(b=>b.age>15)?.3:1;}
@@ -30,7 +30,7 @@ function lineW(i){if(!isShip())return 1;const s=shipState();
 // rent, IT, insurance and admin 14%. Trucks burn their own diesel (counted per trip) and ocean freight pays ~68% for ship space.
 const RUNC=[{fuel:.28,admin:.14},{fuel:.28,fleet:.2,port:.08,admin:.14},{port:.08,admin:.14},{port:.08,admin:.14},{carrier:.68,port:.08,admin:.14}];
 function runCosts(i,amt){for(const k in RUNC[i])shipCost(Math.round(amt*RUNC[i][k]),k==='admin'?'admin':k==='carrier'?'carrier':k==='fuel'?'fuel':'run');}
-function newSale(i,c,q,amt){if(!isShip())return amt;const s=shipState();amt=Math.round(amt*(1+s.px/100));
+function newSale(i,c,q,amt){if(isSchool())return schSale(i,c,q,amt);if(!isShip())return amt;const s=shipState();amt=Math.round(amt*(1+s.px/100));
   if(i===0){let a=0;for(let k=0;k<q;k++)a+=amt/q*(1500+500*(1+Math.floor(Math.random()*5)))/3000;amt=Math.round(a);s.deliv+=q;
     const share=s.riders/(s.riders+1),cut=Math.round(amt*share*SHIPR.riderShare);if(cut){shipCost(cut,'rider');}
     if(s.deliv%50<q)s.trust=Math.min(100,s.trust+1);}
@@ -44,7 +44,7 @@ function newSale(i,c,q,amt){if(!isShip())return amt;const s=shipState();amt=Math
   runCosts(i,amt);s.mo.rev+=amt;return amt;}
 
 // Night: trucks come home (with or without a return load), the paperwork desk clears boxes, the demurrage clock ticks.
-function shipNight(){if(!isShip())return null;const s=shipState();const rows=[];
+function shipNight(){if(isSchool())return schoolNight();if(!isShip())return null;const s=shipState();const rows=[];
   for(const t of s.out.filter(t=>t.back<=S.day)){if(evx('backhaul')||Math.random()<backChance()){S.money+=t.pay;s.mo.rev+=t.pay;S.mo.rev+=t.pay;s.back++;s.day.back+=t.pay;}else s.empty++;}
   s.out=s.out.filter(t=>t.back>S.day);
   let cap=deskCap()*(evx('port_down')?.5:1);
@@ -70,7 +70,7 @@ function finishBox(b){const s=S.ship;b.done=true;s.pot-=b.duty;s.potPaid+=b.duty
 function shipMonth(){if(!isShip())return null;const s=shipState(),r=ratio(),cost=s.mo.cost;if(s.mo.rev>0)s.hist.push(r);if(s.hist.length>24)s.hist.shift();s.mo={rev:0,cost:0};return{or:r,cost};}
 
 // Licences and gates from the research stages. A step stays locked until its gate is met.
-function stepGate(st){if(!isShip())return null;const s=shipState();
+function stepGate(st){if(isSchool())return schGate(st);if(!isShip())return null;const s=shipState();
   if(st.base==='venue'&&st.n===1&&s.deliv<300)return'🔒 Rider Squad needs 300 safe deliveries first ('+s.deliv+' so far). Then the courier licence.';
   if(st.base==='line'&&st.n===1&&st.arg===1&&s.trust<60)return'🔒 The national courier licence needs trust 60+ (now '+s.trust+'). Deliver safely and clear on time.';
   if(st.base==='venue'&&st.n===3&&s.clearedFree<200)return'🔒 Borders and Hubs: clear 200 boxes within their 5 free days ('+s.clearedFree+' so far).';
@@ -79,7 +79,7 @@ function stepGate(st){if(!isShip())return null;const s=shipState();
   return null;}
 
 /* ----- HQ panel: fleet, port desk, prices ----- */
-function shipHtml(){if(!isShip())return'';const s=shipState(),R=ratio(),late=s.boxes.filter(b=>b.age>SHIPR.free).length;let h='<h2>Operations</h2>';
+function shipHtml(){if(isSchool())return schHtml();if(!isShip())return'';const s=shipState(),R=ratio(),late=s.boxes.filter(b=>b.age>SHIPR.free).length;let h='<h2>Operations</h2>';
   h+='<div class="stats"><div class="stat">Trust<b>'+s.trust+' / 100</b></div><div class="stat">Diesel (moves weekly)<b>₦'+s.diesel.toLocaleString('en-NG')+'/L</b></div><div class="stat">Dollar rate (weekly)<b>₦'+s.fx.toLocaleString('en-NG')+'</b></div><div class="stat">Operating ratio<b>'+(R?R+'%':'—')+'</b></div></div>';
   h+='<p class="note">Where each ₦100 of revenue goes: fuel ₦28 (trucks pay their own diesel), rent, IT and admin ₦14, tolls and port ₦8, vans ₦20 on waybills, plus salaries. Operating ratio = this month\'s costs ÷ revenue. Under 95 for 3 months opens bank truck loans; under 90 gets 1 point off the interest rate. UPS runs at 91, J.B. Hunt 92.8, Red Star Express about 94.</p>';
   h+='<h2>Prices</h2><div class="seg" id="spx">'+[-20,-10,0,10,20].map(p=>'<button class="ghost'+(s.px===p?' on':'')+'" data-px="'+p+'" type="button">'+(p>0?'+':'')+p+'%</button>').join('')+'</div><p class="note">List prices: bike ₦1,500 + ₦500 a zone, waybill ₦5,000 + ₦4 a km, 40ft trip ₦1.2m + ₦1,900 a km. Every 1% above list loses 1.5% of customers; every 1% below brings 1% more.</p>';
@@ -96,7 +96,7 @@ function shipHtml(){if(!isShip())return'';const s=shipState(),R=ratio(),late=s.b
     h+='<div class="acts"><button class="ghost" data-sh="agent" type="button">🧑‍💼 Hire licensed agent · ₦250k a month</button><button class="ghost" data-sh="desk" type="button">🗂️ Upgrade paperwork desk · ₦'+short(25000000*(s.desk+1))+'</button></div><p class="note">Licensed agents always declare correctly. You can declare one box yourself each day: pick the right goods class. Customs inspects 1 box in 10.</p>';}
   if(lvl('line4'))h+='<h2>Ocean freight</h2><p class="note">Freight is sold in dollars: $'+oceanUsd().toLocaleString('en-NG')+' a 40ft from China to Apapa ('+(SHIPR.usd===oceanUsd()?'normal season':'peak season, +20%')+'), ₦'+fmt(oceanUsd()*s.fx)+' at this week\'s rate. 35 to 48 days port to port. About 68% of each booking pays for the ship space; with port charges and admin, freight keeps about 10% (research for this stage: ₦9bn revenue and ₦8.1bn costs a month).</p>';
   return h;}
-function shipBind(){if(!isShip())return;const s=S.ship,re=()=>{save();hqRender();};
+function shipBind(){if(isSchool())return schBind();if(!isShip())return;const s=S.ship,re=()=>{save();hqRender();};
   document.querySelectorAll('#spx [data-px]').forEach(b=>b.onclick=()=>{s.px=+b.dataset.px;re();});
   document.querySelectorAll('#hqin [data-sh]').forEach(b=>b.onclick=()=>{const k=b.dataset.sh,buy=(n,f)=>{if(S.money<n){toast('You need ₦'+short(n-S.money)+' more.',2);beep(160,.15,'sawtooth',.04);return;}S.money-=n;f();fanfare(false);re();};
     if(k==='rider')buy(SHIPR.bikeCost,()=>{s.riders++;syncStaff();});

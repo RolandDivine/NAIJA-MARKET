@@ -1,0 +1,219 @@
+{
+ "key": "school",
+ "branchNoun": "campus",
+ "rankTitles": [
+  "Lesson Aunty",
+  "Proprietress",
+  "School Director",
+  "Group Managing Director",
+  "Pro-Chancellor",
+  "Chancellor"
+ ],
+ "export": {
+  "bay": "Partnerships Office",
+  "pack": "sponsored seat packages",
+  "contracts": [
+   {
+    "buyer": "Lagos Teachers' Training Fund",
+    "where": "Ikeja, Lagos",
+    "blurb": "Your best teachers train new teachers for state schools, paid per course."
+   },
+   {
+    "buyer": "Northern Girls' Scholarship Trust",
+    "where": "Kano",
+    "blurb": "A trust pays full fees for 200 girls in your boarding house every term."
+   },
+   {
+    "buyer": "Oil Company Staff Schools Scheme",
+    "where": "Port Harcourt",
+    "blurb": "Staff children attend your campuses on a company contract."
+   },
+   {
+    "buyer": "Abuja Federal Scholarship Board",
+    "where": "Abuja",
+    "blurb": "University places for top students from every state."
+   },
+   {
+    "buyer": "Accra Learning Partners",
+    "where": "Accra, Ghana",
+    "blurb": "Your curriculum and teacher training run in 30 Ghanaian schools."
+   },
+   {
+    "buyer": "Nairobi Education Alliance",
+    "where": "Nairobi, Kenya",
+    "blurb": "Exchange semesters for your university students."
+   }
+  ]
+ },
+ "machines": {
+  "belt": {
+   "name": "Book Trolley",
+   "blurb": "Rolls books and chalk from the store room to the classrooms without the player."
+  },
+  "auto": {
+   "name": "Lab Kit Conveyor",
+   "blurb": "Moves lab kits from the delivery bay to the science lab and lecture halls."
+  },
+  "pack": {
+   "name": "Campus Supply Fleet",
+   "blurb": "Vans restock every classroom, lab and dining hall on a campus at term start."
+  }
+ },
+ "manager": {
+  "name": "Mr Adewale",
+  "title": "Principal"
+ },
+ "milestones": [
+  {
+   "at": 1,
+   "title": "Second Campus",
+   "blurb": "Abeokuta opens. Same uniform, same almond leaf badge."
+  },
+  {
+   "at": 5,
+   "title": "Five Campuses",
+   "blurb": "Parents across Lagos and Ogun know the almond leaf."
+  },
+  {
+   "at": 10,
+   "title": "Three States, One Uniform",
+   "blurb": "Lagos, Ogun and Oyo ministries have all approved Almond Shade."
+  },
+  {
+   "at": 25,
+   "title": "Every Region",
+   "blurb": "Campuses in the North, East and South-South, each with its own principal."
+  },
+  {
+   "at": 50,
+   "title": "Scholarship Fund",
+   "blurb": "The Ifeoma Bakare Scholarship pays for a desk in every campus."
+  },
+  {
+   "at": 100,
+   "title": "Across Africa",
+   "blurb": "Nairobi, Accra and Kigali campuses open with local principals."
+  },
+  {
+   "at": 250,
+   "title": "Teachers' College",
+   "blurb": "Almond Shade trains its own teachers. Pay teachers first."
+  },
+  {
+   "at": 500,
+   "title": "Convocation Day",
+   "blurb": "Gowns, drums and proud parents. A girl from the almond tree class is now a lecturer."
+  }
+ ],
+ "chatter": {
+  "staff": [
+   "Books for Primary 3, coming!",
+   "Chalk dey finish, bring another box.",
+   "Lab kits ready for SS2 practical.",
+   "Lunch is hot, jollof today!",
+   "Report cards signed and stamped.",
+   "Good morning, class!",
+   "Who cleaned these toilets? Well done!",
+   "First aid box is full.",
+   "Exam fee receipts sent to the exam body.",
+   "Bus is back from the school run."
+  ],
+  "customer": [
+   "My daughter loves her teacher!",
+   "Can I pay 60% now and the rest at mid-term?",
+   "How are the results this year?",
+   "Is there space in Primary 1?",
+   "He can read now. Thank you, Aunty!",
+   "Do you have boarding?",
+   "We heard about your science lab.",
+   "The inspector praised your toilets, I heard.",
+   "I want my son in SS1 next term.",
+   "Thank you for the polite reminder."
+  ],
+  "manager": [
+   "Every class is within its size limit, ma.",
+   "Teachers trained this term. Results will show.",
+   "Payroll pot can cover the holiday.",
+   "Inspection checklist is green.",
+   "Matron says all boarders ate three meals.",
+   "Two parents complained about the bus. I am on it."
+  ],
+  "night": [
+   "Pay your teachers first, then yourself.",
+   "Six children under a tree. Look at us now.",
+   "Tomorrow I check the toilets before the classrooms.",
+   "Results day is coming. I pray they pass well.",
+   "One more classroom and the waiting list clears.",
+   "No child goes home over fees. Not in my school."
+  ]
+ },
+ "events": [
+  {
+   "name": "Best Result in the State",
+   "text": "Your students topped the exams. Parents are calling non-stop. More families today.",
+   "effect": "vip_day"
+  },
+  {
+   "name": "Surprise Inspection",
+   "text": "The ministry inspector is at the gate. Classrooms are clean, so you pass with praise.",
+   "effect": "inspect"
+  },
+  {
+   "name": "Supply Van Breaks Down",
+   "text": "The van is stuck on the expressway. Books and meal crates arrive slowly today.",
+   "effect": "supply_slow"
+  },
+  {
+   "name": "Old Student Gives Back",
+   "text": "A past pupil, now a doctor, donates microscopes to the science lab.",
+   "effect": "bonus_cash"
+  },
+  {
+   "name": "Generator Wahala",
+   "text": "No light in the computer room. Diesel costs extra today.",
+   "effect": "cost_hit"
+  },
+  {
+   "name": "Inter-House Sports Day",
+   "text": "Blue House wins the relay! Happy parents bring friends to enrol.",
+   "effect": "demand_up"
+  },
+  {
+   "name": "Book Prices Jump",
+   "text": "Paper costs more this term. Books cost 15% extra today.",
+   "effect": "cost_hit"
+  },
+  {
+   "name": "Rainy Morning",
+   "text": "Heavy rain on the school run. Fewer parents come to the bursar today.",
+   "effect": "demand_down"
+  }
+ ],
+ "mech": [
+  {
+   "name": "Hand carry",
+   "how": "Books and chalk boxes carried in both arms from the store room"
+  },
+  {
+   "name": "Book trolley",
+   "how": "Red-wheeled wooden trolley stacked with books rolls along the corridor"
+  },
+  {
+   "name": "Supply keke",
+   "how": "Tricycle with a cage at the back brings crates from the gate to the blocks"
+  },
+  {
+   "name": "School van",
+   "how": "White van with the almond leaf logo parks at the store, doors open, boxes move in"
+  },
+  {
+   "name": "Pallet forklift",
+   "how": "Small forklift lifts pallets of books and food into the dining hall store"
+  },
+  {
+   "name": "Yellow school bus fleet",
+   "how": "Yellow buses carry supplies at term start and children home safely after school"
+  }
+ ],
+ "storyNote": "Story follows plan2/school.json. The 'exam cheat seller' event is left out: no exam malpractice of any kind appears in the game."
+}

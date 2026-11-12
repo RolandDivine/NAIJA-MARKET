@@ -96,7 +96,23 @@ ship:{name:'Wakaway Global Logistics',tag:'Courier, haulage and shipping',tone:'
    Object.assign(L('Interstate waybill','Waybill','#2a62c9',9000,'carton to Kano','field',['sack','#e9dcc0','#2a62c9'],['carton','#c9a15a','#2a62c9'],'scale'),{w:5,qx:3}),
    Object.assign(L('Trailer haulage trip','Haulage','#c62828',3100000,'40ft, Lagos to Kano','field',['box40','#c62828','#8e1c1c'],['box40','#c62828','#f2c230'],'bay'),{w:.6,qx:1}),
    Object.assign(L('Container clearing','Clearing','#1f8a4c',250000,'container fee','field',['box40','#1f8a4c','#145c32'],['doc','#f4f1ea','#1f8a4c'],'desk'),{w:1,qx:2}),
-   Object.assign(L('Ocean freight booking','Freight','#1b2a4a',7397820,'40ft, China to Apapa','field',['box40','#2a62c9','#1b2a4a'],['doc','#dfe7ec','#1b2a4a'],'desk'),{w:.25,qx:1})]}
+   Object.assign(L('Ocean freight booking','Freight','#1b2a4a',7397820,'40ft, China to Apapa','field',['box40','#2a62c9','#1b2a4a'],['doc','#dfe7ec','#1b2a4a'],'desk'),{w:.25,qx:1})]},
+/* Fees per term from plan2/school.json (2026 Nigerian ranges): lessons N15,000, nursery and primary N60,000, secondary day
+   N180,000, boarding add-on N450,000, university N750,000 a semester (an estimate in the research). Players carry books,
+   kits and meal crates, never children. */
+school:{name:'Almond Shade Schools Group',tag:'Lessons to university',tone:'#16a394',field:'campus',isNew:true,owner:{cloth:'#16a394',trim:'#f4e9d0',hat:'none',gender:'f'},
+  hand:'Store keeper',cook:'teacher',seller:'teaching assistant',
+  outfit:{cook:{cloth:'#f2c230',trim:'#1b2a4a',hat:'none',gender:'f'},hand:{cloth:'#4a7a5a',trim:'#f4f1ea',hat:'cap'},server:{cloth:'#7ad1ff',trim:'#1b2a4a',hat:'none'},cashier:{cloth:'#2e8b3d',trim:'#f2c230',hat:'gele',gender:'f'},porter:{cloth:'#f4f1ea',trim:'#16a394',hat:'cap'}},
+  venue:['Almond tree, Surulere compound','Two rooms and a signboard','Six-classroom school and yellow bus','Campuses in three states','Almond Shade University'],
+  // Research stage costs: Two Rooms N3m, yellow bus N25m, secondary block and lab N150m, boarding N320m, three states N900m,
+  // university licence stage N10bn (includes the N5m form and N25m processing fee), Chancellor N30bn.
+  costs:{venue:[3000000,25000000,900000000,30000000000],line:[null,150000000,320000000,10000000000]},
+  lines:[
+   Object.assign(L('After-school lessons','Lessons','#16a394',15000,'term of lessons','field',['book','#f4f1ea','#16a394'],['doc','#fffaf0','#16a394'],'board'),{w:10,qx:3}),
+   Object.assign(L('Nursery and primary','Primary','#f2c230',60000,'term, nursery or primary','field',['book','#f2c230','#c62828'],['doc','#fff7d6','#f2c230'],'board'),{w:4,qx:3}),
+   Object.assign(L('Secondary day school','Secondary','#2a62c9',180000,'term, JSS or SSS','field',['kit','#dfe7ec','#2a62c9'],['doc','#e7f1fb','#2a62c9'],'lab'),{w:2,qx:2}),
+   Object.assign(L('Boarding house','Boarding','#7a5af0',450000,'term of room and meals','field',['carton','#c9a15a','#7a5af0'],['bowl','#f4f1ea','#e0782a'],'pot'),{w:.8,qx:1}),
+   Object.assign(L('University degree','University','#8e1c1c',750000,'semester','field',['book','#8e1c1c','#f2c230'],['doc','#f4f1ea','#8e1c1c'],'desk'),{w:.6,qx:1})]}
 };
 const CAR=['Danfo bus','Keke','Tokunbo car','SUV'], HOUSE=['Rented room','Mini flat','Bungalow','Duplex mansion'];
 const ADS=['','Radio jingle','Billboard','TV advert'];
