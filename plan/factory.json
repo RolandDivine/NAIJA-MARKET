@@ -1,0 +1,58 @@
+{
+ "key": "factory",
+ "branchNoun": "plant",
+ "rankTitles": ["Backyard Sealer", "Water Factory Owner", "Bottler", "Industrialist", "Group Managing Director", "Group Chairman"],
+ "export": {
+  "bay": "Export Desk",
+  "pack": "containers of cartons",
+  "contracts": [
+   {"buyer": "Tema Wholesale Partners", "where": "Tema, Ghana", "blurb": "Noodles and soap for West Africa, one container a week."},
+   {"buyer": "Nairobi Provision Stores Group", "where": "Nairobi, Kenya", "blurb": "Bar soap with an East Africa label for 400 shops."},
+   {"buyer": "Kano Distributors Union", "where": "Kano", "blurb": "Noodles for the north, collected at the Kano plant gate."},
+   {"buyer": "Aba Market Wholesalers", "where": "Aba", "blurb": "Bar soap by the truckload for Ariaria traders."},
+   {"buyer": "Lagos Events Supply", "where": "Ikeja, Lagos", "blurb": "Bottled water and fruit drink for weddings and conferences."},
+   {"buyer": "Rotterdam Supermarket Group", "where": "Rotterdam, Netherlands", "blurb": "Noodles and soap on European shelves after a full audit."}
+  ]
+ },
+ "machines": {
+  "belt": {"name": "Roller Conveyor", "blurb": "Rolls raw goods from the delivery bay to one production line without carrying."},
+  "auto": {"name": "Auto Fill-and-Seal Line", "blurb": "Makes and bags products by itself; one operator watches three lines."},
+  "pack": {"name": "Robot Palletiser", "blurb": "Stacks cartons on pallets and a forklift takes them to the gate."}
+ },
+ "manager": {"name": "Engr. Funmi Ajayi", "title": "Plant Manager"},
+ "milestones": [
+  {"at": 1, "title": "Second Plant", "blurb": "A second sealing hall opens. Same clean water, same blue bag."},
+  {"at": 5, "title": "Five Plants", "blurb": "Omi-Ola trucks are a common sight across Lagos and Ogun."},
+  {"at": 10, "title": "North and East", "blurb": "Kano makes noodles, Aba makes soap, each with its own manager."},
+  {"at": 25, "title": "Every Region", "blurb": "A plant near every big market cuts the trucking bill."},
+  {"at": 50, "title": "Training School", "blurb": "The old backyard shed now trains young technicians."},
+  {"at": 100, "title": "Across Africa", "blurb": "Tema and Nairobi plants pass their first quality audits."},
+  {"at": 250, "title": "Gas Power Everywhere", "blurb": "Every plant runs on grid and gas. The generators rest."},
+  {"at": 500, "title": "Sold Abroad", "blurb": "Containers leave for Europe every week. Mama cuts the ribbon."}
+ ],
+ "chatter": {
+  "staff": ["Nylon roll loaded, sealer ready.", "Filters changed this morning.", "Lab test done, water is clean.", "Stack the cartons five high, no more.", "Generator serviced, diesel full.", "Hair nets on before you enter.", "Pulp drums are cold, store is fine.", "Palm oil tanker at the gate.", "Scrap nylon bagged for the recycler.", "Line two is running smooth."],
+  "customer": ["Ten bags of sachet water, please.", "Can I pay in 7 days like last time?", "Your water tastes clean, my customers like it.", "Do you have bottled water for a wedding?", "Two cartons of fruit drink for my shop.", "Noodles for my stall in the market.", "I paid my invoice on time, oga.", "Is the soap the same as last month?", "Crystal Peak is cheaper, but yours is cleaner.", "I need a receipt for my records."],
+  "manager": ["Quality Score is holding above 80.", "Diesel is low. Shall I fill the tank?", "Grid was on most of today.", "Two distributors paid early this week.", "Line three needs a service soon.", "The waste bin is half full. Recycler comes Friday."],
+  "night": ["Service the machines before they cry.", "Count the stock, then count the cash.", "Clean water is the whole business.", "Collect what you are owed before you borrow.", "Buy nylon on a cheap week.", "A good fitter saves whole afternoons."]
+ },
+ "events": [
+  {"name": "Heat Wave", "text": "Sun dey hot die! Sachet and bottled water sell fast today.", "effect": "demand_up"},
+  {"name": "Grid Collapse", "text": "No light all day. The generator drinks diesel and costs rise.", "effect": "cost_hit"},
+  {"name": "Owambe Weekend", "text": "Three big parties order bottled water and fruit drink in bulk.", "effect": "vip_day"},
+  {"name": "Surprise Inspection", "text": "Inspector Bisi checks the hand-wash point and logbook. A clean factory earns a quality bonus.", "effect": "bonus_cash"},
+  {"name": "Nylon Price Jump", "text": "Nylon rolls cost more this week. Use your stored stock if you have it.", "effect": "cost_hit"},
+  {"name": "Sealing Machine Jams", "text": "A line slows until the fitter repairs it. Did you service it?", "effect": "supply_slow"},
+  {"name": "Palm Oil Harvest", "text": "Plenty palm oil in the east. Tankers arrive quickly today.", "effect": "speed_up"},
+  {"name": "Copied Label", "text": "Someone is copying your label. You report it and add a security seal; some buyers wait to be sure.", "effect": "demand_down"}
+ ],
+ "mech": [
+  {"name": "Hand carry", "how": "Nylon rolls and sacks carried in both arms from the store to the line"},
+  {"name": "Hand trolley", "how": "Loader pushes a two-wheel trolley stacked with cartons to the gate"},
+  {"name": "Roller conveyor", "how": "Rolls goods along steel rollers on green legs from the bay to the line"},
+  {"name": "Delivery truck", "how": "Omi-Ola truck backs to the dock, loaders fill it carton by carton"},
+  {"name": "Electric forklift", "how": "Small forklift lifts pallets from the palletiser to the warehouse"},
+  {"name": "Container trailer", "how": "Trailers carry sealed containers from the docks to the Lagos port"}
+ ],
+ "storyNote": "Story follows plan2/factory.json. Inspectors are honest and never paid off; no registration numbers are shown or invented. Waste nylon goes to a licensed recycler."
+}

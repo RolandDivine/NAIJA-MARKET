@@ -1,0 +1,58 @@
+{
+ "key": "media",
+ "branchNoun": "studio",
+ "rankTitles": ["Wedding Cameraman", "Studio Owner", "Producer", "Studio Head", "Media Group Chief", "Golden Reel Legend"],
+ "export": {
+  "bay": "Licensing Office",
+  "pack": "catalogue licence bundles",
+  "contracts": [
+   {"buyer": "Lagos Wedding Planners Circle", "where": "Lekki, Lagos", "blurb": "Planners book your camera crews for every big Saturday owambe."},
+   {"buyer": "Kano Family TV", "where": "Kano", "blurb": "A regional TV station licenses your family comedies for weekend nights."},
+   {"buyer": "Accra Screen Partners", "where": "Accra, Ghana", "blurb": "Your films play on Ghanaian screens the month after Lagos."},
+   {"buyer": "Rainbow Nation Streams", "where": "Johannesburg, South Africa", "blurb": "A South African platform takes your back catalogue, title by title."},
+   {"buyer": "Diaspora Nights Cinemas", "where": "London, UK", "blurb": "Weekend screenings of your films for families far from home."},
+   {"buyer": "Northstar Film Club", "where": "Toronto, Canada", "blurb": "Festival-style showings of your best films across Canada."}
+  ]
+ },
+ "machines": {
+  "belt": {"name": "Footage Trolley", "blurb": "Rolls drives and memory cards from the set and booth to the edit and mix stations."},
+  "auto": {"name": "Auto Render Farm", "blurb": "Edits and mixes on its own, so stations keep making while staff rest."},
+  "pack": {"name": "Koko Dispatch Drone Bay", "blurb": "Flies finished films, songs and ticket rolls from every station to the counter."}
+ },
+ "manager": {"name": "Mrs Funke Adeyemi", "title": "Studio Manager"},
+ "milestones": [
+  {"at": 1, "title": "Second Studio", "blurb": "Ibadan opens. Same gold reel on the door."},
+  {"at": 5, "title": "Five Studios", "blurb": "Couples across Lagos and Ogun ask for Koko Reel by name."},
+  {"at": 10, "title": "Ten Edit Suites", "blurb": "Ten towns, ten edit suites, one gold reel."},
+  {"at": 25, "title": "Every Region", "blurb": "Studios in the North, East and South-South, each with its own manager."},
+  {"at": 50, "title": "Film School", "blurb": "Koko Reel trains young editors and sound engineers for free on Saturdays."},
+  {"at": 100, "title": "Across Africa", "blurb": "Accra, Nairobi and Johannesburg studios open with local crews."},
+  {"at": 250, "title": "Golden Reel Awards", "blurb": "A night for every crew member who made the films."},
+  {"at": 500, "title": "World Premiere Week", "blurb": "Lagos, London, Toronto and Atlanta in one week. Mama Okoye sits in front."}
+ ],
+ "chatter": {
+  "staff": ["Memory cards from the owambe, coming!", "Bride's edit is rendering.", "Vocals sound clean today.", "Light is back, save your project!", "Props truck don land.", "Drive backed up twice.", "Colour grade done for reel two.", "Crew lunch is on the way.", "Popcorn machine is hot.", "Ticket roll changed."],
+  "customer": ["Please make my wedding video sweet.", "Can you mix my song by Friday?", "Two tickets for the 7pm show.", "Is the new film showing here?", "My mother cried at the highlights reel!", "Do you have a booth free tonight?", "When is the next concert?", "We want the licence for Ghana.", "Extra popcorn, please.", "Your sound engineer is a genius."],
+  "manager": ["Crew is paid for this week, sir.", "Classification papers are complete.", "Drive security checked.", "Royalties are ready for payday.", "Two wedding bookings for Saturday.", "Cinema is half full tonight. Popcorn is selling."],
+  "night": ["Pay your crew first, then yourself.", "One camcorder and a mattress. Look at us now.", "A good script saves money on set.", "Opening week matters most.", "Old songs still pay while I sleep.", "Fair splits keep artists at home."]
+ },
+ "events": [
+  {"name": "Song Goes Viral", "text": "A dance challenge picks up your new song. More fans come today and plays double.", "effect": "demand_up"},
+  {"name": "Generator Cough", "text": "Light is gone and the gen is coughing. Diesel costs extra today.", "effect": "cost_hit"},
+  {"name": "Festival Selection", "text": "Your film is picked for a big festival. Buyers pay 25% more today.", "effect": "price_up"},
+  {"name": "Rain on Set", "text": "Heavy rain floods the set yard. Footage comes in slowly today.", "effect": "supply_slow"},
+  {"name": "Sold-Out Weekend", "text": "Salary week plus a public holiday. Queues are twice as long.", "effect": "vip_day"},
+  {"name": "Leaked Copy", "text": "A pirate copy is online. You report it and tighten drive security. Fewer buyers today.", "effect": "demand_down"},
+  {"name": "Brand Wants Your Star", "text": "A clean brand deal lands for your artist. You share the fee fairly.", "effect": "bonus_cash"},
+  {"name": "Corrupted Drive", "text": "One footage drive refuses to open. You restore it from backup, slowly.", "effect": "supply_slow"}
+ ],
+ "mech": [
+  {"name": "Hand carry", "how": "Memory cards and drives carried in a camera bag from set to edit desk"},
+  {"name": "Footage trolley", "how": "Yellow flight-case cart with blinking drive bays rolls between the rooms"},
+  {"name": "Studio keke", "how": "Tricycle with padded crates brings props and drives from the set yard"},
+  {"name": "Production van", "how": "Black van with the gold reel logo parks at the studio, crew unload drives"},
+  {"name": "Auto render farm", "how": "Glass server cabinet with green lights edits and mixes on its own"},
+  {"name": "Drone bay", "how": "Three white drones carry gold film cans from every station to the counter"}
+ ],
+ "storyNote": "Story follows plan2/media.json. All film, song and artist names are invented. Piracy and unpaid crew appear only as problems to fix."
+}

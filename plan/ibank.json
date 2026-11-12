@@ -1,0 +1,58 @@
+{
+ "key": "ibank",
+ "branchNoun": "office",
+ "rankTitles": ["Desk Adviser","Boutique Founder","Issuing House Chief","Lead Bookrunner","Group Chief Executive","Africa's Dealmaker"],
+ "export": {
+  "bay": "Cross-Border Desk",
+  "pack": "advisory mandates",
+  "contracts": [
+   {"buyer": "Ogun Roads and Water Programme", "where": "Abeokuta, Ogun", "blurb": "Plan a state bond for roads and water, with every naira tracked."},
+   {"buyer": "Teachers' Cooperative Savings Union", "where": "Ibadan, Oyo", "blurb": "Look after members' savings slowly and safely."},
+   {"buyer": "Northern Agro Processors", "where": "Kano", "blurb": "Raise money for a new rice mill from honest investors."},
+   {"buyer": "Diaspora Pension Partners", "where": "London, UK", "blurb": "Roadshows for pension funds that want African bonds."},
+   {"buyer": "Gulf Trade Holdings", "where": "Dubai, UAE", "blurb": "Advise on joining two trading groups, kept quiet until announced."},
+   {"buyer": "Lagos Tech Listing Partners", "where": "New York, USA", "blurb": "A dual listing in Lagos and New York on the same day."}
+  ]
+ },
+ "machines": {
+  "belt": {"name": "File Trolley Runner", "blurb": "A clerk with a brass trolley moves client files from the lounge to the analyst desks."},
+  "auto": {"name": "Deal Tube System", "blurb": "Clear tubes shoot finished documents from every desk to the deal room."},
+  "pack": {"name": "Digital Deal Vault", "blurb": "A secure online data room: files arrive, get checked and are delivered with no carrying."}
+ },
+ "manager": {"name": "Mr Tayo Bamgbose", "title": "Managing Director"},
+ "milestones": [
+  {"at": 1, "title": "Second Office", "blurb": "Abeokuta opens for state clients. Same kolanut crown on the door."},
+  {"at": 5, "title": "Five Offices", "blurb": "Traders and boards across the South West know the name."},
+  {"at": 10, "title": "Abuja Desk", "blurb": "An office near the regulator. Clean paperwork, fast approvals."},
+  {"at": 25, "title": "Every Region", "blurb": "Offices in the North, East and South-South, each with its own deal team."},
+  {"at": 50, "title": "Market Gate Clinic", "blurb": "A free business clinic opens at the market gate where it all began."},
+  {"at": 100, "title": "London and Dubai", "blurb": "Roadshows abroad bring new investors to African companies."},
+  {"at": 250, "title": "New York Bell", "blurb": "A dual listing rings bells in Lagos and New York on one day."},
+  {"at": 500, "title": "Dealmaker of the Year", "blurb": "The pepper seller's daughter lifts the trophy. Mama Sikira is in the front row."}
+ ],
+ "chatter": {
+  "staff": ["Shoebox receipts sorted, ma.","Memo checked twice. Numbers match.","Prospectus pages 12 and 47 now agree.","Bond rating file is ready.","Data room is locked. Only the deal team goes in.","Order book is filling nicely.","Printer jammed again! Nobody leave files on it.","Client signed. Ring the small bell!","Compliance stamp is green.","Roadshow slides loaded."],
+  "customer": ["I need my business registered properly.","Can you help me find honest investors?","Our family company wants to list.","The state needs a bond for a bridge.","We want to join with our rival, fairly.","Mama Sikira sent me here.","How long will the regulator take?","Please explain the fee to me plainly.","My accounts are in this shoebox.","Thank you, my papers are finally complete."],
+  "manager": ["Every filing went out clean this week.","The team is stretched. One more analyst would help.","Market mood is shy this week. Maybe price a little lower.","Capital is above the licence line.","The data room log is clean.","Bonus season is coming. The team is watching."],
+  "night": ["A deal you cannot explain to your mother is a deal you should not sign.","One desk, one umbrella. Look at us now.","Tomorrow I read page 47 again.","Clean paperwork is speed.","Savings are people's retirement. Slow and safe.","Mama, I ate. The deal can wait till morning."]
+ },
+ "events": [
+  {"name": "Oversubscribed!", "text": "Investors want twice what is on offer. A big day in the lounge.", "effect": "vip_day"},
+  {"name": "Market Wobble", "text": "Share prices dip and investors turn shy. Order books fill slower today.", "effect": "demand_down"},
+  {"name": "Referral From Mama", "text": "Mama Sikira sends five traders with their shoeboxes. More clients today.", "effect": "demand_up"},
+  {"name": "Leak Scare", "text": "A merger file was left on the printer. The team locks it up fast and checks the data room. Extra security costs today.", "effect": "cost_hit"},
+  {"name": "Deal of the Year", "text": "A finance magazine praises your bond. A partner firm sends a thank-you gift.", "effect": "bonus_cash"},
+  {"name": "Generator Wahala", "text": "Power cuts out at deadline. Files reach the desks slowly today.", "effect": "supply_slow"},
+  {"name": "Rates Come Down", "text": "Interest rates ease. Companies and states want to raise money. Fees are up today.", "effect": "price_up"},
+  {"name": "Fresh Interns", "text": "Three eager graduates join for the week. Desks move faster.", "effect": "speed_up"}
+ ],
+ "mech": [
+  {"name": "Hand carry", "how": "Files and shoeboxes carried in both arms from the lounge to the desks"},
+  {"name": "File trolley", "how": "Small brass trolley stacked with coloured folders, pushed by a clerk in a green waistcoat"},
+  {"name": "Dispatch rider", "how": "Okada rider with a locked document box runs files between offices"},
+  {"name": "Deal tubes", "how": "Clear ceiling tubes whoosh gold capsules from every desk to the deal room"},
+  {"name": "Courier van", "how": "Green van with the kolanut crown delivers bound prospectuses to the regulator and exchange"},
+  {"name": "Digital deal vault", "how": "Glowing server pillar and wall screen move deal files with no carrying"}
+ ],
+ "storyNote": "Story follows plan2/ibank.json. No insider dealing, kickbacks, manipulation or cooked numbers appear anywhere; the leak scare is only a mistake the team stops. State clients are unnamed and non-partisan. All money and returns are game money, not real."
+}

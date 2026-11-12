@@ -1,0 +1,94 @@
+{
+ "key": "estate",
+ "branchNoun": "site",
+ "rankTitles": ["Letting Agent", "Block Master", "Builder", "Developer", "Estate Chairman", "Skyline Builder"],
+ "export": {
+  "bay": "Partnerships Office",
+  "pack": "housing delivery contracts",
+  "contracts": [
+   {"buyer": "Lagos Staff Housing Cooperative", "where": "Ikeja, Lagos", "blurb": "Members buy titled bungalows and pay by stage as each one stands."},
+   {"buyer": "Ogun Teachers' Housing Scheme", "where": "Abeokuta", "blurb": "Two-bedroom homes for teachers, built to the same tested standard."},
+   {"buyer": "Abuja Civil Servants' Estate", "where": "Abuja", "blurb": "Alhaji Sani's land, your blocks and your discipline: 200 homes with clean papers."},
+   {"buyer": "Port Harcourt Nurses' Homes Fund", "where": "Port Harcourt", "blurb": "Homes for nurses, paid stage by stage, keys handed over on time."},
+   {"buyer": "Accra Homes Partners", "where": "Accra, Ghana", "blurb": "Your first estate outside Nigeria, with local surveyors and local title."},
+   {"buyer": "London Diaspora Homes Fair", "where": "London, UK", "blurb": "Buyers abroad choose titled flats in your Lagos and Abuja towers."}
+  ]
+ },
+ "machines": {
+  "belt": {"name": "Wheelbarrow Train", "blurb": "A motor barrow carries sand and cement from the gate to the block machine by itself."},
+  "auto": {"name": "Site Forklift", "blurb": "Moves pallets of cured blocks and bundles of rods to any plot that is waiting."},
+  "pack": {"name": "Tower Crane", "blurb": "Lifts materials to every plot and tower floor; you direct and collect."}
+ },
+ "manager": {"name": "Engr. Funmi", "title": "Projects Manager"},
+ "milestones": [
+  {"at": 1, "title": "Second Site", "blurb": "A second yard opens. Same rich mix, same clean papers."},
+  {"at": 5, "title": "Five Sites", "blurb": "Builders across Lagos and Ogun ask for Oke-Ile blocks by name."},
+  {"at": 10, "title": "Abuja Office", "blurb": "Alhaji Sani's land meets your discipline. The first Abuja estate is pegged out."},
+  {"at": 25, "title": "Every Region", "blurb": "Estates in the North, East and South-South, each with its own title desk."},
+  {"at": 50, "title": "Every Pour Tested", "blurb": "Fifty sites, and every stage passed its inspection before buyers paid."},
+  {"at": 100, "title": "Across Africa", "blurb": "Accra and Nairobi towers rise with local engineers and local permits."},
+  {"at": 250, "title": "Skyline", "blurb": "Cranes in six cities carry the Oke-Ile flag."},
+  {"at": 500, "title": "Mama's Key", "blurb": "Dele walks his mum to her own front door and hands her one key."}
+ ],
+ "chatter": {
+  "staff": [
+   "Tipper don land with sharp sand!",
+   "Mix am rich, make the block ring like bell.",
+   "Blocks are curing, no touch for three days.",
+   "Foundation poured. Call the inspector.",
+   "Cube test came back strong.",
+   "Roof sheets are up before the rain.",
+   "Title file is stamped and in the cabinet.",
+   "Mini flat in Yaba, ready to show.",
+   "Rods for floor six, coming up on the crane.",
+   "Caution money back to Mrs Ade, in full."
+  ],
+  "customer": [
+   "Can I see the title before I pay?",
+   "I want a mini flat near the bus stop.",
+   "Your blocks no dey break. I want two loads.",
+   "So I pay only when each stage stands?",
+   "Is the road inside the estate tarred?",
+   "My sister in London saw your papers online.",
+   "Fair fee, five percent. I will tell my friends.",
+   "When will the roof go up?",
+   "Do you have a shop in the plaza for my bakery?",
+   "Thank you. I got my caution money back."
+  ],
+  "manager": [
+   "Every site passed its last inspection, sir.",
+   "Cement is cheap this week. Shall we fill the store?",
+   "The loan balance is down after the roof payment.",
+   "Two plaza shops are let for the year.",
+   "All 20 plots have their title files.",
+   "The tower is on schedule. Engineer signed off."
+  ],
+  "night": [
+   "No permit, no pouring. Simple.",
+   "One ring of borrowed keys. Look at us now.",
+   "Tomorrow I check the cement store first.",
+   "Mama, your key is coming. Clean papers.",
+   "Sell now or let for the year? Let me think.",
+   "Block wey no strong na biscuit. Mama Risi was right."
+  ]
+ },
+ "events": [
+  {"name": "Cement Price Jump", "text": "Cement adds ₦1,500 a bag this week. Building costs more today.", "effect": "cost_hit"},
+  {"name": "Rainy Day", "text": "Heavy rain. Blocks cure slowly and the tipper is stuck. Fewer customers today.", "effect": "demand_down"},
+  {"name": "Diaspora Buyer Calls", "text": "A buyer abroad saw your clean papers online and tells friends. More buyers today.", "effect": "vip_day"},
+  {"name": "Surprise Site Inspection", "text": "Your permit and stage certificate are on the wall. Passed! Word spreads.", "effect": "demand_up"},
+  {"name": "Concrete Test Passed", "text": "The cube test came back strong. Bricklayers work faster for the rest of the day.", "effect": "speed_up"},
+  {"name": "Tenant Referral", "text": "A happy tenant got her caution money back and sent three friends to your desk.", "effect": "demand_up"},
+  {"name": "Tipper Breakdown", "text": "The tipper has a flat tyre on the expressway. Deliveries are slow today.", "effect": "supply_slow"},
+  {"name": "Plaza Shop Fit-out Grant", "text": "The estate residents' fund pays for new street lights at the plaza.", "effect": "bonus_cash"}
+ ],
+ "mech": [
+  {"name": "Hand carry", "how": "Cement bags and blocks carried on the shoulder from the gate"},
+  {"name": "Wheelbarrow", "how": "A green wheelbarrow of blocks rolls along a plank path"},
+  {"name": "Wheelbarrow train", "how": "Three wheelbarrows hooked behind a tiny motor cart with a yellow lamp"},
+  {"name": "Tipper", "how": "A second-hand tipper tips sharp sand and stacks of bags at the yard gate"},
+  {"name": "Site forklift", "how": "An orange forklift with a flashing beacon moves pallets of blocks to the plots"},
+  {"name": "Tower crane", "how": "A yellow lattice crane with a red hook lifts rods and glass to every floor"}
+ ],
+ "storyNote": "Story follows plan2/estate.json. Chief Bambo's cheap land with no papers appears only as a rival's line; land claim scenes are settled by the title file and are shown as a calm event, with no named groups. No fake titles, double sales or land grabbing exist in the game."
+}
