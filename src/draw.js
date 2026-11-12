@@ -68,16 +68,13 @@ function personSprite(o,fr,face,big){const res=big?7:2.5,key=o.cloth+o.trim+o.ha
     else if(h==='chef'){rr(-7,-54-bob,14,12,4,'#fff');ell(0,-54-bob,8,4,'#fff');}
   }finally{ctx=main;}return PSPR[key]=c;}
 // Rendered character art (src/art.js). Each person is one picture that bobs and leans as it walks.
-const IMG={};for(const k in ART){const im=new Image();im.src=ART[k][2];IMG[k]=im;}
-const artOK=k=>{const im=IMG[k];return !!im&&im.complete&&im.naturalWidth>0;};
-function drawPerson(x,y,o,stack,step,face,scale=1,sway=1){const ph=((step%6.2832)+6.2832)%6.2832,fr=Math.floor(ph/1.5708+.5)%4,bob=fr%2?1.5:0,art=o.img&&artOK(o.img);
-  if(art){const A=ART[o.img],hh=76*scale,ww=hh*A[0]/A[1];ctx.save();ctx.translate(x,y+6*scale-bob*scale);if(fr%2)ctx.rotate(fr===1?.06:-.06);if(face<0)ctx.scale(-1,1);ctx.drawImage(IMG[o.img],-ww/2,-hh,ww,hh);ctx.restore();}
-  else ctx.drawImage(personSprite(o,fr,face<0?-1:1,scale>1.6),x-16*scale,y-62*scale,32*scale,70*scale);
-  if(stack&&stack.length){ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);const base=(art?-68:-50)-bob;ell(0,base+2,13,3.5,'#b07a3a');const cap=scale>1?36:20,n=Math.min(stack.length,cap);
+function drawPerson(x,y,o,stack,step,face,scale=1,sway=1){const ph=((step%6.2832)+6.2832)%6.2832,fr=Math.floor(ph/1.5708+.5)%4,bob=fr%2?1.5:0;
+  ctx.drawImage(personSprite(o,fr,face<0?-1:1,scale>1.6),x-16*scale,y-62*scale,32*scale,70*scale);
+  if(stack&&stack.length){ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);const base=-50-bob;ell(0,base+2,13,3.5,'#b07a3a');const cap=scale>1?36:20,n=Math.min(stack.length,cap);
     for(let i=0;i<n;i++)drawItem(stack[i],Math.sin(G.t*3+i*.15)*i*.12*sway,base-i*5.5,.92);
     if(stack.length>cap){ctx.fillStyle='#fff';ctx.font='900 11px Nunito';ctx.textAlign='center';ctx.fillText('x'+stack.length,0,base-n*5.5-8);}
     ctx.restore();}}
-const OUTFIT={hand:{img:'s_hand',cloth:'#6d8f2f',trim:'#d9c27a',hat:'straw'},porter:{img:'s_porter',cloth:'#3a6fb0',trim:'#22252b',hat:'none'},server:{img:'s_server',cloth:'#d83a3a',trim:'#222',hat:'cap'},cook:{img:'s_cook',cloth:'#444b55',trim:'#fff',hat:'chef',apron:1},cashier:{img:'s_cashier',cloth:'#1f8a4c',trim:'#ffc23d',hat:'none'},loader:{img:'s_loader',cloth:'#f28a1e',trim:'#fff36b',hat:'cap'},manager:{img:'s_manager',cloth:'#1b2a4a',trim:'#c62828',hat:'none',apron:1}};
+const OUTFIT={hand:{cloth:'#6d8f2f',trim:'#d9c27a',hat:'straw'},porter:{cloth:'#3a6fb0',trim:'#22252b',hat:'none'},server:{cloth:'#d83a3a',trim:'#222',hat:'cap'},cook:{cloth:'#444b55',trim:'#fff',hat:'chef',apron:1},cashier:{cloth:'#1f8a4c',trim:'#ffc23d',hat:'none'},loader:{cloth:'#f28a1e',trim:'#fff36b',hat:'cap'},manager:{cloth:'#1b2a4a',trim:'#c62828',hat:'none',apron:1}};
 
 function drawGround(){const f=G.field,st=stage();
   ctx.fillStyle='#d98c4a';ctx.fillRect(0,0,WW,WH);
@@ -216,12 +213,19 @@ function drawBay(){const X=G.exp,P=PBZ();rr(690,1196,286,66,8,'#4b5563');ctx.str
 function drawExpTruck(){const X=G.exp;if(X.state==='wait')return;const x=X.x,y=1300;shadow(x,y+4,70);rr(x-20,y-58,104,50,5,'#f4f1ea');rr(x-20,y-30,104,8,0,B.tone);rr(x-62,y-44,40,36,7,B.tone);rr(x-58,y-40,20,16,3,'#bfe6fb');ell(x-62,y-14,4,3,'#ffe9a8');
   for(const wx of[-44,10,60]){ell(x+wx,y-6,9,9,'#111');ell(x+wx,y-6,4,4,'#999');}if(X.ord){ctx.font='900 9px Nunito,system-ui';ctx.textAlign='center';ctx.fillStyle='#2b1608';ctx.fillText(X.ord.buyer.buyer.slice(0,18),x+32,y-40);}}
 // Farmhands and porters ride whatever machine the owner has bought (rope, barrow, tricycle, pickup, tractor or forklift, truck).
-function haulArt(t,kind){if(!t)return null;if(B.field==='water'&&kind==='hand')return t===1?'v_barrow':null;const yard=B.field==='yard'||kind==='porter';return[null,'v_barrow','v_trike','v_pickup',yard?'v_forklift':'v_tractor',yard?'v_truck':'v_tractor'][t];}
-function drawWorker(w){const o=OUTFIT[w.kind],t=w.kind==='hand'||w.kind==='porter'?S.emp.haul||0:0,k=haulArt(t,w.kind);
-  if(!k||!artOK(k)||(w.state==='idle'&&!w.stack.length))return drawPerson(w.x,w.y,o,w.stack,w.step,w.face,.92);
-  const A=ART[k],hh=[0,34,46,50,58,66][t],ww=hh*A[0]/A[1];if(t===1)drawPerson(w.x-w.face*12,w.y,o,null,w.step,w.face,.92);
-  ctx.save();ctx.translate(w.x+(t===1?w.face*12:0),w.y+7+Math.sin(w.step*2)*.7);if(w.face>0)ctx.scale(-1,1);ctx.drawImage(IMG[k],-ww/2,-hh,ww,hh);ctx.restore();
-  if(w.stack.length){drawItem(w.stack[0],w.x,w.y-hh-2,.85);ctx.fillStyle='#fff';ctx.strokeStyle='rgba(43,22,8,.8)';ctx.lineWidth=3;ctx.font='900 11px Nunito';ctx.textAlign='center';ctx.strokeText('x'+w.stack.length,w.x,w.y-hh-22);ctx.fillText('x'+w.stack.length,w.x,w.y-hh-22);}}
+// Farmhands and porters ride whatever machine the owner has bought: barrow, keke, pickup, tractor or forklift, truck (2D drawings).
+function drawBarrow(x,y,f,load){ctx.save();ctx.translate(x,y);ctx.scale(f,1);shadow(0,4,16);ctx.strokeStyle='#5b5f66';ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(-6,-10);ctx.lineTo(-22,-18);ctx.stroke();
+  ctx.fillStyle='#8a9099';ctx.beginPath();ctx.moveTo(-8,-14);ctx.lineTo(16,-14);ctx.lineTo(10,-3);ctx.lineTo(-4,-3);ctx.closePath();ctx.fill();ell(12,0,5,5,'#222');ell(12,0,2,2,'#999');if(load)drawItem(load,4,-16,.7);ctx.restore();}
+function drawTractor(x,y,f,yard){ctx.save();ctx.translate(x,y);ctx.scale(f*.62,.62);shadow(0,6,40);
+  if(yard){rr(-24,-26,40,30,5,'#f2c230');rr(-18,-46,24,22,4,'#22252b');rr(-14,-42,14,12,2,'#bfe6fb');ctx.fillStyle='#555';ctx.fillRect(18,-50,5,56);ctx.fillRect(18,0,26,5);ell(-14,4,8,8,'#111');ell(10,4,8,8,'#111');}
+  else{rr(-30,-22,44,26,5,'#2e8b3d');rr(-22,-44,26,24,4,'#1f6a2c');rr(-18,-40,16,13,2,'#bfe6fb');rr(18,-18,36,18,3,'#c62828');ell(-18,6,12,12,'#111');ell(-18,6,5,5,'#f2c230');ell(18,8,8,8,'#111');ell(44,8,7,7,'#111');}
+  ctx.restore();}
+function drawWorker(w){const o=OUTFIT[w.kind],t=w.kind==='hand'||w.kind==='porter'?S.emp.haul||0:0,busy=w.stack.length||w.state!=='idle';
+  if(!t||!busy||(B.field==='water'&&w.kind==='hand'&&t>1))return drawPerson(w.x,w.y,o,w.stack,w.step,w.face,.92);
+  if(t===1){drawPerson(w.x-w.face*10,w.y,o,null,w.step,w.face,.92);drawBarrow(w.x+w.face*12,w.y,w.face,w.stack[0]);}
+  else if(t===4)drawTractor(w.x,w.y,w.face,B.field==='yard'||w.kind==='porter');
+  else veh(ctx,w.x,w.y+6,['','','keke','car','','danfo'][t],.62,t===3?'#f4f1ea':B.tone,w.face<0);
+  if(w.stack.length&&t>1){drawItem(w.stack[0],w.x,w.y-44,.85);ctx.fillStyle='#fff';ctx.strokeStyle='rgba(43,22,8,.8)';ctx.lineWidth=3;ctx.font='900 11px Nunito';ctx.textAlign='center';ctx.strokeText('x'+w.stack.length,w.x,w.y-62);ctx.fillText('x'+w.stack.length,w.x,w.y-62);}}
 function drawMach(){const M=G.mach,x=M.x,y=M.y;ctx.save();ctx.translate(x,y);if(M.v<0)ctx.scale(-1,1);
   if(B.field==='water'){ctx.globalAlpha=.4;ell(-34,4,22,5,'#fff');ctx.globalAlpha=1;ctx.fillStyle='#f4f1ea';ctx.beginPath();ctx.moveTo(-36,-10);ctx.lineTo(36,-10);ctx.lineTo(24,8);ctx.lineTo(-28,8);ctx.closePath();ctx.fill();rr(-14,-28,24,18,3,'#2a62c9');rr(-10,-24,10,8,2,'#bfe6fb');ctx.fillStyle='#6b3b18';ctx.fillRect(16,-40,3,30);}
   else if(B.field==='yard'){shadow(0,10,30);rr(-24,-22,40,28,5,'#f2c230');rr(-18,-38,24,18,4,'#22252b');rr(-14,-34,14,10,2,'#bfe6fb');ctx.fillStyle='#555';ctx.fillRect(18,-40,4,48);ctx.fillRect(18,2,24,4);drawDef(['carton','#c9b08a','#8a6a3a'],32,2,.9);ell(-14,8,7,7,'#111');ell(10,8,7,7,'#111');}

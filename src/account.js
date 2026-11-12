@@ -36,13 +36,12 @@ addEventListener('pagehide',()=>{if(NM.pid)nmPush(true);});
 /* ----- overlay helpers ----- */
 const A=document.createElement('div');A.id='acct';A.hidden=true;document.body.appendChild(A);
 const field=(id,label,type,ph,ac)=>'<label for="'+id+'">'+label+'</label><input id="'+id+'" type="'+type+'" placeholder="'+ph+'" autocomplete="'+ac+'">';
-const art=k=>ART[k]?ART[k][2]:'';
 function screen(h){A.innerHTML='<div class="in">'+h+'</div>';A.hidden=false;A.scrollTop=0;}
 function amsg(t,html){const e=$('amsg');if(!e)return;if(html)e.innerHTML=t;else e.textContent=t;e.hidden=!t;}
 
 /* ----- 1. front page ----- */
-function showFront(){const crew=['o_tunde','o_bola','o_nkechi','o_musa','o_chinedu'];
-  screen('<h1>Naija Market</h1><div class="hero">'+crew.map((k,i)=>'<img alt="" src="'+art(k)+'" style="left:'+(4+i*19)+'%;z-index:'+(i===2?3:i%2?2:1)+(i===2?';height:206px':'')+'">').join('')+'</div>'+
+function showFront(){const crew=['tunde','bola','nkechi','musa','chinedu'].map(k=>personSprite(BIZ[k].owner,0,1,true).toDataURL());
+  screen('<h1>Naija Market</h1><div class="hero">'+crew.map((u,i)=>'<img alt="" src="'+u+'" style="left:'+(4+i*19)+'%;z-index:'+(i===2?3:i%2?2:1)+(i===2?';height:206px':'')+'">').join('')+'</div>'+
     '<p class="sub">Start with one market table. Build a business empire across Nigeria, Africa and the world.</p>'+
     '<div class="feat"><div><b>🧺</b>Pick a career: jollof kitchen, farm, fabrics, phones and more.</div><div><b>🏢</b>Hire staff, buy machines, open up to 500 branches.</div><div><b>🏆</b>Climb the daily, weekly and monthly leaderboards.</div></div>'+
     '<button class="big go" id="fplay" type="button">Play now</button><p class="fine">Free to play. Your game saves to your account.</p>');
